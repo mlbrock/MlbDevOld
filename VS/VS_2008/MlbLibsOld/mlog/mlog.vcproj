@@ -242,10 +242,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\mlog\source\MLogO.cxx"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\..\mlog\source\open.c"
 				>
 			</File>
