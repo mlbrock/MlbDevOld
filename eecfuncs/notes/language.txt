@@ -1,0 +1,52 @@
+<type>					:=	{ number | string }
+
+<scope-specifier>		:=	{ global | local }
+
+<const-specifier>		:=	{ const[ant] | notconst[ant] }
+
+<number-assignment>	:=	<name> {=|+=|-=|*=|/=|\=|%=|^=} <number-expression> ;
+
+<string-assignment>	:=	<name> { = | &= } <string-expression> ;
+
+<assignment>			:=	{ <number-assignment> | <string-assignment> }
+
+<expression-list> 	:= <expression>[,<expression> . . .]
+
+<while-spec>			:=	while (<expression-list>) {
+									<statement-block>
+								}
+
+<do-spec>				:=	do {
+									<statement-block>
+								} while (<expression-list>);
+
+<for-spec>				:=	for ([<expression-list>] ;
+									[<expression>] ;
+									[<expression-list>]) {
+									<statement-block>
+								}
+
+<if-spec>				:=	if (<expression-list>) {
+									<statement-block>
+								}
+								[else if (<expression-list>) {
+									<statement-block>
+								}
+								[else if] . . .
+								else {
+									<statement-block>
+								}
+
+<declare-value>		:=	declare [global] [constant] {number|string} <name>
+
+<declare-func>			:=	declare [global|local] {<type>|void} <name>
+									([<type> [<name>] [,<type> [<name>] . . .]) ;
+
+<define-value>			:=	define [global|local] [constant] {number|string}
+									<name> [ = <expression> ] ;
+
+<define-func>			:=	define [global|local] {<type>|void} <name>
+									([<name> [,<name> . . .]) {
+									[<statement-block>]
+								}
+

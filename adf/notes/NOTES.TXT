@@ -1,0 +1,2651 @@
+				   === =====
+				   ADF Notes
+				   === =====
+
+=============================================================================
+DONE:
+=============================================================================
+-----------------------------------------------------------------------------
+*** DONE 1995-07-29 ***
+Need an option for 'adfout' which emits all of the output to 'stdout'.
+
+	-OUTPUT_TO_STDOUT[_FLAG]=<boolean=FALSE>
+-----------------------------------------------------------------------------
+*** DONE ????-??-?? ***
+Add the following components to the entry directory structure:
+
+	o       char *full_name
+	o       char *man_page
+-----------------------------------------------------------------------------
+*** DONE 1995-07-30 ***
+Need an option for 'adfout' which puts all of the output of ADF entries
+resulting from a particular source file into the same output file
+(e.g. test.c ---> test.html).
+
+	-OUTPUT_BY_FILE[_NAME][_FLAG]=<boolean=FALSE>
+-----------------------------------------------------------------------------
+*** DONE 1995-07-30 ***
+Add parameter '-LOG[GING][_FLAG]=<boolean=TRUE>
+-----------------------------------------------------------------------------
+*** DONE 1995-07-30 ***
+Add parameter '-QUIET[_FLAG]=<boolean=FALSE>
+-----------------------------------------------------------------------------
+*** DONE 1995-07-30 ***
+Add the following member to the structure 'ADF_CONTROL':
+
+	int shut_down_flag;
+
+It should be initialized to 'GENFUNCS_FALSE'
+-----------------------------------------------------------------------------
+*** DONE 1995-08-07 ***
+Add a command line parameter to 'adfout' which specifies whether comments
+are to be included in the emitted entries:
+
+	-OUTPUT_COMMENT[_FLAG]=<boolean=TRUE>
+-----------------------------------------------------------------------------
+*** DONE 1995-08-07 ***
+Add a command line parameter to all executables which specifies whether
+the executable is to continue after encountering a non-fatal error.
+
+	-CONT[INUE]_ON_ERROR[_FLAG]=<boolean=FALSE>
+-----------------------------------------------------------------------------
+*** DONE 1995-08-07 ***
+Add members to the structure 'ADF_CONTROL' to manage the storage of
+hyper text links:
+
+	unsigned int  htext_link_name_length;
+	char         *htext_link_name;
+
+And a function to allocate said buffer.
+-----------------------------------------------------------------------------
+*** DONE 1995-08-15 ***
+Add a new structure to manage ADF pattern matching:
+
+typedef struct {
+	unsigned int   pattern_count;
+	char         **pattern_list;
+	char          *check_string;
+} ADF_PATTERN_SPEC;
+
+This structure will be used in the following structures:
+
+	ADF_SECTION.match_pattern
+	ADF_SECTION.exclude_pattern
+
+	ADF_DOMAIN.boh_pattern
+	ADF_DOMAIN.eoh_pattern
+	ADF_DOMAIN.bol_pattern
+	ADF_DOMAIN.eol_pattern
+	ADF_DOMAIN.empty_line_pattern
+	ADF_DOMAIN.strip_pattern
+
+The following function will be used to find the longest sub-string of a
+list of patterns which occurs in all elements of that pattern list:
+
+int ADF_OptimizePattern(ADF_PATTERN_SPEC *in_pattern, char *error_text);
+
+The following function will be used to resolve a pattern list at the
+highest level:
+
+int ADF_MatchPatternPtr(const char *in_string,
+	const ADF_PATTERN_ITEM *pattern_ptr, unsigned int *pattern_end_index);
+-----------------------------------------------------------------------------
+*** DONE 1995-08-15 ***
+Replace the 'format_flag' member of the structure 'ADF_AREA' with four
+separate flags:
+
+	int pformat_flag;
+	int cformat_flag;
+	int eindex_flag;
+	int htext_flag;
+
+This change will neccessitate changes to the code.
+-----------------------------------------------------------------------------
+*** DONE 1995-08-16 ***
+Additional parameter for 'adfprep', 'adfcomb', and 'adfout':
+
+	-IGNORE_{AREA|SECTION}[S]=<area-name>[,<area-name> . . .]
+
+Required ADF areas may not be ignored.
+-----------------------------------------------------------------------------
+*** DONE 1995-08-18 ***
+Add an command-line parameter to 'adfout' which permits generation of an
+index:
+
+	-GENERATE_{INDEX[[E]S]|INDICES|IDX}[_FLAG]=<boolean=FALSE>
+
+If this option is TRUE, then all output will be sent to <stdout>
+
+The 'OUTPUT_INDEX' area and all embedded indices are used to generate the
+index.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-24 ***
+*** DONE     1995-08-28 ***
+Implement the logic which embeds hyper-text as Boyer-Moore string searching.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-29 ***
+*** DONE     1995-08-30 ***
+Enhancements to the 'emit' functions:
+
+	o If 'output_function' is 'NULL', set it to 'fprintf'.
+	o If 'output_control' is 'NULL', set it to 'stdout'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-30 ***
+*** DONE     1995-08-31 ***
+Remove the 'exclude_pattern' member from the structure 'ADF_SECTION'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-29 ***
+*** DONE     1995-08-30 ***
+Add built-in ADF definitions for the following file types:
+
+	o .c, .cpp, .CC, .CPP, .C++
+	o .h, .hpp, .HH, .HPP, ,H++
+	o .bin
+
+The internal definitions will be used as the default basis for ADF preparation
+and if no '-ADF_DEFINITION_FILE=' parameter is specified on the command line.
+
+To support this, I'll need a 'static' pre-evaluated ADF definition and logic
+to copy it.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-29 ***
+*** DONE     1995-08-31 ***
+Add an executable 'adfdefc' which, given an ADF definition file as input,
+will emit the C code corresponding to the evaluated equivalent of that
+definition.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-30 ***
+*** DONE     1995-08-31 ***
+Add an executable 'adfdefd' which, given an ADF definition file as input,
+will emit a properly-formatted ADF definition file.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-29 ***
+*** DONE     1995-09-01 ***
+Checking must be added at the 'adfprep' stage to ensure that duplicate names
+and/or hyper-text are not included in the ADF database file.
+-----------------------------------------------------------------------------
+*** DONE 1995-09-03 ***
+The comments in the output of emitted man, HTML, PostScript, and FrameMaker
+files should include the following:
+
+	The ADF preparation date and time
+	The ADF output date and time
+	The entry file date and time
+	The entry base name
+	The entry file name
+-----------------------------------------------------------------------------
+*** DONE 1995-09-05 ***
+If the program is executing under MS-DOS , the file names should be mapped to
+lower-case by the following logic:
+
+	o In 'dosrc.c'
+	o When {in|ex}clude file names are parsed from the command line.
+-----------------------------------------------------------------------------
+*** DONE     1995-09-06 ***
+Add the following member to the structure 'ADF_ENTRY':
+
+	o       char *core_name; /* File name without extension (or '.'). */
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-03 ***
+*** DONE     1995-09-06 ***
+Add the following members to the structure 'ADF_ENTRY':
+
+	time_t file_date;
+	time_t prep_date;
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-03 ***
+*** DONE     1995-09-06 ***
+The following functions need an additional parameter containing the output
+date ('const time_t *output_date'):
+
+	o ADF_ASCII_OutputToStdout()
+	o ADF_FRAME_OutputToStdout()
+	o ADF_HTML_OutputToStdout()
+	o ADF_MAN_OutputToStdout()
+	o ADF_PS_OutputToStdout()
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-03 ***
+*** DONE     1995-09-06 ***
+If the function 'ADF_DoSource()' in module 'dosrc.c' is changed to accept
+the parameters 'unsigned int domain_count' and 'const ADF_DOMAIN *domain_list'
+then there is no need to copy the internal ADF definition domain list.
+
+This change would also necessitate changes to the function 'ADF_FIND_Domain()'
+in 'fddomain.c'.
+
+This change would also necessitate changes to the function 'ADF_EmitDef()'
+in module 'emitdef.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-07 ***
+*** DONE     1995-09-07 ***
+I need to add some more members to the ADF database file header structure
+'ADF_FILE_HEADER':
+
+	int          area_count;
+	unsigned int sizeof_ADF_ENTRY_FILE;
+	unsigned int sizeof_ADF_HTEXT_FILE;
+	unsigned int sizeof_ADF_ENTRY_DATA_FILE;
+
+At the time an ADF database file is opened, these members will be used for
+comparing the counts and sizes encoded in the file header to those active at
+compile-time.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-26 ***
+*** DONE     1995-09-07 ***
+Implement logic to support the ordering of entry sections upon output by
+any one of the following sort orders:
+
+	o The order specified internally (by area: this is the default).
+	o The order specified by the ADF definition file.
+	o The order in which the sections were actually encountered in the
+	  input file (by source file line number).
+
+Specification of the entry section order will be supported by a new command
+line parameter:
+
+	-{AREA|SECTION}_ORDER[_TYPE]={INTERNAL|DEF[INITION]|SOURCE[_FILE]}
+
+The default is 'INTERNAL'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-07 ***
+*** DONE     1995-09-09 ***
+If there is a pattern optimization string for the beginning-of-header pattern
+in the domain, that string can be searched for before the real work of
+parsing the comment begins. This would optimize the examination of those
+source files which do not contain ADF comments.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-09 ***
+*** DONE     1995-09-09 ***
+Improve optimization of patterns by replacing certain characters with spaces.
+The candidate characters are:
+
+	o "`~!@#$%^&*()-_=+{[]}\\|;'\",<.>/?"
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-09 ***
+*** DONE     1995-09-09 ***
+Improve optimization of patterns by inserting a space under the following
+conditions:
+
+	o The current character is a space;
+	o The previous character was an 'S'; and,
+	o The character before the 'S' was not a space.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-10 ***
+The executable file 'adfout' should not emit an error if an ADF database file
+does not contain any entries.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-10 ***
+*** DONE     1995-09-10 ***
+The '-CHECK_ONLY_FLAG=' parameter for the executable 'adfcomb' should result
+in all work being done except for creation of the output ADF database file.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-10 ***
+*** DONE     1995-09-10 ***
+The '-CHECK_ONLY_FLAG=' parameter for the executable 'adfprep' should result
+in all work being done except for creation of the output ADF database file.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-10 ***
+*** DONE     1995-09-12 ***
+Add a member to the structure 'ADF_RUN_USAGE' which will support the
+inclusion of additional text for a command-line option:
+
+	o char *added_text;
+
+The code to support the construction of the usage text will then look like
+the following (example from 'adfprep'):
+
+	for (count_1 = 0; count_1 < ADF_RUN_PREP_UsageFuncCount; count_1++) {
+		if (((return_code =
+			(*ADF_RUN_PREP_UsageFuncList[count_1].usage_function)(NULL,
+			ADF_RUN_PREP_UsageFuncList[count_1].optional_flag, NULL, usage_count,
+			usage_list, error_text)) != ADF_SUCCESS) ||
+			((ADF_RUN_PREP_UsageFuncList[count_1].added_text != NULL) &&
+			((return_code = ADF_BUSE_AppendLine(
+			ADF_RUN_PREP_UsageFuncList[count_1].added_text, usage_count,
+			usage_list, error_text)) != ADF_SUCCESS)))
+			goto EXIT_FUNCTION;
+	}
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-16 ***
+*** DONE     1995-09-17 ***
+Change the syntax of the option:
+
+	-OUTPUT_TO_STDOUT[_FLAG]=<boolean>
+
+to
+
+	-[OUTPUT_TO_]STDOUT[_FLAG]=<boolean>
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-07 ***
+*** DONE     1995-09-17 ***
+I perhaps should replace the '-GENERATE_INDEX=' and 'GENERATE_TOC='
+parameters with a more general one:
+
+	-GEN[ERATE|ERATION][_TYPE]=<generation-type>
+
+Which parameter has the following valid components:
+
+		o {ENTRY|ENTRIES} (this is the default)
+		o {TABLE_OF_CONTENT|TOC}[S]
+		o [ENTRY_]CLASS_{TABLE_OF_CONTENT|TOC}[S]
+		o {INDEX[[E]S]|INDICES|IDX}
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-27 ***
+*** DONE     1995-09-27 ***
+Add function to validate man page numbers:
+
+#define ADF_VALID_MAN_PAGE_STRING               "123456789lnop"
+
+int ADF_ValidateManPage(man_page, error_text)
+const char *man_page;
+char       *error_text;
+{
+	if (strchr(ADF_VALID_MAN_PAGE_STRING, *man_page) != NULL)
+		return_code = ADF_SUCCESS;
+	else {
+		sprintf(error_text,
+			"The man page '%-.100s' is not valid --- expected one of '%s'.",
+			ADF_VALID_MAN_PAGE_STRING);
+		return_code = ADF_FAILURE;
+	}
+
+	return(return_code);
+}
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-11-28 ***
+*** DONE     1995-12-10 ***
+How about adding the 'RTF' output type to 'adfout'?
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-09 ***
+*** DONE     1995-12-11 ***
+Add a function which returns pointers to the supporting ADF output functions
+for the following functionality:
+
+	o ADF_{ASCII|FRAME|HTML|MAN|PS|RTF}_OutputByEntry()
+	o ADF_{ASCII|FRAME|HTML|MAN|PS|RTF}_OutputToStdout()
+	o ADF_{ASCII|FRAME|HTML|MAN|PS|RTF}_OutputByFile()
+	o ADF_{ASCII|FRAME|HTML|MAN|PS|RTF}_OutputTOC()
+	o ADF_{ASCII|FRAME|HTML|MAN|PS|RTF}_OutputClassTOC()
+	o ADF_{ASCII|FRAME|HTML|MAN|PS|RTF}_OutputIndex()
+	o ADF_{ASCII|FRAME|HTML|MAN|PS|RTF}_OutputStart()
+	o ADF_{ASCII|FRAME|HTML|MAN|PS|RTF}_OutputEnd()
+
+This function is:
+
+int ADF_GetOutputFunctions(int output_type,
+	int (**by_entry_function)(ADF_CONTROL *control_ptr,
+		const ADF_ENTRY *entry_ptr, char *error_text),
+	int (**to_stdout_function)(ADF_CONTROL *control_ptr,
+		const ADF_ENTRY *entry_ptr, const time_t *output_date, char *error_text),
+	int (**by_file_function)((ADF_CONTROL *control_ptr,
+		unsigned int *entry_index, char *error_text),
+	int (**toc_function)(ADF_CONTROL *control_ptr, char *error_text),
+	int (**class_toc_function)(ADF_CONTROL *control_ptr, char *error_text),
+	int (**index_function)(ADF_CONTROL *control_ptr, char *error_text),
+	void (**output_start_function)(const char *output_name,
+		const time_t *output_date, void (*output_function)(void *, char *, ...),
+		void *output_control),
+	void (**output_end_function)(const char *output_name,
+		void (**output_function)(void *, char *, ...), void *output_control),
+	char *error_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-11-19 ***
+*** DONE     1995-12-11 ***
+Add an 'update_date' member to the structure 'ADF_FILE_HEADER'. For new ADF
+database files, this is the same as the 'creation_date' member.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-11 ***
+*** DONE     1995-12-11 ***
+Add a parameter for a function which should be invoked between each entry
+for each output type to the function 'ADF_GetOutputFunctions()'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-26 ***
+*** DONE     1995-12-12 ***
+Implement logic to store in the ADF file the ADF definition name for each
+each entry (that is, '@SECTION(@NAME())'). This will be used to permit the
+name defined in the ADF definition file to be used upon output.
+
+Specification of the area name to be used on output will be done using the
+following new parameter:
+
+	-{AREA|SECTION}_NAME_TYPE={INTERNAL|DEF[INITION]}
+
+The default is 'INTERNAL'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-15 ***
+*** DONE     1995-12-13 ***
+Add an option to 'adfout' which permits specification of the area names to
+be used for output:
+
+	-{AREA|SECTION}_NAME[S]=<area-name>,<string>
+
+This will entail adding the following member to the 'ADF_CONTROL' structure:
+
+	char *area_name_list[ADF_AREA_COUNT];
+
+Each member of which should be initialized to 'NULL'.
+
+Note that this option over-rides to '-AREA_NAME_TYPE=' option.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-12 ***
+*** DONE     1995-12-13 ***
+Add a function which returns the area name to be used for the output logic in
+the module 'areaname.c':
+
+char *ADF_GetOutputAreaName(int area_name_type, unsigned int area_index,
+	const char *area_name_list, const char *section_name,
+	unsigned int max_area_name_length, char *area_name);
+
+char *ADF_GetOutputAreaName(area_name_type, area_index, area_name_list,
+	section_name, max_area_name_length, area_name)
+int            area_name_type;
+unsigned int   area_index;
+const char   **area_name_list;
+const char    *section_name;
+unsigned int   max_area_name_length;
+char          *area_name;
+{
+	char tmp_area_name[ADF_AREA_NAME_LENGTH + 1];
+
+	if (max_area_name_length) {
+		if (area_index >= ADF_AREA_COUNT)
+			*area_name = '\0';
+		else if (area_name_list[area_index] != NULL)
+			nstrcpy(area_name, area_name_list[area_index], max_area_name_length);
+		else if ((control_ptr->area_name_type == ADF_AREA_NAME_TYPE_INTERNAL) ||
+			(section_name == NULL) || (!(*section_name)))
+			nstrcpy(area_name, initcaps(ADF_GetAreaName(area_index,
+				tmp_area_name)), max_area_name_length);
+		else
+			nstrcpy(area_name, section_name, max_area_name_length);
+	}
+	else
+		*area_name = '\0';
+
+	return(area_name);
+}
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-12-13 ***
+The default '-AREA_NAME_TYPE=' should be 'DEFINITION'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-12-13 ***
+The default '-AREA_ORDER_TYPE=' should be 'DEFINITION'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-14 ***
+*** DONE     1995-12-14 ***
+Add a <generation-type> to the '-GENERATION_TYPE=' parameter which will
+generate a table of files and the entries:
+
+	o {TABLE_OF_FILE|TOF}[S]
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-14 ***
+*** DONE     1995-12-14 ***
+
+Implement the table-of-files generation type for 'HTML' output.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-14 ***
+*** DONE     1995-12-15 ***
+Add table-of-contents entries to the RTF output.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-14 ***
+*** DONE     1995-12-15 ***
+Add entry index entries to the RTF output.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-14 ***
+*** DONE     1995-12-16 ***
+Add character format embedded index entries to the RTF output.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-17 ***
+*** DONE     1995-12-17 ***
+Fix the RTF output logic so that all index, see also, and embedded index
+references are through a single bookmark labelled with the base name.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+*** DONE     1995-12-18 ***
+Implement a template Microsoft Word document for ADF. It should have the
+following sections:
+
+	o Cover Page (with output date)
+	o Credits Page (ISBN, copyrights, publication date, trademarks)
+	o Table of Contents
+	o Section for ADF entries
+	o Subject Index
+	o Index of Classes
+	o Index of Authors
+	o Index of Files
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+*** DONE     1995-12-17 ***
+Add entries-by-file index entries to the RTF output. Note that this is a
+special index type (? \f ?).
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-15 ***
+*** DONE     1995-12-22 ***
+Remove the function 'ADF_RTF_OutputBetween()' from the module 'outrtf.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+*** DONE     1995-12-22 ***
+Because the information necessary to generate the following generation types
+will be embedded in the RTF output, RTF output will not support them:
+
+	o TABLE_OF_CONTENTS
+	o ENTRY_CLASS_TABLE_OF_CONTENTS
+	o TABLE_OF_FILES
+	o INDEX
+
+Note that this will probably also be true for FrameMaker output.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-15 ***
+*** DONE     1995-12-22 ***
+Add a parameter to 'adfout' to remove 'SEE_ALSO' area paragraphs which do not
+have hyper-text resolutions.
+
+Actually, the default behavior should probably be to REMOVE any 'SEE_ALSO'
+area paragraphs which do not have hyper-text resolutions. The new parameter
+becomes, then:
+
+	-KEEP[_BAD]_SEE_ALSO[S]=<boolean=FALSE>
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-11 ***
+*** DONE     1995-12-22 ***
+Add a function which, when given an ADF output type, will return a string
+describing that output type.
+
+This function should be used where the current output type needs to be
+described (especially in the module 'adfout.c').
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-22 ***
+*** DONE     1995-12-24 ***
+Add logic to the function 'ADF_ProcessComment()' in the module 'dosrc.c' to
+clean-up the 'SEE_ALSO' area --- remove any 'SEE_ALSO' items equal to the
+entry base name (or any of the base names hyper-text equivalents).
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-22 ***
+*** DONE     1995-12-24 ***
+Add logic to the function 'ADF_GetAreaData()' in the module 'dosrc.c' to
+clean-up the 'SEE_ALSO' area:
+
+	o perform a 'trim(oneblank(ctltospc()))' on all lines
+	o remove any blank lines
+	o unique the lines (but leave them in the original order)
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-22 ***
+*** DONE     1995-12-24 ***
+Add logic to the function 'ADF_GetAreaData()' in the module 'dosrc.c' to
+clean-up the 'OUTPUT_INDEX', 'PUBLISH_NAME', and 'PUBLISH_XREF' areas:
+
+	o perform a 'trim(oneblank(ctltospc()))' on all lines
+	o remove any blank lines
+	o sort and unique the lines
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-27 ***
+*** DONE     1995-12-28 ***
+Add the following manifest constants to 'adf.h':
+
+#define ADF_CFORMAT_MARKER_CHAR                 '\001'
+#define ADF_PFORMAT_MARKER_CHAR                 '\002'
+
+And replace the literals scattered through the code in various places.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-27 ***
+*** DONE     1995-12-28 ***
+Add a function to the module 'paraform.c' which constructs the packed
+string equivalent to a an 'ADF_PFORMAT_DEF' structure.
+
+char *ADF_MakeFormatString(unsigned int pformat_index, char *pformat_string);
+
+The function 'ADF_MatchParaFormat()' in module 'paraform.c' should be changed
+to use this function.
+
+The function 'ADF_GetAreaData()' in module 'dosrc.c' should be changed to
+use this function as the source of its default paragraph format.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-28 ***
+*** DONE     1995-12-28 ***
+Add a member to the structure 'ADF_CONTROL' to store the RTF paragraph styles:
+
+	char *rtf_para_style_list[ADF_PFORMAT_COUNT];
+
+This array will be initialized by the logic which at present resides in the
+function 'ADF_RTF_OutputStart()' in the module 'outrtf.c'.
+
+The module 'outrtf.c' needs to be modified to use the new array.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-28 ***
+*** DONE     1995-12-28 ***
+Add an initialization function to the pointers returned by the function
+'ADF_GetOutputFunctions()' in module 'fptrsout.c'.
+
+In the RTF output type, this will be used to initialize the new member of the
+'ADF_CONTROL' structure 'rtf_para_style_list'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-19 ***
+*** DONE     1995-12-28 ***
+
+Implement new paragraph formatting logic.
+
+#define ADF_PFORMAT_COUNT                                       160
+
+#define ADF_PFORMAT_LENGTH                                      18
+
+#define ADF_PFORMAT_TYPE_NONE                           0
+#define ADF_PFORMAT_TYPE_BB                             1
+#define ADF_PFORMAT_TYPE_IN                             2
+#define ADF_PFORMAT_TYPE_NM                             3
+
+#define ADF_PFORMAT_TYPE_COUNT                  4
+
+	     1         2         3         4         5         6         7
+	01234567890123456789012345678901234567890123456789012345678901234567890
+	----------+---------+---------+---------+---------+---------+----------
+	|???|1|0|1|1|0|0|
+	----------+---------+---------+---------+---------+---------+----------
+	01234567890123456789012345678901234567890123456789012345678901234567890
+	     1         2         3         4         5         6         7
+
+	/*      *****************************************************************       */
+	/*      *****************************************************************       */
+	/*              Pack a paragraph format specifier into ADF database format.             */
+	/*      *****************************************************************       */
+	sprintf(para_format_ptr, "\002|%3.3u|%d|%d|%1.1u|%d|%d|%d|",
+		count_1,
+		ADF_ParaFormatList[count_1].char_format_flag,
+		ADF_ParaFormatList[count_1].small_font_flag,
+		ADF_ParaFormatList[count_1].indent_level,
+		ADF_ParaFormatList[count_1].format_type,
+		ADF_ParaFormatList[count_1].begin_rule_flag,
+		ADF_ParaFormatList[count_1].end_rule_flag);
+	/*      *****************************************************************       */
+
+	/*      *****************************************************************       */
+	/*      *****************************************************************       */
+	/*              Unpack a paragraph format specifier from ADF database format.   */
+	/*      *****************************************************************       */
+	if (*tmp_ptr == '\002') {
+		para_ptr->para_format.pformat_flag      = ADF_TRUE;
+		para_ptr->para_format.pformat_index     = atoi(tmp_ptr + 2) %
+			ADF_PFORMAT_COUNT;
+		para_ptr->para_format.char_format_flag  = (atoi(tmp_ptr + 6)) ?
+			ADF_TRUE : ADF_FALSE;
+		para_ptr->para_format.small_font_flag   = (atoi(tmp_ptr + 8)) ?
+			ADF_TRUE : ADF_FALSE;
+		para_ptr->para_format.indent_level      = atoi(tmp_ptr + 10) %
+			(ADF_PFORMAT_LEVEL_COUNT + 1);
+		para_ptr->para_format.format_type       = atoi(tmp_ptr + 12) %
+			ADF_PFORMAT_TYPE_COUNT;
+		para_ptr->para_format.begin_rule_flag   = (atoi(tmp_ptr + 14)) ?
+			ADF_TRUE : ADF_FALSE;
+		para_ptr->para_format.end_rule_flag     = (atoi(tmp_ptr + 16)) ?
+			ADF_TRUE : ADF_FALSE;
+		para_ptr->para_format.numeric_value     = 0L;
+		para_ptr->para_format.first_count       = 0;
+		para_ptr->para_format.last_count        = 0;
+		tmp_ptr                                += ADF_PFORMAT_LENGTH;
+	}
+	/*      *****************************************************************       */
+
+	<opening-spec>[|]<format-spec>[|]<closing-bracket>
+
+	Opening Specification:
+	------- --------------
+		(                                       --->    Normal-font, proportional-width, char format
+		[                                       --->    Normal-font, proportional-width, no char format
+		<                                       --->    Small-font, fixed-width, char format
+		{                                       --->    Small-font, fixed-width, no char format
+
+	Format Specification :
+	------ ---------------
+		@                                       --->    0th-level
+		.                                       --->    1st-level bullet
+		..                                      --->    2nd-level bullet
+		...                             --->    3rd-level bullet
+		-                                       --->    1st-level indent
+		--                                      --->    2nd-level indent
+		---                             --->    3rd-level indent
+		+[<digits>]             --->    1st-level number
+		++[<digits>]    --->    2nd-level number
+		+++[<digits>]   --->    3rd-level number
+
+Format  Char   Font   Indent Attribute Beginning Ending Description/
+Spec    Format Size   Level  Type      Rule      Rule   Notes
+------- ------ ------ ------ --------- --------- ------ ---------------------
+(@)     yes    normal      0 none      no        no     
+(.)     yes    normal      1 bullet    no        no     
+(..)    yes    normal      2 bullet    no        no     
+(...)   yes    normal      3 bullet    no        no     
+(-)     yes    normal      1 none      no        no     
+(--)    yes    normal      2 none      no        no     
+(---)   yes    normal      3 none      no        no     
+(+)     yes    normal      1 number    no        no     
+(++)    yes    normal      2 number    no        no     
+(+++)   yes    normal      3 number    no        no     
+(|@)    yes    normal      0 none      yes       no     
+(|.)    yes    normal      1 bullet    yes       no     
+(|..)   yes    normal      2 bullet    yes       no     
+(|...)  yes    normal      3 bullet    yes       no     
+(|-)    yes    normal      1 none      yes       no     
+(|--)   yes    normal      2 none      yes       no     
+(|---)  yes    normal      3 none      yes       no     
+(|+)    yes    normal      1 number    yes       no     
+(|++)   yes    normal      2 number    yes       no     
+(|+++)  yes    normal      3 number    yes       no     
+(@|)    yes    normal      0 none      no        yes    
+(.|)    yes    normal      1 bullet    no        yes    
+(..|)   yes    normal      2 bullet    no        yes    
+(...|)  yes    normal      3 bullet    no        yes    
+(-|)    yes    normal      1 none      no        yes    
+(--|)   yes    normal      2 none      no        yes    
+(---|)  yes    normal      3 none      no        yes    
+(+|)    yes    normal      1 number    no        yes    
+(++|)   yes    normal      2 number    no        yes    
+(+++|)  yes    normal      3 number    no        yes    
+(|@|)   yes    normal      0 none      yes       yes    
+(|.|)   yes    normal      1 bullet    yes       yes    
+(|..|)  yes    normal      2 bullet    yes       yes    
+(|...|) yes    normal      3 bullet    yes       yes    
+(|-|)   yes    normal      1 none      yes       yes    
+(|--|)  yes    normal      2 none      yes       yes    
+(|---|) yes    normal      3 none      yes       yes    
+(|+|)   yes    normal      1 number    yes       yes    
+(|++|)  yes    normal      2 number    yes       yes    
+(|+++|) yes    normal      3 number    yes       yes    
+[@]     no     normal      0 none      no        no     
+[.]     no     normal      1 bullet    no        no     
+[..]    no     normal      2 bullet    no        no     
+[...]   no     normal      3 bullet    no        no     
+[-]     no     normal      1 none      no        no     
+[--]    no     normal      2 none      no        no     
+[---]   no     normal      3 none      no        no     
+[+]     no     normal      1 number    no        no     
+[++]    no     normal      2 number    no        no     
+[+++]   no     normal      3 number    no        no     
+[|@]    no     normal      0 none      yes       no     
+[|.]    no     normal      1 bullet    yes       no     
+[|..]   no     normal      2 bullet    yes       no     
+[|...]  no     normal      3 bullet    yes       no     
+[|-]    no     normal      1 none      yes       no     
+[|--]   no     normal      2 none      yes       no     
+[|---]  no     normal      3 none      yes       no     
+[|+]    no     normal      1 number    yes       no     
+[|++]   no     normal      2 number    yes       no     
+[|+++]  no     normal      3 number    yes       no     
+[@|]    no     normal      0 none      no        yes    
+[.|]    no     normal      1 bullet    no        yes    
+[..|]   no     normal      2 bullet    no        yes    
+[...|]  no     normal      3 bullet    no        yes    
+[-|]    no     normal      1 none      no        yes    
+[--|]   no     normal      2 none      no        yes    
+[---|]  no     normal      3 none      no        yes    
+[+|]    no     normal      1 number    no        yes    
+[++|]   no     normal      2 number    no        yes    
+[+++|]  no     normal      3 number    no        yes    
+[|@|]   no     normal      0 none      yes       yes    
+[|.|]   no     normal      1 bullet    yes       yes    
+[|..|]  no     normal      2 bullet    yes       yes    
+[|...|] no     normal      3 bullet    yes       yes    
+[|-|]   no     normal      1 none      yes       yes    
+[|--|]  no     normal      2 none      yes       yes    
+[|---|] no     normal      3 none      yes       yes    
+[|+|]   no     normal      1 number    yes       yes    
+[|++|]  no     normal      2 number    yes       yes    
+[|+++|] no     normal      3 number    yes       yes    
+<@>     yes    small       0 none      no        no     
+<.>     yes    small       1 bullet    no        no     Not supported.
+<..>    yes    small       2 bullet    no        no     Not supported.
+<...>   yes    small       3 bullet    no        no     Not supported.
+<->     yes    small       1 none      no        no     
+<-->    yes    small       2 none      no        no     
+<--->   yes    small       3 none      no        no     
+<+>     yes    small       1 number    no        no     Not supported.
+<++>    yes    small       2 number    no        no     Not supported.
+<+++>   yes    small       3 number    no        no     Not supported.
+<|@>    yes    small       0 none      yes       no     
+<|.>    yes    small       1 bullet    yes       no     Not supported.
+<|..>   yes    small       2 bullet    yes       no     Not supported.
+<|...>  yes    small       3 bullet    yes       no     Not supported.
+<|->    yes    small       1 none      yes       no     
+<|-->   yes    small       2 none      yes       no     
+<|--->  yes    small       3 none      yes       no     
+<|+>    yes    small       1 number    yes       no     Not supported.
+<|++>   yes    small       2 number    yes       no     Not supported.
+<|+++>  yes    small       3 number    yes       no     Not supported.
+<@|>    yes    small       0 none      no        yes    
+<.|>    yes    small       1 bullet    no        yes    Not supported.
+<..|>   yes    small       2 bullet    no        yes    Not supported.
+<...|>  yes    small       3 bullet    no        yes    Not supported.
+<-|>    yes    small       1 none      no        yes    
+<--|>   yes    small       2 none      no        yes    
+<---|>  yes    small       3 none      no        yes    
+<+|>    yes    small       1 number    no        yes    Not supported.
+<++|>   yes    small       2 number    no        yes    Not supported.
+<+++|>  yes    small       3 number    no        yes    Not supported.
+<|@|>   yes    small       0 none      yes       yes    
+<|.|>   yes    small       1 bullet    yes       yes    Not supported.
+<|..|>  yes    small       2 bullet    yes       yes    Not supported.
+<|...|> yes    small       3 bullet    yes       yes    Not supported.
+<|-|>   yes    small       1 none      yes       yes    
+<|--|>  yes    small       2 none      yes       yes    
+<|---|> yes    small       3 none      yes       yes    
+<|+|>   yes    small       1 number    yes       yes    Not supported.
+<|++|>  yes    small       2 number    yes       yes    Not supported.
+<|+++|> yes    small       3 number    yes       yes    Not supported.
+{@}     no     small       0 none      no        no     
+{.}     no     small       1 bullet    no        no     Not supported.
+{..}    no     small       2 bullet    no        no     Not supported.
+{...}   no     small       3 bullet    no        no     Not supported.
+{-}     no     small       1 none      no        no     
+{--}    no     small       2 none      no        no     
+{---}   no     small       3 none      no        no     
+{+}     no     small       1 number    no        no     Not supported.
+{++}    no     small       2 number    no        no     Not supported.
+{+++}   no     small       3 number    no        no     Not supported.
+{|@}    no     small       0 none      yes       no     
+{|.}    no     small       1 bullet    yes       no     Not supported.
+{|..}   no     small       2 bullet    yes       no     Not supported.
+{|...}  no     small       3 bullet    yes       no     Not supported.
+{|-}    no     small       1 none      yes       no     
+{|--}   no     small       2 none      yes       no     
+{|---}  no     small       3 none      yes       no     
+{|+}    no     small       1 number    yes       no     Not supported.
+{|++}   no     small       2 number    yes       no     Not supported.
+{|+++}  no     small       3 number    yes       no     Not supported.
+{@|}    no     small       0 none      no        yes    
+{.|}    no     small       1 bullet    no        yes    Not supported.
+{..|}   no     small       2 bullet    no        yes    Not supported.
+{...|}  no     small       3 bullet    no        yes    Not supported.
+{-|}    no     small       1 none      no        yes    
+{--|}   no     small       2 none      no        yes    
+{---|}  no     small       3 none      no        yes    
+{+|}    no     small       1 number    no        yes    Not supported.
+{++|}   no     small       2 number    no        yes    Not supported.
+{+++|}  no     small       3 number    no        yes    Not supported.
+{|@|}   no     small       0 none      yes       yes    
+{|.|}   no     small       1 bullet    yes       yes    Not supported.
+{|..|}  no     small       2 bullet    yes       yes    Not supported.
+{|...|} no     small       3 bullet    yes       yes    Not supported.
+{|-|}   no     small       1 none      yes       yes    
+{|--|}  no     small       2 none      yes       yes    
+{|---|} no     small       3 none      yes       yes    
+{|+|}   no     small       1 number    yes       yes    Not supported.
+{|++|}  no     small       2 number    yes       yes    Not supported.
+{|+++|} no     small       3 number    yes       yes    Not supported.
+------- ------ ------ ------ --------- --------- ------ ---------------------
+
+To do the conversion, pipe the above list to the following perl script:
+
+	while (<>) {
+		chop;
+		$in_line    =  $_;
+		$in_line    =~ s/Not supported\./NA/;
+		@in_data    =  split(/\s+/, $in_line);
+		$in_data[0] =  "\"".$in_data[0]."\"";
+		$in_data[1] =  ($in_data[1] eq "yes"   ) ? "ADF_TRUE"  : "ADF_FALSE";
+		$in_data[2] =  ($in_data[2] eq "normal") ? "ADF_FALSE" : "ADF_TRUE";
+		$in_data[3] =  $in_data[3] + 0;
+		$in_data[4] =  ($in_data[4] eq "number") ? "ADF_PFORMAT_TYPE_NM" :
+			($in_data[4] eq "bullet") ? "ADF_PFORMAT_TYPE_BB" :
+			($in_data[4] eq "indent") ? "ADF_PFORMAT_TYPE_IN" :
+			(($in_data[4] eq "none") && $in_data[3]) ? "ADF_PFORMAT_TYPE_IN" :
+			"ADF_PFORMAT_TYPE_NONE";
+		$in_data[5] =  ($in_data[5] eq "yes"   ) ? "ADF_TRUE"  : "ADF_FALSE";
+		$in_data[6] =  ($in_data[6] eq "yes"   ) ? "ADF_TRUE"  : "ADF_FALSE";
+		$in_data[7] =  ($in_data[7] eq "NA"    ) ? "ADF_FALSE" : "ADF_TRUE";
+		print "\t{\n";
+		print "\t\t$in_data[0],\t";
+		if (length($in_data[0]) <= 7) {
+			print "\t";
+		}
+		print "$in_data[1],\t$in_data[2],\t$in_data[3],\t$in_data[4],\n",
+			"\t\t$in_data[5],\t$in_data[6],\t$in_data[7]\n";
+		print "\t},\n";
+	}
+
+	exit(0);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-13 ***
+*** DONE     1995-12-28 ***
+Fix the function 'ADF_GetAreaData()' in module 'dosrc.c' so that paragraph
+continuation is correctly handled for unformatted paragraph types.
+
+The way to do this is might be to concatenate physical lines using '\r'
+instead of ' ' (a space).
+
+If I take this path, the following logic must be implemented:
+
+	o the concatenation character must be converted to '\n' before output --
+	  probably in the function 'ADF_GetEntry()'. The concatenated lines are
+	  not, however, to be considered separate paragraphs.
+
+	o output logic must line-break on the converted concatenation character,
+	  but no logical line-wrapping should be performed.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-22 ***
+*** DONE     1995-12-28 ***
+Run 'adfout' to determine all entries which have unresolved 'SEE ALSO' items
+and fix any such items in the source code.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-13 ***
+*** DONE     1995-12-28 ***
+Fix the function 'ADF_GetAreaData()' in module 'dosrc.c' so that the function
+'ADF_DoCharFormat()' is for each paragraph --- this is needed because some
+paragraphs have paragraph over-rides which specify no formatting.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+*** DONE     1995-12-30 ***
+Implement logic in the module 'outrtf.c' to prevent identical non-referential
+index entries from being emitted more than once. This is because Microsoft
+Word version 6.0c doesn't make non-referential index entries unique, which
+results in rather ugly index output.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+*** DONE     1995-12-31 ***
+The functions in the module 'allocmsg.c' are to be moved into the GENFUNCS
+library. Invocations of the following functions must, therefore, be renamed:
+
+	ADF_AllocMsgItem    ---> GEN_AllocMsgItem
+	ADF_AllocMsgList    ---> GEN_AllocMsgList
+	ADF_AllocMsgPtrList ---> GEN_AllocMsgPtrList
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-27 ***
+*** DONE     1995-12-31 ***
+Add optimization to the function 'ADF_MatchParaFormat()' in the module
+'paraform.c' which will determine whether the line begins with any of the
+paragraph format opening braces ('(', '[', '<', or '{') before attempting to
+match the paragraph format.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-11-19 ***
+*** DONE     1996-01-10 ***
+Add the ability to the 'adfprep' executable to update an ADF database file.
+This facility is for use with 'make' for the incremental update of ADF
+documentation.
+
+This will require the addition of a command-line parameter:
+
+	o -ADF_{DB|DATA[_]BASE}_MODE={{CREATE_OR_UPDATE|EITHER}|CREATE|UPDATE}
+
+	Supported by new 'ADF_CONTROL' structure members:
+
+	o int   prep_adf_file_mode;
+	o char *prep_tmp_file_name
+
+	And manifest constants:
+
+#define ADF_PREP_FILE_MODE_EITHER               0
+#define ADF_PREP_FILE_MODE_CREATE               1
+#define ADF_PREP_FILE_MODE_UPDATE               2
+
+The procedure (I think) is to do the following:
+
+	o Open the ADF database file as an input file.
+	o Open a temporary ADF database file on the same filesystem and in the
+	  same directory.
+	o For each ADF comment section in each source file:
+		o Process the comment.
+		o If the entry is not in the original ADF database, add it to the
+		  temporary ADF database.
+		o Otherwise, we need to determine if the entry has changed since it
+		  was added to the original ADF database, so:
+			o Load the entry from the original ADF database and compare the
+			  entry to the processed comment from the source file. If they are
+			  identical, ignore the comment.
+			o If they are not identical, add the processed comment to the
+			  temporary ADF database and remove the entry from the original
+			  ADF database directory list.
+	o If no entries have been added to the temporary ADF database, close the
+	  temporary database file and 'unlink()' it.
+	o Otherwise, there are new and/or changed ADF entries in the temporary
+	  ADF database, so do the following:
+		o Copy any entries which remain in the original ADF database
+		  directory lists into the temporary ADF database file.
+		o Close the original ADF database file.
+		o Close the temporary ADF database file.
+		o 'unlink()' the original ADF database file.
+		o 'rename()' the temporary ADF database file to the original ADF
+		  database file.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-10 ***
+*** DONE     1996-01-10 ***
+Replace the temporary variable 'control_ptr__prep_tmp_file_name' in the
+function 'ADF_RUN_PREP_DoUpdate()' in module 'adfprep.c' with the new
+'ADF_CONTROL' member 'prep_tmp_file_name'.
+
+Change the function 'ADF_RUN_PREP_End()' in 'adfprep.c' so that if the
+'prep_tmp_file_name' member of 'control_ptr' is not 'NULL' the exit code
+will close the temporary ADF database file and 'unlink()' it.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-10 ***
+*** DONE     1996-01-10 ***
+Move the function 'ADF_WriteADFHumanHeader()' from 'adfprep.c' to the module
+'prepfile.c' and change the function 'ADF_OpenADFFilePrep()' to use it.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-10 ***
+*** DONE     1996-01-10 ***
+Move the functions 'ADF_RemoveExistingEntry()' and 'ADF_RemoveHText()' from
+'dosrc.c' and put them in their own module 'delentry.c'.
+
+Remove the static versions of these functions from the module 'infile.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-02 ***
+*** DONE     1996-01-10 ***
+Change code in various places to use the new GENFUNCS function
+'GEN_ExpandToFullPathName()':
+
+	o The code in 'dosrc.c' which gets the full source file name.
+	o The code in 'infile.c' which opens an ADF database file.
+	o The code in 'infile.c' which opens an ADF hyper-text reference file.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-10 ***
+*** DONE     1996-01-13 ***
+The signal that an entry area was not populated by using a section parse
+specification is that the 'section_ptr' member of the 'ADF_SOURCE_DATA'
+structure is 'NULL'.
+
+Change this in:
+	o adfentry:ADF_WriteEntry()
+	o dosrc.c:ADF_CheckForAdd()
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-10 ***
+*** DONE     1996-01-13 ***
+Add a new entry sort order type:
+
+#define ADF_SORT_ENTRY_CORE_NAME                        ???
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-13 ***
+*** DONE     1996-01-13 ***
+Change the internal ADF database file copyright to '1992-1996'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-13 ***
+*** DONE     1996-01-13 ***
+Add a function 'ADF_BARG_BasicPathExpand()' to the module 'argbasic.c'. This
+function expands a path by calling 'GEN_ExpandToFullPathName()'. Parameter
+parsing functions which allocate memory for a pth name will be replaced by a
+call to this function.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-??-?? ***
+*** DONE     1996-01-17 ***
+The output by file logic should compare the 'ADF_ENTRY' structure 'core_name'
+member, NOT the 'file_name' member.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-06 ***
+*** DONE     1996-01-17 ***
+The logic which builds file names for output should use the new 'core_name'
+member of the structure 'ADF_ENTRY'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-06 ***
+*** DONE     1996-01-17 ***
+The logic which builds hyper-text file names for output should use the new
+'core_name' member of the structure 'ADF_ENTRY'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-03 ***
+*** DONE     1996-04-08 ***
+Change the 'ENTRY_CLASS' area processing logic in 'dosrc.c' and 'doindex.c'
+to process level separations indicated by ':'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-05 ***
+*** DONE     1996-04-15 ***
+Add an executable 'adfdiff' which determines the difference between two ADF
+database files.
+
+This program examines each entry in the first file to determine whether it is
+in the second file. If it is, it then compares each ADF area in the entries
+in the two files to determine if they are the same. It then emits any entries
+which are in the second file but not in the first file.
+
+Parameters to the program are the names of the two ADF database files and
+the following command-line parameters:
+
+      [-H[ELP]]
+      [-V[ER[SION][S]]]]
+      [-CHECK[_ONLY][_FLAG]=<boolean>]
+      [-LOG[GING][_FLAG]=<boolean>]
+      [-LOG[GING]_DIR[ECTORY]=<log-file-dir-name>]
+      [-QUIET[_FLAG]=<boolean>]
+      [-CONT[INUE]_ON_ERROR[_FLAG]=<boolean>]
+      [-INCLUDE_FILE[S]=<file-name>[,<file-name> ...]]
+      [-INCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]]
+      [-INCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]]
+      [-INCLUDE_MAN_PAGE[S]=<entry-man-page>[,<entry-man-page> ...]]
+      [-EXCLUDE_FILE[S]=<file-name>[,<file-name> ...]]
+      [-EXCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]]
+      [-EXCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]]
+      [-EXCLUDE_MAN_PAGE[S]=<entry-man-page>[,<entry-man-page> ...]]
+      [-INCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]]
+      [-EXCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]]
+      [-{AREA|SECTION}_ORDER[_TYPE][S]=<area-order-type>]
+      [-IGNORE_{AREA|SECTION}[S]=<area-name>[,<area_name> . . .]]
+      [@<parameter-include-file-name>]
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-11 ***
+*** DONE     1996-04-15 ***
+Need new functions to support 'adfdiff' which perform a 'deep' copy of a
+loaded ADF entry and permit comparison of ADF entries.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-18 ***
+*** DONE     1996-06-28 ***
+It might make sense to add a new index type (I think that this is called a
+'permutated index'). This index would locate all hyper-text references to a
+each entry.
+
+How it works:
+
+	1) For each entry:
+		a) Call 'ADF_FixParagraph()' with no character format flags except
+			the hyper-text flag. This tells us all of the hyper-text references
+			in the entry.
+		b) For each hyper-text reference in the entry, add a structure element
+			(which contains a pointer to entry to which the hyper-text reference
+			refers and a pointer to the current entry) to a sorted list of
+			such structures --- if the combination of the two is not already in
+			the list.
+
+The list of structures is sorted (indirectly) by the combination of:
+		a) the base name of the referenced entry; and,
+		b) the base name of the referring entry.
+
+The 'SEE_ALSO' section should probably be excluded from this process.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-24 ***
+*** DONE     1996-06-29 ***
+Fix the 'man' page output:
+
+	o       The last change date needs to be set within the man page.
+
+	o       Word-wrapping within the 'Synopsis' section needs to be fixed.
+
+	o       Need an extra line-feed after the 'Synopsis' section.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-07-02 ***
+*** DONE     1996-07-03 ***
+Add an option which is to be active for HTML output:
+
+	-HTML:COPYRIGHT[S]_LINK=<URL>[=<matching-text>]
+
+The <URL> portion of the parameter specifies the name of the HTML file to
+which COPYRIGHT paragraphs are to be linked.
+
+If the <matching-text> portion of the parameter is present, then only those
+COPYRIGHT paragraphs which contain the specified text will be so linked.
+
+Also do this for the 'AUTHOR' section.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-07-31 ***
+*** DONE     1996-08-01 ***
+Add an HTML-specific option to specify the header level to use for the
+ADF area names. At the present time, this is always '<H1>', but this results
+in text that is rather large.
+
+	-HTML:HEAD[ER|ING]_LEVEL={1|2|3|4|5|6}
+
+To support this I'll need a new member of the 'ADF_HTML_DATA' structure:
+
+	char html_heading_level[1 + 2 + 1 + 1];
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-16 ***
+*** DONE     1996-09-17 ***
+Modify the 'ADF_*_OutputBasic()' functions so that the copyright for each
+entry is placed into the comment section for the entry.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-23 ***
+*** DONE     1997-02-04 ***
+Change 'static' variables to 'static const', where appropriate.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-29 ***
+*** DONE     1997-02-05 ***
+It is possible for the entry portion of an ADF database file to exceed the
+maximum size allowable under MS-DOS (((2 ^ 16) - 1) - 16). This is the result
+of totaling the entry data and the entry list itself.
+
+These could (conceivably) be broken out into two separate sections and
+loaded separately.
+
+The same problem exists, of course, for the hyper-text data.
+
+typedef struct {
+	time_t        creation_date;
+	time_t        update_date;
+	char          version_number[16];
+	int           area_count;
+	unsigned int  sizeof_ADF_ENTRY_FILE;
+	unsigned int  sizeof_ADF_HTEXT_FILE;
+	unsigned int  sizeof_ADF_ENTRY_DATA_FILE;
+	unsigned long completion_flag;
+	unsigned long file_length;
+	unsigned long entry_data_offset;
+	unsigned int  entry_data_length;
+	unsigned long entry_list_offset;
+	unsigned int  entry_list_length;
+	unsigned int  entry_list_count;
+	unsigned long htext_data_offset;
+	unsigned int  htext_data_length;
+	unsigned long htext_list_offset;
+	unsigned int  htext_list_length;
+	unsigned int  htext_list_count;
+} ADF_FILE_HEADER;
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-18 ***
+*** DONE     1997-02-06 ***
+Fix problem in function 'ADF_DoCharFormat()' in module 'dosrc.c' with empty
+old-style italic (````) and bold ('''') character format specifications.
+
+The way this (and all chacter format code) should work is:
+
+		/*      ***********************************************************     */
+		/*      ***********************************************************     */
+		/*              Convert from old-style italic character formats.                        */
+		/*      ***********************************************************     */
+		tmp_line_ptr = line_ptr;
+		while ((tmp_ptr = strstr(tmp_line_ptr, "``")) != NULL) {
+			tmp_ptr[0]   = '@';
+			tmp_ptr[1]   = '`';
+			tmp_line_ptr = tmp_ptr + 2;
+		}
+		/*      ***********************************************************     */
+
+This not only prevents the bug noted, but, because portions of the string
+already examined are not examined again on subsequent passes through the
+string, also makes the code more efficient. The regular code therefore
+becomes:
+
+		/*      ***********************************************************     */
+		/*      ***********************************************************     */
+		/*              Italic character formatting . . .                                                               */
+		/*      ***********************************************************     */
+		tmp_line_ptr = line_ptr;
+		while ((tmp_ptr = strstr(tmp_line_ptr, "@`")) != NULL) {
+			tmp_ptr[0] = ADF_CFORMAT_MARKER_CHAR;
+			tmp_ptr[1] = ADF_CFORMAT_CHAR_ITALIC_1;
+			if ((tmp_ptr = strstr(tmp_ptr + 2, "@`")) != NULL) {
+				tmp_ptr[0]   = ADF_CFORMAT_MARKER_CHAR;
+				tmp_ptr[1]   = ADF_CFORMAT_CHAR_ITALIC_2;
+				tmp_line_ptr = tmp_ptr + 2;
+			}
+			else {
+				tmp_ptr    = tmp_line_ptr + strlen(tmp_line_ptr);
+				tmp_ptr[0] = ADF_CFORMAT_MARKER_CHAR;
+				tmp_ptr[1] = ADF_CFORMAT_CHAR_ITALIC_2;
+				tmp_ptr[2] = '\0';
+				break;
+			}
+		}
+		/*      ***********************************************************     */
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+*** DONE     1997-02-07 ***
+The code which manages the insertion of character format markers in 'dosrc.c'
+must examine the generated text string to ensure that there are no empty
+character format markers.
+
+		/*      ***********************************************************     */
+		/*      ***********************************************************     */
+		/*              Remove unneccessary format specifiers . . .                                     */
+		/*      ***********************************************************     */
+		tmp_line_ptr = line_ptr;
+		while ((tmp_ptr = strchr(tmp_line_ptr, ADF_CFORMAT_MARKER_CHAR)) !=
+			NULL) {
+			this_char    = *++tmp_ptr;
+			tmp_line_ptr = ++tmp_ptr;
+			if (isupper(this_char)) {
+				this_char = tolower(this_char);
+				while (*tmp_ptr) {
+					if (*tmp_ptr == ADF_CFORMAT_MARKER_CHAR) {
+						if (tmp_ptr[1] == this_char) {
+							tmp_line_ptr -= 2;
+							strdele(tmp_ptr, 0, 2);
+							strdele(tmp_line_ptr, 0, 2);
+							break;
+						}
+						tmp_ptr += 2;
+					}
+					else if (!isspace(*tmp_ptr))
+						break;
+					else
+						tmp_ptr++;
+				}
+			}
+		}
+		/*      ***********************************************************     */
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-05 ***
+*** DONE     1997-02-10 ***
+Replace the functions 'ADF_EmitCharacter()' and 'ADF_EmitString()' (in the
+modules 'emitchar.c' and 'emitstr.c', respectively) with calls to the STRFUNCS
+functions 'STR_EMIT_Char()' and 'STR_EMIT_String()'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-10 ***
+*** DONE     1997-02-11 ***
+It may be possible to reduce the size of the structures which store per-entry
+data 'ADF_ENTRY' and 'ADF_ENTRY_FILE':
+
+Remove from 'ADF_ENTRY' the following members for a 4 bytes saving:
+
+	o       entry_length
+
+Remove from 'ADF_ENTRY_FILE' the following members for a 16 bytes saving:
+
+	o       entry_length
+	o       base_name_length
+	o       file_name_length
+	o       core_name_length
+	o       full_name_length
+	o       file_type_length
+	o       man_page_length
+=============================================================================
+
+=============================================================================
+CANCELLED:
+=============================================================================
+*** PROPOSED  1995-09-20 ***
+*** CANCELLED 1995-11-28 ***
+Remove the 'control_ptr' parameter from the function 'ADF_OpenADFFile()' in
+module 'infile.c'.
+
+*** REASON CANCELLED ***
+Need the 'control_ptr' parameter if file descriptor caching is to be
+implemented.
+=============================================================================
+
+=============================================================================
+PENDING:
+=============================================================================
+ADF Executable Programs:
+--- ---------- ---------
+	adfprep -       Prepares source file input and inserts it into ADF data files.
+
+	adfget  -       ???
+
+	adfchk  -       Checks a collection of ADF data files.
+
+	adfcomb -       Combines ADF data files.
+
+	adfout  -       Emits formatted output in 'ASCII', 'MAN', 'FRAME[[_][MAKER]]',
+					'HTML', or '{PS|POST[_]SCRIPT}'.
+-----------------------------------------------------------------------------
+adfprep Usage:
+------- ------
+	-H[ELP]
+	-VER[SION][S]
+	-CHECK[_ONLY][_FLAG]=<boolean=FALSE>
+	-ADF_{DB|DATA[_]BASE}[_FILE]=<adf-database-file-name>
+	-[DEFAULT_]AUTHOR[S]=<string>
+	-[DEFAULT_]COPYRIGHT[S]=<string>
+	-[DEFAULT_]MAN[_PAGE][S]={1|2|3|4|5|6|7|8|9|l|n|o|p}[<text>]
+	-DESCRIBE_DOMAIN[S]=<boolean=FALSE>
+	-DUPLICATE_NAME={NONE|FIRST|LAST}
+	-ERROR[S]_ON_NO_COMMENT[S]=<boolean=FALSE>
+	-EXCLUDE_FILE[S]=<file-name>[,<file-name> ...]
+	-EXCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]
+	-EXCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]
+	-EXCLUDE_MAN[_PAGE][S]=<man-section>[,<man-section> ...]
+	-EXCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]
+	-FORCE[D]_AUTHOR[S]=<boolean=FALSE>
+	-FORCE[D]_COPYRIGHT[S]=<boolean=FALSE>
+	-FORCE[D]_MAN[_PAGE][S]=<boolean=FALSE>
+	-IGNORE_{AREA|SECTION}[S]=<area-name>[,<area-name> . . .]
+	-INCLUDE_FILE[S]=<file-name>[,<file-name> ...]
+	-INCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]
+	-INCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]
+	-INCLUDE_MAN[_PAGE][S]=<man-section>[,<man-section> ...]
+	-INCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]
+	-SHOW_SET[TING][S]=<boolean=FALSE>
+	-SORT[S|ING][_ORDER]={NONE|[BASE_]NAME]|FILE[_NAME]|[FILE_]TYPE|MAN[_PAGE]}
+?       -REQUIRE[D]_SECTION[S]=<boolean=TRUE>
+	-TAB[S][_SET[TING[S]]]=<number>
+	-ZERO_DATE[S]=<boolean=FALSE>
+-----------------------------------------------------------------------------
+adfchk Usage:
+------ ------
+	-H[ELP]
+	-VER[SION][S]
+	-CHECK[_ONLY][_FLAG]=<boolean=FALSE>
+	-EXCLUDE_FILE[S]=<file-name>[,<file-name> ...]
+	-EXCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]
+	-EXCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]
+	-EXCLUDE_MAN[_PAGE][S]=<man-section>[,<man-section> ...]
+	-EXCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]
+	-IGNORE_BAD_XREF[S]=<boolean=FALSE>
+	-INCLUDE_FILE[S]=<file-name>[,<file-name> ...]
+	-INCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]
+	-INCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]
+	-INCLUDE_MAN[_PAGE][S]=<man-section>[,<man-section> ...]
+	-INCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]
+	-SHOW_SET[TING][S]=<boolean=FALSE>
+-----------------------------------------------------------------------------
+adfcomb Usage:
+------- ------
+	-H[ELP]
+	-VER[SION][S]
+	-CHECK[_ONLY][_FLAG]=<boolean=FALSE>
+	-DUPLICATE_NAME={NONE|FIRST|LAST}
+	-EXCLUDE_FILE[S]=<file-name>[,<file-name> ...]
+	-EXCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]
+	-EXCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]
+	-EXCLUDE_MAN[_PAGE][S]=<man-section>[,<man-section> ...]
+	-EXCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]
+	-IGNORE_{AREA|SECTION}[S]=<area-name>[,<area-name> . . .]
+	-INCLUDE_FILE[S]=<file-name>[,<file-name> ...]
+	-INCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]
+	-INCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]
+	-INCLUDE_MAN[_PAGE][S]=<man-section>[,<man-section> ...]
+	-INCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]
+	-REMOVE_BAD_XREF[S]=<boolean=FALSE>
+	-SHOW_SET[TING][S]=<boolean=FALSE>
+	-SORT[S|ING][_ORDER]={[BASE_]NAME]|FILE[_NAME]|[FILE_]TYPE|MAN[_PAGE]}
+	-ZERO_DATE[S]=<boolean=FALSE>
+-----------------------------------------------------------------------------
+adfout Usage:
+------ ------
+	-H[ELP]
+	-VER[SION][S]
+	-CHECK[_ONLY][_FLAG]=<boolean=FALSE>
+	-DUP[LICATE][S]_HANDLING={NONE|FIRST|LAST}
+	-EXCLUDE_FILE[S]=<file-name>[,<file-name> ...]
+	-EXCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]
+	-EXCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]
+	-EXCLUDE_MAN[_PAGE][S]=<man-section>[,<man-section> ...]
+	-EXCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]
+?       -EXTERN[AL]_REF[S]=<adf-file-name>[=<frame-doc-file-name>]
+	-HTML_LOGICAL_TAG[S]=<boolean=FALSE>
+	-HTML_VERSION[_NUMBER]={1[.[0]]|2[.[0]]|{+|PLUS}}
+		*** Which HTML version should be used for output?
+	-HYPER[_]TEXT[_FLAG]=<boolean=FALSE>
+	-IGNORE_{AREA|SECTION}[S]=<area-name>[,<area-name> . . .]
+	-INCLUDE_FILE[S]=<file-name>[,<file-name> ...]
+	-INCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]
+	-INCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]
+	-INCLUDE_MAN[_PAGE][S]=<man-section>[,<man-section> ...]
+	-INCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]
+	-KEEP_BAD_XREF[S]=<boolean=FALSE>
+	-OUTPUT_DIR[ECTORY]=<directory-name>
+	-OUTPUT_TO_STDOUT[_FLAG]=<boolean=FALSE>
+	-SHOW_SET[TING][S]=<boolean=FALSE>
+	-SORT[S|ING][_ORDER]={[BASE_]NAME]|FILE[_NAME]|[FILE_]TYPE|MAN[_PAGE]}
+	-OUTPUT[_TYPE]={ASCII|MAN[[_]PAGE]|FRAME[[_]MAKER]|HTML|{POST[_]SCRIPT|PS}
+-----------------------------------------------------------------------------
+Add the following members to the structure 'ADF_ENTRY':
+
+	o       unsigned int  start_line_number (of the comment in the source file)
+	o       unsigned int  end_line_number (of the comment in the source file)
+-----------------------------------------------------------------------------
+Perhaps all of the following should be parameters to 'adfprep':
+
+	-[DEFAULT_]AUTHOR[S]=<string>
+	-[DEFAULT_]CONTRIBUTOR[S]=<string>
+	-[DEFAULT_]ACKNOWLEDGMENT[S]=<string>
+	-[DEFAULT_]CREDIT[S]=<string>
+	-[DEFAULT_]REFERENCE[S]=<string>
+	-[DEFAULT_]RESTRICTION[S]=<string>
+	-[DEFAULT_]DISCLAIMER[S]=<string>
+	-[DEFAULT_]COPYING[S]=<string>
+	-[DEFAULT_]COPYRIGHT[S]=<string>
+	-[DEFAULT_]TRADEMARK[S]=<string>
+
+	-FORCE[D]_AUTHOR[S]=<boolean=FALSE>
+	-FORCE[D]_CONTRIBUTOR[S]=<boolean=FALSE>
+	-FORCE[D]_ACKNOWLEDGMENT[S]=<boolean=FALSE>
+	-FORCE[D]_CREDIT[S]=<boolean=FALSE>
+	-FORCE[D]_REFERENCE[S]=<boolean=FALSE>
+	-FORCE[D]_RESTRICTION[S]=<boolean=FALSE>
+	-FORCE[D]_DISCLAIMER[S]=<boolean=FALSE>
+	-FORCE[D]_COPYING[S]=<boolean=FALSE>
+	-FORCE[D]_COPYRIGHT[S]=<boolean=FALSE>
+	-FORCE[D]_TRADEMARK[S]=<boolean=FALSE>
+-----------------------------------------------------------------------------
+All times should be in UTC/GMT.
+-----------------------------------------------------------------------------
+Add a new ADF area:
+
+	ADF_AREA_MAN_NAME
+
+The contents of this area will be used when '-OUTPUT_TYPE=MAN_PAGE'.
+
+This new area has the following attributes:
+
+	required_flag = ADF_FALSE;
+	pformat_flag  = ADF_TRUE;
+	cformat_flag  = ADF_TRUE;
+	eindex_flag   = ADF_TRUE;
+	htext_flag    = ADF_TRUE;
+	output_flag   = ADF_FALSE;
+
+If not specified in the ADF comment, it will be copied from the 'NAME' area
+at 'adfprep' run-time.
+-----------------------------------------------------------------------------
+Change the 'cformat_flag' and 'pformat_flag' attributes of the 'SYNOPSIS'
+ADF area to 'ADF_TRUE'.
+-----------------------------------------------------------------------------
+Add a command line parameter to 'adfout' which specifies the <TITLE> to be
+used for HTML output.
+
+	-HTML_TITLE=<man-section>,<string>
+
+Each portion of the string which consists of the character sequence '%%' will
+be replaced with the ADF base name of the entry at the time of output.
+
+	%N              Entry base name                                                         --- ADF_ENTRY.base_name
+	%F              Source File name                                                                --- ADF_ENTRY.file_name
+	%FF     Source file full name                                           --- ADF_ENTRY.full_name
+	%FC     Source file core name (no extension)    --- ADF_ENTRY.core_name
+	%FE     Entry file type                                                         --- ADF_ENTRY.file_type
+	%M              Entry man page                                                                  --- ADF_ENTRY.man_page
+
+The default titles are as follow:
+
+	1       User Command %N
+	1c      Communication with Other System User Command %N
+	1g      Graphic and CAD User Command %N
+	1s ???????????????????????????????????????????????
+	1v      System V User Command %N
+	2       System Call %N
+	2v      System V / Posix System Call %N
+	3       Library Function %N
+	3c Compatibility Functions
+	3f Fortran Library Functions
+	3k Kernel VM Library Functions
+	3l      Lightweight Process Library Function %N
+	3m      Math Library Function %N
+	3n Network Library Function
+	3r      RPC Services Library Function %N
+	3s      Standard I/O Function
+	3v      System V / Posix Library Function %N
+	3x      Miscellaneous Library Function
+	4       Device and Network Interface %N
+	4f      Protocol Family %N
+	4i      Device and Network Interface
+	4m      STREAMS Module %N
+	4n      Network Interface %N
+	4p      Protocol / Raw Interface %N
+	4s      SunOS-specific Device Driver %N
+	5       File Format %N
+	5v      System V / Posix File Format %N
+	6       Game / Demo %N
+	7       Environment / Table / troff Macro %N
+	7v      System V / Posix Environment / Table / troff Macro %N
+	8       Maintenance Command %N
+	8c      Maintenance Command %N
+	8v      System V Maintenance Command %N
+	9       ???
+	n       New
+	l       Local
+	o       Old
+	p       Public
+
+Actually, it may make sense to add an ADF area into which this information
+can be put at the time 'adfprep' executes:
+
+	ADF_AREA_OUTPUT_TITLE
+
+We can still let the above command line parameter over-ride it at the time
+'adfout' executes.
+-----------------------------------------------------------------------------
+Add an command-line parameter to 'adfout' which permits generation of a
+table of contents:
+
+	-GENERATE_{TABLE_OF_CONTENT|TOC}[S][_FLAG]=<boolean=FALSE>
+
+If this option is TRUE, then all output will be sent to <stdout>
+
+The 'BASE_NAME' area is used to generate the table.
+
+If the '-OUTPUT_BY_FILE[_NAME][_FLAG]=' parameter is TRUE, then the table of
+contents will be grouped by file name.
+
+The idea here is to build the destination links of a master HTML page for a
+sub-system which has the following components:
+
+	o Contents by name (containing links to each entry).
+	o Contents by source file (containing links to each file, with each link
+	  containing links to each entry).
+	o Index (containing nested index entries under each initial character
+	  with the lowest-level index entry containing links to each HTML file
+	  under that index entry).
+
+For example:
+
+STRFUNCS Library
+A library of string and memory functions . . . et cetera . . .
+
+Library Table Contents by Name
+	(link to contents by name)
+
+Library Table of Contents by Source File
+	(link to contents by source file)
+
+Library Index
+	(link to index)
+
+*** Other sections, such as . . . ***
+Executable Files Index
+	(link to hand-coded HTML)
+-----------------------------------------------------------------------------
+*** This should perhaps be called 'ADF_AREA_ENTRY_CLASS_NAME' ***
+
+Add an ADF area 'ADF_AREA_LOGICAL_TYPE'.
+
+This is used to segregate ADF entries logically. For example:
+
+STRFUNCS functions 'strl_find()', 'strl_append()', 'strl_remove()',
+et cetera, might all be grouped under logical type 'String List Functions'.
+
+We could then build a directory of entries in HTML by logical type:
+
+	String Array Functions
+		stra_append
+		stra_find
+		stra_remove
+		. . .
+
+	String List Functions
+		strl_append
+		strl_find
+		strl_remove
+		. . .
+
+We could also build titles using the logical type.
+
+The logical type, if not specified, is defaulted based upon the man page:
+
+	1       User Command
+	1c      Communication with Other System User Command
+	1g      Graphic and CAD User Command
+	1v      System V User Command
+	2       System Call
+	2v      System V / Posix System Call
+	3       Library Function
+	3l      Lightweight Process Library Function
+	3m      Math Library Function
+	3r      RPC Services Library Function
+	3v      System V / Posix Library Function
+	4       Device and Network Interface
+	4f      Protocol Family
+	4p      Protocol / Raw Interface
+	4m      STREAMS Module
+	4n      Network Interface
+	4s      SunOS-specific Device Driver
+	5       File Format
+	5v      System V / Posix File Format
+	6       Game / Demo
+	7       Environment / Table / troff Macro
+	7v      System V / Posix Environment / Table / troff Macro
+	8       Maintenance Command
+	8v      System V Maintenance Command
+	9       ???
+	n       New
+	l       Local
+	o       Old
+	p       Public
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-25 ***
+Add an executable module 'adfdump' which dumps an ADF database file to
+'stdout'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-26 ***
+I may have a need for command line parameters which specify whether
+particular character formatting types are turned ON or OFF:
+
+	-CHAR[ACTER]_FORMAT_BOLD[_FLAG]=<boolean>
+	-CHAR[ACTER]_FORMAT_ITALIC[_FLAG]=<boolean>
+	-CHAR[ACTER]_FORMAT_UNDER_]LINED[_FLAG]=<boolean>
+	-CHAR[ACTER]_FORMAT_OVER[_]LINED[_FLAG]=<boolean>
+	-CHAR[ACTER]_FORMAT_STRIKE[_]THRU[_FLAG]=<boolean>
+	-CHAR[ACTER]_FORMAT_EMBEDDED[_]INDEX[_FLAG]=<boolean>
+	-CHAR[ACTER]_FORMAT_SUB[_]SCRIPT[_FLAG]=<boolean>
+	-CHAR[ACTER]_FORMAT_SUPER[_]SCRIPT[_FLAG]=<boolean>
+	-CHAR[ACTER]_FORMAT_HYPER[_]TEXT[_FLAG]=<boolean>
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-01 ***
+A bit more speed can be wrung out of 'adfprep' in the loop in which the end
+of an ADF comment section is determined searches first for sections after
+the current section (and then, if not found, the previous sections). This
+logic will take advantage of the likelihood that sections in the source files
+follow an order similar to the order in the ADF definition.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-01 ***
+Add to the function 'ADF_DoCharFormat()' in the module 'dosrc.c' the special
+logic for optimizing sub-scripts and super-scripts vis-a-vis each other. This
+logic is already in the Perl script.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-06 ***
+The 'full_name' member should probably be removed from the structure
+'ADF_ENTRY' --- it's used only in messages, but takes up a lot of memory.
+
+The data should not be lost, however. It should be placed into an ADF area
+named 'SOURCE_FILE_FULL_NAME'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-06 ***
+Another attribute should be added to the structure 'ADF_AREA':
+
+	int input_flag;
+
+If this flag is not 'ADF_TRUE', then the area may not be defined as an
+ADF section, nor populated with data from the source file.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-12 ***
+How about adding the 'TeX' output type to 'adfout'?
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-12 ***
+How about adding the 'DCA' output type to 'adfout'?
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-12 ***
+When the new regular-expression logic is added to the STRFUNCS library, the
+following command-line parameters should be supported:
+
+	-{IN|EX}CLUDE_PATTERN_{FILE|NAME|TYPE|MAN_PAGE}[S]=<regex-pattern>
+	-{IN|EX}CLUDE_PATTERN_HYPER[[_]TEXT]=<regex-pattern>
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-12 ***
+It might be nice to enable links to the source for the 'HTML' output type
+when the 'SOURCE_FILE_NAME' area is not ignored. The full file name would be
+used as the target of the link.
+
+The problems with this proposal are:
+
+	o The HTML documentation is tied to the source code tree.
+
+	o At present, the full file name is just the name from the command-line.
+	  The full name would have to be constructed, with '~' expansion and
+	  prefixing of the current directory in those cases where the command-line
+	  file name doesn't specify an absolute path.
+
+If implemented, this logic would have to be specified by a command-line
+parameter --- it shouldn't be the default.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-12 ***
+If there is a way to determine reliably whether a paragraph contains a
+(semantically) valid URL, it might be nice to have 'adfout' convert that
+string to a link for HTML output.
+
+This would work by looking for strings of the form '://', and then checking
+the preceeding string to see if it's a valid URL protocol such as 'ftp',
+'gopher', 'http', or 'wais'.
+
+One issue that needs to be resolved is how the boundaries of the URL are
+determined --- perhaps by looking for white-space or quotes.
+
+One way to do this might be to add another character formatting specifier.
+The problem then is what to do about paragraph types which disallow
+character formats.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-14 ***
+I perhaps should add options to 'adfprep' to support the execution of a
+pre-processor on the source code:
+
+	-CPP_NAME=<executable-file-path>
+	-CPP_OPTIONS=<string>
+
+Or:
+
+	-CPP_INVOCATION=<string>
+
+With escape sequence '%%' meaning the source file name.
+
+If I do this, I really should support parsing of the '#line' directive so
+that line-number reporting continues to work correctly.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-15 ***
+One more change to the hyper-text resolution functions in module 'fixpara.c'
+should be done --- change the hyper-text insertion code to use a list of
+changes instead of the list of all characters.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-17 ***
+The various output-type functions could be driven from a generic function:
+
+int ADF_OUT_OutputByEntry(ADF_CONTROL *control_ptr,
+	const ADF_ENTRY *entry_ptr, int (*by_entry_name_func)(ADF_CONTROL *,
+	const ADF_ENTRY *, char *error_text), int (*emit_func)(ADF_CONTROL *,
+	const ADF_ENTRY *, ADF_ENTRY_DATA *, const time_t *, void (*)(void *,
+	char *, ...), void *, char *), char *error_text);
+int ADF_OUT_OutputToStdout(ADF_CONTROL *control_ptr,
+	const ADF_ENTRY *entry_ptr, const time_t *output_date,
+	int (*emit_func)(ADF_CONTROL *, const ADF_ENTRY *, ADF_ENTRY_DATA *,
+	const time_t *, void (*)(void *, char *, ...), void *, char *),
+	char *error_text);
+int ADF_OUT_OutputByFile(ADF_CONTROL *control_ptr,
+	const ADF_ENTRY *entry_index, int (*by_file_name_func)(ADF_CONTROL *,
+	const ADF_ENTRY *, char *error_text),
+	void (*file_header_func)(ADF_CONTROL *, unsigned int, const time_t *,
+	void (*)(void *, char *, ...), void *), int (*emit_func)(ADF_CONTROL *,
+	const ADF_ENTRY *, ADF_ENTRY_DATA *, const time_t *, void (*)(void *,
+	char *, ...), void *, char *), char *error_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-17 ***
+The logic to emit headers could also be encapsulated by a generic driver:
+
+void ADF_OUT_DoHeaderByEntry(const char *base_name,
+	const char *file_name, const time_t *file_date, const time_t *prep_date,
+	const time_t *output_date,
+	void (*border_func)(void (*)(void *, char *, ...), void *),
+	void (*cmnt_func)(const char *, void (*)(void *, char *, ...), void *),
+	void (*floating_cmnt_func)(const char *, const char *,
+	void (*)(void *, char *, ...), void *),
+	void (*output_function)(void *, char *, ...), void *output_control);
+void ADF_OUT_DoHeaderByFile(const ADF_CONTROL *control_ptr,
+	unsigned int entry_index, const time_t *output_date,
+	void (*border_func)(void (*)(void *, char *, ...), void *),
+	void (*cmnt_func)(const char *, void (*)(void *, char *, ...), void *),
+	void (*floating_cmnt_func)(const char *, const char *,
+	void (*)(void *, char *, ...), void *),
+	void (*output_function)(void *, char *, ...), void *output_control);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-17 ***
+Add a description of the program usage to 'adfcomb', 'adfout', and 'adfprep'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-13 ***
+If multiple instances of the same section are present in an ADF comment,
+only the last instance is used.
+
+Is this the correct behavior? Or should the instances be concatenated? Should
+the user decide through a command-line parameter?
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-14 ***
+Check all 'out*.c' code to ensure that all text is emitted with the
+appropriate escape sequences.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-14 ***
+Add a parameter to 'adfout' which specifies the inclusion of comments SCCS
+macros.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+It might be nice to have an HTML-specific command-line parameters:
+
+Adds a link to the specified URL:
+
+	o -HTML_LINK_TO_HOME[_PAGE]=[<link-text>],<URL>
+
+This parameter specifies that a link to the indicated HTML file is to be
+added at the end of the entry output. If <link-text> is empty, the string
+'Home Page' will be used
+
+A more generic approach might be to have parameters specify HTML to be
+included before and after the entry HTML:
+
+	o -HTML_BEFORE={<text>|@<file-name>}
+	o -HTML_AFTER={<text>|@<file-name>}
+
+If <text> is specified, it is included directly into the HTML without
+escape sequence processing.
+
+If @<file-name> is specified, the contents of the indicated file are included
+directly into the HTML without escape sequence processing.
+
+This scheme would permit the inclusion of signature graphics and other HTML in
+the HTML output for every entry. 
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+It might be nice to have an HTML-specific command-line parameters:
+
+Makes the 'AUTHOR' text a link to the specified URL:
+
+	o -HTML_LINK_TO_AUTHOR=<URL>
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+Add author index entries to the RTF output. Note that this is a special index
+entry type.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+Add table-of-classes index entries to the RTF output. Note that this is a
+special index type (? \c ?).
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+Remove all support for hyper-text resolution from 'outrtf.c' because there
+ain't no such animal.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+Add support for extending the semantics of the '-SORT_ORDER=' parameter to
+specify whether dictionary ordering is to be used.
+
+This should perhaps be done by changing the syntax of the parameter to:
+
+	{NONE|[BASE_]NAME|FILE[_NAME]|[FILE_]TYPE|MAN[_PAGE]}[,DICT[IONARY]]
+
+Or (perhaps better), it could be a separate parameter:
+
+	-DICT[IONARY][_SORT]_ORDER=<boolean>
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-19 ***
+Implement the executable 'adfchk'.
+
+Parameters to this executable include:
+      [-H[ELP]]
+      [-V[ER[SION][S]]]]
+      [-CHECK[_ONLY][_FLAG]=<boolean>]
+      [-LOG[GING][_FLAG]=<boolean>]
+      [-LOG[GING]_DIR[ECTORY]=<log-file-dir-name>]
+      [-DUP[LICATE][S][_HANDLING]=<duplicate-handling-type>]
+      [-QUIET[_FLAG]=<boolean>]
+      [-CONT[INUE]_ON_ERROR[_FLAG]=<boolean>]
+      [-INCLUDE_FILE[S]=<file-name>[,<file-name> ...]]
+      [-INCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]]
+      [-INCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]]
+      [-INCLUDE_MAN_PAGE[S]=<entry-man-page>[,<entry-man-page> ...]]
+      [-EXCLUDE_FILE[S]=<file-name>[,<file-name> ...]]
+      [-EXCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]]
+      [-EXCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]]
+      [-EXCLUDE_MAN_PAGE[S]=<entry-man-page>[,<entry-man-page> ...]]
+      [-INCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]]
+      [-EXCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]]
+      [@<parameter-include-file-name>]
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-22 ***
+Determine just what the difference is between the 'PUBLISH_NAME' area and the
+'PUBLISH_XREF' area.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-27 ***
+Add a function 'ADF_EMIT_ParaFormatList()' to the module 'paraform.c'. This
+function will dump a description of the paragraph formats.
+
+void ADF_EMIT_ParaFormatList(void (*output_function)(void *, char *, ...),
+	void *output_control);
+
+void ADF_EMIT_ParaFormatList(*output_function, *output_control)
+#ifndef NARGS
+void (*output_function)(void *, char *, ...);
+#else
+void (*output_function)();
+#endif /* #ifndef NARGS */
+void  *output_control;
+{
+	unsigned int count_1;
+
+	(*output_function)(output_control,
+		"%-6.6s %-7.7s %-6.6s %-6.6s %-6.6s %-9.9s %-9.9s %-6.6s %-21.21s\n",
+		"Index", "Format", "Char", "Font", "Indent", "Attribute", "Beginning",
+		"Ending", Description/");
+	(*output_function)(output_control,
+		"%-6.6s %-7.7s %-6.6s %-6.6s %-6.6s %-9.9s %-9.9s %-6.6s %-21.21s\n",
+		"Number", "Spec", "Format", "Size", "Level", "Type", "Rule",
+		"Rule", "Notes");
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  7, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  9, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  9, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-', 21, output_function, output_control);
+	(*output_function)(output_control, "\n");
+
+	for (count_1 = 0; count_1 < ADF_PFORMAT_COUNT; count_1++) {
+		(*output_function)(output_control,
+			"%6.6u %-7.7s %-6.6s %-6.6s %6.6u %-9.9s %-9.9s %-6.6s %-21.21s\n",
+			count_1,
+			ADF_ParaFormatList[count_1].format_string,
+			(ADF_ParaFormatList[count_1].char_format_flag == ADF_TRUE) ?
+			"yes" : "no",
+			(ADF_ParaFormatList[count_1].small_font_flag == ADF_TRUE) ?
+			"small" : "normal",
+			ADF_ParaFormatList[count_1].indent_level,
+			(ADF_ParaFormatList[count_1].format_type == ADF_PFORMAT_TYPE_BB) ?
+			"bullet" :
+			(ADF_ParaFormatList[count_1].format_type == ADF_PFORMAT_TYPE_IN) ?
+			"indent" :
+			(ADF_ParaFormatList[count_1].format_type == ADF_PFORMAT_TYPE_NM) ?
+			"number" : "none",
+			(ADF_ParaFormatList[count_1].begin_rule_flag == ADF_TRUE) ?
+			"yes" : "no",
+			(ADF_ParaFormatList[count_1].end_rule_flag == ADF_TRUE) ?
+			"yes" : "no",
+			(ADF_ParaFormatList[count_1].supported_flag == ADF_TRUE) ?
+			"" : "Not supported.");
+	}
+
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  7, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  9, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  9, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-',  6, output_function, output_control);
+	(*output_function)(output_control, " ");
+	STR_EMIT_Char('-', 21, output_function, output_control);
+	(*output_function)(output_control, "\n");
+}
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-27 ***
+Add a function 'ADF_EMIT_AreaDataList()' to the module 'areaname.c'. This
+function will dump a description of the areas.
+
+void ADF_EMIT_AreaDataList(void (*output_function)(void *, char *, ...),
+	void *output_control);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-27 ***
+Some proposed library icons for when the '-HTML_{BEFORE|AFTER}' parameters
+are implemented:
+
+	o STRFUNCS --- A loop of rope being approached by a pair of scissors.
+	o STRFUNCS --- A rope, hammer, and tongs on an anvil.
+	o GENFUNCS --- A saluting general; much braid and scrambled eggs.
+	o DATFUNCS --- A calendar for the month of September, 1752.
+	o MFILE    --- A file folder emblazoned with a light bulb.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-28 ***
+It might be nice to have a link to a Michael L. Brock page accessible from
+the STRFUNCS, GENFUNCS, DATFUNCS, and MFILE HTML documentation.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+Change the parameter parsing logic for the following parameters so that
+parameter values which begin with '@' will be considered to preface the names
+of files from which the actual parameter values should be read:
+
+	o -DEFAULT_{AUTHOR|COPYRIGHT}[S]=
+	o -FORCE[D]_{AUTHOR|COPYRIGHT}[S]=
+	o -EXCLUDE_FILE[S]=
+	o -EXCLUDE_HYPER[[_]TEXT]=
+	o -EXCLUDE_MAN_PAGE[S]=
+	o -EXCLUDE_NAME[S]=
+	o -EXCLUDE_TYPE[S]=
+	o -EXTERN[AL]_REF[ERENCE][S]=
+	o -IGNORE_{AREA|SECTION}[S]=
+	o -INCLUDE_FILE[S]=
+	o -INCLUDE_HYPER[[_]TEXT]=
+	o -INCLUDE_MAN_PAGE[S]=
+	o -INCLUDE_NAME[S]=
+	o -INCLUDE_TYPE[S]=
+	o -{AREA|SECTION}_NAME[S]=
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+When parsing a parameter file name, the presence of two at-signs together
+('@@') means to intepret the parameter as beginning with a single at-sign ---
+not as a request to load a parameter file.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-02 ***
+Add implementation of the 'BASE' element to the logic in 'outhtml.c' for
+output by entry and by file.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-02 ***
+URLs emitted by 'outhtml.c' must be escaped for those characters which are
+not allowed in URLs.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-19 ***
+Fix minor problem in entry comparison logic when the update mode is active
+in 'dosrc.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-19 ***
+Check sorting logic to determine why I keep running out of stack space under
+MS-DOS.
+
+The problem is probably the result of using the old STRFUNCS 'qsort()' logic
+which recurses.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-19 ***
+Add logic to 'adfcomb' to permit the combination of ADF database files into
+one of the ADF database files being combined.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-15 ***
+Convert the ADF definition file parse routines to avoid the allocation of
+the parse component strings.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-24 ***
+Remove the following functions from the module 'argbasic.c' and 'usebasic.c'
+and change calls to the functions to calls to the corresponding GENFUNCS
+functions:
+
+	ADF_BARG_LogDir                  ---> GEN_BARG_LogDir
+	ADF_BARG_LogFlag                         ---> GEN_BARG_LogFlag
+	ADF_BARG_BasicParamAlloc ---> GEN_BARG_BasicParamAlloc
+	ADF_BARG_BasicPathExpand ---> GEN_BARG_BasicPathExpand
+	ADF_BARG_BadComponentMsg ---> GEN_BARG_BadComponentMsg
+	ADF_BUSE_Help                            ---> GEN_BUSE_Help
+	ADF_BUSE_LogDir                  ---> GEN_BUSE_LogDir
+	ADF_BUSE_LogFlag                         ---> GEN_BUSE_LogFlag
+	ADF_BUSE_Version                         ---> GEN_BUSE_Version
+	ADF_BUSE_AppendParamText ---> GEN_BUSE_AppendParamText
+	ADF_BUSE_AppendLine              ---> GEN_BUSE_AppendLine
+	ADF_BUSE_AppendNL                   ---> GEN_BUSE_AppendNL
+	ADF_BUSE_AppendNULL              ---> GEN_BUSE_AppendNULL
+	ADF_BUSE_BasicConstruct  ---> GEN_BUSE_BasicConstruct
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-27 ***
+Modify the code in the function 'ADF_ReadEntryDirData()' in module 'infile.c'
+to merge loaded entry and hyper-text data into the already loaded arrays
+instead of concatenating and sorting.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-29 ***
+Move the logic in the module 'adf/getparam.c' into the GENFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-03-26 ***
+Add logic to 'adfout' which permits the dropping of 'OUTPUT_INDEX' paragraphs
+based upon the index segment names:
+
+	-{EX|IN}CLUDE_OUTPUT_INDEX=<string>
+
+New functions to be added:
+
+	o argout.c      --->    ADF_OARG_CludeOutputIndex()
+	o useout.c      --->    ADF_OUSE_CludeOutputIndex()
+
+New 'ADF_CONTROL' member:
+
+	ADF_CLUDE output_index_clude[ADF_CLUDE_BASIS_COUNT];
+
+The following functions must be changed to support the examination of the ADF
+entry 'OUTPUT_INDEX' area to determine if a paragraph is to be included:
+
+	o doindex.c     --->    ADF_BuildIndexItems()
+	o outrtf.c      --->    ADF_RTF_OutputEntryIndex()
+
+It might be nice to isolate this logic in a single function in module
+'docludes.c':
+
+int ADF_ApplyCludesIndexEntry(control_ptr, output_index_string)
+const ADF_CONTROL *control_ptr;
+const char        *output_index_string;
+{
+	int return_code = ADF_TRUE;
+
+	if ((control_ptr->output_index_clude[ADF_CLUDE_BASIS_INCLUDE].clude_count)
+		&& ((return_code = ADF_BasicClude(control_ptr->output_index_clude +
+		ADF_CLUDE_BASIS_INCLUDE, *output_index_string)) != ADF_TRUE))
+		goto EXIT_FUNCTION;
+
+	if ((control_ptr->output_index_clude[ADF_CLUDE_BASIS_EXCLUDE].clude_count)
+		&& ((return_code = ADF_BasicClude(control_ptr->output_index_clude +
+		ADF_CLUDE_BASIS_EXCLUDE, *output_index_string)) == ADF_TRUE))
+		return_code = ADF_FALSE;
+
+EXIT_FUNCTION:
+
+	return(return_code);
+}
+
+I might also want to place the code which rationalizes 'OUTPUT_INDEX' entries
+in a module separate from the code in 'dosrc.c' so that both the logic which
+parses ADF entries and the logic which parses the command-line parameter
+above is the same:
+
+char *ADF_CleanIndexEntryString(output_index_string)
+char *output_index_string;
+{
+	char *tmp_ptr;
+
+	trim(oneblank(ctltospc(output_index_string)));
+
+	while (((tmp_ptr = strstr(output_index_string, "::")) != NULL) ||
+		((tmp_ptr = strstr(output_index_string, " :")) != NULL) ||
+		((tmp_ptr = strstr(output_index_string, ": ")) != NULL))
+		strrepl(output_index_string, ":",
+			((unsigned int) (output_index_string - tmp_ptr)), 2);
+
+	return(output_index_string);
+}
+
+The code in 'ADF_GetAreaData()' in 'dosrc.c' then becomes:
+
+		for (count_1 = 0; count_1 < line_count; ) {
+			if (*trimx(ADF_CleanOutputIndexString(line_list[count_1]), ":"))
+				count_1++;
+			else
+				strl_remove(&line_count, &line_list, count_1, 1);
+		}
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-03 ***
+Change the output of table-of-files lists to remove use of the bullet points.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-22 ***
+Need to add a member to the 'ADF_AREA' structure which specifies that the
+area is not to be compared by the logic in 'dosrc.c' for updates to an
+existing ADF database.
+
+The primary candidate for use of this flag is the 'SOURCE_FILE_DATE' area.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+Replace use of the structure 'ADF_RUN_USAGE' with the new 'GEN_USAGE_PARAM'
+structure in 'genfuncs.h'.
+
+Also, initialization of the 'optional_flag' member should be with the
+manifest constants 'GENFUNCS_TRUE' and 'GENFUNCS_FALSE'.
+
+Use the function 'GEN_BUSE_CreateUsageList()' to create the usage list.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+Implement use of the function 'GEN_SetResourceLimitsToMax()' in all ADF
+executables.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+Change ADF logging implementation to use the 'MFILE_LOG_CONTEXT' structure.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+Use new 'rusage' formatting function 'GEN_FormatRUsageList()' in the ADF
+executable exit routines.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+Use the new GENFUNCS function 'GEN_GetFileName()' to get the file-name
+portion of a path.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+Implement new ADF definitions for the following source file types:
+
+	o .ddl ---> Data Definition Language (DDL, for databases)
+	o .sql ---> Structured Query Language (SQL, for databases)
+
+NOTE: DDL extension types are:
+	.dta OR .tbl ---> Table creation
+	.din OR .idx ---> Index creation
+	.dru         ---> Rule creation
+	.dco         ---> Constraint creation
+	.dri         ---> Referential integity creation
+	.ddb         ---> Database creation
+	.dty         ---> Type creation
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-18 ***
+I should probably separate the area flags for character formatting from 
+hyper-text searching for paragraph formats. It seems reasonable to embed
+hyper-text even within, for example, the 'CODE_SYNTAX' area section.
+
+Actually, each of the character format attributes should be settable on an
+individual basis.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-25 ***
+It might be nice to have a way of excluding 'SEE_ALSO' entries from output
+in those cases where there is a hyper-text reference to an entry in the
+normal text.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-24 ***
+Fix the 'man' page output:
+
+	o       The header set-up needs to be changed --- use the 'gcc' man page
+		as a starting point.
+
+	o       Test all types of indentation to three levels to ensure that they all
+		line up appropriately.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-24 ***
+Add a parameter to 'adfout' which specifies the case of the section names in
+the emitted output:
+
+	-OUT[[_]PUT]_CASE={AS[-|_]IS|UPPER|LOWER|MIXED[-|_]CASE}
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-28 ***
+Need to resolve the use of the '-EXTERNAL_REFERENCES=' parameter for master
+cross-references and indices --- I need a way to get around having to specify
+the ADF database files on the command-line in those cases because I the
+current code doesn't use the specified directory names to resolve hyper-text
+links.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-26 ***
+Add code to the 'man' output logic to support appending '(<man-section>)' to
+the 'SEE_ALSO' section paragraphs.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-30 ***
+Add logic to the function 'ADF_GetAreaData()' in the module 'dosrc.c' to
+clean-up the 'AUTHOR' and 'COPYRIGHT' areas:
+
+	o perform a 'trim(oneblank(ctltospc()))' on all lines
+	o remove any blank lines
+	o unique the lines (but leave them in the original order)
+
+To do this correctly, I need to add a new function:
+
+static char *ADF_RemoveCharFormat(in_line)
+char *in_line;
+{
+	char *tmp_ptr_1;
+	char *tmp_ptr_2;
+
+	tmp_ptr_1 = in_line;
+	tmp_ptr_2 = in_line;
+
+	while (*tmp_ptr_1) {
+		if (*tmp_ptr_1 == ADF_CFORMAT_MARKER_CHAR)
+			tmp_ptr_2 = tmp_ptr_1 + 2;
+		else
+			*tmp_ptr_1++ = *tmp_ptr_2++;
+	}
+
+	return(in_line);
+}
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-07-02 ***
+The function 'ADF_GetOutputFunctions()' in module 'fptrsout.c' should be
+changed to work with a structure which contains pointers to the functions
+of interest instead of a separate parameter for each function:
+
+typedef struct {
+#ifndef NARGS
+	int  (*init_function)(ADF_CONTROL *control_ptr, char *error_txt);
+	int  (*by_entry_function)(ADF_CONTROL *control_ptr,
+		const ADF_ENTRY *entry_ptr, char *error_txt);
+	int  (*to_stdout_function)(ADF_CONTROL *control_ptr,
+		const ADF_ENTRY *entry_ptr, const time_t *output_date, char *error_txt);
+	int  (*by_file_function)(ADF_CONTROL *control_ptr,
+		unsigned int *entry_index, char *error_txt);
+	int  (*toc_function)(ADF_CONTROL *control_ptr, char *error_txt);
+	int  (*class_toc_function)(ADF_CONTROL *control_ptr, char *error_txt);
+	int  (*tof_function)(ADF_CONTROL *control_ptr, char *error_txt);
+	int  (*index_function)(ADF_CONTROL *control_ptr, char *error_txt);
+	int  (*perm_index_function)(ADF_CONTROL *control_ptr, char *error_txt);
+	void (*output_start_function)(ADF_CONTROL *control_ptr,
+		const char *output_name, const time_t *output_date,
+		void (*output_function)(void *, char *, ...), void *output_control);
+	void (*output_end_function)(ADF_CONTROL *control_ptr,
+		void (*output_function)(void *, char *, ...), void *output_control);
+	void (*output_between_function)(ADF_CONTROL *control_ptr,
+		const ADF_ENTRY *entry_ptr, const char *output_name,
+		void (*output_function)(void *, char *, ...), void *output_control);
+#else
+	int  (*init_function)();
+	int  (*by_entry_function)();
+	int  (*to_stdout_function)();
+	int  (*by_file_function)();
+	int  (*toc_function)();
+	int  (*class_toc_function)();
+	int  (*tof_function)();
+	int  (*index_function)();
+	int  (*perm_index_function)();
+	void (*output_start_function)();
+	void (*output_end_function)();
+	void (*output_between_function)();
+#endif /* #ifndef NARGS */
+} ADF_OUTPUT_FUNCS;
+
+This change will ease enhancement of the function pointers to be initialized.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-07-02 ***
+Add parameters specific to the output type to 'adfout'.
+
+Each parameter is prefaced with a string which specifies the output type for
+which the parameter is to be parsed:
+
+	-{ASC[II]|FRAME[[_]MAKER]|HTML|MAN[[_]PAGE]|{RICH_TEXT[_FORMAT]|RTF}}:<param>=
+
+Here are some of the parameters to be supported:
+
+	-HTML:VERSION[_NUMBER]={1[.[0]]|2[.[0]]|{+|PLUS}}
+	-HTML:TITLE=<man-section>,<string>
+	-HTML:LINK_TO_HOME[_PAGE]=[<link-text>],<URL>
+	-HTML:BEFORE={<text>|@<file-name>}
+	-HTML:AFTER={<text>|@<file-name>}
+	-HTML:AUTHOR[S]_LINK[S]=<URL>[=[<matching-text>]]
+	-HTML:COPYRIGHT[S]_LINK[S]=<URL>[=[<matching-text>]]
+	-HTML:HEAD[ER|ING]={1|2|3|4|5|6}
+	-FRAME:FONT:NAME={NORMAL|SMALL}=<font-name>
+	-FRAME:FONT:SIZE={NORMAL|SMALL}=<font-point-size>
+	-FRAME:FONT:JUST[IF{Y|CATION}]={NORMAL|SMALL}={LEFT|RIGHT|JUST[IF{Y|CATION}]
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-07-02 ***
+
+Old ADF Database Format
+=== === ======== ======
+
+Header Format:
+------ -------
+<signature>                     ---                             ---     [[[((({{{<<<ADF_DATABASE_FILE>>>}}})))]]]
+<space>
+<creation-date> ---     ????
+<space>
+<creation-time> ---     ????
+<space>
+<adf-area-count>        ---     %010u
+<space>
+<check-flag>            ---     %-10.10s        ---     'DATA' or 'CHECK'
+<line-feed>
+
+Trailer Format:
+------- -------
+<signature>                     ---                             ---     END_OF_ADF_FILE
+<space>
+<htext-offset>          ---     %010u
+<space>
+<htext-length>          ---     %010u
+<space>
+<entry-offset>          ---     %010u
+<space>
+<entry-length>          ---     %010u
+<space>
+<dir-offset>            ---     %010u
+<space>
+<dir-length>            ---     %010
+<line-feed>
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-07-22 ***
+Add support for hyper-text within the 'Code Syntax' area and paragraphs
+which do not otherwise have any character formatting.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-07-22 ***
+Add an ADF executable which collects and inserts into an ADF database file
+the permutated index entries for each entry in the database. To support this,
+I'll need a new ADF area:
+
+	ADF_AREA_REFERENCED_BY
+
+This executable should probably also determine all of the entries to which
+each entry refers, so I'll need another ADF area:
+
+	ADF_AREA_REFERS_TO
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-07-22 ***
+It might be nice to have an HTML-specific parameter which specifies the
+creation of HTML files with frames. The frames would consist of:
+
+	1)      The main frame, where the main descriptive text resides.
+	2)      The 'Referenced By' frame, which contains permutated index for the
+		page. This frame occupies the lower-left corner of the browser.
+	3)      The 'Refers To' frame, which contains the targets of any hyper-text
+		references referred to by the page. This frame occupies the lower-right
+		corner of the browser.
+
+	-HTML:FRAME[S]=<boolean>
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-08-13 ***
+Add a new character format specifier which indicates that, if it is adjacent
+to a resolved hyper-text reference, that reference is not to be emitted:
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-08-13 ***
+I need to review the conversion of human-readable character format specifiers
+completely to ensure that it is being correctly performed.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-11 ***
+Remove the function 'ADF_RUN_OUT_FixOutputDir()' in 'adfout.c' --- it is no
+longer required as the 'output_dir' member of 'ADF_CONTROL' is expanded to
+its fully-qualified equivalent.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-10-13 ***
+Add a new ADF area 'SOURCE_CODE' which captures the actual source code
+implementation of the entry.
+
+No formatting is ever applied to the text in this area except:
+	1) Leading blank lines will be trimmed.
+	2) Trailing blank lines will be trimmed.
+	3) Hyper-text references will be resolved (at 'adfout' time).
+
+Because the parsing logic for this area will swallow-up all text to the end
+of the ADF entry ('EOH */'), the text lines which comprise this area MUST be
+the last area in the ADF entry. 
+
+This will permit me to support the new area by re-placing the string 'EOH */'
+with the string 'SOURCE CODE:', and inserting an 'EOH */' string at the end
+of the function, typedef, or macro definition.
+
+In 'HTML' output, this area is not formatted.
+
+It might be nice to have an 'adfout' option to support the placement of the
+text in this area in a separate file ('<entry-name>.SourceCode.html') with
+a link from the '<entry-name>.html' file.
+
+To support this new area, the logic in the function 'ADF_DoSourceComment()' in
+module 'dosrc.c' must change:
+
+FROM:
+--------------------------------------------------------------:
+				area_ptr->line_count     = 1;
+				area_ptr->line_list      = line_list + count_2;
+				end_flag                 = ADF_FALSE;
+				count_2++;
+--------------------------------------------------------------:
+TO:
+--------------------------------------------------------------:
+				area_ptr->line_count     = 1;
+				area_ptr->line_list      = line_list + count_2;
+				end_flag                 = ADF_FALSE;
+				count_2++;
+				if (section_ptr->area_index == ADF_AREA_SOURCE_CODE) {
+					area_ptr->line_count = line_count - count_2;
+					line_count           = count_2;
+					break;
+				}
+--------------------------------------------------------------:
+
+EXAMPLE FOLLOWS:
+
+The ADF entry in the 'strfuncs' module 'lower.c' changes from:
+--------------------------------------------------------------:
+	PUBLISH NAME:   lower
+
+	ENTRY CLASS     :       Case Conversion Functions
+
+EOH */
+/* *********************************************************************** */
+char *lower(in_text)
+char *in_text;
+{
+	char *start_ptr = in_text;
+
+	while (*in_text) {
+		*in_text = strfmacs_tolower(*in_text);
+		in_text++;
+	}
+
+	return(start_ptr);
+}
+/* *********************************************************************** */
+--------------------------------------------------------------:
+To:
+--------------------------------------------------------------:
+	PUBLISH NAME:   lower
+
+	ENTRY CLASS     :       Case Conversion Functions
+
+	SOURCE CODE     :
+/* *********************************************************************** */
+char *lower(in_text)
+char *in_text;
+{
+	char *start_ptr = in_text;
+
+	while (*in_text) {
+		*in_text = strfmacs_tolower(*in_text);
+		in_text++;
+	}
+
+	return(start_ptr);
+}
+/* *********************************************************************** */
+EOH */
+--------------------------------------------------------------:
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-08 ***
+It might be nice to add a new ADF executable 'adfstrip' which removes ADF
+comments from a source file and sends the resulting text to 'stdout'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+Implement a library version number and routines to retrieve it.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-05 ***
+Add a 'NOTHING' area which will always be discarded by 'adfprep'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-06 ***
+It might make sense to add the following macros to 'adf.h':
+
+#define ADF_IS_START_CFORMAT_CHAR(in_char)                              \
+	((((in_char) == ADF_CFORMAT_CHAR_BOLD_1)        ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_ITALIC_1)      ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_ULINED_1)      ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_OLINED_1)      ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_STHRU_1)       ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_EINDEX_1)      ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_SUBSCRIPT_1)   ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_SUPERSCRIPT_1) ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_HTEXT_1))       ? ADF_TRUE : ADF_FALSE)
+
+#define ADF_IS_END_CFORMAT_CHAR(in_char)                                        \
+	((((in_char) == ADF_CFORMAT_CHAR_BOLD_2)        ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_ITALIC_2)      ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_ULINED_2)      ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_OLINED_2)      ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_STHRU_2)       ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_EINDEX_2)      ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_SUBSCRIPT_2)   ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_SUPERSCRIPT_2) ||      \
+	  ((in_char) == ADF_CFORMAT_CHAR_HTEXT_2))       ? ADF_TRUE : ADF_FALSE)
+
+#define ADF_IS_CFORMAT_CHAR(in_char)                    \
+	((ADF_IS_START_CFORMAT_CHAR(in_char) || \
+	ADF_IS_END_CFORMAT_CHAR(in_char)) ? ADF_TRUE : ADF_FALSE)
+
+#define ADF_IS_START_CFORMAT_STR(in_string)                     \
+	(((*(in_string) == ADF_CFORMAT_MARKER_CHAR) &&  \
+	 ADF_IS_START_CFORMAT_CHAR(*((in_string) + 1))) ? ADF_TRUE : ADF_FALSE)
+
+#define ADF_IS_END_CFORMAT_STR(in_string)                               \
+	(((*(in_string) == ADF_CFORMAT_MARKER_CHAR) &&  \
+	 ADF_IS_END_CFORMAT_CHAR(*((in_string) + 1))) ? ADF_TRUE : ADF_FALSE)
+
+#define ADF_IS_CFORMAT_STR(in_string)                   \
+	((ADF_IS_START_CFORMAT_STR(in_string) ||        \
+	ADF_IS_END_CFORMAT_STR(in_string)) ? ADF_TRUE : ADF_FALSE)
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-07 ***
+Move all 'AUTHOR' and 'COPYRIGHT' information onto a single line.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-26 ***
+Add a new 'built-in' ADF domain definition to support generic ADF comments.
+It should have the following sections:
+
+	o       BASE_NAME
+	o       NAME
+	o       DESCRIPTION
+	o       DEFINITIONS
+	o       TERMINOLOGY
+	o       ENVIRONMENT
+	o       FILES
+	o       ALGORITHMS
+	o       DEBUGGING
+	o       DIAGNOSTICS
+	o       NOTES
+	o       CAVEATS
+	o       DEFAULTS
+	o       BUGS
+	o       LIMITATIONS
+	o       COMPATIBILITY
+	o       IDIOSYNCRACIES
+	o       SEE_ALSO
+	o       AUTHORS
+	o       CONTRIBUTORS
+	o       ACKNOWLEDGMENTS
+	o       CREDITS
+	o       REFERENCES
+	o       RESTRICTIONS
+	o       DISCLAIMERS
+	o       COPYING
+	o       COPYRIGHTS
+	o       TRADEMARKS
+	o       SOURCE_FILE_NAME
+	o       SOURCE_FILE_DATE
+	o       MAN_SECTION
+	o       TAB_SETTING
+	o       OUTPUT_INDEX
+	o       PUBLISH_XREF
+	o       PUBLISH_NAME
+	o       SOURCE_FILE_FULL_NAME
+	o       ENTRY_CLASS_NAME
+=============================================================================
+

@@ -1,0 +1,79 @@
+<!-- ********************************************************************* -->
+<!-- ********************************************************************* -->
+<!-- Documentation for cvt_alpha                                           -->
+<!--                                                                       -->
+<!--    Created by the Automated Documentation Facility (ADF)              -->
+<!-- ********************************************************************* -->
+<!--                                                                       -->
+<!-- Entry Name          : cvt_alpha                                       -->
+<!--                                                                       -->
+<!-- Source File Name    : stalpha.c                                       -->
+<!--                                                                       -->
+<!-- Source File Date    : 1997-03-11 17:01:46 GMT/UTC                     -->
+<!--                     : 1997-03-11 12:01:46 EST                         -->
+<!--                                                                       -->
+<!-- ADF Preparation Date: 1998-01-31 17:53:52 GMT/UTC                     -->
+<!--                     : 1998-01-31 12:53:52 EST                         -->
+<!--                                                                       -->
+<!-- Output Date         : 1998-01-31 17:56:16 GMT/UTC                     -->
+<!--                     : 1998-01-31 12:56:16 EST                         -->
+<!--                                                                       -->
+<!-- ********************************************************************* -->
+
+<!-- ********************************************************************* -->
+<!-- ********************************************************************* -->
+<!-- Copyright 1986 - 1997 Michael L. Brock                                -->
+<!-- ********************************************************************* -->
+<HTML>
+<HEAD>
+<TITLE>cvt_alpha</TITLE>
+</HEAD>
+<BODY>
+<A NAME="cvt_alpha"></A>
+<H1>Name</H1>
+<P>cvt_alpha
+<P>
+<H1>Synopsis</H1><HR><PRE WIDTH=80>return_ptr = cvt_alpha(in_string, conversion_char, sense_flag);
+char       *return_ptr;
+const char *in_string;
+int         conversion_char;
+int         sense_flag;</PRE><HR><P>
+<H1>Description</H1>
+<P>Converts all (non-) alphabetic characters within a string to a specified character.
+<P>
+<H1>Parameters</H1>
+<P>Parameters to this function are as follow:
+<UL>
+<LI><I>in_string</I> is the string in which the conversion is to be performed.
+<LI><I>conversion_char</I> is the character to which those characters of the desired type within <I>in_string</I> are to be converted.
+<LI><I>sense_flag</I> specifies the sense of the conversion to be performed.
+<UL>
+<LI>If <I>sense_flag</I> is non-zero, then this function will convert alphabetic characters in <I>in_string</I>.
+<LI>If <I>sense_flag</I> is zero, then this function will convert non-alphabetic characters in <I>in_string</I>.
+</UL>
+</UL>
+<P>
+<H1>Returns</H1>
+<P>A pointer to the string used as input.
+<P>
+<H1>Notes</H1>
+<P>An alphabetic character is one for which the macro <I>isalpha</I> returns a non-zero value.
+<P>
+<H1>Authors</H1>
+<P>Michael L. Brock
+<P>
+<H1>Copyrights</H1>
+<P>Copyright 1986 - 1997 Michael L. Brock
+<P>
+<H1>Source File Name</H1>
+<P>stalpha.c
+<P>
+<H1>Source File Date</H1>
+<P>1997-03-11
+
+</BODY>
+</HTML>
+<!-- ********************************************************************* -->
+<!-- End of HTML Script for cvt_alpha                                      -->
+<!-- ********************************************************************* -->
+<!-- ********************************************************************* -->

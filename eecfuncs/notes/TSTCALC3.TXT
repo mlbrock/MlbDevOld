@@ -1,0 +1,1932 @@
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"this is a test of the '@lower()' function"
+@lower("THIS IS A TEST OF THE '@LOWER()' FUNCTION")
+"THIS IS A TEST OF THE '@UPPER()' FUNCTION"
+@upper("this is a test of the '@upper()' function")
+3
+1+2
+4
+2+2
+"ABC-123"
+@mid("ABCDEFHIJKLMNOPQRSTUVWXYZ", 0, 3)&"-"&@mid("0123456789", 1, 3)
+"ABC"
+@left("ABCDE", 3)
+"ABCDE"
+@left("ABCDE")
+"CDE"
+@right("ABCDE", 3)
+"ABCDE"
+@right("ABCDE")
+2.999232
+1+2-3*4/5^6
+2.999232
+1+2-3*4/5**6
+5
+@sqrt(25)
+9
+@pow(3,2)
+27
+@pow(3,3)
+81
+@pow(3,4)
+"A"
+@choose( 0, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"B"
+@choose( 1, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"C"
+@choose( 2, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"M"
+@choose(12, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Y"
+@choose(24, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+"Z"
+@choose(25, "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")

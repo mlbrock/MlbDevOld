@@ -1,0 +1,971 @@
+                   ======== ====== ========= ======= =====
+                   STRFUNCS String Functions Library Notes
+                   ======== ====== ========= ======= =====
+
+=============================================================================
+DONE:
+=============================================================================
+*** DONE 1995-05-17 ***
+Made code changes to improve the efficiency of the following functions:
+
+	o	strchr()
+	o	strichr()
+	o	strnchr()
+	o	strnichr()
+	o	strrchr()
+	o	strrichr()
+	o	strrnchr()
+	o	strrnichr()
+-----------------------------------------------------------------------------
+*** DONE 1995-06-13 ***
+Add a function which takes an 'unsigned long' and returns the equivalent in
+text in module 'ulongtxt.c'.
+
+#include <limits.h>
+
+typedef struct {
+	unsigned long  value;
+	char          *name;
+	unsigned long  basis;
+} STRFUNCS_VALUE_NAME;
+
+void  get_ulong_text_default(unsigned int *name_count,
+	const STRFUNCS_VALUE_NAME **name_list);
+int   set_ulong_text_default(unsigned int name_count,
+	const STRFUNCS_VALUE_NAME *name_list);
+char *get_ulong_text(unsigned long in_ulong, char *out_string);
+char *get_ulong_text_basic(unsigned long in_ulong, unsigned int name_count,
+	const STRFUNCS_VALUE_NAME *name_list, char *out_string);
+-----------------------------------------------------------------------------
+*** DONE 1995-08-07 ***
+Add the following character class functions:
+
+	strr_stalnum()
+	idxr_stalnum()
+	strr_stalpha()
+	idxr_stalpha()
+	strr_stascii()
+	idxr_stascii()
+	strr_stcntrl()
+	idxr_stcntrl()
+	strr_stcsym()
+	idxr_stcsym()
+	strr_stcsymf()
+	idxr_stcsymf()
+	strr_stdigit()
+	idxr_stdigit()
+	strr_stgraph()
+	idxr_stgraph()
+	strr_stlower()
+	idxr_stlower()
+	strr_stprint()
+	idxr_stprint()
+	strr_stpunct()
+	idxr_stpunct()
+	strr_stspace()
+	idxr_stspace()
+	strr_stupper()
+	idxr_stupper()
+	strr_stxdigit()
+	idxr_stxdigit()
+-----------------------------------------------------------------------------
+*** DONE 1995-08-07 ***
+Add the following character class functions in 'stbdigit.c'.
+
+	str_bdigit()
+	strr_bdigit()
+	idx_bdigit()
+	idxr_bdigit()
+	cnt_bdigit()
+	cvt_bdigit()
+
+And add a macro to 'strfuncs.h':
+
+#ifndef isbdigit
+# define isbdigit(c)					(((c) == '0') || ((c) == '1'))
+#endif /* #ifndef isbdigit */
+-----------------------------------------------------------------------------
+*** DONE 1995-08-07 ***
+Add the following character class functions in 'stodigit.c'.
+
+	str_odigit()
+	strr_odigit()
+	idx_odigit()
+	idxr_odigit()
+	cnt_odigit()
+	cvt_odigit()
+
+And add a macro to 'strfuncs.h':
+#ifndef isodigit
+# define isodigit(c)					(isdigit(c) && ((c) != '8') && ((c) != '9'))
+#endif /* #ifndef isodigit */
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-26 ***
+*** DONE     1995-08-28 ***
+Implement Boyer-Moore string searching.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'center()' in module to 'center.c' to take an 'unsigned int'
+'length' parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'centerit()' in module to 'centerit.c' to take an
+'unsigned int' 'width' parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'spctotab()' in module to 'spctotab.c' to take an
+'unsigned int' 'tab_setting' parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'strinst()' in module to 'strinst.c' to take an
+'unsigned int' 'position' parameter and a 'const char *' 'insert_string'
+parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'strninst()' in module to 'strninst.c' to take 'unsigned int'
+'position' and 'length' parameters and a 'const char *' 'insert_string'
+parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'strnrepl()' in module to 'strnrepl.c' to take 'unsigned int'
+'position', 'delete_length' and 'insert_length' parameters and a
+'const char *' 'insert_string' parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'strpadl()' in module to 'strpadl.c' to take an
+'unsigned int' 'length' parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'strpadr()' in module to 'strpadr.c' to take an
+'unsigned int' 'length' parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'strrepl()' in module to 'strrepl.c' to take 'unsigned int'
+'position' and 'delete_length' parameters and a 'const char *' 'insert_string'
+parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-08 ***
+*** DONE     1995-09-08 ***
+Changed function 'tabtospc()' in module to 'tabtospc.c' to take an
+'unsigned int' 'tab_setting' parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-10 ***
+*** DONE     1995-09-12 ***
+Add radix-50 support to the STRFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+*** DONE     1996-02-29 ***
+Change the function 'ordinal()' in 'ordinal.c' from:
+
+char *ordinal(int number, char *text);
+
+to:
+
+char *ordinal(unsigned int number, char *text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-27 ***
+*** DONE     1996-02-29 ***
+The following functions should be enhanced with lower-level functions in the
+same module which support the following:
+
+	o *_basic()     --- Takes pointers to an input string and an output
+							  string (which may or may not be the same.
+	o *_basic_mem() --- As above, but with explicit string lengths ---
+							  ASCII NUL termination is not assumed.
+
+The functions are:
+--- --------- ----
+	center()
+	initcaps()
+	lower()
+	ltrim()
+	ltrimx()
+	rtrim()
+	rtrimx()
+	strpadl()
+	strpadr()
+	trim()
+	trimx()
+	upper()
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-03-04 ***
+*** DONE     1996-03-06 ***
+Change the 'position' and 'delete_length' parameters to the function
+'strdele()' in module 'strdele.c' from 'int' to 'unsigned int'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-16 ***
+*** DONE     1996-04-06 ***
+Implement functions in new the module 'cardinal.c' --- they simply call the
+function 'get_ulong_text()' and 'get_double_text()'.
+
+char *cardinal(unsigned long number, char *text);
+char *cardinal_double(double number, unsigned int decimal_places, char *text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-11 ***
+*** DONE     1996-04-06 ***
+Implement 'ordinal_full()' functions based upon 'get_ulong_text()' and
+'get_double_text()' which constructs the full ordinal name for a given value:
+
+	printf("%s\n", ordinal_full(12345L, out_string));
+
+yields:
+
+	twelve thousand three hundred and forty-fifth
+
+char *ordinal_full(unsigned long number, char *text);
+char *ordinal_double_full(double number, unsigned int decimal_points,
+	char *text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-03-05 ***
+*** DONE     1996-04-06 ***
+Implement 'double' analogues of the functions 'get_ulong_text()' and
+'get_ulong_text_basic()':
+
+char *get_double_text(double in_double, unsigned int decimal_places,
+	char *out_string);
+char *get_double_text_basic(double in_double, unsigned int decimal_places,
+	unsigned int name_count, const STRFUNCS_D_VALUE_NAME *name_list,
+	unsigned int ulong_name_count, const STRFUNCS_VALUE_NAME *ulong_name_list,
+	char *out_string);
+
+Also implement a function which removes unnecessary ' zero' sub-strings from
+the formatted string resulting from invocation of the above functions:
+
+char *drop_double_text_zeroes(char *out_string);
+
+'cardinal_full()' and 'ordinal()' using an interface with the following
+parameters:
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-03-25 ***
+*** DONE     1996-04-06 ***
+Remove all logic from 'ulongtxt.c' which supports the changing of static
+context for the resolution of 'unsigned long's to strings --- to use a
+non-American System context, application programmers will just have to use
+the low-level function 'get_double_text_basic()'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-03 ***
+*** DONE     1996-04-07 ***
+Further segregate the 'OUTPUT_INDEX' and 'ENTRY_CLASS' areas of the STRFUNCS
+character class functions:
+
+	o str_*	---> Character Class Functions:Search Functions/Pointer
+						Character Class Functions:Search Functions/Pointer:
+						STRFUNCS:Character Class Functions:Search Functions/Pointer:
+	o strr_*	---> Character Class Functions:Search Functions/Pointer
+						Character Class Functions:Search Functions/Pointer:
+						STRFUNCS:Character Class Functions:Search Functions/Pointer:
+	o idx_*	---> Character Class Functions:Search Functions/Index
+						Character Class Functions:Search Functions/Index:
+						STRFUNCS:Character Class Functions:Search Functions/Index:
+	o idxr_*	---> Character Class Functions:Search Functions/Index
+						Character Class Functions:Search Functions/Index:
+						STRFUNCS:Character Class Functions:Search Functions/Index:
+	o cnt_*	---> Character Class Functions:Count Functions
+						Character Class Functions:Count Functions:
+						STRFUNCS:Character Class Functions:Count Functions:
+	o cvt_*	---> Character Class Functions:Conversion Functions
+						Character Class Functions:Conversion Functions:
+						STRFUNCS:Character Class Functions:Conversion Functions:
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-03 ***
+*** DONE     1996-04-07 ***
+Add an 'OUTPUT_INDEX' and 'ENTRY_CLASS' paragraph for the STRFUNCS character
+class functions as follows:
+
+	o *_alnum	---> Alphanumeric Character Class Functions
+						  Character Class Functions:Alphanumeric Character Class Functions:
+						  STRFUNCS:Character Class Functions:Alphanumeric Character Class Functions:
+	o *_alpha	---> Alphabetic Character Class Functions
+						  Character Class Functions:Alphabetic Character Class Functions:
+						  STRFUNCS:Character Class Functions:Alphabetic Character Class Functions:
+	o *_ascii	---> ASCII Character Class Functions
+						  Character Class Functions:ASCII Character Class Functions:
+						  STRFUNCS:Character Class Functions:ASCII Character Class Functions:
+	o *_bdigit	---> Binary Digit Character Class Functions
+						  Character Class Functions:Binary Digit Character Class Functions:
+						  STRFUNCS:Character Class Functions:Binary Digit Character Class Functions:
+	o *_cntrl	---> Control Character Class Functions
+						  Character Class Functions:Control Character Class Functions:
+						  STRFUNCS:Character Class Functions:Control Character Class Functions:
+	o *_csym		---> C Symbol Character Class Functions
+						  Character Class Functions:C Symbol Character Class Functions:
+						  STRFUNCS:Character Class Functions:C Symbol Character Class Functions:
+	o *_csymf	---> C Symbol (First) Character Class Functions
+						  Character Class Functions:C Symbol (First) Character Class Functions:
+						  STRFUNCS:Character Class Functions:C Symbol (First) Character Class Functions:
+	o *_digit	---> Decimal Digit Character Class Functions
+						  Character Class Functions:Decimal Digit Character Class Functions:
+						  STRFUNCS:Character Class Functions:Decimal Digit Character Class Functions:
+	o *_graph	---> Graph Character Class Functions
+						  Character Class Functions:Graph Character Class Functions:
+						  STRFUNCS:Character Class Functions:Graph Character Class Functions:
+	o *_lower	---> Lower-Case Character Class Functions
+						  Character Class Functions:Lower-Case Character Class Functions:
+						  STRFUNCS:Character Class Functions:Lower-Case Character Class Functions:
+	o *_odigit	---> Octal Digit Character Class Functions
+						  Character Class Functions:Octal Digit Character Class Functions:
+						  STRFUNCS:Character Class Functions:Octal Digit Character Class Functions:
+	o *_print	---> Print Character Class Functions
+						  Character Class Functions:Print Character Class Functions:
+						  STRFUNCS:Character Class Functions:Print Character Class Functions:
+	o *_punct	---> Punctuation Character Class Functions
+						  Character Class Functions:Punctuation Character Class Functions:
+						  STRFUNCS:Character Class Functions:Punctuation Character Class Functions:
+	o *_space	---> Space Character Class Functions
+						  Character Class Functions:Space Character Class Functions:
+						  STRFUNCS:Character Class Functions:Space Character Class Functions:
+	o *_upper	---> Upper-Case Character Class Functions
+						  Character Class Functions:Upper-Case Character Class Functions:
+						  STRFUNCS:Character Class Functions:Upper-Case Character Class Functions:
+	o *_xdigit	---> Hexadecimal Digit Character Class Functions
+						  Character Class Functions:Hexadecimal Digit Character Class Functions:
+						  STRFUNCS:Character Class Functions:Hexadecimal Digit Character Class Functions:
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-13 ***
+*** DONE     1996-04-13 ***
+Add low-level functions for the conversion of BCD to ASCII to the module
+'bcdtoasc.c':
+
+char          *bcdtoasc_basic(unsigned int in_bcd_length,
+	const char *in_bcd_ptr, char *out_ascii_ptr);
+char          *bcdtoasc_basic_mem(unsigned int in_bcd_length,
+	const char *in_bcd_ptr, int start_at_nybble_flag,
+	unsigned int *out_ascii_length, char *out_ascii_ptr, int *bcd_sign_value);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-13 ***
+*** DONE     1996-04-13 ***
+Add low-level functions for trim of leading zeroes to the module 'zerotrim.c':
+
+char *zerotrim_basic(const char *in_text, char *out_text,
+	int keep_last_zero_flag);
+char *zerotrim_basic_mem(unsigned int in_length, const char *in_text,
+	unsigned int *out_length, char *out_text, int keep_last_zero_flag);
+-----------------------------------------------------------------------------
+*** DONE     1996-05-15 ***
+The library functions which return the list index ('found_index') in a pointer
+to an unsigned int should be changed so that if that parameter is 'NULL', it
+is not de-referenced.
+
+This change should be made in such functions as 'strl_find()',
+'STR_LIST_search()', et cetera:
+
+	o Function 'STR_ARRAY_bsearch()', module 'strabser.c'.
+	o Function 'STR_ARRAY_delete()', module 'stradele.c'.
+	o Function 'STR_ARRAY_find()', module 'strafind.c'.
+	o Function 'STR_ARRAY_search()', module 'strasear.c'.
+	o Function 'STR_LIST_bsearch()', module 'strlbser.c'.
+	o Function 'STR_LIST_delete()', module 'strldele.c'.
+	o Function 'STR_LIST_find()', module 'strlfind.c'.
+	o Function 'STR_LIST_search()', module 'strlsear.c'.
+	o Function 'strl_delete()', module 'strldl.c'.
+	o Function 'strl_find()', module 'strlfd.c'.
+	o Function 'strl_search()', module 'strlse.c'.
+	o Function 'strli_delete()', module 'strlidl.c'.
+	o Function 'strli_find()', module 'strlifd.c'.
+	o Function 'strli_search()', module 'strlise.c'.
+	o Function 'strln_delete()', module 'strlndl.c'.
+	o Function 'strln_find()', module 'strlnfd.c'.
+	o Function 'strln_search()', module 'strlnse.c'.
+	o Function 'strlni_delete()', module 'strlnidl.c'.
+	o Function 'strlni_find()', module 'strlnifd.c'.
+	o Function 'strlni_search()', module 'strlnise.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-04 ***
+*** DONE     1996-05-17 ***
+Add the following macros to 'strfuncs.h':
+
+#define STRFUNCS_ADJUST_SIZE(in_size, adjust)				\
+	((unsigned long) (((in_size) < (adjust)) ? (adjust) :	\
+	(!((in_size) % (adjust))) ? (in_size) :					\
+	((((in_size) / (adjust)) + 1) * (adjust))))
+
+#define STRFUNCS_ADJUST_SIZE_NO_MINIMUM(in_size, adjust)	\
+	((unsigned long) (((in_size) < (adjust)) ? 0 :			\
+	(!((in_size) % (adjust))) ? (in_size) :					\
+	((((in_size) / (adjust)) + 1) * (adjust))))
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-16 ***
+*** DONE     1996-05-17 ***
+Add functions which determine the file name portion of a full path name in
+the module 'getfname.c':
+
+const char *extract_file_name(const char *in_path);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-23 ***
+*** DONE     1996-05-24 ***
+Rename the macro in 'strfuncs.h':
+
+	STRFUNCS_ADJUST_SIZE_NO_MINIMUM ---> STRFUNCS_ADJUST_SIZE_NO_MIN
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-23 ***
+*** DONE     1996-05-24 ***
+Change the macros 'STRFUNCS_ADJUST_SIZE' and 'STRFUNCS_ADJUST_SIZE_NO_MIN':
+
+#define STRFUNCS_ADJUST_SIZE(in_size, adjust)										\
+	((unsigned long) (((((unsigned long) (in_size))) <								\
+	(((unsigned long) (adjust)))) ? (((unsigned long) (adjust))) :				\
+	(!((((unsigned long) (in_size))) % (((unsigned long) (adjust))))) ?		\
+	(((unsigned long) (in_size))) :														\
+	((((((unsigned long) (in_size))) /													\
+	(((unsigned long) (adjust)))) + 1L) * (((unsigned long) (adjust))))))
+
+#define STRFUNCS_ADJUST_SIZE_NO_MIN(in_size, adjust)								\
+	((unsigned long) (((((unsigned long) (in_size))) <								\
+	(((unsigned long) (adjust)))) ? 0L :												\
+	(!((((unsigned long) (in_size))) % (((unsigned long) (adjust))))) ?		\
+	(((unsigned long) (in_size))) :														\
+	((((((unsigned long) (in_size))) /													\
+	(((unsigned long) (adjust)))) + 1L) *												\
+	(((unsigned long) (adjust))))))
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-03-05 ***
+*** DONE     1996-08-06 ***
+Rename the following manifest constants used in the library code:
+
+	o STRFUNCS_ERROR				 ---> STRFUNCS_FAILURE
+	o STR_LIST_FAILURE			 ---> STRFUNCS_FAILURE
+	o STR_LIST_ERROR				 ---> STRFUNCS_FAILURE
+	o STR_LIST_SUCCESS			 ---> STRFUNCS_SUCCESS
+	o STR_LIST_ITEM_FOUND		 ---> STRFUNCS_ITEM_FOUND
+	o STR_LIST_ITEM_NOT_FOUND	 ---> STRFUNCS_ITEM_NOT_FOUND
+	o STR_LIST_DIRECTION_NONE	 ---> STRFUNCS_DIRECTION_NONE
+	o STR_LIST_DIRECTION_TOP	 ---> STRFUNCS_DIRECTION_TOP
+	o STR_LIST_DIRECTION_BOTTOM ---> STRFUNCS_DIRECTION_BOTTOM
+
+But leave the original '#define's in 'strfuncs.h' for compatibility with
+legacy code.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-23 ***
+*** DONE     1997-02-04 ***
+In the module 'val2str.c':
+
+	o	the datum 'STRFUNCS_RadixCharList' should be 'static const char *'.
+
+	o	the 'in_radix' parameter should be 'unsigned int'.
+
+	o	add a low-level function to the module 'val2str.c' which returns the
+		radix digits in reverse order.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-23 ***
+*** DONE     1997-02-04 ***
+Change 'static' variables to 'static const', where appropriate.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-25 ***
+*** DONE     1997-02-05 ***
+Implement a new structure 'STR_VERSION' and supporting macros and functions.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-05 ***
+*** DONE     1997-02-05 ***
+Move the GENFUNCS 'GEN_EMIT_*()' functions into the STRFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+*** DONE     1997-02-05 ***
+Implement a library version number and routines to retrieve it.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-18 ***
+*** DONE     1997-02-07 ***
+Fix the problem in the ADF comment for the 'RADIX50_Radix50Table' in module
+'initrad.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-08 ***
+*** DONE     1997-02-28 ***
+Add functions in new module 'getnstr.c' which determine whether a specified
+portion of a string is a valid numeric representation.
+
+	[+|-]{<digits>[.[<digits>]]|.<digits>}[{e|E}{+|-}<digits>]
+
+int getnumstr(const char *in_string, const char *decimal_point,
+	unsigned int *new_start_index, unsigned int *new_end_index);
+int getnumstr_basic(const char *in_string, unsigned int start_index,
+	unsigned int end_index, const char *decimal_point,
+	unsigned int *new_start_index, unsigned int *new_end_index);
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-15 ***
+*** DONE     1997-02-28 ***
+Add the following functions to the STRFUNCS library:
+
+#ifndef NARGS
+char         *mem2cstr(unsigned int in_length, const char *in_string,
+	int flags, char *out_string);
+char         *mem2cstr_alloc(unsigned int in_length, const char *in_string,
+	int flags);
+unsigned int  mem2cstr_length(unsigned int in_length, const char *in_string,
+	int flags);
+#else
+char         *mem2cstr();
+char         *mem2cstr_alloc();
+unsigned int  mem2cstr_length();
+#endif /* #ifndef NARGS */
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-15 ***
+*** DONE     1997-02-28 ***
+Add the following functions to the STRFUNCS library:
+
+The existing function 'cstring()' will call the new function 'cstr2mem()'.
+
+#ifndef NARGS
+char         *cstr2mem(const char *in_string, int flags,
+	unsigned int *out_length, char *out_string);
+char         *cstr2mem_alloc(const char *in_string, int flags,
+	unsigned int *out_length);
+unsigned int  cstr2mem_length(const char *in_string, int flags);
+char         *cstr2mem_basic(unsigned int in_length, const char *in_string,
+	int flags, unsigned int *out_length, char *out_string);
+char         *cstr2mem_basic_alloc(unsigned int in_length,
+	const char *in_string, int flags, unsigned int *out_length);
+unsigned int  cstr2mem_basic_length(unsigned int in_length,
+	const char *in_string, int flags);
+#else
+char         *cstr2mem();
+char         *cstr2mem_alloc();
+unsigned int  cstr2mem_length();
+char         *cstr2mem_basic();
+char         *cstr2mem_basic_alloc();
+unsigned int  cstr2mem_basic_length();
+#endif /* #ifndef NARGS */
+=============================================================================
+
+=============================================================================
+CANCELLED:
+=============================================================================
+=============================================================================
+
+=============================================================================
+PENDING:
+=============================================================================
+Change the prototypes in 'strfuncs.h' to include parameter names.
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Group the prototypes in 'strfuncs.h' by functional area.
+-----------------------------------------------------------------------------
+Write a function based upon the 'cnormal()' function which counts the number
+of all lines and actual code lines in a 'C' or 'C++' source or header file.
+
+Implement an executable based upon said function.
+-----------------------------------------------------------------------------
+Change the binary search routines to use binary search in finding the other
+side of the search target instead of a linear scan of the data.
+-----------------------------------------------------------------------------
+The length parameter in function 'strwrap()' must be changed to
+'unsigned int'.
+-----------------------------------------------------------------------------
+Make code changes to improve the efficiency of the following functions:
+
+	o striindx()
+	o strindx()
+	o stristr()
+	o stristrn()
+	o strniidx()
+	o strnistr()
+	o strnistrn()
+	o strnstr()
+	o strnstrn()
+	o strristr()
+	o strristrn()
+	o strrnistr()
+	o strrnistrn()
+	o strrnstr()
+	o strrnstrn()
+	o strrstr()
+	o strrstrn()
+	o strstr()
+	o strstrn()
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-27 ***
+Implement Aho-Corasick string searching.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-27 ***
+Implement fully internal versions of 're_comp()' 're_search()', and
+'re_match()' for the STRFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-27 ***
+Implement a variety of approximate string searching techniques for the
+STRFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-27 ***
+Implement a variety of phonetic string searching techniques for the STRFUNCS
+library.
+
+	Soundex (and variants)
+	Metaphone
+
+See 'Practical Algorithms', pp. ??-?? / Binstock & Rex
+See 'Computer Language', December 1990, pp. 38-43 / Lawrence Philips
+See 'C Gazette', June/July 1991, pp. 55-58, Gary A. Parker
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-27 ***
+Implement hash functionality for the STRFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-27 ***
+Implement a variety of check-sum techniques for the STRFUNCS library:
+
+		/* In 'parityck.c'. */
+	int parity_odd(unsigned int in_length, const void *in_ptr);
+	int parity_even(unsigned int in_length, const void *in_ptr);
+		/* In 'cusipck.c'. */
+	int cins_cusip_check_sum(const char *in_cins_cusip);
+		/* In 'uspsck.c'. */
+	int usps_check_sum(const char *usps_postal_code);
+		/* In 'crcccitt.c'. */
+	unsigned short crc_ccitt_check_sum(unsigned int in_length,
+		const void *in_ptr);
+	void copy_crc_ccitt_check_sum(unsigned short *crc_ccitt_table);
+	void calc_crc_ccitt_check_sum(unsigned short *crc_ccitt_table);
+		/* In 'crc16.c'. */
+	unsigned short crc_16_check_sum(unsigned int in_length,
+		const void *in_ptr);
+	void copy_crc_16_check_sum(unsigned short *crc_ccitt_table);
+	void calc_crc_16_check_sum(unsigned short *crc_ccitt_table);
+		/* In 'crc32.c'. */
+	unsigned long crc_32_check_sum(unsigned int in_length,
+		const void *in_ptr);
+	void copy_crc_32_check_sum(unsigned long *crc_ccitt_table);
+	void calc_crc_32_check_sum(unsigned long *crc_ccitt_table);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-27 ***
+The following functions should be enhanced with lower-level functions in the
+same module which support the following:
+
+	o *_basic()     --- Takes pointers to an input string and an output
+							  string (which may or may not be the same.
+	o *_basic_mem() --- As above, but with explicit string lengths ---
+							  ASCII NUL termination is not assumed.
+
+The functions are:
+--- --------- ----
+	ctltospc()
+	noblank()
+	nocntrl()
+	nospace()
+	oneblank()
+	spctotab()
+	tabtospc()
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-13 ***
+Add English language hyphenation support to the STRFUNCS library.
+
+See 'C Gazette', June/July 1991, pp. 23-26, Allen Holub
+See 'TeX and Metafont, New Directions in Typesetting'
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-13 ***
+The function 'tabtospc()' in module 'tabtospc.c' needs lower-level functions
+which do the following:
+
+	o Accepts as a parameter the current logical column.
+
+	o Accepts an 'out_text' parameter (which may be the same as the
+	  input string parameter).
+
+	/* If 'current_column' is 'NULL', current logical column is '0'. */
+char         *tabtospc_basic(char *in_text, char *out_text,
+	unsigned int tab_setting, unsigned int *current_column);
+char         *tabtospc_basic_mem(unsigned int in_length, char *in_text,
+	unsigned int *out_length, char *out_text, unsigned int tab_setting,
+	unsigned int *current_column);
+
+
+Also needed are functions which will return, for given 'in_text',
+'tab_setting' and 'current_column' parameters, the length of 'out_text'
+after expansion of tabs:
+
+unsigned int  tabtospc_basic_length(char *in_text, unsigned int tab_setting,
+	unsigned int current_column);
+unsigned int  tabtospc_basic_length_mem(unsigned int in_length,
+	char *in_text, unsigned int tab_setting, unsigned int current_column);
+
+/*	***********************************************************************	*/
+char *tabtospc_basic(in_text, out_text, tab_setting, current_col)
+const char   *in_text;
+char         *out_text;
+unsigned int  tab_setting;
+unsigned int *current_col;
+{
+	unsigned int tmp_length;
+
+	tabtospc_basic_mem(strlen(in_text), in_text, &tmp_length, out_text,
+		tab_setting, current_col);
+	*(out_text + tmp_length) = '\0';
+
+	return(out_text);
+}
+/*	***********************************************************************	*/
+
+/*	***********************************************************************	*/
+char *tabtospc_basic_mem(in_length, in_text, out_length, out_text,
+	tab_setting, current_col)
+unsigned int  in_length;
+const char   *in_text;
+unsigned int *out_length;
+char         *out_text;
+unsigned int  tab_setting;
+unsigned int *current_col;
+{
+	unsigned int  space_count;
+	unsigned int  tmp_current_col = 0;
+	char         *tmp_ptr_1       = out_text;
+	char         *tmp_ptr_2;
+	char         *tmp_ptr_3;
+
+	*out_length = 0;
+	current_col = (current_col == NULL) ? &tmp_current_col : current_col;
+
+	if (in_text == out_text) {
+		while (in_length) {
+			if (*in_text == '\t') {
+				if (!tab_setting) {
+					tmp_ptr_2  = tmp_ptr_1;
+					tmp_length = in_length - 1;
+					while (tmp_length) {
+						*tmp_ptr_2 = *(tmp_ptr_2 + 1);
+						tmp_ptr_2++;
+						tmp_length--;
+					}
+				}
+				else {
+					space_count   = tab_setting - (*current_col % tab_setting);
+					*out_length  += space_count;
+					*current_col += space_count;
+					tmp_ptr_2     = tmp_ptr_1 + strlen(tmp_ptr_1);
+					tmp_ptr_3     = tmp_ptr_2 + (space_count - 1);
+					while (tmp_ptr_2 > tmp_ptr_1)
+						*tmp_ptr_3-- = *tmp_ptr_2--;
+					while (space_count--)
+						*tmp_ptr_1++ = ' ';
+				}
+			}
+			else {
+				(*out_length)++;
+				(*current_col)++;
+				tmp_ptr_1++;
+			}
+			in_length--;
+		}
+	}
+	else {
+		while (in_length) {
+			if (*in_text == '\t') {
+				if (!tab_setting)
+					tmp_ptr_1++;
+				else {
+					space_count   = tab_setting - (*current_col % tab_setting);
+					*out_length  += space_count;
+					*current_col += space_count;
+					while (space_count--)
+						*tmp_ptr_1++ = ' ';
+				}
+			}
+			else {
+				(*out_length)++;
+				(*current_col)++;
+				*tmp_ptr_1++ = *in_text++;
+			}
+			in_length--;
+		}
+	}
+
+	return(out_text);
+}
+/*	***********************************************************************	*/
+
+/*	***********************************************************************	*/
+unsigned int *tabtospc_basic_length(in_text, tab_setting, current_col)
+const char   *in_text;
+unsigned int  tab_setting;
+unsigned int *current_col;
+{
+	return(tabtospc_basic_length_mem(strlen(in_text), in_text, tab_setting,
+		current_col));
+}
+/*	***********************************************************************	*/
+
+/*	***********************************************************************	*/
+char *tabtospc_basic_length_mem(in_length, in_text, tab_setting, current_col)
+unsigned int  in_length;
+const char   *in_text;
+unsigned int  tab_setting;
+unsigned int *current_col;
+{
+	unsigned int  space_count;
+	unsigned int  out_length;
+	unsigned int  tmp_current_col = 0;
+	char         *tmp_ptr_1       = out_text;
+	char         *tmp_ptr_2;
+	char         *tmp_ptr_3;
+
+	out_length  = 0;
+	current_col = (current_col == NULL) ? &tmp_current_col : current_col;
+
+	while (in_length) {
+		if (*in_text == '\t') {
+			if (!tab_setting)
+				tmp_ptr_1++;
+			else {
+				space_count   = tab_setting - (current_col % tab_setting);
+				out_length   += space_count;
+				*current_col += space_count;
+			}
+		}
+		else {
+			out_length++;
+			(*current_col)++;
+		}
+		in_length--;
+	}
+
+	return(out_length);
+}
+/*	***********************************************************************	*/
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-29 ***
+Include copyright notices in all header files and source code.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+Change all copyrights to year ranges 19?? - 1996.
+
+Change all copyrights to Michael L. Brock.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-29 ***
+Modify the function 'centerit()' in 'centerit.c' to invoke 'center()'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-03-05 ***
+Remove the function 'OLD_STR_ARRAY_bsearch()' from module 'strabser.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-03-27 ***
+Change all functions which return a 'size_t' to return an 'unsigned int':
+
+	o chrcnt()
+	o chricnt()
+	o chrncnt()
+	o chrnicnt()
+	o memcnt()
+	o memicnt()
+	o strcnt()
+	o stricnt()
+	o strncnt()
+	o strnicnt()
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-03 ***
+Add another level to the 'OUTPUT INDEX' section for STRFUNCS array and list
+functions. For example, the function 'strl_delete()' has at present:
+
+   OUTPUT INDEX:  strl_delete
+						String List Functions:strl_delete
+						STRFUNCS:String List Functions:strl_delete
+						String Functions:See STRFUNCS
+
+	ENTRY CLASS	:	String List Functions
+
+This should be changed to:
+
+   OUTPUT INDEX:  strl_delete
+						String List Functions:Delete Functions:strl_delete
+						STRFUNCS:String List Functions:Delete Functions:strl_delete
+						String Functions:See STRFUNCS
+
+	ENTRY CLASS	:	String List Functions:Delete Functions
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-04 ***
+Make sure that the function 'ccmntend()' in module 'ccmntend.c' handles the
+inclusion of quoted strings within comments correctly.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-06 ***
+Look-up the remaining metric suffices after 'exa' and plug them into the
+array 'STRFUNCS_D_MetricNumberTextList' in module 'doubltxt.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-17 ***
+Modify all ADF copyright strings as follows:
+	Copyright (c) <year> Michael L. Brock. All rights reserved.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-23 ***
+In the module 'val2str.c':
+
+	o	add a low-level function to the module 'val2str.c' which returns the
+		radix digits in reverse order.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+Extend all copyright years through 1997.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-07 ***
+Move all 'AUTHOR' and 'COPYRIGHT' information onto a single line.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-25 ***
+Move the functions in the GENFUNCS library module 'allocmsg.c' into the
+STRFUNCS library.
+
+-----------------------------------------------------------------------------
+*** PROPOSED 2000-12-13 ***
+Implement the following prototype with 'COMPAT_FN_DECL' in 'strfuncs.h':
+	char *cvt_xdigit(char *in_string, int conversion_char, int sense_flag);
+-----------------------------------------------------------------------------
+*** PROPOSED 2000-12-13 ***
+Add the following types to 'strfuncs.h':
+
+typedef struct {
+	unsigned int   count;
+	char         **list;
+} STR_STR_LIST;
+
+typedef struct {
+	unsigned int   length;
+	unsigned int   count;
+	char         **list;
+} STR_STRN_LIST;
+
+typedef struct {
+	unsigned int   length;
+	unsigned int   count;
+	char         **list;
+} STR_MEM_ARRAY;
+
+typedef struct {
+	unsigned int   count;
+	void         **list;
+} STR_MEM_LIST;
+
+#ifndef NO_ENUM
+typedef enum {
+	STR_LIST_FLAG_CASE_SENSE	= 0x00,
+	STR_LIST_FLAG_CASE_INSENSE	= 0x01,
+} STR_LIST_FLAG;
+#else
+typedef int STR_LIST_FLAG;
+#define STR_LIST_FLAG_CASE_SENSE	((STR_LIST_FLAG) 0x00)
+#define STR_LIST_FLAG_CASE_INSENSE	((STR_LIST_FLAG) 0x01)
+#endif /* #ifndef NO_ENUM */
+
+And the following supporting functions:
+
+int STR_{Mem|Str|StrN}List_Init(STR_? *ptr, char *error_text);
+int STR_{Mem|Str|StrN}List_Free(STR_? *ptr, char *error_text);
+int STR_{Mem|Str|StrN}List_Add(const STR_? *in_ptr, STR_? *out_ptr,
+	char *error_text);
+int STR_{Mem|Str|StrN}List_Append(STR_? *ptr, const {char|void} *data_ptr,
+	char *error_text);
+int STR_{Mem|Str|StrN}List_Copy(const STR_? *in_ptr, STR_? *out_ptr,
+	char *error_text);
+int STR_{Mem|Str|StrN}List_Delete(STR_? *ptr, unsigned int position,
+	unsigned int count, char *error_text);
+int STR_{Mem|Str|StrN}List_DeleteAt(STR_? *ptr, unsigned int position,
+	char *error_text);
+int STR_{Mem|Str|StrN}List_Find(const STR_? *ptr, const {char|void} *key_ptr,
+	{char|void} **found_ptr, unsigned int *found_index, char *error_text);
+int STR_{Mem|Str|StrN}List_InsertAt(STR_? *ptr, const {char|void} *data_ptr,
+	unsigned int position, char *error_text);
+int STR_{Mem|Str|StrN}List_Reverse(STR_? *ptr, char *error_text);
+int STR_{Mem|Str|StrN}List_Search(STR_? *ptr, const {char|void} *key_ptr,
+	STR_LIST_FLAG flags, {char|void} **found_ptr, unsigned int *found_index,
+	char *error_text);
+int STR_{Mem|Str|StrN}List_Sort(STR_? *ptr, STR_CMP_FUNC_TYPE cmp_func,
+	void *control_ptr, char *error_text);
+int STR_{Mem|Str|StrN}List_Uniq(STR_? *ptr, STR_CMP_FUNC_TYPE cmp_func,
+	char *error_text);
+=============================================================================
+

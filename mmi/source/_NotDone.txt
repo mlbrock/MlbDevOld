@@ -1,0 +1,3 @@
+MMI_NATIVE_mctl
+MMI_NATIVE_mlockall
+

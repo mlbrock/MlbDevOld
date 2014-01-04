@@ -1,0 +1,88 @@
+<!-- ********************************************************************* -->
+<!-- ********************************************************************* -->
+<!-- Documentation for idx_alpha                                           -->
+<!--                                                                       -->
+<!--    Created by the Automated Documentation Facility (ADF)              -->
+<!-- ********************************************************************* -->
+<!--                                                                       -->
+<!-- Entry Name          : idx_alpha                                       -->
+<!--                                                                       -->
+<!-- Source File Name    : stalpha.c                                       -->
+<!--                                                                       -->
+<!-- Source File Date    : 1997-03-11 17:01:46 GMT/UTC                     -->
+<!--                     : 1997-03-11 12:01:46 EST                         -->
+<!--                                                                       -->
+<!-- ADF Preparation Date: 1998-01-31 17:53:52 GMT/UTC                     -->
+<!--                     : 1998-01-31 12:53:52 EST                         -->
+<!--                                                                       -->
+<!-- Output Date         : 1998-01-31 17:56:16 GMT/UTC                     -->
+<!--                     : 1998-01-31 12:56:16 EST                         -->
+<!--                                                                       -->
+<!-- ********************************************************************* -->
+
+<!-- ********************************************************************* -->
+<!-- ********************************************************************* -->
+<!-- Copyright 1986 - 1997 Michael L. Brock                                -->
+<!-- ********************************************************************* -->
+<HTML>
+<HEAD>
+<TITLE>idx_alpha</TITLE>
+</HEAD>
+<BODY>
+<A NAME="idx_alpha"></A>
+<H1>Name</H1>
+<P>idx_alpha
+<P>
+<H1>Synopsis</H1><HR><PRE WIDTH=80>return_index = idx_alpha(in_string, sense_flag);
+int         return_index;
+const char *in_string;
+int         sense_flag;</PRE><HR><P>
+<H1>Description</H1>
+<P>Returns the index of the first (non-) alphabetic character within a string.
+<P>
+<H1>Parameters</H1>
+<P>Parameters to this function are as follow:
+<UL>
+<LI><I>in_string</I> is the string in which the search is to be performed.
+<LI><I>sense_flag</I> specifies the sense of the search to be performed.
+<UL>
+<LI>If <I>sense_flag</I> is non-zero, then this function will locate the first alphabetic character in <I>in_string</I>.
+<LI>If <I>sense_flag</I> is zero, then this function will locate the first non-alphabetic character in <I>in_string</I>.
+</UL>
+</UL>
+<P>
+<H1>Returns</H1>
+<P>Returns from this function are as follow:
+<UL>
+<LI>If a character of the desired type is within the string, the index of the first character of that type is returned.
+<LI>Otherwise, <B>-1</B> is returned.
+</UL>
+<P>
+<H1>Notes</H1>
+<P>An alphabetic character is one for which the macro <I>isalpha</I> returns a non-zero value.
+<P>
+<H1>Caveats</H1>
+<P>This function returns a <I>signed int</I> and therefore cannot accurately represent indices greater than that defined by the manifest constant <B>INT_MAX</B>. You have been warned.
+<P>
+<H1>See Also</H1>
+<A HREF="str_alpha.html#str_alpha">str_alpha</A><BR>
+<A HREF="idxr_alpha.html#idxr_alpha">idxr_alpha</A><BR>
+<P>
+<H1>Authors</H1>
+<P>Michael L. Brock
+<P>
+<H1>Copyrights</H1>
+<P>Copyright 1986 - 1997 Michael L. Brock
+<P>
+<H1>Source File Name</H1>
+<P>stalpha.c
+<P>
+<H1>Source File Date</H1>
+<P>1997-03-11
+
+</BODY>
+</HTML>
+<!-- ********************************************************************* -->
+<!-- End of HTML Script for idx_alpha                                      -->
+<!-- ********************************************************************* -->
+<!-- ********************************************************************* -->

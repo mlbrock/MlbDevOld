@@ -1,0 +1,77 @@
+<!-- ********************************************************************* -->
+<!-- ********************************************************************* -->
+<!-- Documentation for cnt_alpha                                           -->
+<!--                                                                       -->
+<!--    Created by the Automated Documentation Facility (ADF)              -->
+<!-- ********************************************************************* -->
+<!--                                                                       -->
+<!-- Entry Name          : cnt_alpha                                       -->
+<!--                                                                       -->
+<!-- Source File Name    : stalpha.c                                       -->
+<!--                                                                       -->
+<!-- Source File Date    : 1997-03-11 17:01:46 GMT/UTC                     -->
+<!--                     : 1997-03-11 12:01:46 EST                         -->
+<!--                                                                       -->
+<!-- ADF Preparation Date: 1998-01-31 17:53:52 GMT/UTC                     -->
+<!--                     : 1998-01-31 12:53:52 EST                         -->
+<!--                                                                       -->
+<!-- Output Date         : 1998-01-31 17:56:16 GMT/UTC                     -->
+<!--                     : 1998-01-31 12:56:16 EST                         -->
+<!--                                                                       -->
+<!-- ********************************************************************* -->
+
+<!-- ********************************************************************* -->
+<!-- ********************************************************************* -->
+<!-- Copyright 1986 - 1997 Michael L. Brock                                -->
+<!-- ********************************************************************* -->
+<HTML>
+<HEAD>
+<TITLE>cnt_alpha</TITLE>
+</HEAD>
+<BODY>
+<A NAME="cnt_alpha"></A>
+<H1>Name</H1>
+<P>cnt_alpha
+<P>
+<H1>Synopsis</H1><HR><PRE WIDTH=80>return_count = cnt_alpha(in_string, sense_flag);
+unsigned int  return_count;
+const char   *in_string;
+int           sense_flag;</PRE><HR><P>
+<H1>Description</H1>
+<P>Returns the number of (non-) alphabetic characters within a string.
+<P>
+<H1>Parameters</H1>
+<P>Parameters to this function are as follow:
+<UL>
+<LI><I>in_string</I> is the string in which the count is to be performed.
+<LI><I>sense_flag</I> specifies the sense of the count to be performed.
+<UL>
+<LI>If <I>sense_flag</I> is non-zero, then this function will count the number of alphabetic characters in <I>in_string</I>.
+<LI>If <I>sense_flag</I> is zero, then this function will count the number of non-alphabetic characters in <I>in_string</I>.
+</UL>
+</UL>
+<P>
+<H1>Returns</H1>
+<P>Returns the number of characters of the desired type within the string.
+<P>
+<H1>Notes</H1>
+<P>An alphabetic character is one for which the macro <I>isalpha</I> returns a non-zero value.
+<P>
+<H1>Authors</H1>
+<P>Michael L. Brock
+<P>
+<H1>Copyrights</H1>
+<P>Copyright 1986 - 1997 Michael L. Brock
+<P>
+<H1>Source File Name</H1>
+<P>stalpha.c
+<P>
+<H1>Source File Date</H1>
+<P>1997-03-11
+
+</BODY>
+</HTML>
+<!-- ********************************************************************* -->
+<!-- End of HTML Script for cnt_alpha                                      -->
+<!-- ********************************************************************* -->
+<!-- ********************************************************************* -->

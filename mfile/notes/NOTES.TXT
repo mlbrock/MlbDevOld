@@ -1,0 +1,404 @@
+                    ===== ====== ====== ==== ======= =====
+                    MFILE Memory-Mapped File Library Notes
+                    ===== ====== ====== ==== ======= =====
+
+=============================================================================
+DONE:
+=============================================================================
+*** DONE 1994-12-08 ***
+The 'mmap_ptr' member of 'MFILE' MUST be made 'volatile'.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-29 ***
+Add a function to the module 'mclose.c' which truncates memory-mapped files
+opened for writing to the current offset:
+
+int mclose_to_offset(MFILE *mfile_ptr);
+-----------------------------------------------------------------------------
+*** DONE 1994-12-29 ***
+Add functionality in the module 'mprintf.c' to extend the size of the memory-
+mapped file to which printing is to be performed:
+
+	int mprintf_ensure_space(MFILE *mfile_ptr);
+
+And change 'mprintf()' to use that functionality instead of expanding the
+memory-mapped file in-line.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-30 ***
+The length arguments to 'mtruncate()' and 'mtruncate_safe()' must be
+changed to be 'unsigned long'.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-12 ***
+When expanding a memory-mapped file for 'mprintf()', the larger of
+'mfile_ptr->buffer_size' and 'MFILE_PRINTF_BUFFER_SIZE' should be used.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-12 ***
+An additional member to record the block size of the memory-mapped file
+('unsigned int file_system_block_size') will need to be added to the
+structure 'MFILE'. This member will be set by 'mopen()' to the fundamental
+file system block-size of the file.
+
+The block-size could be determined by the 'st_blksize' member of
+'struct stat', but this is a 'preferred' block-size and may not be safe. A
+better strategy is to call 'fstatfs()' when the file is first opened. The
+'f_bsize' member of the 'struct statfs' will contain the needed value.
+
+If the call to 'fstatfs()' should fail for any reason, 'mopen()' will set
+'file_system_block_size' to a default value. 512 bytes seems a good guess.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-12 ***
+Change 'mtruncate_safe()' to use the function 'GEN_IsValidSections()' instead
+of 'GEN_IsValidArea()'.
+-----------------------------------------------------------------------------
+*** DONE 1995-03-05 ***
+Change the 'mmap()' logic in 'mtruncate()' and 'mtruncate_safe()' so that
+any extant mapping is first released, then the new mapping is attempted.
+
+If any part of the above logic fails, any previous extant mapping must be
+restored by the program.
+
+This will be done as follows:
+
+	/* A low-level routine for mtruncate. */
+int mtruncate_basic_1(MFILE *mfile_ptr, unsigned int length);
+
+	/* The lowest-level routine for mtruncate. */
+int mtruncate_basic_2(int file_handle, unsigned long *file_size,
+	unsigned long *mmap_size, volatile void **mmap_ptr,
+	unsigned long *current_offset, int mmap_prot, int mmap_flags,
+	unsigned long length, int safe_flag, int *fatal_error_flag);
+-----------------------------------------------------------------------------
+*** DONE 1995-03-06 ***
+Add functions which support re-'mmap()'ping of the opened file by comparing
+the current library file-size to the actual file size. The functions will be
+included in the new module 'mremap.c', and are declared as follows:
+
+int    mremap(MFILE *mfile_ptr);
+int    mremap_basic_1(MFILE *mfile_ptr, unsigned long offset,
+	unsigned long length);
+int    mremap_basic_2(int file_handle, unsigned long *mmap_size,
+	volatile void **mmap_ptr, unsigned long *current_offset, int mmap_prot,
+	int mmap_flags, unsigned long offset, unsigned long length,
+	int *fatal_error_flag);
+-----------------------------------------------------------------------------
+*** DONE     1996-05-12 ***
+For use with the GCC compiler, specify that format arguments are to be
+checked in calls to 'mprintf()':
+
+#ifndef __GCC
+void mprintf(MFILE *mfile_ptr, const char *format_ptr, ...);
+#else
+void mprintf(MFILE *mfile_ptr, const char *format_ptr, ...)
+	__attribute__ ((format (printf, 2, 3)));
+#endif /* #ifndef __GCC */
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-01 ***
+*** DONE     1996-05-12 ***
+Add the message-logging functions in 'adf/logmessg.c' to the library in the
+new module 'logmessg.c'.
+
+There will be additional functions (and associated static variables) to
+specify whether the time is to be formatted as local time or GMT/UTC ---
+although it would perhaps be better to specify a pointer to a function
+which will format the time.
+
+Actually, there should be two major functions. The first looks like the
+current 'LogMessage()' implementation. The second uses a new structure
+which specifies the logging parameters:
+
+typedef struct {
+	int    mfile_flag;
+	int    file_flag;
+	int    syslog_flag;
+	int    gmt_flag;
+	MFILE *mfile_ptr;
+	FILE  *file_ptr;
+} MFILE_LOG_CONTEXT;
+
+Functions can pass the above structure around without needing to pass their
+application-specific control structure.
+
+Once this is done, other code should be modified to use these functions
+instead.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+*** DONE     1996-05-12 ***
+Fix comments:
+
+	1) Change all copyrights to year ranges 19?? - 1996.
+	2) Change all copyrights to Michael L. Brock.
+	3) Add SCCS headers.
+	4) Add 'ENTRY CLASS' to the ADF comments.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-12 ***
+*** DONE     1996-05-12 ***
+Change 'MFILE_ValidModesList' and 'MFILE_ValidModesCount' in the module
+'mmodeval.c' to 'const'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-12 ***
+*** DONE     1996-05-12 ***
+Make sure that the global variables 'MFILE_EntryList' and 'MFILE_EntryCount'
+are actually used in the modules where there are declared.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-12 ***
+*** DONE     1996-05-12 ***
+Add ADF comments for the function 'mprintf_ensure_space()'  in 'mprintf.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-12 ***
+*** DONE     1996-05-12 ***
+Add a 'MFILE_LogMessageFlagGMT' to 'mlogmess.c'. Default = 'MFILE_FALSE'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-10-30 ***
+*** DONE     1996-05-25 ***
+Add macros (and, perhaps, functions) to get the following members of the
+'MFILE' structure:
+
+	o file_name
+	o mmap_ptr
+	o file_ptr		--- To be changed to 'file_descriptor'.
+	o file_size
+	o mmap_size
+	o current_offset
+	o buffer_size
+	o mfile_flags
+	o mmap_prot
+	o mmap_flags
+	o mmap_mode
+	o file_system_block_size
+
+#define MFILE_GET_file_name(mfile_ptr)						\
+	(mfile_ptr)->file_name
+
+#define MFILE_GET_mmap_ptr(mfile_ptr)						\
+	(mfile_ptr)->mmap_ptr
+
+#define MFILE_GET_file_descriptor(mfile_ptr)				\
+	fileno((mfile_ptr)->file_ptr)
+
+#define MFILE_GET_file_size(mfile_ptr)						\
+	(mfile_ptr)->file_size
+
+#define MFILE_GET_mmap_size(mfile_ptr)						\
+	(mfile_ptr)->mmap_size
+
+#define MFILE_GET_current_offset(mfile_ptr)				\
+	(mfile_ptr)->current_offset
+
+#define MFILE_GET_buffer_size(mfile_ptr)					\
+	(mfile_ptr)->buffer_size
+
+#define MFILE_GET_mfile_flags(mfile_ptr)					\
+	(mfile_ptr)->mfile_flags
+
+#define MFILE_GET_mmap_prot(mfile_ptr)						\
+	(mfile_ptr)->mmap_prot
+
+#define MFILE_GET_mmap_flags(mfile_ptr)					\
+	(mfile_ptr)->mmap_flags
+
+#define MFILE_GET_mmap_mode(mfile_ptr)						\
+	(mfile_ptr)->mmap_mode
+
+#define MFILE_GET_file_system_block_size(mfile_ptr)	\
+	(mfile_ptr)->file_system_block_size
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-19 ***
+*** DONE     1996-05-25 ***
+Rename the following functions:
+
+	o MFILE_LogSeparatorStartLog()	--->	MFILE_LogSepStartLog()
+	o MFILE_LogSeparatorEndLog()		--->	MFILE_LogSepEndLog()
+	o MFILE_LogSeparatorHyphenChar()	--->	MFILE_LogSepHyphenChar()
+	o MFILE_LogSeparatorEqualChar()	--->	MFILE_LogSepEqualChar()
+	o MFILE_LogSeparatorChar()			--->	MFILE_LogSepChar()
+	o MFILE_LogSeparatorString()		--->	MFILE_LogSepString()
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-19 ***
+*** DONE     1996-05-25 ***
+Add the following functions for use with the 'MFILE_LOG_CONTEXT' structure:
+
+void MFILE_LogSepStartLogContext(MFILE_LOG_CONTEXT *log_context_ptr);
+void MFILE_LogSepEndLogContext(MFILE_LOG_CONTEXT *log_context_ptr);
+void MFILE_LogSepHyphenCharContext(MFILE_LOG_CONTEXT *log_context_ptr);
+void MFILE_LogSepEqualCharContext(MFILE_LOG_CONTEXT *log_context_ptr);
+void MFILE_LogSepCharContext(MFILE_LOG_CONTEXT *log_context_ptr,
+	int log_char);
+void MFILE_LogSepStringContext(MFILE_LOG_CONTEXT *log_context_ptr,
+	const char *log_string);
+
+And change the implementation of the following functions to instead
+initialize a local 'MFILE_LOG_CONTEXT' and to invoke the appropriate new
+function:
+
+	o MFILE_LogSepStartLog()
+	o MFILE_LogSepEndLog()
+	o MFILE_LogSepHyphenChar()
+	o MFILE_LogSepEqualChar()
+	o MFILE_LogSepChar()
+	o MFILE_LogSepString()
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-25 ***
+*** DONE     1996-05-25 ***
+Split the MFILE logging functions into two source files:
+
+	o mlogms.c	 ---> The basic MFILE logging functions.
+	o mlogmscn.c ---> The context-driven MFILE logging functions.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-15 ***
+*** DONE     1996-06-15 ***
+Remove the 'MFILE' structure member 'file_system_block_size'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-07-21 ***
+*** DONE     1996-07-28 ***
+Add the following macros to 'mfile.h' to support handling of different
+function prototypes for the Unix memory-mapping facility. Also update all
+MFILE code to call said functions through the new macros.
+
+#ifndef __SVR4
+#define MFILE_madvise(address, length, advice)								\
+	madvise(((caddr_t) (address)), ((int) (length)), ((int) (advice)))
+#define MFILE_mctl(address, length, function, arg)							\
+	mctl(((caddr_t) (address)), ((size_t) (length)),						\
+		((int) (function)), ((void *) (arg)))
+#define MFILE_mlock(address, length)											\
+	mlock(((caddr_t) (address)), ((size_t) (length)))
+#define MFILE_mlockall(flags)														\
+	mlockall(((int) (flags)))
+#define MFILE_mmap(address, length, protection, flags, fd, offset)	\
+	mmap(((caddr_t) (address)), ((size_t) (length)),						\
+		((int) (protection)), ((int) (flags)), ((int) (fd)),				\
+		((off_t) (offset)))
+#define MFILE_mprotect(address, length, protection)						\
+	mprotect(((caddr_t) (address)), ((int) (length)),						\
+		((int) (protection)))
+#define MFILE_msync(address, length, flags)									\
+	msync(((caddr_t) (address)), ((int) (length)), ((int) (flags)))
+#define MFILE_munlock(address, length)											\
+	munlock(((caddr_t) (address)), ((size_t) (length)))
+#define MFILE_munlockall()															\
+	munlockall()
+#define MFILE_munmap(address, length)											\
+	munmap(((caddr_t) (address)), ((int) (length)))
+#else
+#define MFILE_madvise(address, length, advice)								\
+	madvise(((caddr_t) (address)), ((size_t) (length)),					\
+		((int) (advice)))
+#define MFILE_mctl(address, length, function, arg)							\
+	mctl(((caddr_t) (address)), ((size_t) (length)),						\
+		((int) (function)), ((void *) (arg)))
+#define MFILE_mlock(address, length)											\
+	mlock(((const void *) (address)), ((size_t) (length)))
+#define MFILE_mlockall(flags)														\
+	mlockall(((int) (flags)))
+#define MFILE_mmap(address, length, protection, flags, fd, offset)	\
+	mmap(((void *) (address)), ((size_t) (length)),							\
+		((int) (protection)), ((int) (flags)), ((int) (fd)),				\
+		((off_t) (offset)))
+#define MFILE_mprotect(address, length, protection)						\
+	mprotect(((const void *) (address)), ((size_t) (length)),			\
+		((int) (protection)))
+#define MFILE_msync(address, length, flags)									\
+	msync(((const void *) (address)), ((size_t) (length)),				\
+		((int) (flags)))
+#define MFILE_munlock(address, length)											\
+	munlock(((const void *) (address)), ((size_t) (length)))
+#define MFILE_munlockall()															\
+	munlockall()
+#define MFILE_munmap(address, length)											\
+	munmap(((const void *) (address)), ((size_t) (length)))
+#endif /* # ifndef __SVR4 */
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-23 ***
+*** DONE     1997-02-04 ***
+Change 'static' variables to 'static const', where appropriate.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+*** DONE     1997-02-05 ***
+Extend all copyright years through 1997.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+*** DONE     1997-02-05 ***
+Implement a library version number and routines to retrieve it.
+-----------------------------------------------------------------------------
+*** PROPOSED 2001-12-04 ***
+*** DONE     2001-12-15 ***
+Look into this --- may be an error in definition of 'STR_CFILE_FUNCS':
+d:\Dev\mfile\source\support.c(267) : warning C4191: 'type cast' : unsafe conversion from 'char *(__cdecl *)(char *,int,tag_MFILE *)' to 'int (__cdecl *)(char *,int,void *)'
+        Calling this function through the result pointer may cause your program to fail
+=============================================================================
+
+=============================================================================
+CANCELLED:
+=============================================================================
+=============================================================================
+
+=============================================================================
+PENDING:
+=============================================================================
+The function 'mwrite()' must be changed to use the function 'mtruncate_safe()'
+instead of expanding the memory-mapped file in-line.
+-----------------------------------------------------------------------------
+Convert the library to use the level 1 I/O descriptor instead of the level 2
+I/O descriptor.
+-----------------------------------------------------------------------------
+Implement the memory-mapped file analogues of the following functions:
+
+	int meof(MFILE *mfile_ptr);
+	int merror(MFILE *mfile_ptr);
+	int mclearerr(MFILE *mfile_ptr);
+	int mfileno(MFILE *mfile_ptr);
+
+This will require an additional member in the 'MFILE' structure:
+
+	int status;
+
+They could perhaps be implemented as macros:
+
+#define meof(mfile_ptr)						((mfile_ptr)->status & MFILE_EOF)
+#define merror(mfile_ptr)					((mfile_ptr)->status & MFILE_ERR)
+#define mclearerr(mfile_ptr)				\
+	((void) ((mfile_ptr)->status &= MFILE_ERR))
+#ifdef OLD_VERSION
+#define mfileno(mfile_ptr)					(fileno((mfile_ptr)->file_ptr))
+#else
+#define mfileno(mfile_ptr)					((mfile_ptr)->file_descriptor)
+#endif /* #ifdef OLD_VERSION */
+-----------------------------------------------------------------------------
+Change 'mmodeval.c' to support the complete list of ANSI-specified level 2
+I/O modes. Also permit arbitrary text strings to follow the basic ANSI modes
+(any such arbitrary text will be ignored by the library).
+-----------------------------------------------------------------------------
+Shouldn't 'mread()' and 'mwrite()' be changed to return a 'size_t' or an
+'unsigned int'?
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-29 ***
+Include copyright notices in all header files and source code.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-12 ***
+Add ADF comments to the manifest constants, macros, and type definitions in
+'mfile.h'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-21 ***
+Ensure that any new System V 'syslog' values are supported in the logging
+code in module 'mlogmess.c' (surrounded, of course, by an '#ifdef' block).
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-17 ***
+Modify all ADF copyright strings as follows:
+	Copyright (c) <year> Michael L. Brock. All rights reserved.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-07 ***
+Move all 'AUTHOR' and 'COPYRIGHT' information onto a single line.
+-----------------------------------------------------------------------------
+*** PROPOSED 2001-10-09 ***
+Add the following to the 'MFILE' library:
+	'pthread_once()' logic which:
+		1) Registers the 'MFILE_OnExit()' function described below.
+		2) Creates the global MFILE recursive mutex.
+		3) Allocates the global MFILE array.
+
+	MFILE_OnExit() which:
+		1) Performs an 'mcloseall()'.
+		2) Deallocates the global MFILE array.
+		3) Performs a static destroys on the 'pthread_once()' lock.
+		4) Destroys the global MFILE recursive mutex.
+=============================================================================
+

@@ -1,0 +1,642 @@
+      ======== ========== ========== ========== ========= ======= =====
+      EECFUNCS Expression Evaluation Calculator Functions Library Notes
+      ======== ========== ========== ========== ========= ======= =====
+
+=============================================================================
+DONE:
+=============================================================================
+*** PROPOSED 1996-02-07 ***
+*** DONE     1996-02-07 ***
+Rename the various 'emit' functions from 'EEC_Emit*()' to 'EEC_EMIT_*()'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-07 ***
+*** DONE     1996-02-07 ***
+Implement functions in the new module 'emdatum.c' to support the dumping of
+evaluation stack entries:
+
+void EEC_EMIT_DatumPtr(const EEC_DATUM *datum_ptr,
+	void (*output_function)(void *, char *, ...), void *output_control);
+void EEC_EMIT_DatumStack(unsigned int datum_count,
+	const EEC_DATUM *datum_list, void (*output_function)(void *, char *, ...),
+	void *output_control);
+void EEC_EMIT_DatumList(unsigned int datum_count,
+	const EEC_DATUM *datum_list, void (*output_function)(void *, char *, ...),
+	void *output_control);
+void EEC_EMIT_DatumHeader(void (*output_function)(void *, char *, ...),
+	void *output_control);
+void EEC_EMIT_DatumTrailer(void (*output_function)(void *, char *, ...),
+	void *output_control);
+
+Index Type   NULL/NA/ERR/ALLOC Length Value
+----- ------ ----------------- ------ ---------------------------------------
+00000 Number N   /N /N  /N     N/A                                  666.00000
+00001 String N   /N /N  /Y         17 This is a string.
+----- ------ ----------------- ------ ---------------------------------------
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-07 ***
+*** DONE     1996-02-08 ***
+Implement full specification of numeric values in the parser, including
+scientific notation:
+
+	[+|-]{<digits>[.[<digits>]]|.<digits>}[{e|E}{+|-}<digits>]
+
+Also support specified decimal point characters (if not specified, the
+decimal point character will default to '.').
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-10 ***
+*** DONE     1996-02-10 ***
+Add a member to the structure 'EEC_PARSE_CANONICAL_OP' which specifes the
+precedence of individual operators:
+
+	unsigned int precedence;
+
+There will be size precedence levels, numbered '0' through '5', with '5'
+being the highest.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-10 ***
+*** DONE     1996-02-11 ***
+The code in the routine 'EEC_AssemblePostFix()' in module 'parseit0.c' should
+be changed to use the new 'precedence' member of the 'EEC_PARSE_CANONICAL_OP'
+structure.
+
+After this change there is no need for the globals 'EEC_PrecedenceList' and
+'EEC_PrecedenceCount' (and the structure 'EEC_PRECEDENCE_ITEM'). They should
+be removed.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-07 ***
+*** DONE     1996-02-12 ***
+All state used in the function 'EEC_EvalLoop()' should be placed into the
+'EEC_EVAL_CONTROL' structure for the purpose of debugging including:
+
+	const EEC_POSTFIX *postfix_ptr;
+	unsigned int       postfix_data_index;
+	char              *postfix_data_ptr;
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-09 ***
+*** DONE     1996-02-12 ***
+Redefine the token markers in the post-fix string as follows:
+
+#define EEC_PFIX_TYPE_NUMBER				'N'
+#define EEC_PFIX_TYPE_STRING				'"'
+#define EEC_PFIX_TYPE_FUNCTION			'@'
+#define EEC_PFIX_TYPE_SYMBOL				'S'
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-11 ***
+*** DONE     1996-02-12 ***
+Add a parameter to the function 'EEC_GetInfixFormula()' in 'getinfix.c' which
+specifies that white-space is to be added to the infix string on either side
+of operators and after function-call argument separators (',').
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-12 ***
+*** DONE     1996-02-12 ***
+Enhance the function 'EEC_EMIT_PostFix()' in module 'empfix.c' to show the
+stack depth of each post-fix token.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-08 ***
+*** DONE     1996-02-13 ***
+Implement '**' as an operator equivalent to '^'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-13 ***
+*** DONE     1996-02-13 ***
+Change the following member names in structure 'EEC_EVAL_CONTROL':
+
+	eval_stack_count ---> eval_stack_alloc
+	eval_stack_index ---> eval_stack_count
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-13 ***
+*** DONE     1996-02-13 ***
+Remove the member 'canonical_operator' from the 'EEC_PARSE_CANONICAL_OP'
+structure.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-15 ***
+*** DONE     1996-02-17 ***
+Re-implement the postfix generation logic so that postfix is not generated
+for each sub-expression, but rather, re-order the terms of the expression
+into postfix order. This will avoid many memory allocations and frees.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-17 ***
+*** DONE     1996-02-17 ***
+With implementation of the new postfix generation logic, the following
+members of the structure 'EEC_SUB_EXPR' can be removed:
+
+	o prev_sub_expr
+	o next_sub_expr
+	o first_sub_expr
+	o last_sub_expr
+
+Also, get rid of the function 'EEC_AppendExpression()', as the only reason
+that the logic in it has an existence independent from the logic in the
+function 'EEC_AddSubExpression()' is to update the above members.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-20 ***
+*** DONE     1996-02-21 ***
+Add the ability to optimize all parsed sub-expressions which use constant
+operands.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-20 ***
+*** DONE     1996-03-03 ***
+Implement the high-level EECFUNCS API functions.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-17 ***
+*** DONE     1997-01-10 ***
+Add the manifest constant 'EEC_TYPE_BOOL_OP'. The operators '||' and '&&'
+should have this manifest constant OR'ed in, not 'EEC_TYPE_REL_OP'.
+
+The logic in 'EEC_AssemblePostFix()' in module 'parseit0.c' should then
+be changed so that 'rel-ops' require that both operands be of the same type,
+but 'bool-ops' does not.
+
+The logic in 'EEC_DoBasicParse()' should also be changed to support the
+above restrictions.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-10 ***
+*** DONE     1997-01-10 ***
+Support the short-circuiting of 'AND' and 'OR' operators in 'EEC_EvalBasic()'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-23 ***
+*** DONE     1997-02-04 ***
+Change 'static' variables to 'static const', where appropriate.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-07 ***
+*** DONE     1997-03-15 ***
+Expand strings appropriately when generating post-fix code.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-15 ***
+*** DONE     1997-03-15 ***
+Change the function 'EEC_StringToHumanString()' in module 'strcnvt.c' to use
+the new STRFUNCS library function 'mem2cstr()' when it is implemented.
+=============================================================================
+
+=============================================================================
+CANCELLED:
+=============================================================================
+=============================================================================
+
+=============================================================================
+PROPOSED EEC FUNCTIONS:
+=============================================================================
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-11 ***
+
+Mathematical Functions:
+------------ ----------
+	<N> = Abs(<number>)
+	<N> = ACos(<number>)
+	<N> = ASin(<number>)
+	<N> = ATan(<number>)
+	<N> = ATan2(<number>, <number>)
+	<N> = Ceil(<number>)
+	<N> = Cos(<number>)
+	<N> = CoSec(<number>)
+	<N> = CoTan(<number>)
+	<N> = Exp(<number>)
+	<N> = Floor(<number>)
+	<N> = HypCos(<number>)
+	<N> = HypCoSec(<number>)
+	<N> = HypCoTan(<number>)
+	<N> = HypSec(<number>)
+	<N> = HypSin(<number>)
+	<N> = HypTan(<number>)
+	<N> = InCos(<number>)
+	<N> = InCoSec(<number>)
+	<N> = InCoTan(<number>)
+	<N> = InHypCos(<number>)
+	<N> = InHypCoSec(<number>)
+	<N> = InHypCoTan(<number>)
+	<N> = InHypSec(<number>)
+	<N> = InHypSin(<number>)
+	<N> = InHypTan(<number>)
+	<N> = InSec(<number>)
+	<N> = InSin(<number>)
+	<N> = Int(<number>)
+	<N> = LN(<number>)
+	<N> = Log(<number>)
+	<N> = Mod(<number>, <number>)
+	<N> = Neg(<number>)
+	<N> = PI()
+	<N> = Rand()
+	<N> = Round(<number>, <number>)
+	<N> = Sec(<number>)
+	<N> = Sign(<number>)
+	<N> = Sin(<number>)
+	<N> = Sqrt(<number>)
+	<N> = Tan(<number>)
+
+Logical Functions:
+------- ----------
+	<N> = False()
+	<?> = If(<any>, <any>, <same-as-arg-2>)
+	<N> = IsErr(<any>)
+	<N> = IsNA(<any>)
+	<N> = IsNull(<any>)
+	<N> = IsNumber(<any>)
+	<N> = IsString(<any>)
+	<N> = True()
+
+Special Functions:
+------- ----------
+	<?> = Choose(<any>, <any>, <same-as-arg-2>[, <same-as-arg-2> ...])
+	<N> = Err()
+	<N> = NA()
+	<N> = Null()
+
+String Functions:
+------ ----------
+	<S> = Center(<string>, <number>)
+	<S> = Char(<number>)
+	<S> = Clean(<string>)
+	<N> = Code(<string>)
+	<N> = Exact(<string>)
+	<N> = Find(<string>)
+	<S> = Left(<string> [, <number>])
+	<N> = Length(<string>)
+	<S> = Ljust(<string>, <number>)
+	<S> = Lower(<string>)
+	<S> = LTrim(<string>)
+	<S> = LTrimX(<string>, <string>)
+	<S> = Mid(<string> [, <number> [, <number>]])
+	<S> = NoSpace(<string>)
+	<S> = OneSpace(<string>)
+	<S> = Proper(<string>)
+	<S> = Repeat(<string>)
+	<S> = Replace(<string>, ***?***)
+	<S> = Right(<string> [, <number>])
+	<S> = Rjust(<string>, <number>)
+	<S> = RTrim(<string>)
+	<S> = RTrimX(<string>, <string>)
+	<S> = String(<number>, <number>)
+	<S> = Trim(<string>)
+	<S> = TrimX(<string>, <string>)
+	<S> = Upper(<string>)
+	<N> = Value(<string>)
+
+Date/Time Functions:
+--------- ----------
+	<N> = Date([<number> [, <number> [, <number>]]])
+	<N> = DateValue(<string>)
+	<N> = Now()
+	<N> = NowUTC()
+	<N> = NowGMT()
+	<N> = Time([<number> [, <number> [, <number>]]])
+	<N> = TimeValue(<string>)
+	<N> = Day(<number>)
+	<N> = Hour(<number>)
+	<N> = Minute(<number>)
+	<N> = Second(<number>)
+	<N> = Month(<number>)
+	<N> = Year(<number>)
+	<N> = Week(<number>)
+	<N> = WeekISO(<number>)
+	<N> = DayOfWeek(<number>)
+
+Financial Functions:
+--------- ----------
+	<N> = CTerm(<number>, <number>, <number>)
+	<N> = DDB(<number>, <number>, <number>)
+	<N> = FV(<number>, <number>, <number>)
+	<N> = IRR(<number>, <number>)
+	<N> = NPV(<number>, <number>)
+	<N> = Pmt(<number>, <number>, <number>)
+	<N> = PV(<number>, <number>, <number>)
+	<N> = Rate(<number>, <number>, <number>)
+	<N> = SLN(<number>, <number>, <number>)
+	<N> = SYD(<number>, <number>, <number>, <number>)
+	<N> = Term(<number>, <number>, <number>)
+
+Statistical Functions:
+----------- ----------
+	<N> = Avg(<number> [, <number>...])
+	<N> = STD(<number> [, <number>...])
+	<N> = Sum(<number> [, <number>...])
+	<N> = Var(<number> [, <number>...])
+	<?> = Max(<any>, <same-as-arg-1> [, <same-as-arg-1> ...])
+	<?> = Min(<any>, <same-as-arg-1> [, <same-as-arg-1> ...])
+	<N> = Count([<any> [, <any>...]])
+
+Miscellaneous Functions:
+------------- ----------
+	<S> = GetEnv(<environment-variable-name-string>)
+	<N> = PutEnv(<environment-variable-name-string>[, <new-value-string>])
+	<N> = ParityOdd(<string>)
+	<N> = ParityEven(<string>)
+	<N> = CINS_CheckSum(<string>)
+	<N> = CUSIP_CheckSum(<string>)
+	<N> = USPS_CheckSum(<string>) // Or should the arg be a <number>?
+	<N> = CRC_CCITT_CheckSum(<string>)
+	<N> = CRC_16_CheckSum(<string>)
+	<N> = CRC_32_CheckSum(<string>)
+	<S> = Cardinal(<number>)
+	<S> = Ordinal(<number>)
+	<S> = OrdinalShort(<number>)
+	<S> = CleanString(<string>)
+	<S> = CtlToSpc(<string>)
+	<S> = Soundex(<string>, max-length = <number>)
+	<S> = MetaPhone(<string>, max-length = <number>)
+=============================================================================
+
+=============================================================================
+PENDING:
+=============================================================================
+*** PROPOSED 1996-02-08 ***
+Should the bit-wise operators '&', '|', and '^' be implemented?
+---> It's probably too much trouble to differentiate them.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-08 ***
+Should the bit shift operators be implemented ('<<' and '>>')?
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-09 ***
+It may be desirable to add parsing of numbers in radixes (radii?) other than
+base-10:
+
+	[+|-]0{b|B}<binary-digits>
+	[+|-]0{o|O}<octal-digits>
+	[+|-]0{d|D}<decimal-digits>
+	[+|-]0{x|X}<hexadecimal-digits>
+
+Numbers represented in this format must be integer values.
+
+A number parsed in this format will set the 'expr_spec' member of the
+structure 'EEC_SUB_EXPR' to the value of the radix used (2, 8, 10, or 16).
+The logic which emits numeric value post-fix data will use this to determine
+how to convert the parsed string to a floating-point number.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-09 ***
+It might make sense to store integer values in the range -2147483648 through
+2147483647 as signed long values within the post-fix string. Values in the
+range 0 through 4294967295 could be stored in unsigned long values.
+
+This would neccessitate the following manifest constants:
+
+#define EEC_PFIX_TYPE_B_LONG				'b'
+#define EEC_PFIX_TYPE_O_LONG				'o'
+#define EEC_PFIX_TYPE_D_LONG				'd'
+#define EEC_PFIX_TYPE_H_LONG				'h'
+#define EEC_PFIX_TYPE_B_ULONG				'B'
+#define EEC_PFIX_TYPE_O_ULONG				'O'
+#define EEC_PFIX_TYPE_D_ULONG				'D'
+#define EEC_PFIX_TYPE_H_ULONG				'H'
+
+And the following code in the evaluation routine:
+
+			case	EEC_PFIX_TYPE_B_LONG		:
+			case	EEC_PFIX_TYPE_O_LONG		:
+			case	EEC_PFIX_TYPE_D_LONG		:
+			case	EEC_PFIX_TYPE_H_LONG		:
+				EEC_GET_PFIX_LONG(current_ptr, &tmp_long);
+				EEC_EVAL_StackPushNumber(control_ptr, ((double) tmp_long));
+				size = sizeof(long);
+				break;
+			case	EEC_PFIX_TYPE_B_ULONG	:
+			case	EEC_PFIX_TYPE_O_ULONG	:
+			case	EEC_PFIX_TYPE_D_ULONG	:
+			case	EEC_PFIX_TYPE_H_ULONG	:
+				EEC_GET_PFIX_ULONG(current_ptr, &tmp_ulong);
+				EEC_EVAL_StackPushNumber(control_ptr, ((double) tmp_ulong));
+				size = sizeof(unsigned long);
+				break;
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-11 ***
+Add options to the parse routines which specify the following:
+
+	o whether function names are to be included in the post-fix string.
+	o whether symbol names are to be included in the post-fix string.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-11 ***
+It might be nice to be able to reconstitute the parsed formula exactly as it
+was presented to the parser (not including the white-space). To do this,
+the following post-fix tokens need to be added:
+
+#define EEC_PFIX_TYPE_LEFT_PAREND		'('
+#define EEC_PFIX_TYPE_RIGHT_PAREND		')'
+
+These tokens should be ignored by most code, but the 'get infix' logic will
+need to be modified.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-11 ***
+For full compatibility with Lotus, functions which take no arguments should
+be considered valid even if not followed by the function argment list
+parentheses.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-11 ***
+It might be nice to permit optional arguments in functions.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-12 ***
+Lookups of the function name in 'EEC_ResolveFunc()' in module 'parseit0.c'
+should look first in the array specified by the application programmer (if
+provided). Doing this will permit the application programmer to over-ride 
+the behavior of the built-in functions.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-12 ***
+Below are notes on compatibility with the Lotus date-time value format.
+
+    12-Feb-96     01:55:34 PM
+        35107     0.580254629
+    12-Feb-96     01:55:34 PM
+
+    Hour   :   13       46800 <--- 13 * 60 * 60
+    Minutes:   55        3300 <--- 55 * 60
+    Seconds:   34          34 <--- 34
+    --------- --- -----------
+    Total:              50134 <--- 46800 + 3300 + 34
+
+    Day    :            86400 <--- 24 * 60 * 60
+
+    Diff   :            36266 <--- 86400 - 50134
+
+    Percent:      0.580254629 <--- 50134 / 86400
+    --------- --- -----------
+    --------- --- -----------
+           -1 --> ************ NOTE: Date values < 1 are an error in Lotus.
+            0 -->   00-Jan-00  NOTE: Date values < 1 are an error in Lotus.
+            1 -->   01-Jan-00
+    --------- --- -----------
+
+    A Lotus date value is equal to:
+    - ----- ---- ----- -- ----- ---
+    <DATFUNCS-JULIAN-date> + 1
+
+    A Lotus time value is equal to:
+    - ----- ---- ----- -- ----- ---
+    ((<hour> * 60 * 60) + (<min> * 60) + <second>) / (24 * 60 * 60)
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-13 ***
+A low-level 'get in-fix' routine which permits the application programmer to
+specify the strings which will constitute the appearance of operators in the
+generated in-fix formula:
+
+int EEC_GetInfixFormulaBasic(const EEC_POSTFIX *postfix_ptr, char **op_list,
+	int empty_parend_flag, int space_flag, char **infix_ptr, char *error_text);
+
+If 'op_list' is 'NULL', the default operator strings will be used.
+
+If any element in 'op_list' is 'NULL', the default operator string for that
+element will be used.
+
+If 'empty_parend_flag' is non-zero, then function calls without arguments
+(for example, '@PI') will have a pair parentheses appended.
+
+The existing function 'EEC_GetInfixFormula()' will be re-written to use this
+function as follows:
+
+int EEC_GetInfixFormula(postfix_ptr, empty_parend_flag, space_flag, infix_ptr,
+	error_text)
+const EEC_POSTFIX  *postfix_ptr;
+int                 empty_parend_flag;
+int                 space_flag;
+char              **infix_ptr;
+char               *error_text;
+{
+	return(EEC_GetInfixFormulaBasic(postfix_ptr, NULL, empty_parend_flag,
+		space_flag, infix_ptr, error_text));
+}
+
+int EEC_GetInfixFormulaLotus(postfix_ptr, infix_ptr, error_text)
+const EEC_POSTFIX  *postfix_ptr;
+char              **infix_ptr;
+char               *error_text;
+{
+	char *op_list[EEC_OPERATOR_COUNT];
+
+	op_list[EEC_OPERATOR_OR]         = "#OR#";
+	op_list[EEC_OPERATOR_AND]        = "#AND#";
+	op_list[EEC_OPERATOR_NE]         = "<>";
+	op_list[EEC_OPERATOR_EQ]         = "=";
+	op_list[EEC_OPERATOR_LT]         = "<";
+	op_list[EEC_OPERATOR_LE]         = "<=";
+	op_list[EEC_OPERATOR_GT]         = ">";
+	op_list[EEC_OPERATOR_GE]         = ">=";
+	op_list[EEC_OPERATOR_MINUS]      = "-";
+	op_list[EEC_OPERATOR_PLUS]       = "+";
+	op_list[EEC_OPERATOR_MOD]        = "*** ERROR (modulus operator) ***";
+	op_list[EEC_OPERATOR_INT_DIVIDE] = "/";
+	op_list[EEC_OPERATOR_DIVIDE]     = "/";
+	op_list[EEC_OPERATOR_MULTIPLY]   = "*";
+	op_list[EEC_OPERATOR_POWER]      = "^";
+
+	return(EEC_GetInfixFormulaBasic(postfix_ptr, op_list, EEC_FALSE,
+		space_flag, infix_ptr, error_text));
+}
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-13 ***
+Need to add a function which checks an 'EEC_POSTFIX' datum for internal
+consistency:
+
+	Valid tokens in the string.
+	Valid lengths for each token.
+	Native function ids are valid.
+	Stack depth at completion is equal to '1'.
+	Operand types are valid.
+	Function arguments are valid (to be implemented in phase two).
+
+This function returns the type of the evaluated post-fix string.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-15 ***
+Should the type be included in the structure 'EEC_POSTFIX'?
+
+YES!
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-17 ***
+Remove the manifest constant 'EEC_TYPE_PAREND' as it is no longer needed.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-17 ***
+Add a parameter to the 'get infix' logic which specifies the number of
+decimal places to be used for formatting numbers.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-03-06 ***
+We have a problem when optimization is turned on: the functions '@ERR()',
+'@NA()', and '@NULL' are optimized to numeric values and the special flag
+information is lost.
+
+We can fix this with one of the following strategies:
+
+	1)	Set the 'volatile_flag' for those functions. This will prevent the
+		optimizer from optimizing sub-expressions which use those functions.
+
+	2)	Add a special post-fix token which will carry the flag settings into
+		the EEC evaluation logic.
+
+	3)	Test all values resulting from the optimizer evaluation pass to
+		determine if one of the flags has been set. If it has, then the
+		sub-expression in question should not be optimized.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-01 ***
+More functions:
+
+	<string> = @Pack(<string> [, <any> [, <any> . . .]])
+
+	<string> = @UUEncode(<string>)
+	<string> = @UUDecode(<string>)
+
+	<string> = @Compress(<string>)
+	<string> = @Uncompress(<string>)
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-17 ***
+Modify all ADF copyright strings as follows:
+	Copyright (c) <year> Michael L. Brock. All rights reserved.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-10 ***
+Change the last two arguments of the function '@Mid()' to optional arguments:
+
+	@Mid(<string> [, <number-start> [, <number-length>]])
+
+If <number-length> is missing, it defaults to the remainder of the string.
+If <number-start> is missing, it defaults to the beginning of the string.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-10 ***
+Add a member to the 'EEC_EVAL_DATA' structure which contains the name of
+the current '@' function:
+
+	const char *at_function_name;
+
+This member is set within the 'C' code supporting each function. It is set
+to 'NULL' by the logic in 'EEC_EvalBasic()'.
+
+We'll use this information in constructing error messages.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-13 ***
+It might be nice if the first 'n' bytes of the 'data' member of the
+'EEC_POSTFIX' structure were a magic number of some sort.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+Implement a library version number and routines to retrieve it.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-07 ***
+Move all 'AUTHOR' and 'COPYRIGHT' information onto a single line.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-03-05 ***
+I'd like to be able to use the post-fix precedence code in 'getinfix.c' in
+a more general way.
+
+Changes to the code in the module 'getinfix.c':
+
+	o	The function 'EEC_GetInfixFormula()' should take additional parameters
+		for the operator alias list. If these parameters are empty, the default
+		'EEC_OperatorCount' and 'EEC_OperatorList' will be used.
+
+	o	The static function 'EEC_AssembleInfix()' should be hoisted to the
+		global level. It should also be modified to take additional parameters
+		for the operator alias list.
+
+	o	The structure 'EEC_INFIX' should be hoisted into 'eecfuncs.h'.
+
+	o	Need to add management functions for the structure 'EEC_INFIX':
+
+		o	int  EEC_COPY_Infix(const EEC_INFIX *in_ptr, EEC_INFIX *out_ptr,
+				char *error_text);
+
+		o	int  EEC_COPY_InfixList(unsigned int in_count,
+				const EEC_INFIX *in_list, unsigned int *out_count,
+				EEC_INFIX **out_list, char *error_text);
+
+		o	void EEC_INIT_Infix(EEC_INFIX *ptr);
+
+		o	void EEC_INIT_InfixList(unsigned int count, EEC_INFIX *list);
+
+		o	void EEC_FREE_Infix(EEC_INFIX *ptr);
+
+		o	void EEC_FREE_InfixList(unsigned int *count, EEC_INFIX **list);
+-----------------------------------------------------------------------------
+*** PROPOSED 2001-02-17 ***
+Remove the source file 'emfncadf.c' from the distribution.
+=============================================================================
+

@@ -1,0 +1,55 @@
+==============================================================================
+Function:
+---------
+	char           '@'
+	unsigned long  <function-identifier>
+	unsigned short <function-argument-count>
+	unsigned short <function-name-length>
+	char[]         <function-name>
+
+Symbol:
+-------
+	char           'S'
+	unsigned long  <symbol-name-identifier>
+	unsigned short <symbol-name-length>
+	char[]         <symbol-name>
+/* And maybe later . . .
+	unsigned int   <symbol-name-extra-data-length>
+	char[]         <symbol-name-extra-data>
+*/
+
+Numeric Value:
+------- ------
+	char           'N'
+	double         <numeric-value>
+
+String Value:
+------ ------
+	char           '"'
+	unsigned int   <string-length>
+	char[]         <string-data>
+	char           '\0'
+
+Operator:
+---------
+
+	Operator Name				Operator String	Postfix Equivalent
+	-----------------------	-----------------	------------------
+	logical or					||						ASCII 0
+	logical and					&&						ASCII 1
+	not equals					!=						ASCII 2
+	equals						==						ASCII 3
+	less than					<						ASCII 4
+	less than or equals		<=						ASCII 5
+	greater than				>						ASCII 6
+	greater than or equals	>=						ASCII 7
+	subtraction (minus)		-						ASCII 8
+	addition (plus)			+						ASCII 9
+	modulus						%						ASCII 10
+	concatenation				&						ASCII 11
+	integer division			\						ASCII 12
+	division						/						ASCII 13
+	multiplication				*						ASCII 14
+	power							^						ASCII 15
+	-----------------------	-----------------	------------------
+

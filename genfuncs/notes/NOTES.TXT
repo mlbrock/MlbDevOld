@@ -1,0 +1,1030 @@
+               ======== ======= ========= ======= =====
+               GENFUNCS General Functions Library Notes
+               ======== ======= ========= ======= =====
+
+=============================================================================
+DONE:
+=============================================================================
+*** DONE 1995-01-11
+Change the prototypes in 'genfuncs.h' to include parameter names.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-01 ***
+*** DONE     1995-09-12 ***
+Add the following function in the module 'exphostl.c':
+
+int GEN_ExpandHostNameList(unsigned int in_host_count, char **in_host_list,
+	unsigned int *out_host_count, char ***out_host_list, char *error_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-01 ***
+*** DONE     1995-09-12 ***
+Add the following function in the module 'exphosts.c':
+
+int GEN_ExpandHostNameString(const char *in_host_string,
+	unsigned int *out_host_count, char ***out_host_list, char *error_text);
+-----------------------------------------------------------------------------
+*** DONE     1995-09-16 ***
+In 'genfuncs':
+	* Fix the macro 'GEN_GET_TIMEVAL_USECS()' --- the result of the
+	  expression should probably be a 'double'. Note that this change
+	  will propagate related changes into the file 'timevals.c' --- and
+	  perhaps into the 'spscache' library.
+
+	* Fix the function 'GEN_FormatInterval_timeval()' in the source
+	  module 'fmtitime.c'. There seems to be a problem with very large
+	  interval times (such as '49710 05:55:35.?63372').
+
+Actually, the way this should probably be done is as follows:
+
+#define GEN_GET_TIMEVAL_USECS_DOUBLE(time_ptr)		\
+	((((double) (time_ptr)->tv_sec) * 1000000.0) +	\
+	((double) (time_ptr)->tv_usec))
+
+#define GEN_GET_TIMEVAL_USECS(time_ptr)				\
+	((unsigned long) GEN_GET_TIMEVAL_USECS_DOUBLE(time_ptr))
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-01 ***
+*** DONE     1995-09-16 ***
+Add the following function in the module 'sigtext.c':
+
+char *GEN_GetSignalText(int signal_number, int signal_code,
+	const void *signal_address, char *signal_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-05 ***
+*** DONE     1995-09-16 ***
+The functions in 'fmttime.c' at present convert the time value passed as a
+parameter to local time. I need to have equivalents which convert that time
+value to GMT/UTC time.
+-----------------------------------------------------------------------------
+*** DONE     1995-09-16 ***
+Add a function to 'generror.c' which manages returning full error item
+descriptions back to the application programmer:
+
+const GEN_ERROR_DESCRIPTION *GEN_GetErrorItem(int errno_code);
+const GEN_ERROR_DESCRIPTION *GEN_GetLastErrorItem(void);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-13 ***
+*** DONE     1995-09-16 ***
+The error list (and count) in module 'generror.c' must be implemented for
+MS-DOS.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-13 ***
+*** DONE     1995-09-16 ***
+Enhance the function 'GEN_GetErrorString()' in module 'generror.c' so that
+it does not use 'sprintf()' ---  it may be invoked from inside a signal
+handler. This is, in fact, the intent for the new function
+'GEN_GetSignalText()' in module 'sigtext.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-13 ***
+*** DONE     1995-09-16 ***
+Enhance the function 'GEN_GetErrorString()' in module 'generror.c' so that
+it returns text descriptive of invalid error codes.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-14 ***
+*** DONE     1995-09-16 ***
+Change the MS-DOS macro for 'gettimeofday()' to:
+
+#ifdef __MSDOS__
+# ifndef gettimeofday
+#  include <sys/timeb.h>
+#  define gettimeofday(struct_timeval, time_zone)									\
+	do {																							\
+		struct timeb struct_timeb;															\
+		ftime(&struct_timeb);																\
+		(struct_timeval)->tv_sec  = struct_timeb.time;								\
+		(struct_timeval)->tv_usec = ((long) struct_timeb.millitm) * 1000L;	\
+	} while (0);
+# endif /* #ifndef gettimeofday */
+#endif /* #ifndef __MSDOS__ */
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-11-12 ***
+*** DONE     1995-12-30 ***
+Add support for generalized operational statistic gathering based upon the
+cache facility statistics logic (in module 'tvalstat.c'):
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-29 ***
+*** DONE     1995-12-30 ***
+Change the names of the functions in the module 'validptr.c' to begin with
+the string 'GEN_VPTR_'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-27 ***
+*** DONE     1995-12-30 ***
+Change the following functions in module 'validptr.c' to take an additional
+parameter which, if access to the specified memory area is not permitted,
+indicates the memory byte at which access was disallowed.
+
+If the 'failure_ptr' parameter is 'NULL', it will not be de-referenced.
+
+int GEN_VPTR_IsValidArea(void *area_pointer, unsigned int area_length,
+	int access_mode, void **failure_ptr);
+int GEN_VPTR_IsValidBoundary(void *area_pointer, unsigned int area_length,
+	int access_mode, void **failure_ptr);
+int GEN_VPTR_IsValidSections(void *area_pointer, unsigned int area_length,
+   unsigned int section_size, int access_mode, void **failure_ptr);
+int GEN_VPTR_IsValidString(char *string_pointer, int access_mode,
+	char **failure_ptr);
+-----------------------------------------------------------------------------
+*** DONE     1995-12-30 ***
+*** PROPOSED 1995-12-30 ***
+Change all copyrights to year ranges 19?? - 1996.
+
+Change all copyrights to Michael L. Brock.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+*** DONE     1995-12-30 ***
+Remove the functions in the module 'getdir.c' from the library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+*** DONE     1995-12-30 ***
+Remove the functions in the module 'sortdir.c' from the library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-23 ***
+*** DONE     1995-12-31 ***
+The functions in the ADF file 'allocmsg.c' should be placed into the
+GENFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-29 ***
+*** DONE     1995-01-02 ***
+Implement a function to make path names canonical (that is, from relative
+path names to fully-qualified pathnames) in new module 'expfpath.c'.
+
+int GEN_ExpandToFullPathName(const char *in_path_name, char **out_path_name,
+	char *error_text);
+
+Under MS-DOS, this function should include the drive specifier.
+
+Under Unix, this function should expand '~'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-02 ***
+*** DONE     1995-01-02 ***
+Modify the function 'expandir()' in module 'expandir.c' to use the new
+function 'GEN_ExpandToFullPathName()'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-11-19 ***
+*** DONE     1996-01-04 ***
+Modifications to the module 'genalign.c':
+
+Alignment functionality should be implemented with a set lowest level
+functions which require that the count and list of primitive types be
+passed as parameters. This will permit cross-platform alignment construction.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-12 ***
+*** DONE     1996-01-04 ***
+Change the following members of the structure 'GEN_ALIGN_SPEC' from
+'int' to 'unsigned int':
+
+	o type_align
+	o type_length
+	o printf_length
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-13 ***
+*** DONE     1996-01-04 ***
+Change the following member of the structure 'GEN_ALIGN' from 'int' to
+'unsigned int':
+
+	o type
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-29 ***
+*** DONE     1996-01-04 ***
+Change the names of the align descriptor list in the module 'genalign.c':
+
+	GEN_AlignCount ---> GEN_ALIGN_TypeCount
+	GEN_AlignList  ---> GEN_ALIGN_TypeList
+
+For compatibility with old code, add the following manifest constants to the
+file 'genfuncs.h':
+
+#define GEN_AlignCount						GEN_ALIGN_TypeCount
+#define GEN_AlignList						GEN_ALIGN_TypeList
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-04 ***
+*** DONE     1996-01-04 ***
+Rename the structure 'GEN_ALIGN_DESCRIPTOR' to 'GEN_ALIGN_SPEC'. The
+following macro will be included in 'genfuncs.h' for backwards compatibility:
+
+#define GEN_ALIGN_DESCRIPTOR				GEN_ALIGN_SPEC
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-10 ***
+*** DONE     1996-01-19 ***
+The following functions should be created in the module 'argbasic.c':
+
+int  GEN_BARG_LogDir(const char *in_arg_ptr, unsigned int *in_arg_length,
+	char **in_data_ptr, char **log_dir, int *error_code, char *error_text);
+int  GEN_BARG_BasicParamAlloc(const char *in_arg_ptr, unsigned int arg_length,
+	const char *data_ptr, char **alloc_ptr, char *error_text);
+int  GEN_BARG_BasicPathExpand(const char *in_arg_ptr, unsigned int arg_length,
+	const char *data_ptr, char **alloc_ptr, char *error_text);
+void GEN_BARG_BadComponentMsg(const char *in_arg_ptr, unsigned int arg_length,
+	const char *data_ptr, const char *expected_string, char *error_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-10 ***
+*** DONE     1996-01-19 ***
+The following functions should be created in the module 'usebasic.c':
+
+int GEN_BUSE_Help(const char *base_arg_ptr, int optional_flag,
+	const char **extra_usage_list, unsigned int *usage_count,
+	char ***usage_list, char *error_text);
+int GEN_BUSE_LogDir(const char *base_arg_ptr, int optional_flag,
+	const char **extra_usage_list, unsigned int *usage_count,
+	char ***usage_list, char *error_text);
+int GEN_BUSE_Version(const char *base_arg_ptr, int optional_flag,
+	const char **extra_usage_list, unsigned int *usage_count,
+	char ***usage_list, char *error_text);
+int GEN_BUSE_AppendParamText(unsigned int *usage_count, char ***usage_list,
+	char *error_text);
+int GEN_BUSE_AppendLine(const char *in_line, unsigned int *usage_count,
+	char ***usage_list, char *error_text);
+int GEN_BUSE_AppendNL(unsigned int *usage_count, char ***usage_list,
+	char *error_text);
+int GEN_BUSE_AppendNULL(unsigned int *usage_count, char ***usage_list,
+	char *error_text);
+int GEN_BUSE_BasicConstruct(const char *base_arg_ptr, const char *arg_ptr,
+	int optional_flag, const char **arg_usage_list,
+	const char **extra_usage_list, unsigned int *usage_count,
+	char ***usage_list, char *error_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-04 ***
+*** DONE     1996-01-19 ***
+Rename the structure 'GEN_ERROR_DESCRIPTOR' to 'GEN_ERROR_SPEC'. The
+following macro will be included in 'genfuncs.h' for backwards compatibility:
+
+#define GEN_ERROR_DESCRIPTION				GEN_ERROR_SPEC
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-01 ***
+*** DONE     1996-05-10 ***
+Implement the functions in `spsgen\usage.c` in a new function `usage.c`.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-29 ***
+*** DONE     1996-05-10 ***
+Move the logic in the module 'adf/getparam.c' into the GENFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-22 ***
+*** DONE     1996-05-10 ***
+Link the 'GEN_BARG_*()' functions in module 'argbasic.c' to the appropriate
+'GEN_BUSE_*()' functions in module 'usebasic.c' in the ADF comments.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-04-22 ***
+*** DONE     1996-05-10 ***
+Link the 'GEN_BUSE_*()' functions in module 'usebasic.c' to the appropriate
+'GEN_BARG_*()' functions in module 'argbasic.c' in the ADF comments.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+*** DONE     1996-05-10 ***
+When parsing a parameter file name in 'GEN_GetParams()', the presence of two
+at-signs together ('@@') means to intepret the parameter as beginning with a
+single at-sign --- not as a request to load a parameter file.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-31 ***
+*** DONE     1996-05-10 ***
+Add functionality to support write-through, reader-exclusion ('readex')
+locking in a new module, 'readexlk.c':
+
+void GEN_LOCK_READEX_LockInit(volatile GEN_LOCK_READEX *lock_ptr);
+void GEN_LOCK_READEX_StartLock(volatile GEN_LOCK_READEX *lock_ptr);
+void GEN_LOCK_READEX_EndLock(volatile GEN_LOCK_READEX *lock_ptr);
+void GEN_LOCK_READEX_IncrementLock(volatile GEN_LOCK_READEX *lock_ptr);
+int  GEN_LOCK_READEX_TestLock(const volatile GEN_LOCK_READEX *lock_ptr);
+int  GEN_LOCK_READEX_WaitLock(const volatile GEN_LOCK_READEX *in_lock_ptr,
+	unsigned int cycle_count, unsigned long cycle_time_out,
+	GEN_LOCK_READEX *out_lock_ptr);
+int  GEN_LOCK_READEX_CheckLock(const volatile GEN_LOCK_READEX *lock_ptr_1,
+	const GEN_LOCK_READEX *lock_ptr_2);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-01 ***
+*** DONE     1996-05-17 ***
+Implement the functions in `spsgen\rlimit.c` in a new function `rlimit.c`.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-01-01 ***
+*** DONE     1996-05-17 ***
+Implement the functions in `spsgen\usedelta.c` in a new function `rusage.c`.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-12 ***
+*** DONE     1996-05-17 ***
+Add support for a new option to 'argbasic.c' and 'usebasic.c':
+
+	-[LOG[GING]_]QUIET=<boolean>
+
+If set, executables will minimize the emission of log and status messages
+to 'stderr'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-15 ***
+*** DONE     1996-05-17 ***
+Add facilities for mapping various supporting library truth codes to
+GENFUNCS truth codes:
+
+#define GENFUNCS_MAP_TRUTH_STR_TO_GEN(str_code)	\
+	(((str_code) == STRFUNCS_TRUE) ? GENFUNCS_TRUE : GENFUNCS_FALSE)
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-15 ***
+*** DONE     1996-05-17 ***
+Add facilities for mapping various supporting library error codes to
+GENFUNCS error codes:
+
+#define GENFUNCS_MAP_ERROR_STR_TO_GEN(str_code)	\
+	(((str_code) == STRFUNCS_SUCCESS) ? GENFUNCS_SUCCESS : GENFUNCS_FAILURE)
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+*** DONE     1996-05-17 ***
+Add support for the '-CHECK[ING][_ONLY]=' parameter to 'argbasic.c' and
+'usebasic.c':
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+*** DONE     1996-05-17 ***
+Add the following structure to 'genfuncs.h':
+
+typedef struct {
+	int    optional_flag;
+#ifndef NARGS
+	int  (*usage_function)(const char *base_arg_ptr, int optional_flag,
+		const char **extra_usage_list, unsigned int *usage_count,
+		char ***usage_list, char *error_text);
+#else
+	int  (*usage_function)();
+#endif /* #ifndef NARGS */
+	char  *added_text;
+} GEN_USAGE_PARAM;
+
+Also, add a function to the module 'usebasic.c' which will assemble a list
+of the above structures into usage text:
+
+int GEN_BUSE_CreateUsageList(unsigned int param_count,
+	const GEN_USAGE_PARAM *param_list, unsigned int *usage_count,
+	char ***usage_list, cha *error_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+*** DONE     1996-05-17 ***
+Add a 'TEST_MAIN' routine to the 'use*.c' module which will emit the usage
+text.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-19 ***
+*** DONE     1996-05-20 ***
+Change the function 'GEN_ALIGN_BASIC_CountStringToList()' and
+'GEN_ALIGN_CountStringToList()' to include a pointer to an 'unsigned int'
+for a 'structure_size' parameter.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-21 ***
+*** DONE     1996-05-21 ***
+Add the following functions to module 'genalign.c':
+
+int GEN_ALIGN_BASIC_CheckStringList(unsigned int type_count,
+	const GEN_ALIGN_SPEC *type_list, const char *separator_list,
+	unsigned int spec_count, char **spec_list, char *error_text);
+int GEN_ALIGN_BASIC_CheckString(unsigned int type_count,
+	const GEN_ALIGN_SPEC *type_list, const char *separator_list,
+	const char *spec_string, char *error_text);
+int GEN_ALIGN_CheckStringList(const char *separator_list,
+	unsigned int spec_count, char **spec_list, char *error_text);
+int GEN_ALIGN_CheckString(const char *separator_list,
+	const char *spec_string, char *error_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-01 ***
+*** DONE     1996-06-01 ***
+Add a function to module 'usebasic.c' which appends multiple lines to a
+usage list:
+
+int GEN_BUSE_AppendLineList(char **in_usage_list, unsigned int *usage_count,
+	char ***usage_list, char *error_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-01 ***
+*** DONE     1996-06-01 ***
+Modify the call interface to the functions invoked by 'GEN_GetParams()' in
+module 'getparam.c' so as to accept a pointer to the parameter argument. All
+of the adjustments required to handle '@' will be obviated by this change.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-15 ***
+*** DONE     1996-08-29 ***
+Need to replace entirely the management of usage data in 'rusage.c' for
+System V/Solaris by implementing code to use the 'proc' facility.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-15 ***
+*** DONE     1996-08-06 ***
+Fix-up System V errors in the array of OS errors in 'generror.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-23 ***
+*** DONE     1997-02-04 ***
+Change 'static' variables to 'static const', where appropriate.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-17 ***
+*** DONE     1997-02-04 ***
+Create the following functions in '{arg|use}debug.c':
+
+#ifndef NARGS
+int MICADS_GEN_BUSE_DebugLevel(const char *base_arg_ptr, int optional_flag,
+	const char **extra_usage_list, unsigned int *usage_count,
+	char ***usage_list, char *error_text);
+int MICADS_GEN_BUSE_DBDebugFlag(const char *base_arg_ptr, int optional_flag,
+	const char **extra_usage_list, unsigned int *usage_count,
+	char ***usage_list, char *error_text);
+int MICADS_GEN_BUSE_SQLDebugFlag(const char *base_arg_ptr, int optional_flag,
+	const char **extra_usage_list, unsigned int *usage_count,
+	char ***usage_list, char *error_text);
+#else
+int MICADS_GEN_BUSE_DebugLevel();
+int MICADS_GEN_BUSE_DBDebugFlag();
+int MICADS_GEN_BUSE_SQLDebugFlag();
+#endif /* #ifndef NARGS */
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-23 ***
+*** DONE     1997-02-04 ***
+Implement the following functions:
+
+#ifndef NARGS
+void GEN_EMIT_Char(int out_character, unsigned int out_count,
+	void (*output_function)(void *, char *, ...), void *output_control);
+void GEN_EMIT_CharLine(int out_character, unsigned int out_count,
+	void (*output_function)(void *, char *, ...), void *output_control);
+void GEN_EMIT_String(const char *out_string, unsigned int out_count,
+	void (*output_function)(void *, char *, ...), void *output_control);
+void GEN_EMIT_StringLine(const char *out_string, unsigned int out_count,
+	void (*output_function)(void *, char *, ...), void *output_control);
+void GEN_EMIT_SetDefaults(void (**output_function)(void *, char *, ...),
+	void **output_control);
+#else
+void GEN_EMIT_Char();
+void GEN_EMIT_CharLine();
+void GEN_EMIT_String();
+void GEN_EMIT_StringLine();
+void GEN_EMIT_SetDefaults();
+#endif /* #ifndef NARGS */
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-05 ***
+*** DONE     1997-02-05 ***
+Move the GENFUNCS 'GEN_EMIT_*()' functions into the STRFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+*** DONE     1997-02-05 ***
+Extend all copyright years through 1997.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+*** DONE     1997-02-05 ***
+Implement a library version number and routines to retrieve it.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-15 ***
+*** DONE     1997-03-03 ***
+Add a new function which appends a description of a 'boolean' parameter to
+module 'usebasic.c':
+
+int GEN_BUSE_AppendBooleanText(unsigned int *usage_count, char ***usage_list,
+	int default_value, char *error_text);
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-12 ***
+*** DONE     1997-03-03 ***
+It might be nice to add handling of boolean values 'Y', 'N', 'T', 'F', '1',
+and '0' to the argument-parsing logic:
+
+	{ TRUE | FALSE | ON | OFF | YES | NO | T | F | Y | N | 1 | 0 }
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-16 ***
+*** DONE     1997-03-03 ***
+Change the 'in_radix' parameter to the function 'GEN_EmitBufferData()' in
+module 'emitbuff.c' from 'int' to 'unsigned int'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-03-01 ***
+*** DONE     1997-03-03 ***
+Add the following to 'genfuncs.h' after the 'GEN_sizeof()' macro:
+
+#define GEN_ADJUST_SIZE(in_size, adjust)						\
+	((unsigned long) (((in_size) < (adjust)) ? (adjust) :	\
+	(!((in_size) % (adjust))) ? (in_size) :					\
+	((((in_size) / (adjust)) + 1) * (adjust))))
+=============================================================================
+
+=============================================================================
+CANCELLED:
+=============================================================================
+*** CANCELLED ***
+*** This is already in the structure 'GEN_ALIGN_DESCRIPTOR' as the
+member 'type_align'.
+
+Add the member 'alignment' to the structure 'GEN_ALIGN_ITEM'. It specifies
+the alignment requirements of the primitive type in question.
+-----------------------------------------------------------------------------
+*** PROPOSED  1996-05-16 ***
+*** CANCELLED 1996-05-17 ***
+Add functions which determine the file name portion of a full path name in
+the module 'getfname.c':
+
+*** Put into STRFUNCS library instead.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-25 ***
+*** CANCELLED 1997-02-04 ***
+Implement a new structure 'GEN_VERSION' and supporting macros and functions.
+
+*** This should go into the 'STRFUNCS' library instead.
+=============================================================================
+
+=============================================================================
+PENDING:
+=============================================================================
+The genfuncs 'GEN_ALIGN_CMP_ITEM' structure needs another member to support
+case-insensitive comparisons: 'case_flag'. The code which performs string
+comparisons in 'genalign.c' will be need to be changed accordingly.
+-----------------------------------------------------------------------------
+Implement structure type description management to 'genalign.c'.
+-----------------------------------------------------------------------------
+Add align data information to the 'GEN_MEMBER' structure.
+-----------------------------------------------------------------------------
+Add functions to support the specified XDR of data structures:
+
+bool_t GEN_DoStructureXDR(const GEN_ALIGN_STRUCT *structure_ptr,
+	XDR *xdrs, void *data_ptr);
+boot_t GEN_DoMemberListXDR(unsigned int member_count,
+	const GEN_ALIGN_MEMBER *member_list, XDR *xdrs, void *data_ptr);
+bool_t GEN_DoAlignPrimitiveXDR(const GEN_ALIGN *align_ptr, XDR *xdrs,
+	void *data_ptr);
+-----------------------------------------------------------------------------
+Add a function to 'validptr.c' which returns the 'color' of an area of memory:
+
+/*
+	Returns a bit-map indicating the access capability of every byte in
+	in the specified area of memory relative to the specified access mode.
+	Each byte is represented by one bit.
+*/
+void GEN_GetMemoryAccessColor(void *area_pointer, unsigned int area_length,
+	int access_mode, unsigned char *bit_string);
+
+/*
+	Returns a bit-map indicating the access capability of every byte in
+	in the specified area of memory. Each byte is represented by two bits.
+
+	Given the current implementation of this function, if the area is
+	determined to be writable, it is also readable.
+*/
+void GEN_GetMemoryModeColor(void *area_pointer, unsigned int area_length,
+	unsigned char *bit_string);
+
+/*
+	Gets the length of the bit_string needed for a call to the function
+	'GEN_GetMemoryAccessColor()' with the specified 'area_length'. Always
+	returns 'area_length / CHAR_BITS' (rounded-up, if necessary).
+*/
+unsigned int GEN_GetMemoryAccessColorLength(unsigned int area_length);
+
+/*
+	Gets the length of the bit_string needed for a call to the function
+	'GEN_GetMemoryModeColor()' with the specified 'area_length'. Always
+	returns 'area_length / (CHAR_BITS / 2)' (rounded-up, if necessary).
+*/
+unsigned int GEN_GetMemoryModeColorLength(unsigned int area_length);
+
+#define GEN_ACCESS_BIT_READ				1
+#define GEN_ACCESS_BIT_WRITE				2
+#define GEN_ACCESS_BIT_READ_WRITE										\
+	(GEN_ACCESS_BIT_READ | GEN_ACCESS_BIT_WRITE)
+
+#define GEN_ACCESS_BIT_ACCESS_MASK		(UCHAR_MAX & 1)
+#define GEN_ACCESS_BIT_MODE_MASK			(UCHAR_MAX & 3)
+
+#define GEN_ACCESS_BIT_ACCESS_BYTE(byte_offset)						\
+	((byte_offset) / CHAR_BITS)
+#define GEN_ACCESS_BIT_MODE_BYTE(byte_offset)						\
+	((byte_offset) / (CHAR_BITS / 2))
+
+#define GEN_ACCESS_BIT_ACCESS_SHIFT(byte_offset)					\
+	((byte_offset) % CHAR_BITS)
+#define GEN_ACCESS_BIT_MODE_SHIFT(byte_offset) 						\
+	(((byte_offset) % (CHAR_BITS / 2)) * 2)
+
+#define GEN_ACCESS_BIT_ACCESS_COLOR(byte_offset, bit_string)	\
+	((bit_string[GEN_ACCESS_BIT_ACCESS_BYTE(byte_offset)] >>		\
+	GEN_ACCESS_BIT_ACCESS_SHIFT(byte_offset)) & GEN_ACCESS_BIT_ACCESS_MASK)
+	
+#define GEN_ACCESS_BIT_MODE_COLOR(byte_offset, bit_string)		\
+	((bit_string[GEN_ACCESS_BIT_MODE_BYTE(byte_offset)] >>		\
+	GEN_ACCESS_BIT_MODE_SHIFT(byte_offset)) & GEN_ACCESS_BIT_MODE_MASK)
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-01 ***
+Add the following function in the module 'parmchkm.c':
+
+int GEN_VPTR_CheckParameterMemory(const char *param_description,
+	unsigned int param_length, const void *param_ptr, int access_flag,
+	char *error_text);
+int GEN_VPTR_BASIC_CheckParameterMemory(const char *param_description,
+	unsigned int param_length, const void *param_ptr, int access_flag,
+	char *error_text);
+
+The first function checks the supporting parameters 'param_description' and
+'error_text'. The second function assumes that they're OK.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-01 ***
+Add the following function in the module 'parmchks.c':
+
+int GEN_VPTR_CheckParameterString(const char *param_description,
+	const char *param_ptr, int access_flag, char *error_text);
+int GEN_VPTR_BASIC_CheckParameterString(const char *param_description,
+	const char *param_ptr, int access_flag, char *error_text);
+
+The first function checks the supporting parameters 'param_description' and
+'error_text'. The second function assumes that they're OK.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-13 ***
+Also need to handle the Posix 'struct timespec':
+
+	/* In 'fmttime.c'. */
+char            *GEN_Format_timespec(const struct timespec *in_time,
+	char *buffer);
+	/* In 'fmtitime.c'. */
+char            *GEN_FormatInterval_timespec(const struct timespec *in_time,
+	char *buffer);
+	/* In 'timevals.c'. */
+struct timespec *GEN_GetInterval_timespec(const struct timespec *start_ptr,
+	const struct timespec *end_ptr, struct timespec *out_interval_ptr)
+struct timespec *GEN_GetABSInterval_timespec(const struct timespec *start_ptr,
+	const struct timespec *end_ptr, struct timespec *out_interval_ptr)
+struct timespec *GEN_GetPerInterval_timespec(
+	const struct timespec *interval_ptr, unsigned long item_count,
+	struct timespec *out_interval_ptr);
+struct timespec *GEN_AddInterval_timespec(const struct timespec *time_ptr_2,
+	const struct timespec *time_ptr_2, struct timespec *out_interval_ptr)
+	/* In 'cmptimes.c'. */
+int GEN_Compare_timespec(const struct timespec *timespec_ptr_1,
+	const struct timespec *timespec_ptr_2);
+
+	/* In 'genfuncs.h'. */
+
+#define GEN_COMPARE_TIMESPEC(time_ptr_1, time_ptr_2)							\
+	((int) ((time_ptr_1)->tv_sec > (time_ptr_2)->tv_sec) ? 1 :				\
+		(((time_ptr_1)->tv_sec < (time_ptr_2)->tv_sec) ? -1 :					\
+		(((time_ptr_1)->tv_nsec > (time_ptr_2)->tv_nsec) ? 1 :				\
+		(((time_ptr_1)->tv_nsec < (time_ptr_2)->tv_nsec) ? -1 : 0))))
+
+#define GEN_GET_TIMESPEC_NSECS_DOUBLE(time_ptr)			\
+	((((double) (time_ptr)->tv_sec) * 1000000000.0) +	\
+	((double) (time_ptr)->tv_nsec))
+
+#define GEN_GET_TIMESPEC_NSECS(time_ptr)				\
+	((unsigned long) GEN_GET_TIMESPEC_NSECS_DOUBLE(time_ptr))
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-22 ***
+Add a member to the structure 'GEN_ALIGN_DESCRIPTOR' to be used for case-
+insensitive comparisons:
+
+#ifndef NARGS
+	int    (*compare_method_ignore_case)(void *data_ptr,
+				const void *data_ptr_1, const void *data_ptr_2,
+				size_t data_length);
+#else
+	int    (*compare_method_ignore_case)();
+#endif /* #ifndef NARGS */
+
+For the types 'byte', 'char', and 'uchar', the following new comparison
+functions will populate this member:
+
+int GEN_SCMP_ubyte_i(GEN_ALIGN *align_ptr, const unsigned char *ptr_1,
+	const unsigned char *ptr_2, size_t data_length);
+int GEN_SCMP_char_i(GEN_ALIGN *align_ptr, const char *ptr_1,
+	const char *ptr_2, size_t data_length);
+int GEN_SCMP_uchar_i(GEN_ALIGN *align_ptr, const unsigned char *ptr_1,
+	const unsigned char *ptr_2, size_t data_length);
+
+For all other types, this member will be equal to the 'compare_method'
+member.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-25 ***
+Change the macro 'GEN_GET_TIMEVAL_USECS' back to its original form:
+
+#define GEN_GET_TIMEVAL_USECS(time_ptr)						\
+	((((unsigned long) (time_ptr)->tv_sec) * 1000000L) +	\
+	((unsigned long) (time_ptr)->tv_usec))
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-25 ***
+Add another function to the module 'timevals.c' to determine the interval
+between two 'struct timeval's:
+
+double GEN_GetInterval_timeval_double(const struct timeval *start_ptr,
+	const struct timeval *end_ptr);
+
+double GEN_GetInterval_timeval_double(start_ptr, end_ptr)
+const struct timeval *start_ptr;
+const struct timeval *end_ptr;
+{
+	struct timeval tmp_end_time;
+
+	if (end_ptr == NULL) {
+		gettimeofday(&tmp_end_time, NULL);
+		end_ptr = ((const struct timeval *) &tmp_end_time);
+	}
+
+	return(GEN_GET_TIMEVAL_USECS_DOUBLE(end_ptr) -
+		GEN_GET_TIMEVAL_USECS_DOUBLE(start_ptr));
+}
+
+This new function will be used by the following function in the module
+'timevals.c':
+
+	o GEN_GetInterval_timeval()
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-26 ***
+Add a function which selects one of a set of alternatives:
+
+typedef union {
+	char            data_char;
+	unsigned char   data_uchar;
+	short           data_short;
+	unsigned short  data_ushort;
+	int             data_int;
+	unsigned int    data_uint;
+	long            data_long;
+	unsigned long   data_ulong;
+	float           data_float;
+	double          data_double;
+	char           *data_char_ptr;
+	unsigned char  *data_uchar_ptr;
+	short          *data_short_ptr;
+	unsigned short *data_ushort_ptr;
+	int            *data_int_ptr;
+	unsigned int   *data_uint_ptr;
+	long           *data_long_ptr;
+	unsigned long  *data_ulong_ptr;
+	float          *data_float_ptr;
+	double         *data_double_ptr;
+} GEN_ALIGN_UNION;
+
+#ifndef NARGS
+# ifdef __STDC__
+unsigned int GEN_Choose(unsigned int selector, GEN_ALIGN_UNION *selection,
+	...);
+# else
+unsigned int GEN_Choose(unsigned int selector, GEN_ALIGN_UNION *selection,
+	va_list);
+# endif /* #ifdef __STDC__ */
+int          GEN_ChooseList(unsigned int selector,
+	unsigned int *selection_number, void **selection, unsigned int in_count,
+	void *in_list);
+int          GEN_ChoosePtrList(unsigned int selector,
+	unsigned int *selection_number, void **selection, unsigned int in_count,
+	void **in_list);
+#else
+unsigned int GEN_Choose();
+int          GEN_ChooseList();
+int          GEN_ChoosePtrList();
+#endif /* #ifndef NARGS */
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-11-12 ***
+Add the following function in the module 'fmtgroce.c':
+
+char *GEN_FormatTSSGrocery(const double *in_double,
+	const unsigned char *in_char, int normalize_flag, char *out_string);
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-11-19 ***
+
+New type:
+--- -----
+typedef struct {
+	unsigned int    type_count;
+	GEN_ALIGN_SPEC *type_list;
+	GEN_ALIGN_CMP  *align_cmp_ptr;
+} GEN_ALIGN_CMP_SPEC;
+
+#ifndef NARGS
+int GEN_ALIGN_CompareList(GEN_ALIGN_CMP *align_cmp_ptr,
+	const void *data_ptr_1, const void *data_ptr_2, size_t data_length);
+#else
+int GEN_ALIGN_CompareList();
+#endif /* #ifndef NARGS */
+
+int   GEN_ALIGN_BASIC_CompareList(const GEN_ALIGN_CMP_DESCRIPTOR *align_ptr,
+	const void *data_ptr_1, const void *data_ptr_2, data_length)
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-29 ***
+Include copyright notices in all header files and source code.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+Add the following functions in the module 'fmtgroce.c':
+
+	/* This function converts a TSS grocery to a `double` value. */
+double GEN_GetTSSGroceryDouble(const double *in_double,
+	const unsigned char *in_char, int normalize_flag);
+
+int    GEN_GetTSSGroceryValues(const double *in_double,
+	const unsigned char *in_char, int normalize_flag, double *out_double,
+	double *out_numerator, double *out_denominator, int *error_flag);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-04 ***
+Add a set of functionality which supports a subset of the memory-mapped cache
+functionality, but purely in memory.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-05-10 ***
+Change the current functions in 'usage.c' to return, and add more general
+functions:
+
+void GEN_DoSimpleUsageBasic(unsigned int left_padding,
+	unsigned int max_length, unsigned int tab_setting, int exit_flag,
+	int exit_code, const char *program_name, const char *message,
+	const char *usage_string, void (*output_function)(void *, char *, ...),
+	void *output_control);
+void GEN_DoUsageBasic(unsigned int left_padding, unsigned int max_length,
+	unsigned int tab_setting, int exit_flag, int exit_code,
+	const char *program_name, const char *message,
+	const char **usage_string_list,
+	void (*output_function)(void *, char *, ...), void *output_control);
+void GEN_DoFormatUsageBasic(unsigned int left_padding,
+	unsigned int max_length, unsigned int tab_setting, int exit_flag,
+	int exit_code, const char *program_name, const char *message,
+	const char **usage_string_list,
+	void (*output_function)(void *, char *, ...), void *output_control);
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-01 ***
+Modify the functions in 'sighandl.c':
+
+1) Add a pointer to a 'shut-down' flag to 'GEN_SIGNAL_SignalInit()'. If this
+is set, the signal handler 'GEN_SIGNAL_SignalHandler()' will return.
+
+2) Use the functions in 'sigtext.c' to construct the signal description
+message in 'GEN_SIGNAL_SignalHandler()'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-06-15 ***
+Enhance signal reporting for Solaris in 'sigtext.c'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-17 ***
+Modify all ADF copyright strings as follows:
+	Copyright (c) <year> Michael L. Brock. All rights reserved.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-23 ***
+Add functions to support description of arbitrarily-complex structures:
+
+#define GEN_ALIGN_STRUCT_FLAG_UNION		1
+
+typedef struct {
+	char           name[63 + 1];
+	char           primitive_type[1 + 1];
+	unsigned int   member_index;
+	unsigned int   member_count;
+	unsigned int   array_count;
+	unsigned char  indirection_count;
+	unsigned char  bit_count;
+	unsigned short flags;
+} GEN_ALIGN_STRUCT;
+
+char *GEN_ALIGN_STRUCT_GetName(datum_ptr, out_string)
+const GEN_ALIGN_STRUCT *datum_ptr;
+char                   *out_string;
+{
+	char buffer[(CHAR_BITS * sizeof(unsigned long)) + 1];
+
+	memset(out_string, '*', datum_ptr->indirection_count);
+	out_string[datum_ptr->indirection_count] = '\0';
+
+	nstrcpy(out_string + datum_ptr->indirection_count,
+		datum_ptr->name, sizeof(datum_ptr->name) - 1);
+
+	if (datum_ptr->array_count > 1)
+		strcat(strcat(strcat(out_string, "["),
+			val2str(((unsigned long) datum_ptr->array_count), 0, 10, NULL,
+			buffer)), "]");
+	else if (datum_ptr->bit_count)
+		strcat(strcat(out_string, ":"),
+			val2str(((unsigned long) datum_ptr->bit_count), 0, 10, NULL,
+			buffer));
+
+	return(out_string);
+}
+
+char *GEN_ALIGN_BASIC_STRUCT_GetType(type_count, type_list, datum_ptr,
+	out_string)
+unsigned int            type_count;
+const GEN_ALIGN_SPEC   *type_list;
+const GEN_ALIGN_STRUCT *datum_ptr;
+char                   *out_string;
+{
+	unsigned int type_index;
+
+	if ((!type_count) && (type_list == NULL)) {
+		type_count = GEN_ALIGN_TypeCount;
+		type_list  = GEN_ALIGN_TypeList;
+	}
+
+	if (datum_ptr->member_count)
+		nstrcpy(out_string, datum_ptr->name, sizeof(datum_ptr->name) - 1);
+	else if (GEN_ALIGN_BASIC_FindTypeCharIndex(type_count, type_list,
+		*datum_ptr->primitive_type, &type_index) == GENFUNCS_TRUE)
+		nstrcpy(out_string, type_list[type_index].type_name,
+			sizeof(datum_ptr->name) - 1);
+	else
+		*out_string = '\0';
+
+	return(out_string);
+}
+
+char *GEN_ALIGN_STRUCT_GetType(datum_ptr, out_string)
+const GEN_ALIGN_STRUCT *datum_ptr;
+char                   *out_string;
+{
+	return(GEN_ALIGN_BASIC_STRUCT_GetType(0, NULL, datum_ptr, out_string));
+}
+
+char *GEN_ALIGN_BASIC_STRUCT_GetTypeAndName(type_count, type_list, datum_ptr,
+	max_name, max_indirection, out_string)
+unsigned int            type_count;
+const GEN_ALIGN_SPEC   *type_list;
+const GEN_ALIGN_STRUCT *datum_ptr;
+char                   *out_string;
+{
+	GEN_ALIGN_BASIC_STRUCT_GetType(type_count, type_list, datum_ptr,
+		out_string);
+	if (max_name > strlen(out_string))
+		nstrset(out_string + strlen(out_string), ' ',
+			max_name - strlen(out_string));
+	chrcat(out_string, ' ');
+	if (max_indirection > datum_ptr->indirection_count)
+		nstrset(out_string + strlen(out_string), ' ',
+			max_indirection - datum_ptr->indirection_count);
+	GEN_ALIGN_STRUCT_GetName(datum_ptr, out_string + strlen(out_string));
+
+	return(out_string);
+}
+
+char *GEN_ALIGN_BASIC_STRUCT_GetTypeAndName(type_count, type_list, datum_ptr,
+	max_name, max_indirection, out_string)
+unsigned int            type_count;
+const GEN_ALIGN_SPEC   *type_list;
+const GEN_ALIGN_STRUCT *datum_ptr;
+char                   *out_string;
+{
+	return(GEN_ALIGN_BASIC_STRUCT_GetTypeAndName(0, NULL, datum_ptr, max_name,
+		max_indirection, out_string));
+}
+
+int GEN_ALIGN_STRUCT_BASIC_GetStructList(type_count, type_list, datum_ptr,
+	datum_count, datum_list, out_count, out_list)
+unsigned int              type_count;
+const GEN_ALIGN_SPEC     *type_list;
+const GEN_ALIGN_STRUCT   *datum_ptr;
+unsigned int              datum_count;
+const GEN_ALIGN_STRUCT   *datum_list;
+unsigned int             *out_count;
+char                   ***out_list;
+char                    *error_text;
+{
+	int          return_code     = GENFUNCS_MEMORY_FAILURE;
+	unsigned int max_name        = 0;
+	unsigned int max_indirection = 0;
+	unsigned int count_1;
+	char         buffer[1024 + GEN_sizeof(GEN_ALIGN_STRUCT, name) + 1];
+
+	*out_count = 0;
+	*out_list  = NULL;
+
+	if (!datum_ptr->member_count) {
+		strcpy(buffer, "typedef ");
+		chrcat(GEN_ALIGN_BASIC_STRUCT_GetTypeAndName(type_count, type_list,
+			datum_ptr, 0, 0, buffer + strlen(buffer)), ';');
+	}
+	else {
+		strcat(strcpy(buffer, "typedef "),
+			(datum_ptr->flags & GEN_ALIGN_STRUCT_FLAG_UNION) ? "union tag_" :
+			"struct tag_");
+		strcat(GEN_ALIGN_STRUCT_GetName(datum_ptr, buffer + strlen(buffer)),
+			" {");
+		if (strl_append(out_count, out_list, buffer) != STRFUNCS_SUCCESS)
+			goto EXIT_FUNCTION;
+		for (count_1 = 0, member_ptr = datum_list + datum_ptr->member_index;
+			count_1 < datum_ptr->member_count; count_1++, member_ptr++) {
+			GEN_ALIGN_STRUCT_GetName(member_ptr, buffer);
+			max_name        = (max_name > strlen(buffer)) ? max_name :
+				strlen(buffer);
+			max_indirection = (max_indirection > member_ptr->indirection_count) ?
+				max_indirection : member_ptr->indirection_count;
+		}
+		for (count_1 = 0; count_1 < datum_ptr->member_count; count_1++) {
+			chrcpy(buffer, "\t");
+			chrcat(GEN_ALIGN_BASIC_STRUCT_GetTypeAndName(type_count, type_list,
+				member_ptr, max_name, max_indirection, buffer + 1), ';');
+			if (strl_append(out_count, out_list, buffer) != STRFUNCS_SUCCESS)
+				goto EXIT_FUNCTION;
+		}
+		chrcat(nstrcat(strcpy(buffer, "} "), datum_ptr->name,
+			sizeof(datum_ptr->name) - 1), ';');
+	}
+
+	if (strl_append(out_count, out_list, buffer) != STRFUNCS_SUCCESS)
+		goto EXIT_FUNCTION;
+
+	return_code = GENFUNCS_SUCCESS;
+
+EXIT_FUNCTION:
+
+	if (return_code != GENFUNCS_SUCCESS) {
+		strcpy(error_text, "Unable to copy the structure definition strings.");
+		strl_remove_all(out_count, out_list);
+	}
+
+	return(return_code);
+}
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-07 ***
+Move all 'AUTHOR' and 'COPYRIGHT' information onto a single line.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-25 ***
+Move the functions in the GENFUNCS library module 'allocmsg.c' into the
+STRFUNCS library.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-03-21 ***
+Add the following members to the 'GEN_MEMBER' structure:
+
+	int (*cmp_function)(const void *ptr_1, const void *ptr_2);
+	int (*scmp_function)(GEN_MEMBER *member_ptr, const void *ptr_1,
+		const void *ptr_2, size_t data_length);
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-03-21 ***
+=============================================================================
+

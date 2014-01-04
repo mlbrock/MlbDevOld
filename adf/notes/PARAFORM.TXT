@@ -1,0 +1,160 @@
+(@)     yes    normal      0 none      no        no     
+(.)     yes    normal      1 bullet    no        no     
+(..)    yes    normal      2 bullet    no        no     
+(...)   yes    normal      3 bullet    no        no     
+(-)     yes    normal      1 none      no        no     
+(--)    yes    normal      2 none      no        no     
+(---)   yes    normal      3 none      no        no     
+(+)     yes    normal      1 number    no        no     
+(++)    yes    normal      2 number    no        no     
+(+++)   yes    normal      3 number    no        no     
+(|@)    yes    normal      0 none      yes       no     
+(|.)    yes    normal      1 bullet    yes       no     
+(|..)   yes    normal      2 bullet    yes       no     
+(|...)  yes    normal      3 bullet    yes       no     
+(|-)    yes    normal      1 none      yes       no     
+(|--)   yes    normal      2 none      yes       no     
+(|---)  yes    normal      3 none      yes       no     
+(|+)    yes    normal      1 number    yes       no     
+(|++)   yes    normal      2 number    yes       no     
+(|+++)  yes    normal      3 number    yes       no     
+(@|)    yes    normal      0 none      no        yes    
+(.|)    yes    normal      1 bullet    no        yes    
+(..|)   yes    normal      2 bullet    no        yes    
+(...|)  yes    normal      3 bullet    no        yes    
+(-|)    yes    normal      1 none      no        yes    
+(--|)   yes    normal      2 none      no        yes    
+(---|)  yes    normal      3 none      no        yes    
+(+|)    yes    normal      1 number    no        yes    
+(++|)   yes    normal      2 number    no        yes    
+(+++|)  yes    normal      3 number    no        yes    
+(|@|)   yes    normal      0 none      yes       yes    
+(|.|)   yes    normal      1 bullet    yes       yes    
+(|..|)  yes    normal      2 bullet    yes       yes    
+(|...|) yes    normal      3 bullet    yes       yes    
+(|-|)   yes    normal      1 none      yes       yes    
+(|--|)  yes    normal      2 none      yes       yes    
+(|---|) yes    normal      3 none      yes       yes    
+(|+|)   yes    normal      1 number    yes       yes    
+(|++|)  yes    normal      2 number    yes       yes    
+(|+++|) yes    normal      3 number    yes       yes    
+[@]     no     normal      0 none      no        no     
+[.]     no     normal      1 bullet    no        no     
+[..]    no     normal      2 bullet    no        no     
+[...]   no     normal      3 bullet    no        no     
+[-]     no     normal      1 none      no        no     
+[--]    no     normal      2 none      no        no     
+[---]   no     normal      3 none      no        no     
+[+]     no     normal      1 number    no        no     
+[++]    no     normal      2 number    no        no     
+[+++]   no     normal      3 number    no        no     
+[|@]    no     normal      0 none      yes       no     
+[|.]    no     normal      1 bullet    yes       no     
+[|..]   no     normal      2 bullet    yes       no     
+[|...]  no     normal      3 bullet    yes       no     
+[|-]    no     normal      1 none      yes       no     
+[|--]   no     normal      2 none      yes       no     
+[|---]  no     normal      3 none      yes       no     
+[|+]    no     normal      1 number    yes       no     
+[|++]   no     normal      2 number    yes       no     
+[|+++]  no     normal      3 number    yes       no     
+[@|]    no     normal      0 none      no        yes    
+[.|]    no     normal      1 bullet    no        yes    
+[..|]   no     normal      2 bullet    no        yes    
+[...|]  no     normal      3 bullet    no        yes    
+[-|]    no     normal      1 none      no        yes    
+[--|]   no     normal      2 none      no        yes    
+[---|]  no     normal      3 none      no        yes    
+[+|]    no     normal      1 number    no        yes    
+[++|]   no     normal      2 number    no        yes    
+[+++|]  no     normal      3 number    no        yes    
+[|@|]   no     normal      0 none      yes       yes    
+[|.|]   no     normal      1 bullet    yes       yes    
+[|..|]  no     normal      2 bullet    yes       yes    
+[|...|] no     normal      3 bullet    yes       yes    
+[|-|]   no     normal      1 none      yes       yes    
+[|--|]  no     normal      2 none      yes       yes    
+[|---|] no     normal      3 none      yes       yes    
+[|+|]   no     normal      1 number    yes       yes    
+[|++|]  no     normal      2 number    yes       yes    
+[|+++|] no     normal      3 number    yes       yes    
+<@>     yes    small       0 none      no        no     
+<.>     yes    small       1 bullet    no        no     Not supported.
+<..>    yes    small       2 bullet    no        no     Not supported.
+<...>   yes    small       3 bullet    no        no     Not supported.
+<->     yes    small       1 none      no        no     
+<-->    yes    small       2 none      no        no     
+<--->   yes    small       3 none      no        no     
+<+>     yes    small       1 number    no        no     Not supported.
+<++>    yes    small       2 number    no        no     Not supported.
+<+++>   yes    small       3 number    no        no     Not supported.
+<|@>    yes    small       0 none      yes       no     
+<|.>    yes    small       1 bullet    yes       no     Not supported.
+<|..>   yes    small       2 bullet    yes       no     Not supported.
+<|...>  yes    small       3 bullet    yes       no     Not supported.
+<|->    yes    small       1 none      yes       no     
+<|-->   yes    small       2 none      yes       no     
+<|--->  yes    small       3 none      yes       no     
+<|+>    yes    small       1 number    yes       no     Not supported.
+<|++>   yes    small       2 number    yes       no     Not supported.
+<|+++>  yes    small       3 number    yes       no     Not supported.
+<@|>    yes    small       0 none      no        yes    
+<.|>    yes    small       1 bullet    no        yes    Not supported.
+<..|>   yes    small       2 bullet    no        yes    Not supported.
+<...|>  yes    small       3 bullet    no        yes    Not supported.
+<-|>    yes    small       1 none      no        yes    
+<--|>   yes    small       2 none      no        yes    
+<---|>  yes    small       3 none      no        yes    
+<+|>    yes    small       1 number    no        yes    Not supported.
+<++|>   yes    small       2 number    no        yes    Not supported.
+<+++|>  yes    small       3 number    no        yes    Not supported.
+<|@|>   yes    small       0 none      yes       yes    
+<|.|>   yes    small       1 bullet    yes       yes    Not supported.
+<|..|>  yes    small       2 bullet    yes       yes    Not supported.
+<|...|> yes    small       3 bullet    yes       yes    Not supported.
+<|-|>   yes    small       1 none      yes       yes    
+<|--|>  yes    small       2 none      yes       yes    
+<|---|> yes    small       3 none      yes       yes    
+<|+|>   yes    small       1 number    yes       yes    Not supported.
+<|++|>  yes    small       2 number    yes       yes    Not supported.
+<|+++|> yes    small       3 number    yes       yes    Not supported.
+{@}     no     small       0 none      no        no     
+{.}     no     small       1 bullet    no        no     Not supported.
+{..}    no     small       2 bullet    no        no     Not supported.
+{...}   no     small       3 bullet    no        no     Not supported.
+{-}     no     small       1 none      no        no     
+{--}    no     small       2 none      no        no     
+{---}   no     small       3 none      no        no     
+{+}     no     small       1 number    no        no     Not supported.
+{++}    no     small       2 number    no        no     Not supported.
+{+++}   no     small       3 number    no        no     Not supported.
+{|@}    no     small       0 none      yes       no     
+{|.}    no     small       1 bullet    yes       no     Not supported.
+{|..}   no     small       2 bullet    yes       no     Not supported.
+{|...}  no     small       3 bullet    yes       no     Not supported.
+{|-}    no     small       1 none      yes       no     
+{|--}   no     small       2 none      yes       no     
+{|---}  no     small       3 none      yes       no     
+{|+}    no     small       1 number    yes       no     Not supported.
+{|++}   no     small       2 number    yes       no     Not supported.
+{|+++}  no     small       3 number    yes       no     Not supported.
+{@|}    no     small       0 none      no        yes    
+{.|}    no     small       1 bullet    no        yes    Not supported.
+{..|}   no     small       2 bullet    no        yes    Not supported.
+{...|}  no     small       3 bullet    no        yes    Not supported.
+{-|}    no     small       1 none      no        yes    
+{--|}   no     small       2 none      no        yes    
+{---|}  no     small       3 none      no        yes    
+{+|}    no     small       1 number    no        yes    Not supported.
+{++|}   no     small       2 number    no        yes    Not supported.
+{+++|}  no     small       3 number    no        yes    Not supported.
+{|@|}   no     small       0 none      yes       yes    
+{|.|}   no     small       1 bullet    yes       yes    Not supported.
+{|..|}  no     small       2 bullet    yes       yes    Not supported.
+{|...|} no     small       3 bullet    yes       yes    Not supported.
+{|-|}   no     small       1 none      yes       yes    
+{|--|}  no     small       2 none      yes       yes    
+{|---|} no     small       3 none      yes       yes    
+{|+|}   no     small       1 number    yes       yes    Not supported.
+{|++|}  no     small       2 number    yes       yes    Not supported.
+{|+++|} no     small       3 number    yes       yes    Not supported.

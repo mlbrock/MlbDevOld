@@ -1,0 +1,72 @@
+@DOMAIN(
+	@NAME("C Language Domain"),
+	@DESCRIPTION("This is the C language domain description."),
+	@FILE_TYPE("c"),
+	@BOH_PATTERN(" /* BOH "),
+	@BOH_PATTERN(" // BOH "),
+	@EOH_PATTERN(" EOH */"),
+	@EOH_PATTERN(" // EOH"),
+	@SECTION(
+		@NAME("Base Name"),
+		@OUTPUT_NAME("Base Name"),
+		@AREA(BASE_NAME),
+		@REQUIRED(FALSE),
+		@WRAP(TRUE),
+		@LTRIM(TRUE),
+		@RTRIM(TRUE),
+		@SQUEEZE(TRUE),
+		@PARA_FORMAT(FALSE),
+		@CHAR_FORMAT(FALSE),
+		@MATCH_PATTERN(" BASE NAME : ")
+	),
+	@SECTION(
+		@NAME("Name"),
+		@OUTPUT_NAME("Name"),
+		@AREA(NAME),
+		@REQUIRED(TRUE),
+		@WRAP(TRUE),
+		@LTRIM(TRUE),
+		@RTRIM(TRUE),
+		@SQUEEZE(TRUE),
+		@PARA_FORMAT(TRUE),
+		@CHAR_FORMAT(TRUE),
+		@MATCH_PATTERN(" NAME : ")
+	)
+)
+
+@DOMAIN(
+	@NAME("Another C Language Domain"),
+	@DESCRIPTION("This is the C language domain description."),
+	@FILE_TYPE("c"),
+	@BOH_PATTERN(" /* BOH "),
+	@BOH_PATTERN(" // BOH "),
+	@EOH_PATTERN(" EOH */"),
+	@EOH_PATTERN(" // EOH"),
+	@SECTION(
+		@NAME("Base Name"),
+		@OUTPUT_NAME("Base Name"),
+		@AREA(BASE_NAME),
+		@REQUIRED(FALSE),
+		@WRAP(TRUE),
+		@LTRIM(TRUE),
+		@RTRIM(TRUE),
+		@SQUEEZE(TRUE),
+		@PARA_FORMAT(FALSE),
+		@CHAR_FORMAT(FALSE),
+		@MATCH_PATTERN(" BASE NAME : ")
+	),
+	@SECTION(
+		@NAME("Name"),
+		@OUTPUT_NAME("Name"),
+		@AREA(NAME),
+		@REQUIRED(TRUE),
+		@WRAP(TRUE),
+		@LTRIM(TRUE),
+		@RTRIM(TRUE),
+		@SQUEEZE(TRUE),
+		@PARA_FORMAT(TRUE),
+		@CHAR_FORMAT(TRUE),
+		@MATCH_PATTERN(" NAME : ")
+	)
+)
+

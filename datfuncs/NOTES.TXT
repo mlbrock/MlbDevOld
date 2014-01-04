@@ -1,0 +1,263 @@
+                     ======== ==== ========= ======= =====
+                     DATFUNCS Date Functions Library Notes
+                     ======== ==== ========= ======= =====
+
+=============================================================================
+DONE:
+=============================================================================
+*** DONE 1995-01-04 ***
+The Sybase date conversion types should be moved into the SPS DB library.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-12 ***
+Add the following functions to the library in the new module 'ulongnow.c':
+
+unsigned long ulongnow(void);
+unsigned long ulongnow_local(void);
+-----------------------------------------------------------------------------
+*** DONE 1995-03-12 ***
+Add support for time conversions (from UTC/GMT to local-time and vice-versa).
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-01-23 ***
+*** DONE     1997-02-04 ***
+Change 'static' variables to 'static const', where appropriate.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+*** DONE     1997-02-05 ***
+Extend all copyright years through 1997.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-04 ***
+*** DONE     1997-02-05 ***
+Implement a library version number and routines to retrieve it.
+=============================================================================
+CANCELLED:
+=============================================================================
+=============================================================================
+
+=============================================================================
+PENDING:
+=============================================================================
+The function 'jultofmt()' should invoke the appropriate 'DTIME_Format()'
+function.
+-----------------------------------------------------------------------------
+Conversion to local time must be supported by the date/time formatting
+functions.
+-----------------------------------------------------------------------------
+Seasons should be supported by the library. They are considered to change at
+the time of equinox or solstice.
+
+Support for season numbers and names should be added to the date formatting
+logic.
+-----------------------------------------------------------------------------
+Flexible and extensible foreign language month names, week names, and
+season names must be supported by the library formatting functions.
+-----------------------------------------------------------------------------
+Add support for ISO standard week numbers.
+
+Support for ISO standard week numbers should be added to the date formatting
+logic.
+-----------------------------------------------------------------------------
+And the following functions to the library in the new module 'ulongadj.c':
+
+unsigned long ulong_GMTToLocal(in_ulong);
+unsigned long ulong_AdjustHours(in_ulong, adj_hours);
+unsigned long ulong_AdjustMinutes(in_ulong, adj_minutes);
+unsigned long ulong_AdjustSeconds(in_ulong, adj_seconds);
+unsigned long ulong_AdjustMilliseconds(in_ulong, adj_milliseconds);
+-----------------------------------------------------------------------------
+The variety of magic numbers which represent such things as the number of
+seconds in a minute, hours in a day, et cetera, should probably be replaced
+with manifest constants. Although these magic numbers aren't likely change,
+(I mean, really!) doing this would likely make library functionality more
+clear.
+-----------------------------------------------------------------------------
+Change the prototypes in 'datfuncs.h' to include parameter names.
+-----------------------------------------------------------------------------
+Add to the library a 'static const' array of the following structure:
+
+typedef struct {
+	int    year_value;
+	JULIAN julian_value;
+} DATFUNCS_YEAR_DATA;
+
+extern const DATFUNCS_YEAR_DATA DATFUNCS_YearDataList[] = {
+	*** STUFF ***
+};
+
+extern const unsigned int       DATFUNCS_YearDataCount  =
+	sizeof(DATFUNCS_YearDataList) / sizeof(DATFUNCS_YearDataList[0]);
+
+The structure will be statically initialized with all of the year values and
+associated JULIAN dates for the years between 1800 and 2100, inclusive (in
+sorted order).
+
+The library functions 'ymdtojul()' and 'jultoymd()' will interrogate their
+parameters to determine whether they fall within the range of the dates in
+the array. If they do, they will search the array to determine the
+starting point for the year in question.
+
+This should improve substantially the performance of JULIAN conversions.
+-----------------------------------------------------------------------------
+The formatting logic needs to support the following additional format
+specifications:
+
+	TIME_T				--->	Date/time as a number of seconds from the Unix
+									epoch.
+
+	DBDATETIME_DAYS	--->	Date as the number of days from the Sybase epoch.
+
+	DBDATETIME_FRAC	--->	Time as the number of 1/300 second units from
+									midnight.
+
+	J[J]					--->	Date as the number of days from the date functions
+									library epoch.
+-----------------------------------------------------------------------------
+At least the shell of holiday support must be added for use by Sapient in
+the billing logic.
+
+Holiday calendars are stored in a database table, with multiple calendars
+selectable by x-ref code.
+
+There must be a way to initialize a holiday specification, interrogate it,
+use it to determine whether a particular date is a holiday, and to free it.
+
+The year in which a holiday occurs can be specified as follows:
+
+	o As occurring every year.
+
+	o As occurring every number of years.
+
+The month in which a holiday occurs can be specified as follows:
+
+	o As a particular month of the year.
+
+The day of the month on which a holiday occurs can be specified as follows:
+
+	o An absolute day (e.g.: day '25' for month '12').
+
+	o An occurrence of a day of the week (e.g.: the third Thursday for month
+	  '11'; the {last|first}<day-of-week> for any month).
+
+	o An occurrence of a day of week after a particular day of month (e.g.:
+	  'Sun>=8' is the first Sunday after the eighth day of the month).
+
+	o The week-day before or after a particular day of the month.
+
+	o The nearest week-day at the edge of a week-end (Friday or Monday)
+     before or after a particular day of the month (the American system).
+
+Additionally, holidays must be specifiable according to a lunar cycle to
+take into account those cultures which base their calendars on said cycle
+(and, of course, for Easter). To do this, month specifications are extended
+to include the lunar cycle number of the year, and day specifications to
+include the number of the day within that cycle.
+
+Each holiday has also a specification of the first and last dates for which
+it is effective. For example, the holiday 'Veteran's Day' doesn't become
+effective until 11/11/1918.
+
+When a holiday schedule is first initialized, the year range over which it
+is to be initialized is specified. All holidays for the years in the range
+will be pre-calculated by conversion to JULIAN dates and ordered for quick
+look-up by binary search.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-29 ***
+Include copyright notices in all header files and source code.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-12-30 ***
+Change all copyrights to year ranges 19?? - 1996.
+
+Change all copyrights to Michael L. Brock.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-13 ***
+Add the following functions to the library.
+
+	/* Module 'jultolot.c'. */
+double         julian_to_lotus(JULIAN in_julian);
+	/* Module 'lottojul.c'. */
+JULIAN         lotus_to_julian(double lotus_date_time);
+	/* Module 'mslotus.c'. */
+double         milliseconds_to_lotus(unsigned long milliseconds);
+unsigned long  lotus_to_milliseconds(double lotus_date_time);
+	/* Module 'dtlotus.c'. */
+double         DTIME_ToLotus(const DTIME *dtime_ptr);
+DTIME         *DTIME_LotusToDTIME(double lotus_date_time, DTIME *dtime_ptr);
+
+	/* Module 'jultolot.c'. */
+double julian_to_lotus(in_julian)
+JULIAN in_julian;
+{
+	return(((double) in_julian) + 1.0);
+}
+
+	/* Module 'lottojul.c'. */
+JULIAN lotus_to_julian(lotus_date_time)
+double lotus_date_time;
+{
+	return((lotus_date_time <= ((double) DATFUNCS_MIN_JULIAN)) ?
+		DATFUNCS_MIN_JULIAN :
+		(lotus_date_time > ((double) (DATFUNCS_MAX_JULIAN + 1L))) ?
+		DATFUNCS_MAX_JULIAN : ((JULIAN) (lotus_date_time - 1.0));
+}
+
+	/* Module 'mslotus.c'. */
+double milliseconds_to_lotus(milliseconds)
+unsigned long milliseconds;
+{
+	return(((double) (milliseconds / 1000L)) / ((double) (24L * 60L * 60L)));
+}
+
+	/* Module 'mslotus.c'. */
+unsigned long lotus_to_milliseconds(lotus_date_time)
+double lotus_date_time;
+{
+	return(((unsigned long) (fmod((lotus_date_time >= 0.0) ? lotus_date_time :
+		(0.0 - lotus_date_time), 1.0) * ((double) (24L * 60L * 60L)))) * 1000L);
+}
+
+	/* Module 'dtlotus.c'. */
+double DTIME_ToLotus(dtime_ptr)
+const DTIME *dtime_ptr;
+{
+	double tmp_double;
+
+	tmp_double = julian_to_lotus(dtime_ptr->julian);
+
+	return((tmp_double) + ((tmp_double >= 0.0) ?
+		milliseconds_to_lotus(dtime_ptr->milliseconds) :
+		(0.0 - milliseconds_to_lotus(dtime_ptr->milliseconds))));
+}
+
+	/* Module 'dtlotus.c'. */
+DTIME *DTIME_LotusToDTIME(lotus_date_time, dtime_ptr)
+double  lotus_date_time;
+DTIME  *dtime_ptr;
+{
+	dtime_ptr->julian       = lotus_to_julian(lotus_date_time);
+	dtime_ptr->milliseconds = lotus_to_milliseconds(lotus_date_time);
+
+	return(dtime_ptr);
+}
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-02-13 ***
+Add 'ENTRY CLASS' specifiers to all ADF comments.
+-----------------------------------------------------------------------------
+*** PROPOSED 1996-09-17 ***
+Modify all ADF copyright strings as follows:
+	Copyright (c) <year> Michael L. Brock. All rights reserved.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-07 ***
+Move all 'AUTHOR' and 'COPYRIGHT' information onto a single line.
+-----------------------------------------------------------------------------
+*** PROPOSED 1997-02-08 ***
+Implement a new function in 'jultostr.c' named 'jultostr_basic()'. This
+function will take an additional parameter, the date specification to be
+used in formatting the string.
+
+The logic in 'jultostr()' will be replaced with a call to 'jultostr_basic()'
+with 'DATFUNCS_DateSpec' as the date specification parameter.
+
+The ADF comments for the functions 'jultostr()', 'setjspec()' and
+'getjspec()' will have a 'CAVEATS' section added indicating that the functions
+should not be used where re-entrant behaviour is required.
+=============================================================================
+

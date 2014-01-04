@@ -1,0 +1,519 @@
+Help request with '-HELP' noted . . .
+
+USAGE FOR PROGRAM ADFOUT.EXE:
+
+   Usage:
+   ------
+      ADFOUT.EXE [<a mixture of '-' parameters, and '@' commands>]
+   
+   Description:
+   ------------
+      This is version 01.00.00A of ADFOUT.EXE.
+   
+   Parameters:
+   -----------
+      [-H[ELP]]
+         Displays this text.
+   
+         Note that if this parameter appears on the command-line, the program
+         will exit after displaying the help text.
+   
+      [-V[ER[SION][S]]]]
+         Displays the version of this program.
+   
+         Note that if this parameter appears on the command-line, the program
+         will exit after displaying the version information.
+   
+      [-CHECK[_ONLY][_FLAG]=<boolean>]
+         Specifies whether the program is to initialize itself, perform basic
+         operations (exclusive of producing any output), and exit. This
+         option permits system administrators to check the validity of the
+         command-line parameters used by the program.
+   
+         The <boolean> component of this parameter has the following syntax:
+   
+            { ON | OFF | TRUE | FALSE | YES | NO }
+   
+         The default for this parameter is 'OFF'.
+   
+      [-LOG[GING][_FLAG]=<boolean>]
+         Specifies whether the program is to emit its progress to a log file.
+   
+         The <boolean> component of this parameter has the following syntax:
+   
+            { ON | OFF | TRUE | FALSE | YES | NO }
+   
+         The default for this parameter is 'OFF'.
+   
+      [-LOG[GING]_DIR[ECTORY]=<log-file-dir-name>]
+         Specifies the directory within which the log file is to be created.
+   
+         If this parameter is not specified, the log file will be created in
+         the current directory ('./').
+   
+      [-DUP[LICATE][S][_HANDLING]=<duplicate-handling-type>]
+         Specifies how the program is to handle duplicate ADF base names.
+   
+         The <duplicate-handling-type> component of this parameter has the
+         following syntax:
+   
+            o NONE
+               Specifies to the program that encountering a duplicate ADF
+               base name should result in a program error.
+   
+            o FIRST
+               Specifies that only the first base name is to be processed by
+               the program. Any subsequent entries with same base name will
+               be ignored.
+   
+            o LAST
+               Specifies that only the last entry having a particular base
+               name is to be processed.
+   
+         The default for this parameter is 'NONE'.
+   
+      [-QUIET[_FLAG]=<boolean>]
+         Specifies whether the program is to supress the emission of
+         indicators of its progress to 'stderr'.
+   
+         The <boolean> component of this parameter has the following syntax:
+   
+            { ON | OFF | TRUE | FALSE | YES | NO }
+   
+         The default for this parameter is 'OFF'.
+   
+      [-SORT[S|ING][_ORDER]=<sort-order-type>]
+         Specifies how the program is to order ADF entries.
+   
+         The <sort-order-type> component of this parameter has the following
+         syntax:
+   
+            o NONE
+               Specifies that no order is to be imposed upon the entries.
+   
+            o [BASE_]NAME
+               Specifies that the entries are to be sorted by the ADF base
+               names.
+   
+            o FILE[_NAME]
+               Specifies that the entries are to be sorted by the names of
+               the source files from which the ADF entries were extracted.
+   
+            o CORE[_NAME]
+               Specifies that the entries are to be sorted by the 'core'
+               names of the source files from which the ADF entries were
+               extracted --- that is, the names of the files without
+               pathnames or trailing extensions.
+   
+            o [FILE_]TYPE
+               Specifies that the entries are to be sorted by the types (that
+               is, the extensions) of the files from which the ADF entries
+               were extracted.
+   
+            o MAN[_PAGE]
+               Specifies that the entries are to be sorted by the 'man' page
+               sections to which the entries belong.
+   
+         The default for this parameter is 'NONE'.
+   
+      [-HYPER[_]TEXT[_FLAG]=<boolean>]
+         Specifies whether the program is to include resolved hyper-text
+         references in the output emitted.
+   
+         This option is useful only when the '-OUTPUT_TYPE=' parameter is
+         either 'FRAME_MAKER' or 'HTML'.
+   
+         The <boolean> component of this parameter has the following syntax:
+   
+            { ON | OFF | TRUE | FALSE | YES | NO }
+   
+         The default for this parameter is 'OFF'.
+   
+      [-CONT[INUE]_ON_ERROR[_FLAG]=<boolean>]
+         Specifies whether the program is to continue operation after
+         encountering a non-fatal error.
+   
+         The <boolean> component of this parameter has the following syntax:
+   
+            { ON | OFF | TRUE | FALSE | YES | NO }
+   
+         The default for this parameter is 'OFF'.
+   
+      [-OUTPUT_DIR[ECTORY]=<output-dir-name>]
+         Specifies the directory within which output files will be created.
+   
+         The specified directory must already exist.
+   
+         Note that when the '-OUTPUT_TYPE=' parameter is 'MAN_PAGE', the man
+         page files output will be sent to the file specified by the
+         combination of the '-OUTPUT_DIRECTORY=' parameter, the first
+         character of the man page section being created, the base name of
+         the ADF comment entry, and a suffix consisting of the man page
+         section being created.
+   
+         If this parameter is not specified, and the '-OUTPUT_TYPE=' setting
+         is not 'MAN_PAGE', the output of the program will be placed in the
+         current directory ('./'). If the '-OUTPUT_TYPE' setting is
+         'MAN_PAGE', the man pages output by the program will be placed in
+         the appropriate sub-directory of the directory ('./man').
+   
+      [-OUTPUT[_TYPE]=<output-type>]
+         Specifies the type of output formatting to be performed. The
+         following <output-type> components are available:
+   
+            o ASC[II]
+               For the 'ASCII' <output-type> component, some 'bare-bones'
+               formatting is done. No special formatting such as bold-facing,
+               italics, underlining, et cetera is available. 'ASCII' output
+               is sent to 'stdout'.
+   
+            o FRAME[[_]MAKER]
+               For the 'FRAME_MAKER' <output-type> component, a FrameMaker
+               MIF is emitted to 'stdout'. Final FrameMaker formatting must
+               be done by using all but the paragraph formats from an
+               existing FrameMaker file.
+   
+               Note the the 'FRAME_MAKER' <output-type> component is not
+               supported at this time.
+   
+            o HTML
+               For the 'HTML' <output-type> component, an HTML file is
+               created with the formatting attributes available within the
+               HTML subset of SGML. 'HTML' output is sent to the file
+               specified by the combination of the '-OUTPUT_DIRECTORY='
+               parameter, the base name of the ADF comment entry, and the
+               suffix '.html'.
+   
+            o MAN[[_]PAGE]
+               For the 'MAN' <output-type> component, a man page is created
+               with the formatting attributes available within the 'man'
+               macro package. 'MAN' output is sent to the file specified by
+               the combination of the '-OUTPUT_DIRECTORY=' parameter, the
+               first character of the man page section being created, the
+               base name of the ADF comment entry, and a suffix consisting of
+               the man page section being created.
+   
+            o {POST[_]SCRIPT|PS}
+               For the 'POST_SCRIPT' <output-type> component, a PostScript
+               file is created with the formatting attributes available using
+               PostScript. 'POST_SCRIPT' output is sent to the file specified
+               by the combination of the '-OUTPUT_DIRECTORY=' parameter, the
+               base name of the ADF comment entry, and the suffix '.ps'.
+   
+            o {RICH_TEXT[_FORMAT]|RTF}
+               For the 'RICH_TEXT_FORMAT' <output-type> component, a file is
+               created with the formatting attributes available using the
+               Microsoft Rich Text Format. 'RICH_TEXT_FORMAT' output is sent
+               to the file specified by the combination of the '-
+               OUTPUT_DIRECTORY=' parameter, the base name of the ADF comment
+               entry, and the suffix '.rtf'.
+   
+         If this parameter is not specified, the program will use the 'ASCII'
+         output type.
+   
+      [-OUTPUT_BY_FILE[_NAME][_FLAG]=<boolean>]
+         Specifies whether the program is to emit to files prefixed with the
+         name of the file from which the ADF comment was derived instead of
+         prefixed with the base name (which is the default).
+   
+         The <boolean> component of this parameter has the following syntax:
+   
+            { ON | OFF | TRUE | FALSE | YES | NO }
+   
+         Note that if this parameter is set to 'ON', then any sort order
+         specified by the '-SORT_ORDER=' parameter will be over-ridden and
+         the ADF entries will be sorted by their file names.
+   
+         The default for this parameter is 'OFF'.
+   
+      [-[OUTPUT_TO_]STDOUT[_FLAG]=<boolean>]
+         Specifies whether the program is to emit the output to 'stdout'.
+   
+         The <boolean> component of this parameter has the following syntax:
+   
+            { ON | OFF | TRUE | FALSE | YES | NO }
+   
+         The default for this parameter is 'OFF'.
+   
+      [-GEN[ERATE|ERATION][_TYPE]=<generate-type>]
+         Specifies the type of output the program is to generate. The
+         following <generate-type> components are available:
+   
+            o {ENTRY|ENTRIES}
+               Specifies that ADF entries are to be generated.
+   
+            o {TABLE_OF_CONTENT|TOC}[S]
+               Specifies that a table of contents is to generated.
+   
+            o [ENTRY_]CLASS_{TABLE_OF_CONTENT|TOC}[S]
+               Specifies that a table of contents by entry class is to be
+               generated.
+   
+            o {TABLE_OF_FILE|TOF}[S]
+               Specifies that a table of files is to generated.
+   
+            o {INDEX[[E]S]|INDICES|IDX}
+               Specifies that an index is to be generated.
+   
+            o PERM[UTATE[D]][_{INDEX[[E]S]|INDICES|IDX}]
+               Specifies that a permutated index is to be generated.
+   
+         Note that the table of contents and index generate types are always
+         output to 'stdout'.
+   
+         If this parameter is not specified, the program will use the 'ENTRY'
+         generate type.
+   
+      [-INCLUDE_FILE[S]=<file-name>[,<file-name> ...]]
+         Specifies the entry file names to be included by the program.
+   
+         If the <file-name> component of this parameter is not present or is
+         empty, the list of entry file names to be included will be deleted.
+   
+      [-INCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]]
+         Specifies the entry names to be included by the program.
+   
+         If the <entry-name> component of this parameter is not present or is
+         empty, the list of entry names to be included will be deleted.
+   
+      [-INCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]]
+         Specifies the entry file extensions to be included by the program.
+   
+         If the <file-extension> component of this parameter is not present
+         or is empty, the list of entry file extensions to be included will
+         be deleted.
+   
+      [-INCLUDE_MAN_PAGE[S]=<entry-man-page>[,<entry-man-page> ...]]
+         Specifies the entry man pages to be included by the program.
+   
+         If the <entry-man-page> component of this parameter is not present
+         or is empty, the list of entry man pages to be included will be
+         deleted.
+   
+      [-EXCLUDE_FILE[S]=<file-name>[,<file-name> ...]]
+         Specifies the entry file names to be excluded by the program.
+   
+         If the <file-name> component of this parameter is not present or is
+         empty, the list of entry file names to be excluded will be deleted.
+   
+      [-EXCLUDE_NAME[S]=<entry-name>[,<entry-name> ...]]
+         Specifies the entry names to be excluded by the program.
+   
+         If the <entry-name> component of this parameter is not present or is
+         empty, the list of entry names to be excluded will be deleted.
+   
+      [-EXCLUDE_TYPE[S]=<file-extension>[,<file-extension> ...]]
+         Specifies the entry file extensions to be excluded by the program.
+   
+         If the <file-extension> component of this parameter is not present
+         or is empty, the list of entry file extensions to be excluded will
+         be deleted.
+   
+      [-EXCLUDE_MAN_PAGE[S]=<entry-man-page>[,<entry-man-page> ...]]
+         Specifies the entry man pages to be excluded by the program.
+   
+         If the <entry-man-page> component of this parameter is not present
+         or is empty, the list of entry man pages to be excluded will be
+         deleted.
+   
+      [-INCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]]
+         Specifies the hyper text names to be included by the program.
+   
+         If the <hyper-text-name> component of this parameter is not present
+         or is empty, the list of hyper text names to be included will be
+         deleted.
+   
+      [-EXCLUDE_HYPER[[_]TEXT]=<base-name>[,<base-name> ...]]
+         Specifies the hyper text names to be excluded by the program.
+   
+         If the <hyper-text-name> component of this parameter is not present
+         or is empty, the list of hyper text names to be excluded will be
+         deleted.
+   
+      [-{AREA|SECTION}_NAME_TYPE[S]=<area-name-type>]
+         Specifies the area names to be used when emitting ADF entries. The
+         following <area-name-type> components are available:
+   
+            o DEF[INITION]
+               Specifies that the ADF entry area names to be used are those
+               specified by the ADF definition which was used to parse the
+               source file.
+   
+            o INTERNAL
+               Specifies that the ADF entry area names to be used are those
+               specified by the internal list of valid ADF area names.
+   
+         If this parameter is not specified, the program will use the
+         'INTERNAL' area name type.
+   
+      [-{AREA|SECTION}_ORDER[_TYPE][S]=<area-order-type>]
+         Specifies the order in which areas in ADF entries are to be emitted.
+         The following <area-order-type> components are available:
+   
+            o DEF[INITION]
+               Specifies that ADF entry areas are to be emitted in the order
+               specified by the ADF definition which was used to parse the
+               source file.
+   
+            o INTERNAL
+               Specifies that ADF entry areas are to be emitted in the order
+               specified by the internal list of valid ADF entries.
+   
+            o SOURCE[_FILE]
+               Specifies that ADF entry areas are to be emitted in the order
+               in which they were encountered in the source file from which
+               the entry was derived.
+   
+         If this parameter is not specified, the program will use the
+         'INTERNAL' area order type.
+   
+      [-{AREA|SECTION}_NAME[S]=<area-name>,<string>]
+         Specifies that the indicated <area-name> is to be replaced be the
+         <string> sub-component during output.
+   
+         Note that this option over-rides to '-AREA_NAME_TYPE=' option.
+   
+      [-IGNORE_{AREA|SECTION}[S]=<area-name>[,<area_name> . . .]]
+         Specifies that the program is to ignore the indicated ADF sections.
+   
+      [-KEEP[_BAD]_SEE_ALSO[S]=<boolean>]
+         Specifies that names in the 'SEE ALSO' section of output entries
+         which cannot be resolved to other ADF entries will be emitted in the
+         output. The default behavior is to remove such entries from the
+         output.
+   
+         The <boolean> component of this parameter has the following syntax:
+   
+            { ON | OFF | TRUE | FALSE | YES | NO }
+   
+         The default for this parameter is 'OFF'.
+   
+      [-EXTERN[AL]_REF[ERENCE][S]=<ADF-database-name>=<hyper-text-ref>]
+         Specifies the use of an ADF database file to resolve external hyper-
+         text references.
+   
+         The <ADF-database-name> component of this parameter is the name of
+         the ADF database file to be used as the source of the hyper-text.
+   
+         The <hyper-text-ref> component of this parameter is the string to be
+         used to resolve hyper-text links to the entries in the ADF database
+         file <ADF-database-name>.
+   
+         For '-OUTPUT_TYPE=HTML', the <hyper-text-ref> component should be
+         the directory in which reside the HTML pages constructed from the
+         entries in the ADF database file <ADF-database-name>.
+   
+         For '-OUTPUT_TYPE=FRAME_MAKER', the <hyper-text-ref> component
+         should be the name of the FrameMaker document file in which resides
+         the text constructed from the entries in the ADF database file <ADF-
+         database-name>.
+   
+         This option has no effect on other output types, as they do not
+         include hyper-text links in their output.
+   
+      [-FRAME[[_]MAKER]:DOC[UMENT]_NAME[S]=[<string>]]
+         Defines the FrameMaker variable 'DocumentName' to be equal to the
+         string <string>.
+   
+         If the <string> component of this parameter is not present in the
+         parameter, the variable will be reset to 'NULL'.
+   
+      [-FRAME[[_]MAKER]:OWNER_NAME[S]=[<string>]]
+         Defines the FrameMaker variable 'OwnerName' to be equal to the
+         string <string>.
+   
+         If the <string> component of this parameter is not present in the
+         parameter, the variable will be reset to 'NULL'.
+   
+      [-FRAME[[_]MAKER]:COPYRIGHT_NAME[S]=[<string>]]
+         Defines the FrameMaker variable 'Copyright' to be equal to the
+         string <string>.
+   
+         If the <string> component of this parameter is not present in the
+         parameter, the variable will be reset to 'NULL'.
+   
+      [-FRAME[[_]MAKER]:COVER_NAME[S]_1=[<string>]]
+         Defines the FrameMaker variable 'CoverName_1' to be equal to the
+         string <string>.
+   
+         If the <string> component of this parameter is not present in the
+         parameter, the variable will be reset to 'NULL'.
+   
+      [-FRAME[[_]MAKER]:COVER_NAME[S]_2=[<string>]]
+         Defines the FrameMaker variable 'CoverName_2' to be equal to the
+         string <string>.
+   
+         If the <string> component of this parameter is not present in the
+         parameter, the variable will be reset to 'NULL'.
+   
+      [-FRAME[[_]MAKER]:LONG_NAME[S]=[<string>]]
+         Defines the FrameMaker variable 'LongDocumentName' to be equal to
+         the string <string>.
+   
+         If the <string> component of this parameter is not present in the
+         parameter, the variable will be reset to 'NULL'.
+   
+      [-FRAME[[_]MAKER]:SHORT_NAME[S]=[<string>]]
+         Defines the FrameMaker variable 'ShortDocumentName' to be equal to
+         the string <string>.
+   
+         If the <string> component of this parameter is not present in the
+         parameter, the variable will be reset to 'NULL'.
+   
+      [-HTML:AUTHOR[S]_LINK[S]=<URL>[=[<match-string>]]]
+         Specifies that the paragraphs in the 'AUTHORS' area of ADF entries
+         are to be linked to the specified URL.
+   
+         If the <match-string> component of this parameter is present, then
+         only those paragraphs which contain <match-string> will be so
+         linked.
+   
+      [-HTML:COPYRIGHT[S]_LINK[S]=<URL>[=[<match-string>]]]
+         Specifies that the paragraphs in the 'COPYRIGHTS' area of ADF
+         entries are to be linked to the specified URL.
+   
+         If the <match-string> component of this parameter is present, then
+         only those paragraphs which contain <match-string> will be so
+         linked.
+   
+      [-HTML:HEAD[ER|ING]_LEVEL={1|2|3|4|5|6}]
+         Specifies the HTML heading level to be used when emitting ADF
+         section names.
+   
+         For example, if the value of this parameter is '3', then the program
+         will emit ADF section names with the HTML tag '<H3>'.
+   
+         The default used if this parameter is not specified is '<H1>'.
+   
+      [-MAN[_PAGE[S]]:SECTION_NAME[S]=[<string>]]
+         Defines the variable to be used in the man page header.
+   
+         If the <string> component of this parameter is not present in the
+         parameter, the variable will be reset to 'NULL'.
+   
+      [-MAN[_PAGE[S]]:OWNER_NAME[S]=[<string>]]
+         Defines the variable to be used in the man page footer.
+   
+         If the <string> component of this parameter is not present in the
+         parameter, the variable will be reset to 'NULL'.
+   
+      [@<parameter-include-file-name>]
+         Specifies the name of a parameter include file from which are to be
+         parameters to this program. Parameter include files may themselves
+         contain parameter include file specifications.
+   
+         When a parameter include file is encountered on the command line,
+         the program will attempt to open it for reading. It is an error if
+         the file so specified does not exist or can not be read.
+   
+         Each line of the parameter include file is parsed for its parameters
+         just as if those parameters were entered on the command line except
+         for the following rules:
+   
+            o A line in which the first non-whitespace character is a number-
+            sign ('#') is considered to be the start of a comment and is
+            ignored.
+   
+            o Blank lines (that is, lines which are empty or which consist
+            wholly of whitespace) are ignored.
+   

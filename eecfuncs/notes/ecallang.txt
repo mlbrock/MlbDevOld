@@ -1,0 +1,40 @@
+<type> := { number | string }
+<scope-specifier> := { global | local }
+<const-specifier> := { const[ant] | notconst[ant] }
+
+<assignment> := <name> { = | += | -= | *= | /= | \= | %= | ^= | .= } <expression> ;
+
+<expression-list> := <expression>[,<expression> . . .]
+
+begin while (<expression-list>)
+	<statement-block>
+end while
+
+begin do
+	<statement-block>
+end do (<expression-list>)
+
+begin for ([<expression-list>] ; [<expression-list>] ; [<expression-list>])
+end for
+
+if (<expression-list>)
+	<statement-block>
+[else if (<expression-list>)
+	<statement-block>
+end else if] . . .
+else
+	<statement-block>
+end else
+end if
+
+
+declare [global] {number|string} <name> ;
+
+declare [global|local] {<type>|void} <name> ([<type>[,<type> . . .]) ;
+
+define [global|local] [constant] {number|string} <name> [ = <expression> ] ;
+
+define [global|local] {<type>|void} <name> ([<type>[,<type> . . .]) {
+	[<statement-block>]
+}
+

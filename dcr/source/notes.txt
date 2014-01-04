@@ -1,0 +1,1870 @@
+                            ==== ===== ======= =====
+                            Data Cache Library Notes
+                            ==== ===== ======= =====
+
+=============================================================================
+DONE:
+=============================================================================
+*** DONE ***
+To be done:
+	* All appropriate index macros must accept the index entry count and
+	the index entry list as parameters.
+	* The 'find' routines must return the absolute record offset, not the
+	relative record offset.
+-----------------------------------------------------------------------------
+*** DONE ***
+DCR cache 'Get' functions are as follow:
+
+	File Name    Function Name
+                123456789012345678901234567890
+	------------ --------------------------------
+	getcount.c   DCR_GetCount()
+	getdirct.c   DCR_GetDirect()
+	getequal.c   DCR_GetEQ()
+	getgreat.c   DCR_GetGT()
+	getgrequ.c   DCR_GetGE()
+	gethigh.c    DCR_GetHighest()
+	getless.c    DCR_GetLT()
+	getleequ.c   DCR_GetLE()
+	getlow.c     DCR_GetLowest()
+	getnext.c    DCR_GetNext()
+	getpos.c     DCR_GetPosition()
+	getprev.c    DCR_GetPrevious()
+	------------ --------------------------------
+                123456789012345678901234567890
+
+Each 'get' function validates the index and, for the read-size cache, maps it
+into the process address space. It then calls a lower-level function of a
+similar name to perform the actual search. This lower-level function is
+available to application programmers with the appropriate caveats.
+-----------------------------------------------------------------------------
+*** DONE ***
+Add activity measures (stats) to the various SCF activities, including:
+	* Record insertion
+	* Bulk record insertion
+	* Find
+	* Search
+-----------------------------------------------------------------------------
+*** DONE ***
+Need logic to support cache statistic gathering:
+
+typedef struct {
+	unsigned long  last_count;
+	struct timeval last_start;
+	struct timeval last_end;
+	struct timeval last_interval;
+	unsigned long  total_count;
+	struct timeval total_time;
+} DCR_STAT;
+-----------------------------------------------------------------------------
+*** DONE ***
+Add user function calls for various SCF sequence points:
+	* Before record insert
+	* After record insert
+	* Before search
+	* After search
+-----------------------------------------------------------------------------
+*** DONE ***
+The logic must check upon open to ensure that the cache section alignment
+page size is an integral multiple of the current system page size as
+returned by 'getpagesize()'.
+-----------------------------------------------------------------------------
+*** DONE ***
+The macro 'GEN_sizeof' must be moved to the 'genfuncs.h' include file.
+-----------------------------------------------------------------------------
+*** DONE ***
+The macro 'DCR_ADJUST_SIZE' must be renamed to 'GEN_ADJUST_SIZE' and
+moved to the 'genfuncs.h' include file.
+-----------------------------------------------------------------------------
+*** DONE ***
+The alignment logic should support two additional types:
+
+	Type Name     Type Character
+	---------     --------------
+	signed byte   b
+	unsigned byte B
+
+These types should be compared with 'memcmp()'. The existing types 'c' and
+'C' (which are signed and unsigned char, respectively) should be compared
+using 'nstrcmp()'.
+-----------------------------------------------------------------------------
+*** DONE ***
+There is no need for the function 'DCR_ValidateIndexMethod()' to
+perform a call to 'DCR_Refresh()'.
+-----------------------------------------------------------------------------
+*** DONE ***
+Must add support for additional, user-defined fields which are not loaded
+from the database. The specification must support type and length, as follows:
+
+   -ADD_FIELD=<field-name>,<meta-data-type-name>[,<field-length]
+
+Note that the <field-length> componenent of this specification is used to
+specify array length. It is valid for any <meta-data-type-name>.
+-----------------------------------------------------------------------------
+*** DONE ***
+Add 'mtmpnam()' to the MFILE library.
+-----------------------------------------------------------------------------
+*** DONE ***
+Add 'munlink()' to the MFILE library.
+-----------------------------------------------------------------------------
+*** DONE ***
+The 'DCR_Get*()' functions need an extra parameter 'int deleted_flag'
+which, in a future release of the cache library, will(may) support retrieval
+of all records, only un-deleted records, and only deleted records from the
+cache.
+
+This parameter should be added now rather than later so that application
+programmers don't have to change the invocation of the aforementioned
+functions.
+-----------------------------------------------------------------------------
+*** DONE ***
+The 'cache_signature' member of 'DCR_HEADER' should be moved to the
+end of the structure. Doing so provides detection of changes in the size of
+the structure anywhere within the structure.
+-----------------------------------------------------------------------------
+*** DONE ***
+Must add support for user data pointers to the structure 'DCR_CACHE'. It
+should look something like the following:
+
+#define DCR_USER_DATA_PTR_COUNT	16
+
+	void *user_data_ptr_list[DCR_USER_DATA_PTR_COUNT];
+
+And functions to support adding and changing user data pointers:
+
+	void *DCR_GetUserDataPtr(DCR_CACHE *cache_ptr,
+		unsigned int user_data_ptr_index);
+
+	/* If 'user_data_ptr_list' is non-NULL, then copy list. Otherwise, */
+	/* just return a pointer to the head of the list.                  */
+	void **DCR_GetUserDataPtrList(DCR_CACHE *cache_ptr,
+		void **user_data_ptr_list);
+
+	void *DCR_SetUserDataPtr(DCR_CACHE *cache_ptr,
+		unsigned int user_data_ptr_index, const void *user_data_ptr);
+-----------------------------------------------------------------------------
+*** DONE ***
+Both the 'DCR_DoCacheReload()' and 'DCR_DoCacheUpdate()' functions
+should support a maximum record count parameter.
+-----------------------------------------------------------------------------
+*** DONE ***
+The 'DCR_DoCacheReload()' function should perform the same logic as
+'DCR_InitialDBLoad()' if there are no records in the cache --- and if
+we don't have any TIB subscriptions outstanding.
+-----------------------------------------------------------------------------
+*** DONE ***
+Add the parameter '-UPDATE_RE[_]{FRESH|LOAD}_SECOND[S]=<time-in-seconds>' to
+'runcache' (and SCF executables).
+-----------------------------------------------------------------------------
+*** DONE ***
+Cache index areas MUST be aligned on page boundaries for index mapping to
+function correctly.
+
+This should be checked when the cache is first opened.
+
+Cache creation should assume a page size of at least '8192'.
+-----------------------------------------------------------------------------
+*** DONE ***
+Add leading partial-key comparison capability to the 'get' and 'find'
+functions. This will reduce the number of indices needed by a cache.
+
+An additional parameter to the 'get' and 'find' functions is needed to
+support this feature --- 'GEN_ALIGN_CMP_ITEM *align_cmp'. It this parameter
+is 'NULL', then the default alignment comparison structure for that index
+will be used.
+
+Two additional members of the 'DCR_INDEX_DATA' structure is needed to
+support this feature: 'GEN_ALIGN_CMP_ITEM *record_align_cmp_ptr' and
+'GEN_ALIGN_CMP_ITEM *index_align_cmp_ptr'. It is these members which should
+be used by the comparison functions. If these parameters are 'NULL', then the
+default alignment comparison structure for that index will be used.
+
+
+To edit:
+	b spscache.h BINDHEAD.C IDXCHKE.C IDXCMPE.C IDXCMPI.C IDXEMBED.C IDXFINDI.C SEARCH.C
+-----------------------------------------------------------------------------
+*** DONE ***
+In order for 'DCR_SearchRecord()' to work properly, it must iterate
+over each index for each matching record to see if the target record has
+identical keys.
+
+To support this, we need to have additional members in the structure
+'DCR_INDEX_DATA': 'search_index' and 'search_count'. Both
+members are 'unsigned int'
+-----------------------------------------------------------------------------
+*** DONE ***
+Add another type to the get list types: 'POINTER' --- this returns a list of
+pointers (parameter type is 'void ***') to the records of interest.
+-----------------------------------------------------------------------------
+*** DONE ***
+Need to have a special call-back parameter to 'DCR_CreateCache()' --- the
+'critical_section_call_back'. This call-back will be called before engaging
+in work which makes the cache unstable. It will probably be used to set-up
+signal handling. It will be called again after the critical section has
+ended.
+
+The additional 'DCR_CACHE' member is:
+#ifndef NARGS
+	int                          (*critical_call_back_function)
+		(struct tag_DCR_CACHE *cache_ptr, unsigned long call_back_type,
+		int post_operation_flag, int operation_flags,
+		unsigned int operation_count, void *operation_ptr,
+		int return_code, char *error_text);
+#else
+	int                          (*critical_call_back_function)();
+#endif /* #ifndef NARGS */
+
+The additional call-back functions are:
+void DCR_GetCriticalCallBack(DCR_CACHE *cache_ptr,
+   int (**critical_call_back_function)(DCR_CACHE *cache_ptr,
+   unsigned long call_back_type, int post_operation_flag,
+   int operation_flags, unsigned int operation_count, void *operation_ptr,
+   int return_code, char *error_text));
+void DCR_SetCriticalCallBack(DCR_CACHE *cache_ptr,
+   int (*critical_call_back_function)(DCR_CACHE *cache_ptr,
+   unsigned long call_back_type, int post_operation_flag,
+   int operation_flags, unsigned int operation_count, void *operation_ptr,
+   int return_code, char *error_text));
+
+The following are the critical sections:
+	* Cache re-sizing (truncation; index moving, offset/size changes).
+	* Record insertion (inserting the index entries; record_count++).
+	* Bulk insertion (sorting the indices; record_count++).
+	* Delete, if index entries are removed (removing index entries).
+-----------------------------------------------------------------------------
+*** DONE ***
+The 'memset()' of the new record area in 'DCR_InsertBulk()' should be
+performed outside of the per-record loop for the entire block to be inserted.
+-----------------------------------------------------------------------------
+*** DONE ***
+Add new statistic array element for 'CREATE_CACHE'.
+-----------------------------------------------------------------------------
+*** DONE ***
+Add new statistic array element for 'LOAD_METADATA'.
+-----------------------------------------------------------------------------
+*** DONE ***
+'prtcache' should capture signals whenever an output file is open so that the
+file can be closed properly.
+-----------------------------------------------------------------------------
+*** DONE ***
+The cache name (that is, the meta-data 'locale_name') should be changed from
+31 characters to 63 (or even 127) --- changed to 255.
+-----------------------------------------------------------------------------
+*** DONE *** (set to 8192)
+The manifest constant 'DCR_HEADER_PAGE_SIZE' should probably be set
+to '8192' or even '16384'.
+-----------------------------------------------------------------------------
+*** DONE ***
+The function 'DCR_CalculateMaxRecords()' must be tested fully.
+-----------------------------------------------------------------------------
+*** DONE ***
+The function 'DCR_EmitBinaryData()' should emit entire records at a
+time if the 'field_spec' field list is identical to the cache field list and
+the XDR option flag is not TRUE.
+-----------------------------------------------------------------------------
+*** DONE ***
+'runcache' and the SCF executables must emit the current working directory
+when they show settings. This is so that relative path names (cache files,
+log files, et cetera) may be resolved by the user.
+-----------------------------------------------------------------------------
+*** DONE ***
+The new map index and refresh logic MUST be installed soon --- too many
+high-level routines depend upon said logic for their work. 'MAP_PRIVATE'
+mapping must be installed for read-side logic to have a chance of working.
+-----------------------------------------------------------------------------
+*** DONE ***
+The 'C' locale should be set at program start-up of the program 'runcache'.
+-----------------------------------------------------------------------------
+*** DONE ***
+The cumulative 'getrusage' should be calculated at program exit and emitted
+to the log at the end of the program 'runcache'.
+-----------------------------------------------------------------------------
+*** DONE ***
+Change the cycle and lock defaults --- more iterations for a smaller period
+of time.
+
+For example, a good setting for the cycle settings is 50,10000.
+-----------------------------------------------------------------------------
+*** DONE ***
+Need to free the cache header ('free*(*cache_header_ptr);') if subsequent
+logic fails.
+
+See line number '541' and after in the function 'DCR_MakeHeader()'.
+-----------------------------------------------------------------------------
+*** DONE ***
+Fix bug in reporting per-record times in the call-back routine --- the logic
+at present reports times cumulatively.
+-----------------------------------------------------------------------------
+*** DONE ***
+Add a 'field_name' member to the structure 'DCR_FIELD'. Also need to
+add an 'DCR_AREA_COLUMN_NAME' manifest constant and the code to support
+the two areas.
+
+Searches for database columns will occur against the 'column_list'.
+
+Searches for cache fields will occur against the 'field_list'.
+-----------------------------------------------------------------------------
+*** DONE 1994-10-28 ***
+The function 'DCR_TruncateCache()' should be made 'safe' by touching
+each newly-mapped page (like the function 'GEN_IsValidArea()'). Also, this
+functionality should be added to the 'mfile' library with a function named
+'mtruncate_safe()'.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-04 ***
+Use new functions in the 'mfile.a' module 'logms.c' to display log file
+separators in 'runcache':
+
+void MFILE_GEN_LogSeparatorStartLog(MFILE *mfile_ptr, FILE *file_ptr);
+void MFILE_GEN_LogSeparatorEndLog(MFILE *mfile_ptr, FILE *file_ptr);
+void MFILE_GEN_LogSeparatorHypenChar(MFILE *mfile_ptr, FILE *file_ptr);
+void MFILE_GEN_LogSeparatorEqualChar(MFILE *mfile_ptr, FILE *file_ptr);
+void MFILE_GEN_LogSeparatorChar(MFILE *mfile_ptr, FILE *file_ptr, int log_char);
+void MFILE_GEN_LogSeparatorString(MFILE *mfile_ptr, FILE *file_ptr,
+   const char *log_string);
+-----------------------------------------------------------------------------
+*** DONE 1994-12-04 ***
+Add a parameter to 'runcache':
+
+	-INDEX_TYPE={INDIRECT|EMBED[DED]}[_IND{EX[[E]S]|ICES}]
+
+This parameter is a bit more descriptive than the exisiting parameter with
+the same functionality '-INDIRECT_INDICES={ON|OFF|TRUE|FALSE|YES|NO}'.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-04 ***
+Add the following command line parameter to 'prtcache':
+
+	[-CACHE_HEADER[S]_ONLY={ ON | OFF | TRUE | FALSE | YES | NO }]
+
+If this flag is present, no cache records will be emitted, just the cache
+header information.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-04 ***
+All cache executables should use 'setrlimit()' to set their resource limits
+to the maximum.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-05 ***
+Add logic permitting the application programmer to store a list of index
+key descriptors within the 'DCR_CACHE' structure. This enhancement will
+necessitate the following:
+
+Additional structure in 'spscache.h':
+
+typedef struct {
+	unsigned int  index_method;
+	unsigned int  field_count;
+	int           ignore_case_flag;
+	GEN_ALIGN_CMP record_cmp;
+	GEN_ALIGN_CMP index_cmp;
+} DCR_INDEX_KEY;
+
+Addition of members to 'DCR_CACHE':
+
+	unsigned int         index_key_count;
+	DCR_INDEX_KEY *index_key_list;
+
+Additional functions (in module 'indexkey.c'):
+
+int DCR_AddIndexKeyList(DCR_CACHE *cache_ptr,
+   unsigned int in_index_key_count,
+   const DCR_INDEX_KEY *in_index_key_list, char *error_text);
+int DCR_CopyIndexKeyList(unsigned int in_index_key_count,
+   const DCR_INDEX_KEY *in_index_key_list,
+   unsigned int *out_index_key_count,
+   DCR_INDEX_KEY **out_index_key_list, char *error_text);
+void DCR_FreeCacheIndexKeyList(DCR_CACHE *cache_ptr);
+void DCR_FreeIndexKeyList(unsigned int index_key_count,
+   DCR_INDEX_KEY *index_key_list);
+-----------------------------------------------------------------------------
+*** DONE 1994-12-06 ***
+Add a function to get a list of the records in a cache which are unique
+relative to the specified index key.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-08 ***
+All cache executables must accept the '-HELP' parameter as follows:
+
+	-H[ELP]
+-----------------------------------------------------------------------------
+*** DONE 1994-12-08 ***
+All cache executables must accept a new version number parameter:
+
+	-V[ER[SION][S]]
+-----------------------------------------------------------------------------
+*** DONE 1994-12-20 ***
+Add a function to the module 'indexkey.c' which returns a pointer to a
+specified index key structure:
+
+DCR_INDEX_KEY *DCR_GetIndexKeyPtr(const DCR_CACHE *cache_ptr,
+   unsigned int index_key_element);
+-----------------------------------------------------------------------------
+*** DONE 1994-12-21 ***
+Add functions which parse the most-frequently used cache executable
+parameters. This will locate code for parsing those parameters in a single
+place.
+
+The functions are to be implemented in the module 'basicarg.c'.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-27 ***
+Add functions which build the usage text for the most-frequently used
+cache executable parameters. This will locate code for the usage text in
+a single place.
+
+The functions are to be implemented in the module 'basicuse.c'.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-27 ***
+Additional members for the structure 'DCR_CACHE':
+
+	int          max_update_date_known;
+	char         update_date_field_name[GEN_sizeof(DCR_FIELD, field_name)];
+	unsigned int update_date_field_index;
+	unsigned int update_date_field_offset;
+	unsigned int max_update_date_record;
+	DBDATETIME   max_update_date;
+
+And additional functions (in module 'updatedt.c'):
+
+void DCR_ClearMaxUpdateDate(DCR_CACHE *cache_ptr);
+int  DCR_FindMaxUpdateDate(DCR_CACHE *cache_ptr,
+   const char *update_date_field_name,  unsigned int *update_date_field_index,
+   unsigned int *update_date_field_offset,
+	unsigned int *max_update_date_record, DBDATETIME *max_update_date,
+   char *error_text);
+int  DCR_GetMaxUpdateDate(DCR_CACHE *cache_ptr,
+   const char *update_date_field_name, DBDATETIME *max_update_date,
+   char *error_text);
+int  DCR_HasUpdateDate(DCR_CACHE *cache_ptr,
+   const char *update_date_field_name, unsigned int *update_date_field_index,
+   unsigned int *update_date_field_offset);
+int  DCR_SetMaxUpdateDate(DCR_CACHE *cache_ptr,
+   unsigned int max_update_date_record, const DBDATETIME *max_update_date,
+   char *error_text);
+-----------------------------------------------------------------------------
+*** DONE 1994-12-28 ***
+'runcache' needs an additional parameter which specifies the name of the
+cache column to be used to determine the last update-date:
+
+	-UPDATE_DATE_{FIELD|COLUMN}_NAME=<db-column-name>
+-----------------------------------------------------------------------------
+*** DONE 1994-12-28 ***
+Additional cache functions (in module 'chkpoint.c'):
+
+int DCR_CheckPointBasic(const DCR_CACHE *cache_ptr,
+   unsigned long check_point_offset, unsigned long check_point_length,
+   int synchronous_flag, char *error_text);
+int DCR_CheckPoint(const DCR_CACHE *cache_ptr, int synchronous_flag,
+   char *error_text);
+int DCR_CheckPointHeader(const DCR_CACHE *cache_ptr,
+   int synchronous_flag, char *error_text);
+int DCR_CheckPointData(const DCR_CACHE *cache_ptr,
+   int synchronous_flag, char *error_text);
+int DCR_CheckPointIndices(const DCR_CACHE *cache_ptr,
+   int synchronous_flag, char *error_text);
+int DCR_CheckPointRecord(const DCR_CACHE *cache_ptr,
+   unsigned int record_element, int synchronous_flag, char *error_text);
+-----------------------------------------------------------------------------
+*** DONE 1994-12-28 ***
+The routines which load database records into the cache must be changed to
+accept ancilliary SQL clauses (for example, 'WHERE' and 'ORDER BY').
+
+In addition, the 'DCR_CACHE' structure must have members added to support
+storage of that clause for susequent use:
+
+	char *sql_where_clause;
+	char *sql_group_by_clause;
+	char *sql_order_by_clause;
+
+And we need functions to get and set those members:
+
+int DCR_ClearSQLWhereClause(DCR_CACHE *cache_ptr, char *error_text);
+int DCR_ClearSQLGroupByClause(DCR_CACHE *cache_ptr, char *error_text);
+int DCR_ClearSQLOrderByClause(DCR_CACHE *cache_ptr, char *error_text);
+int DCR_SetSQLWhereClause(DCR_CACHE *cache_ptr,
+   const char *sql_where_clause, char *error_text);
+int DCR_SetSQLGroupByClause(DCR_CACHE *cache_ptr,
+   const char *sql_group_by_clause, char *error_text);
+int DCR_SetSQLOrderByClause(DCR_CACHE *cache_ptr,
+   const char *sql_order_by_clause, char *error_text);
+
+The functionality in the module will use the new members when constructing
+an SQL statement.
+
+This functionality will be added inside of the new module 'sqlclaus.c'.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-28 ***
+'runcache' needs the following additional parameters:
+
+	-[SQL_]WHERE[_CLAUSE]=<where-clause>
+	-[SQL_]GROUP_BY[_CLAUSE]=<group-by-clause>
+	-[SQL_]ORDER_BY[_CLAUSE]=<order-by-clause>
+-----------------------------------------------------------------------------
+*** DONE 1994-12-28 ***
+Cache executables must not display the '-HELP' text when a bad command-line
+argument is encountered --- just the error message plus an indication that
+help is available with '-H[ELP]'.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-28 ***
+Change the functions in 'basicuse.c' to accept another parameter which
+specifies that additional text is to be added at the end of the usage text
+in question:
+
+	const char **extra_usage_list;
+-----------------------------------------------------------------------------
+*** DONE 1994-12-28 ***
+'runcache' needs an additional parameter:
+
+	-{CLEAR|DELETE|REMOVE}_ADD[ED]_FIELD[S]=<boolean>
+
+If encountered on the command-line, any fields specified so far by the
+'-ADDED_FIELDS=' parameter will be cleared.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-28 ***
+'runcache' needs an additional parameter:
+
+	-{CLEAR|DELETE|REMOVE}_INDEX_SPEC[IFICATION][S]=<boolean>
+
+If encountered on the command-line, any indices specified so far by the
+'-INDEX_SPECIFICATION=' parameter will be cleared.
+-----------------------------------------------------------------------------
+*** DONE 1994-12-30 ***
+Add support to the cache executables for the new database and SQL debugging
+parameters:
+
+	-{DB|DATA[_]BASE}_DEBUG[GING][_FLAG]=<boolean>
+	-SQL_DEBUG[GING][_FLAG]=<boolean>
+-----------------------------------------------------------------------------
+*** DONE 1994-12-30 ***
+Add a parameter which specifies the granularity to be used for database
+loads:
+
+	-{DB|DATA[_]BASE}_LOAD_GRAN[ULAR[ITY]]=<number-of-rows>
+-----------------------------------------------------------------------------
+*** DONE 1994-12-30 ***
+Add further functions to 'basicarg.c' and 'basicuse.c' to support the
+following cache-specific command-line parameters:
+
+	-{DB|DATA[_]BASE}[_NAME]=<database-name>
+	-{DB|DATA[_]BASE}_OWNER[_NAME]=<owner-name>
+	-{DB|DATA[_]BASE}_TABLE[_NAME]=<table-name>
+	-{DB|DATA[_]BASE}_USER[_NAME]=<db-user-name>
+	-{DB|DATA[_]BASE}_PASS[W[OR]D][_NAME]=<db-pass-word>
+-----------------------------------------------------------------------------
+*** DONE 1994-12-31 ***
+Change the cache executables to use the new version of the function
+'GEN_GetParams()' with the version number flag.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-04 ***
+The conversion of the Sybase money types should be performed by using the
+new functions installed in the 'dbcsyb' library:
+
+double    DBC_SYB_DBMONEYToDouble(const DBMONEY *in_dbmoney,
+   double *out_double);
+double    DBC_SYB_DBMONEY4ToDouble(const DBMONEY4 *in_dbmoney4,
+	double *out_double);
+-----------------------------------------------------------------------------
+*** DONE 1995-01-12 ***
+Change 'DCR_TruncateCache()' to use the function 'GEN_IsValidSections()'
+instead of 'GEN_IsValidArea()'.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-12 ***
+An additional member to record the block size of the memory-mapped cache
+('unsigned int cache_block_size') will need to be added to the structure
+'DCR_CACHE'. This member will be set by the cache open logic to the
+fundamental file system block-size of the cache.
+
+The 'cache_block_size' could be determined by the 'st_blksize' member of
+'struct stat', but this is a 'preferred' block-size and may not be safe. A
+better strategy is to call 'fstatfs()' when the cache is first opened. The
+'f_bsize' member of the 'struct statfs' will contain the needed value.
+
+If the call to 'fstatfs()' should fail for any reason, the open logic will
+set 'block_size' to a default value. 512 bytes seems a good guess.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-12 ***
+Add the following macros to the macros in 'spscache.h':
+
+	/* Given an element of an index, what is the record offset? */
+#define DCR_REC_OFF_FROM_IDX_ELE(cache_ptr, index_method,				\
+	index_element)																				\
+	*((unsigned int *) (DCR_INDEX_ENTRY_PTR(cache_ptr, index_method,	\
+	(cache_ptr)->record_count,																\
+	(cache_ptr)->index_data_list[(index_method)].mmap_ptr, index_element) +	\
+	DCR_INDEX_REC_OFF(cache_ptr, index_method)))
+
+	/* Given an element of an index, what is the record pointer? */
+#define DCR_REC_PTR_FROM_IDX_ELE(cache_ptr, index_method, 		\
+	index_element)																		\
+	DCR_REC_PTR_FROM_REC_OFF(cache_ptr,									\
+	DCR_REC_OFF_FROM_IDX_ELE(cache_ptr, index_method, index_element))
+
+	/* Given a record element, what is the record pointer? */
+#define DCR_REC_PTR_FROM_REC_ELE(cache_ptr, record_element)	\
+	((void *) (((char *) (cache_ptr)->mmap_ptr) +						\
+	((unsigned int) (cache_ptr)->data_area_offset) +					\
+	((record_element) * (cache_ptr)->total_record_size)))
+
+	/* Given a record offset, what is the record pointer? */
+#define DCR_REC_PTR_FROM_REC_OFF(cache_ptr, record_offset)	\
+	((void *) (((char *) (cache_ptr)->mmap_ptr) +						\
+	((unsigned int) (record_offset))))
+-----------------------------------------------------------------------------
+*** DONE 1995-01-18 ***
+Expand and rename the cache 'run' operation modes:
+
+#define DCR_OP_READ					0
+#define DCR_OP_CREATE				1
+#define DCR_OP_RELOAD				2
+#define DCR_OP_REFRESH				DCR_OP_RELOAD
+#define DCR_OP_UPDATE				4
+#define DCR_OP_CREATE_OR_RELOAD	\
+	(DCR_OP_CREATE | DCR_OP_RELOAD)
+#define DCR_OP_CREATE_OR_REFRESH	\
+	(DCR_OP_CREATE | DCR_OP_REFRESH)
+#define DCR_OP_CREATE_OR_UPDATE	\
+	(DCR_OP_CREATE | DCR_OP_UPDATE)
+
+#define DCR_OP_DEFAULT				DCR_OP_CREATE
+
+Changes to the following files will have to accompany this change:
+
+	spscache/spscache.h
+	spscache/basicarg.c
+	spscache/runcache.c
+	spsscf/initscf.c
+	spsscf/runscf.c
+-----------------------------------------------------------------------------
+*** DONE 1995-01-31 ***
+Add macros:
+
+#define DCR_DATA_IS_MAPPED(cache_ptr)								\
+	((((cache_ptr)->cache_access_type == DCR_I_AM_WRITER) ||	\
+	((cache_ptr)->record_mmap_ptr != NULL)) ? DCR_TRUE : DCR_FALSE)
+
+#define DCR_INDEX_IS_MAPPED(cache_ptr, index_method)				\
+	((((cache_ptr)->cache_access_type == DCR_I_AM_WRITER) ||		\
+	(((cache_ptr)->record_mmap_ptr != NULL) &&								\
+	((cache_ptr)->index_data_list[(index_method)].mmap_ptr != NULL)))	\
+	? DCR_TRUE : DCR_FALSE)
+
+	/* Given an offset of a record, what is the record element? */
+#define DCR_REC_ELE_FROM_REC_OFF(cache_ptr, record_offset) 	\
+	(((cache_ptr)->data_area_offset - (record_offset)) /				\
+	(cache_ptr)->total_record_size)
+
+	/* Given an element of an index, what is the record element? */
+#define DCR_REC_ELE_FROM_IDX_ELE(cache_ptr, index_method,	\
+	index_element)																	\
+	(DCR_REC_ELE_FROM_REC_OFF(cache_ptr,							\
+	DCR_REC_OFF_FROM_IDX_ELE(cache_ptr, index_method, index_element)))
+-----------------------------------------------------------------------------
+*** DONE 1995-01-31 ***
+Add logic to support the automatic generation of SQL for the following
+operations in the module 'makesql.c':
+	DELETE
+	INSERT
+	UPDATE
+-----------------------------------------------------------------------------
+*** DONE 1995-01-31 ***
+Add a function to find a cache field by the field name:
+
+int DCR_FindFieldByName(const DCR_CACHE *cache_ptr,
+	const char *field_name, unsigned int *out_field_index,
+	DCR_FIELD *out_field_ptr, char *error_text);
+
+Other modules in the library should be retro-fitted to use this function
+rather than performing similar logic in-line.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-31 ***
+Add a function to find a cache field by the database column name:
+
+int DCR_FindFieldByColumn(const DCR_CACHE *cache_ptr,
+	const char *db_column_name, unsigned int *out_field_index,
+	DCR_FIELD *out_field_ptr, char *error_text);
+
+Other modules in the library should be retro-fitted to use this function
+rather than performing similar logic in-line.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-31 ***
+Add a function to find a cache field by the meta-data logical name:
+
+int DCR_FindFieldByLName(const DCR_CACHE *cache_ptr,
+	const char *logical_name, unsigned int *out_field_index,
+	DCR_FIELD *out_field_ptr, char *error_text);
+
+Other modules in the library should be retro-fitted to use this function
+rather than performing similar logic in-line.
+-----------------------------------------------------------------------------
+*** DONE 1995-01-31 ***
+The function 'DCR_ResizeCache()' shouldn't consider it an error if
+the 'allocated_record_count' parameter is less than or equal to the current
+cache allocated record count.
+-----------------------------------------------------------------------------
+*** DONE 1995-02-03 ***
+Add the following macros:
+
+	/* Get a pointer to the cache header. */
+#define DCR_HEADER_AREA_PTR(cache_ptr)						\
+	((char *) ((cache_ptr)->mmap_ptr))
+
+	/* Get a pointer to the cache data area. */
+#define DCR_DATA_AREA_PTR(cache_ptr)						\
+	((char *) ((cache_ptr)->record_mmap_ptr))
+
+	/* Get a pointer to a cache index area. */
+#define DCR_INDEX_AREA_PTR(cache_ptr, index_method)	\
+	((char *) ((cache_ptr)->index_data_list[(index_method)].mmap_ptr))
+-----------------------------------------------------------------------------
+*** DONE 1995-02-11 ***
+The member 'total_cache_size' should be added to the structure 'DCR_CACHE'.
+The function 'DCR_BindHeader()' will need to updated to reflect this
+change.
+
+Also, the member 'total_used_cache_size' should be added.
+-----------------------------------------------------------------------------
+*** DONE 1995-02-23 ***
+Add a new function 'DCR_SearchBulk()' which performs an intelligent
+merge of records into the cache.
+-----------------------------------------------------------------------------
+*** DONE 1995-02-26 ***
+Remove statistics support for 'DCR_STAT_FIND'. It is to be replaced
+with 'DCR_STAT_BULK_SEARCH'.
+-----------------------------------------------------------------------------
+*** DONE 1995-02-26 ***
+Add a new call-back: 'DCR_CB_BULK_SEARCH'.
+-----------------------------------------------------------------------------
+*** DONE 1995-02-26 ***
+Add a 'TEST_MAIN' routine to the module 'refresh.c' to stress-test data and
+index area mapping.
+-----------------------------------------------------------------------------
+*** DONE 1995-02-26 ***
+Add a 'TEST_MAIN' routine to the module 'remap.c' to stress-test cache file
+re-mapping.
+-----------------------------------------------------------------------------
+*** DONE 1995-02-26 ***
+Add the following members to the structure 'DCR_CACHE' to record the number
+of records updated and the number of records inserted by the last bulk
+search operation:
+
+	unsigned int last_search_update_count;
+	unsigned int last_search_insert_count;
+-----------------------------------------------------------------------------
+*** DONE 1995-02-26 ***
+Add support for the new call-back 'DCR_CB_BULK_SEARCH' to the cache
+executables.
+-----------------------------------------------------------------------------
+*** DONE 1995-02-26 ***
+Add the following macros to 'spscache.h':
+
+	/* Given a record element, what is the record offset? */
+#define DCR_RELE_TO_ROFF_P(cache_ptr, record_element)						\
+	(((unsigned int) (cache_ptr)->data_area_offset) +								\
+	((record_element) * (cache_ptr)->total_record_size))
+
+	/* Given a record element, what is the record offset? */
+#define DCR_RELE_TO_ROFF(cache_ptr, record_element)						\
+	DCR_RELE_TO_ROFF_P(cache_ptr, record_element)
+-----------------------------------------------------------------------------
+*** DONE 1995-02-26 ***
+Rename the module 'search.c' to 'searrec.c'.
+-----------------------------------------------------------------------------
+*** DONE 1995-03-05 ***
+Change the 'mmap()' logic in 'DCR_TruncateCache()' to use the new
+'mfile' library function 'mtruncate_basic_2()'.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-07 ***
+*** DONE     1995-08-09 ***
+Add a new call-back:
+
+	DCR_CB_REC_UPDATE
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-07 ***
+*** DONE     1995-08-10 ***
+Change the cache library version from ('DCR_VERSION_LIBRARY') from
+'02.00.00A' to '02.01.00A' to reflect the changes to the library made to
+support the deletion and update of cache records.
+=============================================================================
+
+=============================================================================
+CANCELLED:
+=============================================================================
+*** CANCELLED ***
+*** Not worth the trouble.
+
+Functions which accept an 'unsigned int *out_cache_index' parameter should,
+where possible, be able to handle a 'NULL' value.
+-----------------------------------------------------------------------------
+*** CANCELLED ***
+*** Too expensive in terms of disk space.
+
+Change the default index type for 'runcache' (and for SCF) to 'embedded'.
+-----------------------------------------------------------------------------
+*** CANCELLED 1994-12-29 ***
+*** Doesn't work because ASCII NUL-terminated strings may contain trailing
+    garbage. Fields would instead have to be compare within a loop which
+   would probably eat-up any efficiency savings.
+
+In the function 'DCR_SearchRecord()' it would be possible to first
+compare 'found' records --- this way no copy (or record-locking) is done for
+those cases where the target record is the same as that in the cache.
+
+The down side is that the 'memcmp()' would be incurred each time --- is the
+cost of the lock/memcpy/unlock sequence sufficiently high so as to make this
+worthwhile? Maybe, because the 'memcmp()' will stop at the first byte of
+difference.
+-----------------------------------------------------------------------------
+*** CANCELLED 1994-12-30 ***
+*** Using the parameter value from the parameter already in existence
+*** 'MAX[IMUM]_{ROW|RECORD}[S][_COUNT]='.
+Add the following command line parameter to 'runcache':
+
+	[-UPDATE_RE[_]{FRESH|LOAD}_MAX[IMUM]_{ROW|RECORD}[S][_COUNT]=
+		<max-row-count>]
+	"		Specifies the maximum number of rows to be read from the database \
+during an automated update of the cache from the database. If the \
+<max-row-count> component of the option is not present or is equal to zero \
+('0'), no maximum will be imposed while performing the such loads.",
+	"\n",
+	"		This parameter is effective only if the '-UPDATE_RELOAD_SECONDS=' \
+parameter is also present on the command line. Otherwise, it is ignored.",
+	"\n",
+	"		The default for this option is '0'.",
+	"\n",
+-----------------------------------------------------------------------------
+*** CANCELLED 1995-01-12 ***
+*** Obviated by the addition of the member 'old_max_update_date' to the
+    structure 'DCR_CACHE'.
+The call-back for updates should include a pointer to update-date used upon
+completion.
+
+Call-back functions for 'runcache' and the SCF executables should use this
+date in their log output.
+=============================================================================
+
+=============================================================================
+PENDING:
+=============================================================================
+Add 'DCR_AtExit()' function to allow the user to close caches at
+program exit automatically (if specified).
+-----------------------------------------------------------------------------
+RPC command interface allows the following:
+	* Shut-down
+	* Re-start
+	* Refresh cache from database (with and without 'updatedate')
+	* Synchronize to disk
+	* Change disk synchronization time-out
+	* Increase/decrease allocation size
+-----------------------------------------------------------------------------
+The storage and display of the cache version number must be fixed.
+-----------------------------------------------------------------------------
+All logic required to 'open()' caches and to 'mmap()' their data should be
+encapsulated in a single function for each operation.
+-----------------------------------------------------------------------------
+Cache 'open()' modes and flags should be manifest constants so that they may
+be specified with '#ifdef's for various operating systems.
+-----------------------------------------------------------------------------
+Add 'initialized_flag' to the structure 'DCR_CONTROL'.
+-----------------------------------------------------------------------------
+All cache header 'bind' logic must be reviewed.
+-----------------------------------------------------------------------------
+The cache header 'check' logic should be expanded to check more of the cache
+header.
+-----------------------------------------------------------------------------
+Must implement logic to de-allocate members of the structure
+'DCR_CONTROL'.
+-----------------------------------------------------------------------------
+We don't need all of the Sybase 'case's in the 'DCR_EmitField()' logic
+because a lot of the Sybase types fall into the primitive alignment type
+categories. Only special Sybase types should have their own 'case' statements
+(such as 'SYBDATETIME', 'SYBMONEY', et cetera).
+-----------------------------------------------------------------------------
+Yet more information should be emitted by the function
+'DCR_EmitHeader()'.
+-----------------------------------------------------------------------------
+Database column array lengths may be modified by the use of parameters to
+the 'DCR_MakeHeader()' function. The lengths involved may not be
+greater than the length as it appears in the database table:
+
+   -COLUMN_LENGTH=<field-name>,<field-length>
+-----------------------------------------------------------------------------
+Index components may index only a portion of a field which has an array
+length greater than one:
+
+   -INDEX=<index-spec>[,<index-spec> . . .]
+
+   <index-spec> := <index-name>:<field-name>[[<field-length>]]
+-----------------------------------------------------------------------------
+Add '-XDR_BINARY=' parameter to 'prtcache'.
+
+Add 'XDR' functionality to 'DCR_EmitBinary()'.
+-----------------------------------------------------------------------------
+Change 'DCR_GetSpecifiedFieldList()' to permit specification of the
+array size of array field types.
+
+Change 'prtcache' documentation accordingly.
+-----------------------------------------------------------------------------
+Add code emitting structure type descriptions to 'deftable'.
+
+Add logic to support self-describing DCR cache header data structures.
+This will be used for printing the cache header.
+-----------------------------------------------------------------------------
+Add program 'bcpcache'
+	[-HELP]
+	 -DB=<db-spec>
+	[-BATCH_SIZE=<number>]
+	[-RETRY_DIVISOR=<number>]
+	[-LOG[GING]_DIR[ECTORY]=<log-dir-name>]
+	[-FIELD[_NAME][S]=<field-list>]
+	[-INDEX[_METHOD]=<index-method-number>]
+	[-INDEX_ORDER={ASC[ENDING] | DESC[ENDING]}]
+	[-MAX[IMUM]_ROWS=<max-row-count>]
+	[-REJECT[_FILE]=<file-name>]
+	[@<parameter-include-file-name>]
+-----------------------------------------------------------------------------
+The function 'DCR_GetSpecifiedFieldList()' must return an indication
+of the total structure size of the data specified by the field list. In this
+fashion, data written using the specified field list will have the
+appropriate alignment in records after the first one.
+-----------------------------------------------------------------------------
+Add the member 'host_name' to the structure 'DCR_HEADER'.
+-----------------------------------------------------------------------------
+The following index macros should be replaced with actual values in the
+structure 'DCR_INDEX' so that they need not be calculated for each
+index access:
+	DCR_INDEX_ENTRY_SIZE
+	DCR_INDEX_REC_OFF
+-----------------------------------------------------------------------------
+Should be able to turn record locking for the read-side OFF. This is both
+an 'open' parameter and a function call.
+-----------------------------------------------------------------------------
+Need a function which is lower-level than 'DCR_EmitData()'. This new
+function will accept 'entry_count' and 'entry_list' parameters which specify
+the index to be traversed.
+-----------------------------------------------------------------------------
+Need a module 'emitrecl.c' which contains the new cache record function
+'DCR_EmitRecordList()'. It takes parameters similar to those
+accepted by the function 'DCR_EmitRecord()', but includes parameters
+which specify the record count and record list to be printed. This new
+function in turn invokes 'DCR_EmitRecord()'.
+-----------------------------------------------------------------------------
+Add a function to 'spot-check' indices. It will just call the usual function
+if the cache contains up to some number (perhaps, say, 10,000) records.
+Beyond that number, it will generate up to 10% of the number of records in
+the cache for checking.
+-----------------------------------------------------------------------------
+If the functions 'DCR_SortEmbedded()' and 'DCR_SortIndirect()'
+were to use a specialized sort function instead of 'STR_ARRAY_qsort()',
+then index entry swapping could be performed using a pre-allocated buffer
+(like the 'embedded_index_buffer' member of 'DCR_CACHE'). For indirect
+indices, we'd just use a local 'unsigned long' variable.
+
+Also, the comparison routines could be 'in-line', instead of being a
+function call.
+-----------------------------------------------------------------------------
+Another approach to managing the 'updatedate' column for cache re-loads is
+to have the 'DCR_DoUpdate()' function try to find an index with the
+first component based upon the field 'updatedate'. If it finds such an index,
+it will use it to determine the highest update-date in the cache.
+-----------------------------------------------------------------------------
+The question is: which stats should 'runcache' and the SCF executables
+display? The 'last' or the 'total' or both?
+-----------------------------------------------------------------------------
+When a cache is opened for writing, all of the 'last' stat values should be
+initialized to zero ('0') --- MAYBE.
+
+Should the stats be re-initialized every time the cache is opened for
+writing? Should there be a separate, cumulative stat array?
+
+Actually, the way statistics should be implemented is as follows:
+
+There should be two cache statistics array in 'DCR_HEADER'. The
+first is for 'current' statistics and is initialized every time the
+cache is opened for writing. The second is for 'cumulative' statistics
+and is updated when the cache is closed by a writer process by adding
+to its values the 'current' values.
+
+For this implementation, the logic which describes cache headers should
+display both sets of statistics.
+-----------------------------------------------------------------------------
+Change the name of the variable 'index_method' to 'access_path' wherever it
+occurs.
+-----------------------------------------------------------------------------
+Change 'DCR_SearchRecord()' to before the base-line index comparisons
+using the most-restrictive index method (that is, the index method which
+returns the smallest found record count). This will help to limit the number
+of index records examined.
+
+For further efficiency, all indices should be searched in order of the
+number of matching records found. This could be done by storing the count
+in an array of structures containing the the index method number and the
+found record count, then ordering that array by found record count from
+lowest to highest.
+
+Such an array should, of course, be pre-allocated as a member of the
+'DCR_CACHE' structure.
+
+The functionality to do the above could be written as a general function ---
+in which case it could be used by the 'delete' logic also (and, perhaps,
+a nice 'search' routine).
+-----------------------------------------------------------------------------
+The logic in 'DCR_InsertBulk()' should attempt to allocate memory for
+the indices and to do the sorting in that area. That way, the critical
+section becomes the time during which the sorted indices are copied to the
+cache file and the record count is updated.
+
+If the allocation attempt fails, then the index sorts should be performed
+against the actual cache index areas.
+-----------------------------------------------------------------------------
+It might be good idea to add a parameter to 'runcache' and the SCF
+executables which allow the programs to create, refresh, and update caches
+from a flat-file (such as one produced by BCP).
+
+This functionality would use the existing bulk insert and search logic.
+-----------------------------------------------------------------------------
+Multiple cache writers could be supported by the library.
+
+For performance, all writers must agree that the cache will be used by
+multiple writers. This way, if there is only a single writer, no checking
+of status needs to be performed before writing --- the performance hit of
+exclusion checking for multiple writers needs is incurred only where there
+are multiple writers. This would require an additional parameter to the
+function 'DCR_OpenWrite()' and an additional member in the structure
+'DCR_HEADER' indicating the cache will support multiple writers.
+
+Writers are excluded upon the following:
+	* Record insertion.
+	* Bulk insertion.
+	* Indexing/sorting.
+-----------------------------------------------------------------------------
+'runcache' should describe the created/opened cache in terms of record count,
+record size, indices, et cetera.
+
+It may make sense to break-out some of the functionality embedded in the
+module 'emithead.c' to support this.
+-----------------------------------------------------------------------------
+Functions which describe the contents of the cache header should refresh the
+'saved_header' member of the structure 'DCR_CACHE' and use that as the source
+of data.
+
+This change can not be made until the new cache header refresh and bind logic
+is in place.
+-----------------------------------------------------------------------------
+The logic for loading additional rows from the database could be changed to
+use less disk space if the routine which performs re-allocation of the mmap'ed
+file were changed to call 'DCR_SearchRecord()'. If this were done, then
+the maximum amout of disk space required would be:
+
+	mem_needed = allocation_granularity * total_record_size
+
+If 'mem_needed' were below a certain size, then the function would use
+'malloc()'ed memory instead. This would require another member in the
+structure 'DCR_CACHE': 'void *reload_alloc_ptr'.
+
+Of course, 'runcache' and the SCF executables would have to manage
+de-allocation of 'reload_alloc_ptr' if a signal is encountered.
+-----------------------------------------------------------------------------
+Add the following parameters to 'prtcache':
+	* -FORMAT_DATE=<date-format>
+	* -FORMAT_NUMBER=<field-width>[,<precision>]
+
+To support the first parameter, a function will need to be added to the
+'datfuncs' library which determines the length of the string resulting
+from formatting.
+-----------------------------------------------------------------------------
+The existing 'DCR_CreateCache()' logic should be broken-up such that
+there are two routines:
+
+	1) The existing interface, which loads the meta-data and creates the
+	   cache. This in turns calls a lower-level routine which:
+	2) Actually invokes 'DCR_MakeHeader()' and does the ancilliary
+	   cache creation work.
+
+One problem to be resolved is how to manage the statistics for cache creation
+which at present spans this functionality.
+-----------------------------------------------------------------------------
+The cache domain area, locale area, form area (NOT the corresponding
+meta-data areas) need to be initialized --- or these areas should be removed
+from the cache header area.
+-----------------------------------------------------------------------------
+All cache and SCF executables should have added to their command-line
+parameters a parameter allowing them to set their process priority. Note
+that it is not a fatal error if the attempt to set process priority fails.
+-----------------------------------------------------------------------------
+All cache and SCF executables should determine whether the cache file is
+local or remote and display a warning if it is remote.
+-----------------------------------------------------------------------------
+I should think about the effects of setting the process priority to its
+highest value when entering a critical section.
+-----------------------------------------------------------------------------
+Need a function 'DCR_SetOperation()' which takes a set of flags which
+determine the operation of the cache --- as soon as I determine what those
+settings might be.
+-----------------------------------------------------------------------------
+Change the default operation mode for 'runcache' and the SCF executables
+from 'CREATE' to 'UPDATE'.
+-----------------------------------------------------------------------------
+To support read-size cache executables which do not map the data area, the
+'find' routines will need to be altered to include a pointer to the data area
+as a parameter.
+
+This parameter will actually have to be propagated through much of the 'get'
+logic also.
+
+If I want a process capable of checking indices with the cache opened for
+reading, the parameter will have to be propagated into those routines as well.
+
+*** Actually, this is the 'record_mmap_ptr' member of the structure 
+'DCR_CACHE' the above routines and appropriate macros will have to be
+changed to use that instead of the 'mmap_ptr' member.
+-----------------------------------------------------------------------------
+Add a parameters to 'prtcache':
+	* -NO_{ROW|RECORD}[S]={ ON | OFF | TRUE | FALSE | YES | NO }
+-----------------------------------------------------------------------------
+Add a parameter to 'runcache':
+	* -USE_{DB|DATA[_]BASE}_IND{EX[[E]S]|ICES}={ON|OFF|TRUE|FALSE|YES|NO}
+-----------------------------------------------------------------------------
+Add a member 'char *index_name_buffer' to the structure 'DCR_CACHE'. This
+buffer will be sufficiently long to hold the names of all of the fields
+participating in any of the cache indices, with each field separated from the
+others by ',' and terminated by an ASCII 0.
+-----------------------------------------------------------------------------
+Functions for the new cache mapping strategy:
+
+	mapdata.c	DCR_MapData()
+					DCR_UnMapData()
+
+	mapindex.c	DCR_MapIndex()
+					DCR_UnMapAllIndices()
+					DCR_UnMapIndex()
+
+	refresh.c	DCR_Refresh()
+					DCR_RefreshWriter()
+					DCR_RefreshReader()
+
+	remap.c		DCR_ReMapCache()
+					DCR_ReOpenCache()
+-----------------------------------------------------------------------------
+In the new cache mapping strategy, there is never a need for the cache
+indices to be mapped as part of the read-side open --- they're always
+re-mapped when necessary. The size of the opening 'mmap()' (and the mmaps
+done in 'DCR_ReMapCache()' and 'DCR_ReOpenCache()') should be:
+
+	mmap_size = cache_ptr->total_header_size +
+		((cache_ptr->partial_map_flag != DCR_TRUE) ?
+		cache_ptr->data_area_size : 0);
+
+-----------------------------------------------------------------------------
+Option for the utility 'cpycache':
+	-CLUSTER[ING][_ON_][INDEX]=<index-number>
+		Copy cache rows in the order specified by the index
+		<index-number>
+
+Should this parameter be instead '-INDEX='?
+
+This could reduce the performance when creating an index using the same
+order as the rows ---- they're already in sorted order.
+-----------------------------------------------------------------------------
+Add 'initialized_header' and 'initialized_trailer' members to the
+structure 'DCR_CONTROL'.
+
+A new function 'DCR_ControlIsInit()' checks to ensure that these members
+are valid.
+
+The function 'DCR_AllocCacheControl()' should be changed to examine
+these members. If set, the cache control structure is already initialized.
+If not set, it will set them if the initialization is successful.
+-----------------------------------------------------------------------------
+The interior of the critical sections in the insert bulk/record and resize
+logic should be optimized to the highest degree.
+
+Note that this may entail adding some allocated data to the 'DCR_CACHE'
+structure and some members to some of the other structures.
+-----------------------------------------------------------------------------
+Need a new function 'DCR_SearchBulk()'. This function is to be used
+largely by the cache 'update' and 're-load' logic to manage record insertion
+for a large number of rows.
+
+Instead of calling the cache 'search' logic for each row (with its attendant
+slowness), this function will do the following:
+
+	1) Allocate a 'unsigned int' array of a length equal to the number of
+	   records. This list will be used to store the array indices of
+	   those records which are not inserted in Step 2. If we aren't
+	   able to allocate the memory, then we use the existing logic
+	   (call 'DCR_Search()' for each record).
+
+	2) Each record is searched-for within the cache. If found (that is,
+	   if all indices match), the record is updated in-place. Otherwise,
+	   its index is added to the list of records not inserted.
+
+	3) The records in the list of records not inserted need to be
+	   inserted in one of the two folowing ways:
+
+	   a) If the ratio of the number of records already in the cache
+	      to the records to be inserted is less than some metric (say,
+	      10%), and the memory can be allocated, call the function
+	      'DCR_InsertBulk()'.
+
+	   b) Otherwise, make sure that the cache is large enough for the
+	      additional records (may have to call 'DCR_ResizeCache()')
+	      and call 'DCR_InsertRecord()' for each of the records
+	      in the list of records not inserted.
+-----------------------------------------------------------------------------
+The programs 'runcache' and 'prtcache' must ignore signal number 28
+('Window changed') so that they don't stop when executing under the debugger.
+-----------------------------------------------------------------------------
+Implement the code to report database row load allocations through the
+call-back mechanism for the following functions in 'allocrow.c':
+	DCR_ALLOC_Rows()
+	DCR_REALLOC_Rows()
+	DCR_FREE_Rows()
+-----------------------------------------------------------------------------
+Implement code to support the 'DCR_CB_ALLOC_CHUNK' call-back type in
+the function 'DCR_RUN_CallBack()'.
+-----------------------------------------------------------------------------
+Add the following command line parameter to 'runcache':
+
+	[-IGNORE_R{OW|ECORD][S]_ERROR[S]={ON|OFF|TRUE|FALSE|YES|NO}]
+
+If this parameter is specified as 'ON', then database-related errors which
+occur during a load of the cache from the database will not cause the program
+to exit, although such an error will be logged.
+
+A database-related error relates to errors resulting from communicating with
+the Sybase server or allocating space for the temporary memory-mapped file
+which stores the rows loaded from the database.
+
+If such an error occurs and the program is in periodic update mode (as
+specified by the '-UPDATE_RELOAD_SECONDS=' parameter) the database operation
+will be re-tried by the program at the next time-out.
+
+	"		This parameter is not effective at the time the cache \
+is first created (or if the cache is in operating mode 'RELOAD' and there are
+no records already in the cache).
+	"\n",
+	"		The default for this option is 'OFF'.
+	"\n",
+-----------------------------------------------------------------------------
+Check-points should be performed at the following times:
+	o Asynchronously every time the cache is re-sized.
+	o Asynchronously after cache creation, a database load, re-load,
+	  or update.
+	o Synchronously when the cache is closed.
+-----------------------------------------------------------------------------
+The following memory-mapped advisements should be made:
+
+Cache Header Area:
+----- ------ -----
+	mlock(cache_ptr->mmap_ptr, cache_ptr->header_area_size);
+	madvise(cache_ptr->mmap_ptr, cache_ptr->header_area_size,
+		MADV_WILLNEED);
+
+Cache Data Area:
+----- ---- -----
+	/* Is this really a good idea? */
+	madvise(((char *) cache_ptr->mmap_ptr) + cache_ptr->data_area_offset,
+		cache_ptr->data_area_size, MADV_RANDOM);
+
+Cache Index Area:
+----- ----- -----
+	/* Is this really a good idea? */
+	madvise(((char *) cache_ptr->mmap_ptr) + cache_ptr->index_area_offset,
+		cache_ptr->index_area_size, MADV_RANDOM);
+-----------------------------------------------------------------------------
+Add logic permitting the registration of a function to be called when
+a cache is closed. This function could perform actions such as de-allocating
+memory to which user data pointers point.
+
+The additional 'DCR_CACHE' member is:
+#ifndef NARGS
+	int                          (*user_close_function)
+		(struct tag_DCR_CACHE *cache_ptr);
+#else
+	int                          (*user_close_function)();
+#endif /* #ifndef NARGS */
+
+The additional functions are:
+
+void *DCR_GetUserCloseFunction(void);
+void *DCR_SetUserCloseFunction(
+	void (*user_close_function)(DCR_CACHE *cache_ptr));
+-----------------------------------------------------------------------------
+Should the 'bcpcache' functionality (yet to be written) be embedded instead
+in an executable named 'updtable'? In this case, use of the BCP functionality
+would be specified by command-line parameters:
+
+	-BCP_TABLE=<boolean>
+	-BCP_BATCH_SIZE=<number>
+	-LOG_BCP_REJECTS=<boolean>
+-----------------------------------------------------------------------------
+It would be nice if the index type ('indirect' or 'embedded') could be
+specified for each index individually.
+-----------------------------------------------------------------------------
+It would be nice if an index could be specified as 'unique'.
+-----------------------------------------------------------------------------
+The logic in 'emitflds.c' for each field type must be broken-out into
+separate routines for use by functionality more intelligent as to the
+context of the field (for example, to format X-ref codes or identifiers).
+
+Actually, this code should go into the meta-data library, if possible.
+-----------------------------------------------------------------------------
+The cache logic should no longer force the fields of a cache into the meta-
+data column order, but rather should construct the cache in the field order
+specified to 'DCR_MakeHeader()'.
+
+A necessary collary to this is that the logic which constructs an SQL query
+should do so in the cache-specified column order.
+-----------------------------------------------------------------------------
+Modify 'prtcache' to accept optional X-ref, issue identifier, series
+identifier, and issuer identifier caches as command-line parameters. This
+will permit 'prtcache' to perform intelligent emission of cache contents.
+-----------------------------------------------------------------------------
+All cache index and record access macros should be re-visited with an eye
+toward re-implementation to further hide low-level cache details from the
+application programmer.
+-----------------------------------------------------------------------------
+Add the following macros to the macros in 'spscache.h':
+
+     /* 123456789012345678901234567890 */
+#define DCR_INDEX_IS_VALID(cache_ptr, index_method)				\
+	((((unsigned int) (index_method)) < (cache_ptr)->index_count) ?	\
+	DCR_TRUE : DCR_FALSE)
+
+#define DCR_INDEX_IS_INDIRECT(cache_ptr, index_method)	\
+	((cache_ptr)->header_ptr->indirect_index_flag)
+
+#define DCR_INDEX_IS_EMBEDDED(cache_ptr, index_method)	\
+	(((cache_ptr)->header_ptr->indirect_index_flag) == DCR_TRUE) ?
+	DCR_FALSE : DCR_TRUE)
+
+#define DCR_INDEX_IS_BSEARCH(cache_ptr, index_method)	\
+	DCR_TRUE
+
+#define DCR_INDEX_IS_BTREE(cache_ptr, index_method)	\
+	DCR_FALSE
+
+#define DCR_IS_VALID_REC_ELE(cache_ptr, record_element) \
+   ((((unsigned int) (record_element)) >= (cache_ptr)->record_count) ? \
+   DCR_FALSE : DCR_TRUE)
+
+#define DCR_IS_VALID_REC_OFF(cache_ptr, record_offset) \
+   (((((unsigned long) (record_offset)) < (cache_ptr)->data_area_size) || \
+   (((unsigned long) (record_offset)) % (cache_ptr)->total_record_size)) ? \
+   DCR_FALSE : DCR_IS_VALID_REC_ELE(cache_ptr, \
+   ((record_offset) - (cache_ptr)->data_area_offset) / \
+   (cache_ptr)->total_record_size))
+-----------------------------------------------------------------------------
+Use the new function 'mclose_to_offset()' to close the log file.
+-----------------------------------------------------------------------------
+The logic which handles loading records from the database greater than the
+maximum cache 'updatedate' needs to be changed in the case where a maximum
+number of records is specified. It should instead ask for all records greater
+than or equal to the update-date. A per-record function needs to applied to
+determine when to stop as follows:
+
+	1) If less than the maximum number of records is returned, all is OK.
+
+	2) Otherwise, the first different update-date after the maximum
+	   number of records is returned will be the termination condition.
+	   All records up to (but not including) that record will be added
+	   to the cache.
+-----------------------------------------------------------------------------
+Remove the members 'product_type' and 'product_sub_type' from the structure
+'DCR_FIELD' and from any library code which uses these members.
+-----------------------------------------------------------------------------
+Add NULL support to the cache library.
+
+Each NULL indicator will require one bit.
+
+In order to determine quickly the appropriate bit to test to find whether a
+field is NULL, the following members must be added to the structure
+'DCR_FIELD':
+
+	unsigned int null_indicator_offset;
+	unsigned int null_indicator_bit;
+
+The following functions must be added to the library:
+
+	/* Returns 'DCR_TRUE' or 'DCR_FALSE' */
+int DCR_IsNULL(const DCR_CACHE *cache_ptr, unsigned int field_index,
+	const void *record_ptr);
+
+	/* Returns old NULL indicator ('DCR_TRUE' or 'DCR_FALSE') */
+int DCR_ClearNULL(const DCR_CACHE *cache_ptr, unsigned int field_index,
+	void *record_ptr);
+
+	/* Returns old NULL indicator ('DCR_TRUE' or 'DCR_FALSE') */
+int DCR_SetNULL(const DCR_CACHE *cache_ptr, unsigned int field_index,
+	void *record_ptr);
+
+int DCR_IsNULLField(const DCR_CACHE *cache_ptr, const char *field_name,
+	const void *record_ptr, int *null_indicator, char *error_text);
+
+	/* The parameter 'old_null_indicator' may be a NULL pointer. */
+int DCR_ClrNULLField(const DCR_CACHE *cache_ptr, const char *field_name,
+	void *record_ptr, int *old_null_indicator, char *error_text);
+
+	/* The parameter 'old_null_indicator' may be a NULL pointer. */
+int DCR_SetNULLField(const DCR_CACHE *cache_ptr, const char *field_name,
+	void *record_ptr, int *old_null_indicator, char *error_text);
+-----------------------------------------------------------------------------
+Add an option to the 'emit' logic to allow the user to optionally specify
+that NULL data columns are to printed as the text string 'NULL'. Also change
+'prtcache' to support this option.
+-----------------------------------------------------------------------------
+Addition of a new executable ('cutcache') which will permit the extraction
+from an arbitrary file (beginning at a particular offset, for specified
+fields and some record count) records to populate a cache.
+-----------------------------------------------------------------------------
+Need a generic facility for printing a cache:
+
+/*
+   If 'cache_ptr' is 'NULL' then the cache specified by the 'cache_file_name'
+   parameter will be opened.
+*/
+int DCR_FACILITY_Print(DCR_PRINT_CONTROL *control_ptr,
+   DCR_CONTROL *cache_control_ptr, DCR_CACHE *cache_ptr,
+   const char *cache_file_name, char *error_text);
+
+The existing 'prtcache' executable should be changed to use this function.
+
+This permits other programs to have access to the 'prtcache' functionality.
+-----------------------------------------------------------------------------
+Need a generic facility for 'BCP'ing a cache:
+
+int DCR_FACILITY_BulkCopy(DCR_BCP_CONTROL *control_ptr,
+   DCR_CONTROL *cache_control_ptr, DCR_CACHE *cache_ptr,
+   const char *cache_file_name, char *error_text);
+
+The planned 'bcpcache' executable will use this function.
+
+This permits other programs to have access to the 'bcpcache' functionality.
+-----------------------------------------------------------------------------
+Need a generic facility for {creat|refresh|updat}ing a cache:
+
+int DCR_FACILITY_Run(DCR_RUN_CONTROL *control_ptr,
+   DCR_CONTROL *cache_control_ptr, DCR_CACHE *cache_ptr,
+   const char *cache_file_name, char *error_text);
+
+The existing 'runcache' executable will use this function.
+
+This permits other programs to have access to the 'runcache' functionality.
+
+The SCF and model libraries should be changed to use this function.
+-----------------------------------------------------------------------------
+Need a generic facility for cutting a cache:
+
+int DCR_FACILITY_Cut(DCR_CUT_CONTROL *control_ptr,
+   DCR_CONTROL *cache_control_ptr, DCR_CACHE *cache_ptr,
+   const char *cache_file_name, char *error_text);
+
+The planned 'cutcache' executable will use this function.
+
+This permits other programs to have access to the 'cutcache' functionality.
+-----------------------------------------------------------------------------
+The functionality in 'DCR_IndexEntryLocate()' should be broken-out
+into a separate, lower-level routine which takes a pointer to the
+'DCR_INDEX_LOCATION'. This will permit application programmers to
+manage their own cursor positioning information.
+
+int DCR_IndexEntryLocateBasic(DCR_CACHE *cache_ptr,
+	unsigned int index_method, DCR_INDEX_LOCATION *index_location_ptr,
+	unsigned int entry_count, const void *entry_list, char *error_text);
+
+If 'index_location_ptr' is 'NULL', the one specified for that index in
+the 'DCR_CACHE' structure will be used.
+
+If 'entry_list' is 'NULL', the mapping specified for the index will be used.
+If their is no current mapping current for the index, the function will
+attempt to map the index.
+-----------------------------------------------------------------------------
+The logic required to close the the memory-mapped file to which the member
+'reload_mfile_ptr' of the 'DCR_CACHE' structure should be in the cache
+library --- the file should be closed and un-linked when the cache is closed.
+-----------------------------------------------------------------------------
+Argument descriptors in 'basicuse.c' should have spaces between the
+alternation character ('|') so that usage line-wrapping works correctly.
+
+Actually, very long lines should have inserted between the '=' and the
+parameter text the string "\n\t\t" --- this will force line-wrapping to
+occur at the '='.
+-----------------------------------------------------------------------------
+The 'emit' logic should accept a specification indicating the desired format
+of floating-point numbers.
+-----------------------------------------------------------------------------
+The 'emit' logic should accept a specification indicating that the logical
+name is to be used as the column heading.
+-----------------------------------------------------------------------------
+Actually, the 'emit' logic should be re-written to format each line to a
+string and then '{f|m}write()' that string to the output device.
+-----------------------------------------------------------------------------
+Each index should have a separate validity flag, which is unset and set by
+index operations.
+-----------------------------------------------------------------------------
+Add functionality to support the update of database tables from a cache in
+the new module 'cacheupd.c'.
+
+This functionality will be supported as an executable in the new program
+'updcache.c'.
+-----------------------------------------------------------------------------
+Change 'DCR_BasicGetCount()' to use a binary search on the remaining
+portion of the index to find the bottom (or top) of the target entries.
+-----------------------------------------------------------------------------
+Change the binary search routines to use binary search in finding the other
+side of the search target instead of a linear scan of the data.
+Additional library support should be enclosed in a function which, when
+given two cache pointers, compares the field structure to determine
+equivalence.
+-----------------------------------------------------------------------------
+Add logic to 'DCR_InsertBulk()' to do the following:
+
+	o Intelligent index creation (where memory is available) when no
+	  records already exist in the cache.
+
+	o Intelligent record insertion (using the same low-level routines used
+	  by 'DCR_SearchBulk()') when records already exist in the cache.
+-----------------------------------------------------------------------------
+Add a utility program 'clrflags' which will reset the cache lock flags.
+-----------------------------------------------------------------------------
+Add a utility program 'clrstats' which will reset the cache statistics.
+-----------------------------------------------------------------------------
+Add an array of 'GEN_ALIGN_CMP' structures (and associated array count) which
+support the comparison of the entire cache record.
+-----------------------------------------------------------------------------
+Add a member to the structure 'DCR_INS_2' and logic to the functions
+'DCR_InsListControl()' and 'DCR_CMP_INS_2()' to skip those records
+which are identical to other records.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-07 ***
+All library data structures which reside in the cache file should have added
+to the end unused buffer space for the purpose of future addition of
+structure members without invalidating existing cache files.
+
+Of course, any cache without added members still can't be used --- the data
+simply isn't available.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-15 ***
+Need to modify the logic associated with 'DCR_IndexEntryLocate()'
+(and, perhaps, the members of the structure 'DCR_INDEX_LOCATION')
+to account for the changes in assumptions resulting from the addition of
+the record deletion logic.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-14 ***
+New insert bulk logic:
+
+int DCR_InsertBulk(cache_ptr, in_record_count, in_record_list,
+	in_record_size, error_text)
+DCR_CACHE     *cache_ptr;
+unsigned int   in_record_count;
+const void    *in_record_list;
+unsigned int   in_record_size;
+char          *error_text;
+{
+	int            return_code = DCR_SUCCESS;
+	unsigned int   count_1;
+	unsigned int   count_2;
+	unsigned long  old_cache_status;
+	unsigned long  record_offset;
+	char          *in_record_ptr;
+	char          *out_record_ptr;
+	unsigned int   current_record;
+	unsigned int   max_update_date_record;
+	DBDATETIME     max_update_date;
+	DBDATETIME    *update_date_ptr;
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*		Note start time of the bulk insert attempt . . .					*/
+	/*	*****************************************************************	*/
+	if (cache_ptr->cache_access_type == DCR_I_AM_WRITER)
+		DCR_StatStartTime(cache_ptr->header_ptr->stat_list +
+			DCR_STAT_BULK_INSERT);
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*		If the application programmer requested a call-back, do it.		*/
+	/*	*****************************************************************	*/
+	if ((cache_ptr->call_back_mask & DCR_CB_BULK_INSERT) &&
+		(cache_ptr->call_back_function != NULL))
+		(*cache_ptr->call_back_function)(cache_ptr, DCR_CB_BULK_INSERT,
+		DCR_FALSE, 0, 0, in_record_count, in_record_list, NULL, return_code,
+		error_text);
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	if (!in_record_size) {
+		strcpy(error_text, "Bulk insert record size is zero (0).");
+		return_code = DCR_BAD_ARGS_FAILURE;
+		goto EXIT_FUNCTION;
+	}
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*		Only writers get to insert records into the cache . . .			*/
+	/*	*****************************************************************	*/
+	if ((return_code = DCR_AssertAccessType(cache_ptr,
+		DCR_I_AM_WRITER, error_text)) != DCR_SUCCESS)
+		goto EXIT_FUNCTION;
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	if (in_record_size < cache_ptr->header_ptr->actual_data_record_size) {
+		sprintf(error_text, "%s (%u) %s (%u).",
+			"The bulk insert record size", in_record_size,
+			"is less than the actual data record size for this cache",
+			cache_ptr->header_ptr->actual_data_record_size);
+		return_code = DCR_BAD_ARGS_FAILURE;
+		goto EXIT_FUNCTION;
+	}
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	if (in_record_count && (((total_count =
+		(cache_ptr->header_ptr->record_count + in_record_count)) <=
+		cache_ptr->header_ptr->allocated_record_count) ||
+		((return_code = DCR_ResizeCache(cache_ptr,
+		cache_ptr->record_count + in_record_count, DCR_TRUE, error_text)) !=
+		DCR_SUCCESS)))
+		goto EXIT_FUNCTION;
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	if (cache_ptr->max_update_date_known == DCR_TRUE) {
+		max_update_date        = cache_ptr->max_update_date;
+		max_update_date_record = cache_ptr->max_update_date_record;
+		update_date_ptr        = ((DBDATETIME *) (((char *) in_record_ptr) +
+			cache_ptr->update_date_field_offset));
+	}
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	memset(out_record_ptr, '\0',
+		in_record_count * cache_ptr->total_record_size);
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	record_offset  = cache_ptr->data_area_offset +
+		(cache_ptr->record_count * cache_ptr->total_record_size);
+	in_record_ptr  = ((char *) in_record_list);
+	out_record_ptr = ((char *) cache_ptr->mmap_ptr) + record_offset;
+	current_record = cache_ptr->record_count;
+	for (count_1 = 0; count_1 < in_record_count; count_1++) {
+		bcopy(in_record_ptr, out_record_ptr,
+			cache_ptr->header_ptr->actual_data_record_size);
+		if (cache_ptr->max_update_date_known == DCR_TRUE) {
+			if (DBC_SYB_CMP_DBDATETIME(&cache_ptr->max_update_date,
+				update_date_ptr) < 0) {
+				max_update_date        = *update_date_ptr;
+				max_update_date_record = current_record;
+			}
+			update_date_ptr = ((DBDATETIME *) (((char *) update_date_ptr) +
+				cache_ptr->total_record_size));
+		}
+		in_record_ptr  += in_record_size;
+		out_record_ptr += cache_ptr->total_record_size;
+		record_offset  += cache_ptr->total_record_size;
+		current_record++;
+	}
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	if (cache_ptr->max_update_date_known == DCR_TRUE) {
+		cache_ptr->max_update_date_record = max_update_date_record;
+		cache_ptr->max_update_date        = max_update_date;
+	}
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	if (sizeof(unsigned long) >= sizeof(void *)) {
+		pointer_list              = DCR_INDEX_AREA_PTR(cache_ptr, 0);
+		pointer_list_alloced_flag = DCR_FALSE;
+	}
+	else if ((pointer_list =
+		((void *) malloc(total_count * sizeof(void *)))) != NULL)
+		pointer_list_alloced_flag = DCR_TRUE;
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*		Set-up flags --- we're entering a critical section.				*/
+	/*	*****************************************************************	*/
+	old_cache_status                                   =
+		cache_ptr->header_ptr->cache_lock_status.lock_flag;
+	cache_ptr->header_ptr->cache_lock_status.lock_flag =
+		(cache_ptr->header_ptr->cache_lock_status.lock_flag &
+		DCR_STATUS_CRITICAL) | DCR_STATUS_ADDING;
+	cache_ptr->header_ptr->cache_status                =
+		cache_ptr->header_ptr->cache_lock_status.lock_flag;
+	if (cache_ptr->critical_call_back_function != NULL)
+		(*cache_ptr->critical_call_back_function)(cache_ptr,
+			DCR_CB_BULK_INSERT, DCR_FALSE, 0, 1, in_record_ptr,
+			return_code, error_text);
+	cache_ptr->header_ptr->cache_lock_status.lock_flag |=
+		DCR_STATUS_CRITICAL;
+	cache_ptr->header_ptr->cache_status                 =
+		cache_ptr->header_ptr->cache_lock_status.lock_flag;
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	if (pointer_list == NULL) {
+		record_offset  = cache_ptr->data_area_offset +
+			(cache_ptr->record_count * cache_ptr->total_record_size);
+		in_record_ptr  = ((char *) in_record_list);
+		out_record_ptr = ((char *) cache_ptr->mmap_ptr) + record_offset;
+		current_record = cache_ptr->record_count;
+		for (count_1 = 0; count_1 < in_record_count; count_1++) {
+			for (count_2 = 0; count_2 < cache_ptr->index_count; count_2++) {
+				if (DCR_INDEX_IS_INDIRECT(cache_ptr) == DCR_TRUE)
+					*((unsigned long *) DCR_IELE_TO_IPTR(cache_ptr, count_2,
+						current_record)) = record_offset;
+				else
+					DCR_CopyEmbedded(cache_ptr, count_2, record_offset,
+						in_record_ptr, DCR_IELE_TO_IPTR(cache_ptr, count_2,
+						current_record));
+				in_record_ptr  += in_record_size;
+				record_offset  += cache_ptr->total_record_size;
+				current_record++;
+			}
+		}
+		for (count_1 = 0; count_1 < cache_ptr->index_count; count_1++)
+			DCR_Sort(cache_ptr, count_1, current_record,
+				cache_ptr->index_data_list[count_1].index_entry_list);
+	}
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	else {
+		for (count_1 = cache_ptr->index_count; count_1; ) {
+			count_1--;
+			*** {SORT THROUGH POINTER LIST FOR INDEX} ***
+			if (DCR_INDEX_IS_INDIRECT(cache_ptr) == DCR_TRUE) {
+				for (count_2 = total_count; count_2; ) {
+					count_2--;
+					*((unsigned long *) DCR_IELE_TO_IPTR(cache_ptr, count_1,
+						count_2)) = DCR_RPTR_TO_ROFF(cache_ptr,
+						pointer_list[count_2]);
+				}
+			}
+			else {
+				for (count_2 = total_count; count_2; ) {
+					count_2--;
+					DCR_CopyEmbedded(cache_ptr, count_1,
+						DCR_RPTR_TO_ROFF(cache_ptr, pointer_list[count_2]),
+						pointer_list[count_2], DCR_IELE_TO_IPTR(cache_ptr,
+						count_1, count_2));
+				}
+			}
+		}
+		if (pointer_list_alloced_flag == DCR_TRUE)
+			free(pointer_list);
+	}
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	cache_ptr->header_ptr->record_count                = total_count;
+	cache_ptr->record_count                            = total_count;
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*		End of the critical section.												*/
+	/*	*****************************************************************	*/
+	cache_ptr->header_ptr->cache_lock_status.lock_count++;
+	cache_ptr->header_ptr->cache_lock_status.lock_flag = old_cache_status;
+	cache_ptr->header_ptr->cache_status                = old_cache_status;
+	if (cache_ptr->critical_call_back_function != NULL)
+		(*cache_ptr->critical_call_back_function)(cache_ptr,
+			DCR_CB_BULK_INSERT, DCR_TRUE, 0, 1, in_record_ptr,
+			return_code, error_text);
+	}
+	/*	*****************************************************************	*/
+
+EXIT_FUNCTION:
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*		Note end time of the bulk insert attempt . . .						*/
+	/*	*****************************************************************	*/
+	if (cache_ptr->cache_access_type == DCR_I_AM_WRITER)
+		DCR_StatEndTime(cache_ptr->header_ptr->stat_list +
+			DCR_STAT_BULK_INSERT, ((unsigned long) in_record_count));
+	/*	*****************************************************************	*/
+
+	/*	*****************************************************************	*/
+	/*	*****************************************************************	*/
+	/*		If the application programmer requested a call-back, do it.		*/
+	/*	*****************************************************************	*/
+	if ((cache_ptr->call_back_mask & DCR_CB_BULK_INSERT) &&
+		(cache_ptr->call_back_function != NULL))
+		(*cache_ptr->call_back_function)(cache_ptr, DCR_CB_BULK_INSERT,
+		DCR_TRUE, 0, 0, in_record_count, in_record_list,
+		((DCR_HEADER *) cache_ptr->header_ptr)->stat_list +
+		DCR_STAT_BULK_INSERT, return_code, error_text);
+	/*	*****************************************************************	*/
+
+	return(return_code);
+}
+/*	***********************************************************************	*/
+
+	o Initialize bulk insert statistic time.
+	o Perform bulk search call-back (if required).
+	o Check parameters.
+	o Re-size cache (if required).
+	o Copy records into cache data area.
+	o Begin critical section.
+	o If (sizeof(unsigned long) < sizeof(void *)) && ({pointer list allocation
+	  failed}))
+		o Do the old-style insert bulk core logic.
+	o else {
+		o Initialize pointer list with record pointers.
+		o For each index {
+			o Sort the pointer list by the index columns.
+			o If (this index is indirect) {
+				o For each new record count (backwards) {
+					o Set the index entry = pointer_list[] - cache_ptr->mmap_ptr
+				o }
+			o }
+			o else {
+				o For each new record count {
+					o Copy the embedded index
+				o }
+			o }
+		o }
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-08-15 ***
+Need to modify the logic associated with 'DCR_IndexEntryLocate()'
+(and, perhaps, the members of the structure 'DCR_INDEX_LOCATION')
+to account for the changes in assumptions resulting from the addition of
+the record deletion logic.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-25 ***
+*** DONE     1995-09-25 ***
+Add a new call-back for the check index logic.
+
+	o DCR_CB_CHECK_INDEX_1 --- for the original check index logic.
+	o DCR_CB_CHECK_INDEX_2 --- for the extended check index logic which
+	  ensures that records do not occur multiple times in the index.
+-----------------------------------------------------------------------------
+*** PROPOSED 1995-09-25 ***
+Add a statistics entry for the check index logic.
+=============================================================================
+
