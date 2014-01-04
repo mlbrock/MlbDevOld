@@ -394,18 +394,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\rvutil\source\RVUtilEnvO.cxx"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\rvutil\source\RVUtilEnvO_TC.cxx"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\rvutil\source\RVUtilrvmsg_Msg_TC.cxx"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\..\rvutil\source\sigactnm.c"
 				>
 			</File>
