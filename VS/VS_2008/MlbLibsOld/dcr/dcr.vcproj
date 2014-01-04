@@ -578,42 +578,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\dcr\source\s_data.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dcr\source\s_del_01.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dcr\source\s_ins_01.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dcr\source\s_ins_02.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dcr\source\s_ins_03.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dcr\source\s_macros.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dcr\source\s_remap.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dcr\source\s_run_01.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dcr\source\s_sea_01.c"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\..\dcr\source\searbulk.c"
 				>
 			</File>
@@ -631,10 +595,6 @@
 			</File>
 			<File
 				RelativePath="..\..\..\..\dcr\source\statname.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dcr\source\stattest.c"
 				>
 			</File>
 			<File
