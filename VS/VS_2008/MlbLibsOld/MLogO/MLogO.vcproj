@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="dta"
-	ProjectGUID="{0360833E-CF33-46C5-8D5E-E7DCA44F919C}"
-	RootNamespace="dta"
+	Name="MLogO"
+	ProjectGUID="{08759807-B2DE-4B96-88A4-45D261CAF461}"
+	RootNamespace="MLogO"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -45,7 +45,7 @@
 				AdditionalIncludeDirectories="..\..\..\..\include;..\..\..\..\CppSupp\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="false"
-				ExceptionHandling="0"
+				ExceptionHandling="1"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				EnableFunctionLevelLinking="false"
@@ -55,7 +55,7 @@
 				BrowseInformation="1"
 				WarningLevel="4"
 				DebugInformationFormat="3"
-				CompileAs="1"
+				CompileAs="2"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -117,7 +117,7 @@
 				AdditionalIncludeDirectories="..\..\..\..\include;..\..\..\..\CppSupp\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				MinimalRebuild="false"
-				ExceptionHandling="0"
+				ExceptionHandling="1"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="false"
 				RuntimeTypeInfo="false"
@@ -125,7 +125,7 @@
 				ProgramDataBaseFileName="$(SolutionDir)..\_lib\$(ConfigurationName)\$(ProjectName).pdb"
 				WarningLevel="4"
 				DebugInformationFormat="3"
-				CompileAs="1"
+				CompileAs="2"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -166,87 +166,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\..\..\dta\source\allst.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\alstr.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\alstrlst.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\ckmem.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\ckstr.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\ckstrlst.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\cmdata.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\cnstrlap.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\cnstrlst.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\cnstrstr.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\cptype.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\dtadata.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\emdta.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\fdtype.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\inalign.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\lsstr.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\lsstralc.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\lsstrlen.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\normlst.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\typeptr.c"
-				>
-			</File>
-			<File
-				RelativePath="..\..\..\..\dta\source\version.c"
+				RelativePath="..\..\..\..\MLogO\source\MLogO.cxx"
 				>
 			</File>
 		</Filter>
@@ -255,10 +175,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath="..\..\..\..\dta\source\dtai.h"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"

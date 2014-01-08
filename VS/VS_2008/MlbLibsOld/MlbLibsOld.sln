@@ -40,6 +40,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spffuncs", "spffuncs\spffun
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tfread", "tfread\tfread.vcproj", "{83A0D30C-6A94-4F8D-BAB1-040DF888E764}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MLogO", "MLogO\MLogO.vcproj", "{08759807-B2DE-4B96-88A4-45D261CAF461}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MtifO", "MtifO\MtifO.vcproj", "{06518DC3-371F-43B9-B9C7-B1C800866DF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -118,6 +122,14 @@ Global
 		{83A0D30C-6A94-4F8D-BAB1-040DF888E764}.Debug|Win32.Build.0 = Debug|Win32
 		{83A0D30C-6A94-4F8D-BAB1-040DF888E764}.Release|Win32.ActiveCfg = Release|Win32
 		{83A0D30C-6A94-4F8D-BAB1-040DF888E764}.Release|Win32.Build.0 = Release|Win32
+		{08759807-B2DE-4B96-88A4-45D261CAF461}.Debug|Win32.ActiveCfg = Debug|Win32
+		{08759807-B2DE-4B96-88A4-45D261CAF461}.Debug|Win32.Build.0 = Debug|Win32
+		{08759807-B2DE-4B96-88A4-45D261CAF461}.Release|Win32.ActiveCfg = Release|Win32
+		{08759807-B2DE-4B96-88A4-45D261CAF461}.Release|Win32.Build.0 = Release|Win32
+		{06518DC3-371F-43B9-B9C7-B1C800866DF2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{06518DC3-371F-43B9-B9C7-B1C800866DF2}.Debug|Win32.Build.0 = Debug|Win32
+		{06518DC3-371F-43B9-B9C7-B1C800866DF2}.Release|Win32.ActiveCfg = Release|Win32
+		{06518DC3-371F-43B9-B9C7-B1C800866DF2}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
