@@ -29,33 +29,36 @@
 /*	Required include files . . .															*/
 /*	***********************************************************************	*/
 
-// #include <stdio.h>
-
-#ifdef _Windows
-# pragma warning(disable:4710 4786)
+#ifdef _MSC_VER
+# pragma warning(disable:4514 4710 4786)
+# pragma warning(push)
 # if _MSC_VER >= 1300
 #  pragma warning(disable:4217 4251 4555)
 # endif /* # if _MSC_VER >= 1300 */
+# if _MSC_VER >= 1400
+#  pragma warning(disable:4820)
+# endif /* # if _MSC_VER >= 1400 */
 # pragma warning(disable:4018 4100 4146 4244 4245 4511 4512 4663)
 # include <iomanip>
 # include <iostream>
 # include <sstream>
 # include <vector>
-# if _MSC_VER >= 1300
-#  pragma warning(default:4217 4251 4555)
-# endif /* # if _MSC_VER >= 1300 */
-# pragma warning(default:4018 4100 4146 4244 4245 4511 4512 4663)
+//# if _MSC_VER >= 1300
+//#  pragma warning(default:4217 4251 4555)
+//# endif /* # if _MSC_VER >= 1300 */
+//# pragma warning(default:4018 4100 4146 4244 4245 4511 4512 4663)
+# pragma warning(pop)
 #else
 # include <iomanip>
 # include <iostream>
 # include <sstream>
 # include <vector>
-#endif /* #ifdef _Windows */
+#endif /* #ifdef _MSC_VER */
 
 #include <mfile.h>
 #include <pcff.h>
 
-#include "sockicpt.h"
+#include <sockicpt.h>
 
 /*	***********************************************************************	*/
 

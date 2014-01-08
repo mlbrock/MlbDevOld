@@ -33,6 +33,10 @@
 
 #include <mbcompat.h>
 
+#ifndef HH__mbcompat_h__HH___Windows_MinMax_Guard
+# error "Not defined: HH__mbcompat_h__HH___Windows_MinMax_Guard"
+#endif 
+
 #ifdef _Windows
 # pragma warning(disable:4710 4786)
 # if _MSC_VER >= 1300
@@ -57,7 +61,7 @@
 #include <MTIF_RwlO.h>
 #include <MLogO.h>
 
-#include "D:\\Dev\\CPPSupp\\source\\deque_LC.h"
+#include <deque_LC.h>
 
 #include "sockicpt.h"
 
