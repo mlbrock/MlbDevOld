@@ -239,17 +239,40 @@
 
 	/* If compiling under Windows... */
 # ifdef HH__mbcompat_h__HH___Windows_MinMax_Guard
-#  pragma warning(disable:4503 4710 4786)
-	/* ...And using a version of of MS VC++ less than version 7.1... */
-#  if _MSC_VER <= 1310
+#  ifndef __MINGW32__
+#   pragma warning(disable:4503 4710 4786)
+#  endif /* # ifndef __MINGW32__ */
+	/* ...And using a version of of MS VC++ less than or equal MSVC 2010... */
+#  if _MSC_VER <= 1600
 #   if _MSC_VER >= 1310
 #    pragma warning(disable:4619 4820)
 #    pragma warning(disable:4217)
 #   endif /* if _MSC_VER >= 1310 */
+#   if defined(_MSC_VER) && (_MSC_VER >= 1500)
+#    pragma warning(disable:4548)
+#   endif /* #if defined(_MSC_VER) && (_MSC_VER >= 1500) */
 #   define NOMINMAX
-#   pragma warning(disable:4018 4100 4146 4244 4245 4511 4512 4514 4663)
+#   ifndef __MINGW32__
+#    pragma warning(disable:4018 4100 4146 4244 4245 4511 4512 4514 4663)
+#   endif /* #   ifndef __MINGW32__ */
+    /*
+		Following occur in MSVC 2010 with /Wall. They've promised to fix in 2011.
+		C:\Program Files\Microsoft Visual Studio 10.0\VC\include\crtdbg.h(1078): warning C4986: 'operator new[]': exception specification does not match previous declaration
+		          C:\Program Files\Microsoft Visual Studio 10.0\VC\include\new(79) : see declaration of 'operator new[]'
+		C:\Program Files\Microsoft Visual Studio 10.0\VC\include\crtdbg.h(1095): warning C4986: 'operator delete[]': exception specification does not match previous declaration
+		          C:\Program Files\Microsoft Visual Studio 10.0\VC\include\new(77) : see declaration of 'operator delete[]'
+    */
+#   if _MSC_VER == 1600
+#    pragma warning(push)
+#    pragma warning(disable:4986)
+#   endif /* #   if _MSC_VER == 1600 */
 #   include <algorithm>
-#   pragma warning(default:4018 4100 4146 4244 4245 4511 4512 4663)
+#   if _MSC_VER == 1600
+#    pragma warning(pop)
+#   endif /* #   if _MSC_VER == 1600 */
+#   ifndef __MINGW32__
+#    pragma warning(default:4018 4100 4146 4244 4245 4511 4512 4663)
+#   endif /* #   ifndef __MINGW32__ */
 #   ifdef min
 #    undef min
 #   endif /* #  ifdef min */
@@ -273,10 +296,13 @@
 		} /* namespace std */
 #    endif /* #    if _MSC_VER < 1300 */
 #   endif /* # ifdef _XUTILITY_ */
+#   if defined(_MSC_VER) && (_MSC_VER < 1500)
+#    pragma warning(default:4548)
+#   endif /* #if defined(_MSC_VER) && (_MSC_VER >= 1500) */
 #   if _MSC_VER >= 1310
 #    pragma warning(default:4217)
 #   endif /* if _MSC_VER >= 1310 */
-#  endif /* if _MSC_VER < 1300 */
+#  endif /* if _MSC_VER < 1600 */
 # endif /* #ifdef HH__mbcompat_h__HH___Windows_MinMax_Guard */
 #endif /* #ifdef __cplusplus */
 /*	***********************************************************************	*/
