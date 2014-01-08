@@ -42,7 +42,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/Wall /wd4668 /wd4711 /wd4996 /wd4255"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\..\include"
+				AdditionalIncludeDirectories="..\..\..\..\include;..\..\..\..\CppSupp\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="false"
 				ExceptionHandling="0"
@@ -68,7 +68,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="mpr.lib Rpcrt4.lib Ws2_32.lib snmpapi.lib netapi32.lib eecfuncs.lib npsl.lib pcff.lib genfuncs.lib datfuncs.lib strfuncs.lib"
+				AdditionalDependencies="mpr.lib Rpcrt4.lib Ws2_32.lib snmpapi.lib netapi32.lib adf.lib datfuncs.lib dta.lib eecfuncs.lib genfuncs.lib kmlfuncs.lib mddl.lib mfile.lib mlog.lib MLogO.lib mtif.lib MtifO.lib npsl.lib pcff.lib sdtif.lib spffuncs.lib strfuncs.lib tfread.lib"
 				OutputFile="$(SolutionDir)..\_bin\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(SolutionDir)..\_lib\$(ConfigurationName)"
@@ -131,7 +131,7 @@
 				AdditionalOptions="/Wall /wd4668 /wd4711 /wd4996 /wd4255"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\..\..\..\include"
+				AdditionalIncludeDirectories="..\..\..\..\include;..\..\..\..\CppSupp\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				MinimalRebuild="false"
 				ExceptionHandling="0"
@@ -155,7 +155,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="mpr.lib Rpcrt4.lib Ws2_32.lib snmpapi.lib netapi32.lib eecfuncs.lib npsl.lib pcff.lib genfuncs.lib datfuncs.lib strfuncs.lib"
+				AdditionalDependencies="mpr.lib Rpcrt4.lib Ws2_32.lib snmpapi.lib netapi32.lib adf.lib datfuncs.lib dta.lib eecfuncs.lib genfuncs.lib kmlfuncs.lib mddl.lib mfile.lib mlog.lib MLogO.lib mtif.lib MtifO.lib npsl.lib pcff.lib sdtif.lib spffuncs.lib strfuncs.lib tfread.lib"
 				OutputFile="$(SolutionDir)..\_bin\$(ConfigurationName)\$(ProjectName).exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(SolutionDir)..\_lib\$(ConfigurationName)"
