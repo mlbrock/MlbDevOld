@@ -11,13 +11,13 @@
 
 	Last Updated		:	%E%	%U%
 
-	File Description	:	Returns the actual number of days for the specified
-								century.
+	File Description	:	Runs a Windows process with a specified processor
+								affinity.
 
-	Revision History	:	1989-11-08 --- Creation.
+	Revision History	:	2002-01-01 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1989 - 2014.
+		Copyright Michael L. Brock 2002 - 2014.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
