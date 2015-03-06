@@ -17,7 +17,7 @@
 	Revision History	:	1986-10-27 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1986 - 2014.
+		Copyright Michael L. Brock 1986 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -93,7 +93,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	strichr
 						Character Search Functions/Pointer:strichr

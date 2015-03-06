@@ -17,7 +17,7 @@
 	Revision History	:	1994-08-08 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2014.
+		Copyright Michael L. Brock 1994 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -113,7 +113,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_FindRELEInIndices
 						DCR Cache Functions:DCR_FindRELEInIndices
@@ -278,7 +278,7 @@ EXIT_FUNCTION:
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_FindRPTRInIndices
 						DCR Cache Functions:DCR_FindRPTRInIndices

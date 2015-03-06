@@ -17,7 +17,7 @@
 	Revision History	:	1994-07-20 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2014.
+		Copyright Michael L. Brock 1994 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -223,7 +223,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetRelation
 						DCR Cache Get Functions:DCR_GetRelation
@@ -452,7 +452,7 @@ char          *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetEQ
 						DCR Cache Get Functions:DCR_GetEQ
@@ -647,7 +647,7 @@ char          *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetGE
 						DCR Cache Get Functions:DCR_GetGE
@@ -842,7 +842,7 @@ char          *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetGT
 						DCR Cache Get Functions:DCR_GetGT
@@ -1037,7 +1037,7 @@ char          *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetLE
 						DCR Cache Get Functions:DCR_GetLE
@@ -1232,7 +1232,7 @@ char          *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetLT
 						DCR Cache Get Functions:DCR_GetLT
@@ -1427,7 +1427,7 @@ char          *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetNE
 						DCR Cache Get Functions:DCR_GetNE

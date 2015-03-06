@@ -17,7 +17,7 @@
 	Revision History	:	1994-07-19 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2014.
+		Copyright Michael L. Brock 1994 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -250,7 +250,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_BasicGetList
 						DCR Cache Get Functions:DCR_BasicGetList
@@ -558,7 +558,7 @@ char           *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetList
 						DCR Cache Get Functions:DCR_GetList
@@ -760,7 +760,7 @@ char           *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetListFull
 						DCR Cache Get Functions:DCR_GetListFull
@@ -963,7 +963,7 @@ char           *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetListElement
 						DCR Cache Get Functions:DCR_GetListElement
@@ -1169,7 +1169,7 @@ char           *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetListOffset
 						DCR Cache Get Functions:DCR_GetListOffset
@@ -1379,7 +1379,7 @@ char           *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetListPointer
 						DCR Cache Get Functions:DCR_GetListPointer

@@ -17,7 +17,7 @@
 	Revision History	:	1993-04-10 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2014.
+		Copyright Michael L. Brock 1993 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -89,7 +89,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  NPSL_TRUE
 						NPSL_FALSE
@@ -245,7 +245,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  NPSL_SUCCESS
 						NPSL_FAILURE
@@ -499,7 +499,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  NPSL_MAX_ERROR_TEXT
 						NPSL Manifest Constants:NPSL_MAX_ERROR_TEXT

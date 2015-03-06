@@ -17,7 +17,7 @@
 	Revision History	:	1992-06-27 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2014.
+		Copyright Michael L. Brock 1992 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -80,7 +80,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  ltrimx
 						String Justification Functions:ltrimx
@@ -176,7 +176,7 @@ const char *trim_string;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  ltrimx_basic
 						String Justification Functions:ltrimx_basic
@@ -276,7 +276,7 @@ const char   *trim_string;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  ltrimx_basic_mem
 						String Justification Functions:ltrimx_basic_mem

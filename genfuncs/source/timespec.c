@@ -17,7 +17,7 @@
 	Revision History	:	1994-05-21 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2014.
+		Copyright Michael L. Brock 1994 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -85,7 +85,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_GetInterval_timespec
 						Date/Time Functions:GEN_GetInterval_timespec
@@ -181,7 +181,7 @@ struct timespec       *out_interval_ptr;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_GetABSInterval_timespec
 						Date/Time Functions:GEN_GetABSInterval_timespec
@@ -273,7 +273,7 @@ struct timespec       *out_interval_ptr;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_GetPerInterval_timespec
 						Date/Time Functions:GEN_GetPerInterval_timespec
@@ -364,7 +364,7 @@ struct timespec       *out_interval_ptr;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_AddInterval_timespec
 						Date/Time Functions:GEN_AddInterval_timespec

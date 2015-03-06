@@ -17,7 +17,7 @@
 	Revision History	:	1993-07-07 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2014.
+		Copyright Michael L. Brock 1993 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -102,7 +102,7 @@ static DBC_DBLIB_MSG *DBC_DBLIB_MSG_HandlerStackList  = NULL;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_DefaultHandler
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_DefaultHandler
@@ -228,7 +228,7 @@ char      *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_PushHandler
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_PushHandler
@@ -322,7 +322,7 @@ char  *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_PopHandler
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_PopHandler
@@ -381,7 +381,7 @@ void DBC_DBLIB_MSG_PopHandler()
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_ClearHandler
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_ClearHandler
@@ -443,7 +443,7 @@ void DBC_DBLIB_MSG_ClearHandler()
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_GetHandlerPtr
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_GetHandlerPtr
@@ -503,7 +503,7 @@ DBC_DBLIB_MSG *DBC_DBLIB_MSG_GetHandlerPtr()
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_GetHandlerMessage
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_GetHandlerMessage
@@ -575,7 +575,7 @@ char *text_buffer;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_GetHandlerMSGMessage
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_GetHandlerMSGMessage
@@ -639,7 +639,7 @@ char *text_buffer;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_GetHandlerERRMessage
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_GetHandlerERRMessage
@@ -725,7 +725,7 @@ char *text_buffer;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_HandleERR
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_HandleERR
@@ -862,7 +862,7 @@ char      *os_err_string;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_DBLIB_MSG_HandleMSG
 						DBC Sybase DB-LIB Functions:DBC_DBLIB_MSG_HandleMSG

@@ -16,7 +16,7 @@
 	Revision History	:	1985-10-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1985 - 2014.
+		Copyright Michael L. Brock 1985 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -205,7 +205,7 @@ typedef struct { char x; } XDR;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  GENFUNCS_TRUE
 						GENFUNCS_FALSE
@@ -271,7 +271,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  GENFUNCS_SUCCESS
 						GENFUNCS_FAILURE
@@ -357,7 +357,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  GENFUNCS_MAX_ERROR_TEXT
 						GENFUNCS Manifest Constants:GENFUNCS_MAX_ERROR_TEXT
@@ -479,7 +479,7 @@ EOH */
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_TVAL_STAT
 						Statistics Gathering Structures:GEN_TVAL_STAT
@@ -675,7 +675,7 @@ typedef struct {
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  GEN_C_ALIGN_unsigned_byte
 						GEN_C_ALIGN_char
@@ -905,7 +905,7 @@ d
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_ALIGN_SPEC
 						Alignment Structures:GEN_ALIGN_SPEC
@@ -1019,7 +1019,7 @@ typedef struct {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_ALIGN
 						Alignment Structures:GEN_ALIGN
@@ -1188,7 +1188,7 @@ typedef struct {
 
 	AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER
 						Structures and Data Types:GEN_MEMBER
@@ -1297,7 +1297,7 @@ typedef struct {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_ERROR_SPEC
 						Error Description Structures:GEN_ERROR_SPEC
@@ -1361,7 +1361,7 @@ typedef struct {
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1991 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1991 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  GEN_LOCK_READEX_FLAG_INIT
 						GEN_LOCK_READEX_FLAG_MASK
@@ -1422,7 +1422,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_DEBUG_LEVEL_NONE
 						GEN_DEBUG_LEVEL_BASIC
@@ -1479,7 +1479,7 @@ EOH */
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1991 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1991 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_LOCK_READEX
 						Structures and Data Types:GEN_LOCK_READEX
@@ -1603,7 +1603,7 @@ typedef struct {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_RUSAGE
 						Usage Description Structures:GEN_RUSAGE

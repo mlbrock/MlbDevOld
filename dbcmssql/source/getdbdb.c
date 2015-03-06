@@ -17,7 +17,7 @@
 	Revision History	:	1995-12-03 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2014.
+		Copyright Michael L. Brock 1995 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -244,7 +244,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned int DBC_MSSQL_GetDBDBMemberCount  =
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	
 
@@ -302,7 +302,7 @@ char           *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	
 

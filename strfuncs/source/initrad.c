@@ -16,7 +16,7 @@
 	Revision History	:	1990-06-04 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1990 - 2014.
+		Copyright Michael L. Brock 1990 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -61,7 +61,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_AsciiString
 						STRFUNCS:RADIX-50 Default Data:RADIX50_AsciiString
@@ -129,7 +129,7 @@ S             19  9             39
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_AsciiTable
 						STRFUNCS:RADIX-50 Default Data:RADIX50_AsciiTable
@@ -204,7 +204,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_AsciiTable[UCHAR_MAX + 1] = {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_Radix50Table
 						STRFUNCS:RADIX-50 Default Data:RADIX50_Radix50Table
@@ -311,7 +311,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_Radix50Table[40] = {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_init_tables
 						STRFUNCS:RADIX-50 Functions:RADIX50_init_tables

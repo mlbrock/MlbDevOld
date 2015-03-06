@@ -16,7 +16,7 @@
 	Revision History	:	1999-11-03 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1999 - 2014.
+		Copyright Michael L. Brock 1999 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -67,7 +67,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1999 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1999 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	PCFF_InitItem
 						Initialization Functions:Parse Configuration File Facility Functions:PCFF_InitItem
@@ -131,7 +131,7 @@ void PCFF_InitItem(PCFF_ITEM *ptr)
 
 	AUTHOR		:	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1999 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1999 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	PCFF_InitItemList
 						Initialization Functions:Parse Configuration File Facility Functions:PCFF_InitItemList

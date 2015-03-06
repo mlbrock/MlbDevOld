@@ -16,7 +16,7 @@
 	Revision History	:	1994-01-24 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2014.
+		Copyright Michael L. Brock 1994 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -75,7 +75,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_Compare
 						Date Functions:DTIME_Compare
@@ -168,7 +168,7 @@ const DTIME *ptr_2;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_STR_Compare
 						Date Functions:DTIME_STR_Compare

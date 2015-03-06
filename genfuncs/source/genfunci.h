@@ -16,7 +16,7 @@
 	Revision History	:	1985-10-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1985 - 2014.
+		Copyright Michael L. Brock 1985 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -67,7 +67,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1985 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1985 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MAP_TRUTH_STR
 						GEN_MAP_TRUTH_TFREAD
@@ -129,7 +129,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1985 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1985 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MAP_ERROR_STR
 						GEN_MAP_ERROR_TFREAD
@@ -205,7 +205,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GENFUNCS_VERSION_MAJOR
 						GENFUNCS_VERSION_MINOR

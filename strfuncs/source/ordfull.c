@@ -17,7 +17,7 @@
 	Revision History	:	1996-04-06 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2014.
+		Copyright Michael L. Brock 1996 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -120,7 +120,7 @@ static const unsigned int  STRFUNCS_FullOrdinalCount     =
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1996 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1996 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  ordinal_full
 						Numeric Formatting Functions:ordinal_full
@@ -199,7 +199,7 @@ char          *text;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1996 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1996 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  ordinal_double_full
 						Numeric Formatting Functions:ordinal_double_full

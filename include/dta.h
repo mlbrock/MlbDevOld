@@ -17,7 +17,7 @@
 	Revision History	:	1992-02-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2014.
+		Copyright Michael L. Brock 1992 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -97,7 +97,7 @@ typedef struct { char x; } XDR;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  DTA_TRUE
 						DTA_FALSE
@@ -160,7 +160,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  DTA_SUCCESS
 						DTA_FAILURE
@@ -239,7 +239,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  DTA_MAX_ERROR_TEXT
 						DTA Manifest Constants:DTA_MAX_ERROR_TEXT
@@ -308,7 +308,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  DTA_C_unsigned_byte
 						DTA_C_char
@@ -453,7 +453,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  DTA_C_char_unsigned_byte
 						DTA_C_char_char
@@ -683,7 +683,7 @@ d
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DTA_TYPE
 						Alignment Structures:DTA_TYPE
@@ -790,7 +790,7 @@ typedef struct {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	DTA
 						Alignment Structures:DTA

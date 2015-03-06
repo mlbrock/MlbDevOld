@@ -16,7 +16,7 @@
 	Revision History	:	1999-11-03 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1999 - 2014.
+		Copyright Michael L. Brock 1999 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -58,7 +58,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1999 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1999 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  PCFF_TRUE
 						PCFF_FALSE
@@ -121,7 +121,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1999 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1999 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  PCFF_SUCCESS
 						PCFF_FAILURE
@@ -200,7 +200,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1999 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1999 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  PCFF_MAX_ERROR_TEXT
 						PCFF Manifest Constants:PCFF_MAX_ERROR_TEXT

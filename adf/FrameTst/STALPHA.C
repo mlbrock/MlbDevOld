@@ -93,7 +93,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	str_alpha
 						Character Class Functions:Alphabetic Character Class Functions:str_alpha
@@ -193,7 +193,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	strr_alpha
 						Character Class Functions:Alphabetic Character Class Functions:strr_alpha
@@ -298,7 +298,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	idx_alpha
 						Character Class Functions:Alphabetic Character Class Functions:idx_alpha
@@ -396,7 +396,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	idxr_alpha
 						Character Class Functions:Alphabetic Character Class Functions:idxr_alpha
@@ -486,7 +486,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	cnt_alpha
 						Character Class Functions:Alphabetic Character Class Functions:cnt_alpha
@@ -586,7 +586,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	cvt_alpha
 						Character Class Functions:Alphabetic Character Class Functions:cvt_alpha

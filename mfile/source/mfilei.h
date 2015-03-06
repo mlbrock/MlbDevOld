@@ -17,7 +17,7 @@
 	Revision History	:	1992-03-21 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2014.
+		Copyright Michael L. Brock 1992 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -102,7 +102,7 @@ struct tag_MFILE;
 
 	AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_VERSION_MAJOR
 						MFILE_VERSION_MINOR
@@ -242,7 +242,7 @@ typedef struct {
 
 	AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT   :	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE
 						Structures and Data Types:MFILE

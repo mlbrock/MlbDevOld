@@ -16,7 +16,7 @@
 	Revision History	:	1995-05-19 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2014.
+		Copyright Michael L. Brock 1995 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -129,7 +129,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_Help
 						Argument Parsing Functions:GEN_BUSE_Help
@@ -271,7 +271,7 @@ char           *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_LogDir
 						Argument Parsing Functions:GEN_BUSE_LogDir
@@ -418,7 +418,7 @@ char           *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_LogFlag
 						Argument Parsing Functions:GEN_BUSE_LogFlag
@@ -571,7 +571,7 @@ file.",
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_LogQuiet
 						Argument Parsing Functions:GEN_BUSE_LogQuiet
@@ -724,7 +724,7 @@ char           *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_CheckOnly
 						Argument Parsing Functions:GEN_BUSE_CheckOnly
@@ -866,7 +866,7 @@ command-line parameters used by the program.",
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_Version
 						Argument Parsing Functions:GEN_BUSE_Version
@@ -1017,7 +1017,7 @@ char           *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_DebugLevel
 						Argument Parsing Functions:GEN_BUSE_DebugLevel
@@ -1176,7 +1176,7 @@ to be performed.",
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_DBDebugFlag
 						Argument Parsing Functions:GEN_BUSE_DBDebugFlag
@@ -1331,7 +1331,7 @@ returned from the database server in the log file.",
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_SQLDebugFlag
 						Argument Parsing Functions:GEN_BUSE_SQLDebugFlag
@@ -1489,7 +1489,7 @@ the database server in the log file.",
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_AppendBooleanText
 						Argument Parsing Functions:GEN_BUSE_AppendBooleanText
@@ -1636,7 +1636,7 @@ syntax for the value 'TRUE':", "\n", "\t\t\t{ TRUE | ON | YES | T | Y | 1 }",
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_AppendParamText
 						Argument Parsing Functions:GEN_BUSE_AppendParamText
@@ -1774,7 +1774,7 @@ to include itself recursively.",
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_AppendLineList
 						Argument Parsing Functions:GEN_BUSE_AppendLineList
@@ -1881,7 +1881,7 @@ char           *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_AppendLine
 						Argument Parsing Functions:GEN_BUSE_AppendLine
@@ -1975,7 +1975,7 @@ char           *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_AppendNL
 						Argument Parsing Functions:GEN_BUSE_AppendNL
@@ -2068,7 +2068,7 @@ char           *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_AppendNULL
 						Argument Parsing Functions:GEN_BUSE_AppendNULL
@@ -2202,7 +2202,7 @@ char           *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_BasicConstruct
 						Argument Parsing Functions:GEN_BUSE_BasicConstruct
@@ -2351,7 +2351,7 @@ char           *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BUSE_CreateUsageList
 						Argument Parsing Functions:GEN_BUSE_CreateUsageList

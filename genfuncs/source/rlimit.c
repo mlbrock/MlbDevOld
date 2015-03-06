@@ -17,7 +17,7 @@
 	Revision History	:	1994-12-04 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2014.
+		Copyright Michael L. Brock 1994 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -121,7 +121,7 @@ static const GEN_RLIMIT_DEF GEN_RLimitsList[RLIM_NLIMITS] = {
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_SetResourceLimitsToMax
 						Miscellaneous Functions:GEN_SetResourceLimitsToMax

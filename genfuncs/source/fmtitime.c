@@ -17,7 +17,7 @@
 	Revision History	:	1991-10-31 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1991 - 2014.
+		Copyright Michael L. Brock 1991 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -84,7 +84,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_FormatInterval_time_t
 						Date/Time Functions:GEN_FormatInterval_time_t
@@ -199,7 +199,7 @@ char         *buffer;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_FormatInterval_timeval
 						Date/Time Functions:GEN_FormatInterval_timeval
@@ -329,7 +329,7 @@ char                 *buffer;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_FormatInterval_timespec
 						Date/Time Functions:GEN_FormatInterval_timespec

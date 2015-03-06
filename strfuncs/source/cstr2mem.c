@@ -17,7 +17,7 @@
 	Revision History	:	1994-06-03 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2014.
+		Copyright Michael L. Brock 1994 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -106,7 +106,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
  
 	OUTPUT INDEX:	cstr2mem
 						String Conversion Functions:cstr2mem
@@ -306,7 +306,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
  
 	OUTPUT INDEX:	cstr2mem_alloc
 						String Conversion Functions:cstr2mem_alloc
@@ -399,7 +399,7 @@ unsigned int *out_length;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
  
 	OUTPUT INDEX:	cstr2mem_length
 						String Conversion Functions:cstr2mem_length
@@ -557,7 +557,7 @@ int         flags;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
  
 	OUTPUT INDEX:	cstr2mem_basic
 						String Conversion Functions:cstr2mem_basic
@@ -773,7 +773,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
  
 	OUTPUT INDEX:	cstr2mem_basic_alloc
 						String Conversion Functions:cstr2mem_basic_alloc
@@ -866,7 +866,7 @@ unsigned int *out_length;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
  
 	OUTPUT INDEX:	cstr2mem_basic_length
 						String Conversion Functions:cstr2mem_basic_length

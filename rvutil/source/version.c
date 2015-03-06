@@ -16,7 +16,7 @@
 	Revision History	:	1996-03-11 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2014.
+		Copyright Michael L. Brock 1996 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -82,7 +82,7 @@ COMPAT_FN_DECL_STATIC(STR_VERSION *RVUTIL_GetVersion,
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	RVUTIL_GetVersionNumber
 						Miscellaneous Functions:RVUTIL_GetVersionNumber
@@ -165,7 +165,7 @@ void RVUTIL_GetVersionNumber(unsigned int *major, unsigned int *minor,
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	RVUTIL_GetVersionString
 						Miscellaneous Functions:RVUTIL_GetVersionString
@@ -217,7 +217,7 @@ char *RVUTIL_GetVersionString(char *version_string)
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	RVUTIL_GetVersion
 						Miscellaneous Functions:RVUTIL_GetVersion

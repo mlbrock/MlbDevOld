@@ -16,7 +16,7 @@
 	Revision History	:	1986-02-15 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1986 - 2014.
+		Copyright Michael L. Brock 1986 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -69,7 +69,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1986 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1986 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_sleep
 						Miscellaneous Functions:SDTIF_sleep
@@ -130,7 +130,7 @@ unsigned int seconds;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1986 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1986 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_msleep
 						Miscellaneous Functions:SDTIF_msleep
@@ -190,7 +190,7 @@ unsigned long milliseconds;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1986 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1986 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_usleep
 						Miscellaneous Functions:SDTIF_usleep
@@ -277,7 +277,7 @@ unsigned long microseconds;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1986 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1986 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_nsleep
 						Miscellaneous Functions:SDTIF_nsleep
@@ -369,7 +369,7 @@ unsigned long nanoseconds;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1986 - 2014 Michael L. Brock
+   COPYRIGHT   :	Copyright 1986 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_nanosleep
 						Miscellaneous Functions:SDTIF_nanosleep

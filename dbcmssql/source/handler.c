@@ -16,7 +16,7 @@
 	Revision History	:	1995-12-03 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2014.
+		Copyright Michael L. Brock 1995 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -101,7 +101,7 @@ static DBC_MSSQL_MSG *DBC_MSSQL_MSG_HandlerStackList  = NULL;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_DefaultHandler
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_DefaultHandler
@@ -200,7 +200,7 @@ char              *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_PushHandler
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_PushHandler
@@ -286,7 +286,7 @@ char  *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_PopHandler
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_PopHandler
@@ -341,7 +341,7 @@ void DBC_MSSQL_MSG_PopHandler()
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_ClearHandler
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_ClearHandler
@@ -399,7 +399,7 @@ void DBC_MSSQL_MSG_ClearHandler()
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_GetHandlerPtr
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_GetHandlerPtr
@@ -455,7 +455,7 @@ DBC_MSSQL_MSG *DBC_MSSQL_MSG_GetHandlerPtr()
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_GetHandlerMessage
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_GetHandlerMessage
@@ -523,7 +523,7 @@ char *text_buffer;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_GetHandlerMSGMessage
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_GetHandlerMSGMessage
@@ -583,7 +583,7 @@ char *text_buffer;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_GetHandlerERRMessage
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_GetHandlerERRMessage
@@ -665,7 +665,7 @@ char *text_buffer;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_HandleERR
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_HandleERR
@@ -795,7 +795,7 @@ char      *os_err_string;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_MSG_HandleMSG
 						DBC DB-LIB Functions:DBC_MSSQL_MSG_HandleMSG

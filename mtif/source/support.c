@@ -16,7 +16,7 @@
 	Revision History	:	1994-09-03 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2014.
+		Copyright Michael L. Brock 1994 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -96,7 +96,7 @@ COMPAT_FN_DECL(char                 *GEN_GetErrorString_Win32,
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MTIF_SUPP_AppendSpecErrorString
 						Utility Functions:Error Description Functions:MTIF_SUPP_AppendSpecErrorString
@@ -166,7 +166,7 @@ char *error_text;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MTIF_SUPP_AppendLastErrorString
 						Utility Functions:Error Description Functions:MTIF_SUPP_AppendLastErrorString
@@ -234,7 +234,7 @@ char *error_text;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MTIF_SUPP_GetSpecErrorString
 						Utility Functions:Error Description Functions:MTIF_SUPP_GetSpecErrorString
@@ -297,7 +297,7 @@ char *error_text;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MTIF_SUPP_GetLastErrorString
 						Utility Functions:Error Description Functions:MTIF_SUPP_GetLastErrorString
@@ -373,7 +373,7 @@ char *error_text;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MTIF_SUPP_AppendSpecErrorString_Win32
 						Windows Functions:MTIF_SUPP_AppendSpecErrorString_Win32
@@ -445,7 +445,7 @@ char *error_text;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MTIF_SUPP_AppendLastErrorString_Win32
 						Windows Functions:MTIF_SUPP_AppendLastErrorString_Win32
@@ -515,7 +515,7 @@ char *error_text;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MTIF_SUPP_GetSpecErrorString_Win32
 						Windows Functions:MTIF_SUPP_GetSpecErrorString_Win32
@@ -580,7 +580,7 @@ char *error_text;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	MTIF_SUPP_GetLastErrorString_Win32
 						Windows Functions:MTIF_SUPP_GetLastErrorString_Win32

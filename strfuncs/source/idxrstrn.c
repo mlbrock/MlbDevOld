@@ -16,7 +16,7 @@
 	Revision History	:	1986-10-27 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1986 - 2014.
+		Copyright Michael L. Brock 1986 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -94,7 +94,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	idxrstrn
 						String Search Functions/Index:idxrstrn
@@ -192,7 +192,7 @@ size_t      target_length;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	idxristrn
 						String Search Functions/Index:idxristrn
@@ -299,7 +299,7 @@ size_t      target_length;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	idxrnstrn
 						String Search Functions/Index:idxrnstrn
@@ -409,7 +409,7 @@ size_t      target_length;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	idxrnistrn
 						String Search Functions/Index:idxrnistrn

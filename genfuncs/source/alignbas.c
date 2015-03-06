@@ -18,7 +18,7 @@
 	Revision History	:	1992-02-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2014.
+		Copyright Michael L. Brock 1992 - 2015.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -94,7 +94,7 @@ typedef struct { char spacing[1]; double member; } GEN_double;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  GEN_ALIGN_TypeList
 						Alignment Data:GEN_ALIGN_TypeList
@@ -243,7 +243,7 @@ COMPAT_EXTERN_DATA_DEF const GEN_ALIGN_SPEC GEN_ALIGN_TypeList[] = {
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2014 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:  GEN_ALIGN_TypeCount
 						Alignment Data:GEN_ALIGN_TypeCount
@@ -496,7 +496,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned int GEN_ALIGN_TypeCount =
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_AlignStringList
 						Alignment Functions:GEN_ALIGN_BASIC_AlignStringList
@@ -879,7 +879,7 @@ EXIT_FUNCTION:
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_AlignString
 						Alignment Functions:GEN_ALIGN_BASIC_AlignString
@@ -1195,7 +1195,7 @@ char                  *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_CountStringToList
 						Alignment Functions:GEN_ALIGN_BASIC_CountStringToList
@@ -1502,7 +1502,7 @@ char                  *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_CountStringToLApp
 						Alignment Functions:GEN_ALIGN_BASIC_CountStringToLApp
@@ -1757,7 +1757,7 @@ char                  *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_CountStringToString
 						Alignment Functions:GEN_ALIGN_BASIC_CountStringToString
@@ -1902,7 +1902,7 @@ char                  *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_AlignList
 						Alignment Functions:GEN_ALIGN_BASIC_AlignList
@@ -2116,7 +2116,7 @@ char                 *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_CheckStringList
 						Alignment Functions:GEN_ALIGN_BASIC_CheckStringList
@@ -2288,7 +2288,7 @@ char                  *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_CheckString
 						Alignment Functions:GEN_ALIGN_BASIC_CheckString
@@ -2446,7 +2446,7 @@ char                 *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_ALIGN_BASIC_CheckMember
 						Alignment Functions:GEN_ALIGN_BASIC_CheckMember
@@ -2617,7 +2617,7 @@ char                 *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_ListToStringAlloc
 						Alignment Functions:GEN_ALIGN_BASIC_ListToStringAlloc
@@ -2770,7 +2770,7 @@ char                  *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_ListToString
 						Alignment Functions:GEN_ALIGN_BASIC_ListToString
@@ -2906,7 +2906,7 @@ char                 *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_CopyTypeList
 						Alignment Functions:GEN_ALIGN_BASIC_CopyTypeList
@@ -3025,7 +3025,7 @@ char                  *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_FindTypeCharIndex
 						Alignment Functions:GEN_ALIGN_BASIC_FindTypeCharIndex
@@ -3151,7 +3151,7 @@ unsigned int         *type_index;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_FindTypeCharPtr
 						Alignment Functions:GEN_ALIGN_BASIC_FindTypeCharPtr
@@ -3253,7 +3253,7 @@ unsigned int         *type_index;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2014 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
 
    OUTPUT INDEX:	GEN_ALIGN_BASIC_GetTypePtr
 						Alignment Functions:GEN_ALIGN_BASIC_GetTypePtr
