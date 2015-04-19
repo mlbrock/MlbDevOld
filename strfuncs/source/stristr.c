@@ -110,8 +110,8 @@ const char *target_string;
 	if (!(*target_string))
 		return(((char *) search_string));
 	else
-		return(((char *) memimem(strlen(search_string), search_string,
-			strlen(target_string), target_string)));
+		return(((char *) STRFUNCS_SHIM_memimem(strlen(search_string),
+			search_string, strlen(target_string), target_string)));
 }
 /* *********************************************************************** */
 

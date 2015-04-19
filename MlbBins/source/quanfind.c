@@ -174,7 +174,8 @@ char          *error_text;
 					tmp_block_length = block_length;
 					tmp_block_ptr    = block_ptr;
 					if (!found_length) {
-						while ((found_ptr = ((char *) memmem(tmp_block_length,
+						while ((found_ptr =
+							((char *) STRFUNCS_SHIM_memmem(tmp_block_length,
 							tmp_block_ptr, quantity_size, quantity_data))) != NULL) {
 							tmp_offset = ((unsigned int) (found_ptr - block_ptr));
 							printf(">>> Found %10lu (%08lX) at offset %10lu (%08lX)\n",

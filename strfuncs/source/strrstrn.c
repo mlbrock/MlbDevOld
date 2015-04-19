@@ -124,8 +124,8 @@ size_t      target_length;
 	else {
 		target_length = ((t_length = strlen(target_string)) < target_length) ?
 			t_length : target_length;
-		return(((char *) memrmem(strlen(search_string), search_string,
-			target_length, target_string)));
+		return(((char *) STRFUNCS_SHIM_memrmem(strlen(search_string),
+			search_string, target_length, target_string)));
 	}
 }
 /* *********************************************************************** */
@@ -222,8 +222,8 @@ size_t      target_length;
 	else {
 		target_length = ((t_length = strlen(target_string)) < target_length) ?
 			t_length : target_length;
-		return(((char *) memrimem(strlen(search_string), search_string,
-			target_length, target_string)));
+		return(((char *) STRFUNCS_SHIM_memrimem(strlen(search_string),
+			search_string, target_length, target_string)));
 	}
 }
 /* *********************************************************************** */
@@ -332,8 +332,8 @@ size_t      target_length;
 			s_length : search_length;
 		target_length = ((t_length = strlen(target_string)) < target_length) ?
 			t_length : target_length;
-		return(((char *) memrmem(search_length, search_string, target_length,
-			target_string)));
+		return(((char *) STRFUNCS_SHIM_memrmem(search_length, search_string,
+			target_length, target_string)));
 	}
 }
 /* *********************************************************************** */
@@ -445,8 +445,8 @@ size_t      target_length;
 			s_length : search_length;
 		target_length = ((t_length = strlen(target_string)) < target_length) ?
 			t_length : target_length;
-		return(((char *) memrimem(search_length, search_string, target_length,
-			target_string)));
+		return(((char *) STRFUNCS_SHIM_memrimem(search_length, search_string,
+			target_length, target_string)));
 	}
 }
 /* *********************************************************************** */

@@ -792,7 +792,8 @@ char **argv;
 			found_count_1 = 0;
 			check_sum_1   = 0L;
 			SDTIF_GetTimeUSecs(&start_time);
-			while ((tmp_ptr = ((char *) memmem(search_length, search_area,
+			while ((tmp_ptr =
+				((char *) STRFUNCS_SHIM_memmem(search_length, search_area,
 				target_length, target_area))) != NULL) {
 				search_length -= ((unsigned int) (tmp_ptr - search_area)) + 1;
 				search_area    = tmp_ptr + 1;

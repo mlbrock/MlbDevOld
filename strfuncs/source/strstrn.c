@@ -123,8 +123,8 @@ size_t      target_length;
 	else {
 		target_length = ((t_length = strlen(target_string)) < target_length) ?
 			t_length : target_length;
-		return(((char *) memmem(strlen(search_string), search_string,
-			target_length, target_string)));
+		return(((char *) STRFUNCS_SHIM_memmem(strlen(search_string),
+			search_string, target_length, target_string)));
 	}
 }
 /* *********************************************************************** */

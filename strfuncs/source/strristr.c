@@ -111,8 +111,8 @@ const char *target_string;
 	if (!(*target_string))
 		return(((char *) search_string));
 	else
-		return(((char *) memrimem(strlen(search_string), search_string,
-			strlen(target_string), target_string)));
+		return(((char *) STRFUNCS_SHIM_memrimem(strlen(search_string),
+			search_string, strlen(target_string), target_string)));
 }
 /* *********************************************************************** */
 
@@ -207,7 +207,7 @@ size_t      search_length;
 	else {
 		search_length = ((s_length = strlen(search_string)) < search_length) ?
 			s_length : search_length;
-		return(((char *) memrimem(search_length, search_string,
+		return(((char *) STRFUNCS_SHIM_memrimem(search_length, search_string,
 			strlen(target_string), target_string)));
 	}
 }

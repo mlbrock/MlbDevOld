@@ -1822,7 +1822,7 @@ void                  *output_control;
 		while (count) {
 			count--;
 			if ((list[count].ptr_2 == NULL) ||
-				(memmem(in_length, in_ptr, strlen(list[count].ptr_2),
+				(STRFUNCS_SHIM_memmem(in_length, in_ptr, strlen(list[count].ptr_2),
 				list[count].ptr_2) != NULL)) {
 				(*output_function)(output_control, "<A HREF=\"%s\">",
 					list[count].ptr_1);

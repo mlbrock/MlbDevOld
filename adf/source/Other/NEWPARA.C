@@ -347,7 +347,7 @@ char             *error_text;
 			((UCHAR_MAX + 1) * count_1);
 		while (string_length >= htext_ptr->htext_length) {
 			if (control_ptr->htext_boyer_moore_data == NULL) {
-				if ((tmp_ptr_1 = memmem(string_length, string_ptr,
+				if ((tmp_ptr_1 = STRFUNCS_SHIM_memmem(string_length, string_ptr,
 					htext_ptr->htext_length, htext_ptr->hyper_text)) == NULL)
 					break;
 			}
@@ -726,7 +726,7 @@ const ADF_PARA_TEXT *para_ptr;
 			(entry_ptr->entry_index == htext_ptr->entry_index))
 			continue;
 		else if (control_ptr->htext_boyer_moore_data == NULL) {
-			if ((tmp_ptr = memmem(para_ptr->length, para_ptr->ptr,
+			if ((tmp_ptr = STRFUNCS_SHIM_memmem(para_ptr->length, para_ptr->ptr,
 				htext_ptr->htext_length, htext_ptr->hyper_text)) == NULL)
 				continue;
 		}
@@ -1050,7 +1050,7 @@ const ADF_PARA_TEXT *para_ptr;
 			(entry_ptr->entry_index == htext_ptr->entry_index))
 			continue;
 		else if (control_ptr->htext_boyer_moore_data == NULL) {
-			if ((tmp_ptr = memmem(para_ptr->length, para_ptr->ptr,
+			if ((tmp_ptr = STRFUNCS_SHIM_memmem(para_ptr->length, para_ptr->ptr,
 				htext_ptr->htext_length, htext_ptr->hyper_text)) == NULL)
 				continue;
 		}
@@ -1684,7 +1684,7 @@ char             *error_text;
 			((UCHAR_MAX + 1) * count_1);
 		while (string_length >= htext_ptr->htext_length) {
 			if (control_ptr->htext_boyer_moore_data == NULL) {
-				if ((tmp_ptr_1 = memmem(string_length, string_ptr,
+				if ((tmp_ptr_1 = STRFUNCS_SHIM_memmem(string_length, string_ptr,
 					htext_ptr->htext_length, htext_ptr->hyper_text)) == NULL)
 					break;
 			}

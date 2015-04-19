@@ -310,8 +310,8 @@ const char   *trim_string;
 	*out_length = 0;
 
 	tmp_ptr = ((char *) in_text) + in_length - 1;
-	while (in_length && (memmem(trim_length, trim_string, 1, tmp_ptr) !=
-		NULL)) {
+	while (in_length &&
+		(STRFUNCS_SHIM_memmem(trim_length, trim_string, 1, tmp_ptr) != NULL)) {
 		in_length--;
 		tmp_ptr--;
 	}

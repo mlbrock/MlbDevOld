@@ -2982,6 +2982,31 @@ COMPAT_FN_DECL(int     STRFUNCS_memicmp,
 	(const void *, const void *, size_t));
 COMPAT_FN_DECL(size_t  memicnt,
 	(size_t, const void *, size_t, const void *));
+
+/*	-----------------------------------------------------------------------
+	I implemented the memmem() function and its relatives memimem(), memrmem(),
+	and memrimem() as analogues of the ANSI C standard function strstr() but
+	for arbitrary memory buffers not terminated by ASCII NUL.
+
+   In the original implementation, the function arguments were:
+
+		void *mem[r][i]mem(size_t haystacklen, const void *haystack,
+			size_t needlelen, const void *needle);
+
+	However, a GNU extension function has been added of the same name and same
+	semantics, except that the function arguments are:
+
+		void *memmem(const void *haystack, size_t haystacklen,
+			const void *needle, size_t needlelen);
+
+	I've therefore changed the strfuncs functions to reflect the GNU ordering,
+	implemented forwarding functions named STRFUNCS_SHIM_mem[r][i]mem(), which
+	take the old parameter ordering and forward appropriately.
+
+	I've modified callers of the original functions to invoke the shim functions
+	instead.
+
+	/ *	Original function prototypes...	* /
 COMPAT_FN_DECL(void   *memimem,
 	(size_t, const void *, size_t, const void *));
 COMPAT_FN_DECL(void   *memmem,
@@ -2990,6 +3015,29 @@ COMPAT_FN_DECL(void   *memrimem,
 	(size_t, const void *, size_t, const void *));
 COMPAT_FN_DECL(void   *memrmem,
 	(size_t, const void *, size_t, const void *));
+*/
+
+	/*	Function prototypes with the revised parameter ordering...	*/
+COMPAT_FN_DECL(void   *memimem,
+	(const void *, size_t, const void *, size_t));
+COMPAT_FN_DECL(void   *memmem,
+	(const void *, size_t, const void *, size_t));
+COMPAT_FN_DECL(void   *memrimem,
+	(const void *, size_t, const void *, size_t));
+COMPAT_FN_DECL(void   *memrmem,
+	(const void *, size_t, const void *, size_t));
+
+	/*	Shim function prototypes...	*/
+COMPAT_FN_DECL(void   *STRFUNCS_SHIM_memimem,
+	(size_t, const void *, size_t, const void *));
+COMPAT_FN_DECL(void   *STRFUNCS_SHIM_memmem,
+	(size_t, const void *, size_t, const void *));
+COMPAT_FN_DECL(void   *STRFUNCS_SHIM_memrimem,
+	(size_t, const void *, size_t, const void *));
+COMPAT_FN_DECL(void   *STRFUNCS_SHIM_memrmem,
+	(size_t, const void *, size_t, const void *));
+/*	-----------------------------------------------------------------------	*/
+
 COMPAT_FN_DECL(char   *nstrcat,
 	(char *, const char *, size_t));
 COMPAT_FN_DECL(char   *nstrcpy,

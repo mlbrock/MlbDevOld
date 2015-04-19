@@ -285,7 +285,7 @@ char             *error_text;
 /*
 	CODE NOTE: To be removed.
 	if ((domain_ptr->boh_pattern.pattern_optimization != NULL) &&
-		(memimem(line_buffer_length, line_buffer,
+		(STRFUNCS_SHIM_memimem(line_buffer_length, line_buffer,
 		strlen(domain_ptr->boh_pattern.pattern_optimization),
 		domain_ptr->boh_pattern.pattern_optimization) == NULL))
 		line_count = 0;

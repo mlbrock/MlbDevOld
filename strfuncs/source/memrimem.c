@@ -29,14 +29,14 @@
 /*	*********************************************************************** */
 /*	*********************************************************************** */
 #ifndef NARGS
-void *memrimem(size_t search_length, const void *search_area,
-	size_t target_length, const void *target_area)
+void *memrimem(const void *search_area, size_t search_length,
+	const void *target_area, size_t target_length)
 #else
-void *memrimem(search_length, search_area, target_length, target_area)
-size_t      search_length;
+void *memrimem(search_area, search_length, target_area, target_length)
 const void *search_area;
-size_t      target_length;
+size_t      search_length;
 const void *target_area;
+size_t      target_length;
 #endif /* #ifndef NARGS */
 {
 	unsigned char *search_ptr;
@@ -58,4 +58,23 @@ const void *target_area;
 	return(NULL);
 }
 /* *********************************************************************** */
+
+/*	*********************************************************************** */
+/*	*********************************************************************** */
+/*	*********************************************************************** */
+#ifndef NARGS
+void *STRFUNCS_SHIM_memrimem(size_t search_length, const void *search_area,
+	size_t target_length, const void *target_area)
+#else
+void *STRFUNCS_SHIM_memrimem(search_length, search_area, target_length,
+	target_area)
+size_t      search_length;
+const void *search_area;
+size_t      target_length;
+const void *target_area;
+#endif /* #ifndef NARGS */
+{
+	return(memrimem(search_area, search_length, target_area, target_length));
+}
+/*	*********************************************************************** */
 

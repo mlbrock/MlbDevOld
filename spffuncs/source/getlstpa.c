@@ -154,7 +154,8 @@ char           *error_text;
 			break;
 		}
 		else if ((open_parend_ptr =
-			((char *) memmem(def_length, tmp_ptr_1, 1, "("))) == NULL) {
+			((char *) STRFUNCS_SHIM_memmem(def_length, tmp_ptr_1, 1, "("))) ==
+			NULL) {
 			sprintf(error_text,
 				"Expected an open parenthesis ('(') on line %lu.", *current_line);
 			return_code = SPF_PARSE_FAILURE;
