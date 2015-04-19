@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CC975F7B-B1C0-4606-90E9-24F2D43C7D60}</ProjectGuid>
+    <RootNamespace>datfuncs</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\datfuncs\source\ckstring.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\cndaycnt.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\cndaymax.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dattojul.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dayofmon.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dc30360.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dcactact.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\downame.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dtadj.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dtcmp.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dtformat.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dtnow.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dtok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dttimev.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dttojul.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\dtymdhms.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\fixulong.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\fixyear.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\get0101.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\get1231.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getcent.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getday.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getdow.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\gethour.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\gethsec.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getmdata.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getmin.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getmonth.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getmsec.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getqtr.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getsec.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\gettsec.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getweek.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\getyear.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\hourok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\ingtojul.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\isleapyr.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\jdateok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\juladj.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\julianok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\jultodat.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\jultodt.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\jultofmt.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\jultoing.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\jultolon.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\jultostr.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\jultosyb.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\jultoymd.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\lontodat.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\lontojul.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\millisok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\minok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\mndaycnt.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\mndaymax.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\mnend.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\mnstart.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\monthok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\nowtojul.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\qtrend.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\qtrstart.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\secok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\ulongnow.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\ulongok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\version.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\wkend.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\wkstart.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\yearok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\ymdok.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\ymdtojul.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\yrdaycnt.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\yrdaymax.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\yrend.c" />
+    <ClCompile Include="..\..\..\..\datfuncs\source\yrstart.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\datfuncs\source\datfunci.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

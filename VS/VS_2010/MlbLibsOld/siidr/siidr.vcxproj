@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A81812E7-376A-4E2C-8914-0007F89484FA}</ProjectGuid>
+    <RootNamespace>siidr</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\siidr\source\alidr.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\bularray.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\bullist.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\ckctl.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\ckdata.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\ckidr.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\ckrelop.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\cmbulk.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\cmrecord.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\cpidr.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\cridr.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\delall.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\delete.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\deleteat.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\delmatch.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\delspec.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\fdrecord.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\fridr.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\getarray.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\getat.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\getcount.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\getfirst.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\getlast.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\getlist.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\getnext.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\getprev.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\getrec.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\idrget.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\idrlock.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\idrset.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\idrtlock.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\idrulock.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\inidr.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\insert.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\insertat.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\matarray.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\match.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\matcount.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\matlist.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\sort.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\touch.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\tstdebug.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\update.c" />
+    <ClCompile Include="..\..\..\..\siidr\source\updateat.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\siidr\source\siidri.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

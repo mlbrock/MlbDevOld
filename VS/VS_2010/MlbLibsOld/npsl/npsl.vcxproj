@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{563FD9BF-82F8-44BB-8670-B789524C4200}</ProjectGuid>
+    <RootNamespace>npsl</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\npsl\source\accept.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\addrinet.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\bind.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\ckhentp.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\ckpentp.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\cksentp.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\cksock.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\cleanup.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\close.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\connect.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\cphent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\cppent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\cpsent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\errortxt.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\exphostl.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\exphosts.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\frhent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\frpent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\frsent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\gethent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\gethentb.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\getmac.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\getpent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\getpentb.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\getpname.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\getsent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\getsentb.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\getsname.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\getsopt.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\hostname.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\inetaddr.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\inhent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\inpent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\insent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\lenshent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\lenspent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\lenssent.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\listen.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\recv.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\recvfrom.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\rslvhost.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\rslvhsp.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\rslvprot.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\rslvserv.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\select.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\send.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\sendto.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\setbmode.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\setsopt.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\shutdown.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\socket.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\startup.c" />
+    <ClCompile Include="..\..\..\..\npsl\source\support.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\npsl\source\npsli.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

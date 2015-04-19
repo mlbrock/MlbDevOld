@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DAB52CD7-489A-493F-94DE-93A6D6E820B0}</ProjectGuid>
+    <RootNamespace>rvutil</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;E:\Vendor\tibco\Rendezvous\Rv5_0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;E:\Vendor\tibco\Rendezvous\Rv5_0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\rvutil\source\adsub.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\adsubli.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cdbasic.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cdrv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cdrvadv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cdrvcm.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cdrvevm.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cdrvft.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cdrvmsg.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\ckelem.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\ckenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\ckftenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cksig.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cksname.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\clenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\clftenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\clsub.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\cmsubnam.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\crack.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\crenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\crftenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\defsig.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\enenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\enftenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\evmevent.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\evmiotyp.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fdsublid.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fdsubnam.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fmrv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fmrvadv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fmrvcm.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fmrvevm.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fmrvft.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fmrvmsg.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fnrv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fnrvevm.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fnrvft.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\fnrvmsg.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\frenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\frftenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\frsub.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\ftaction.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\inenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\inftenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\insub.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\jgftenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\lienv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\liftenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\lisub.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\makepat.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\matchpat.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\msgtype.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\paramstr.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\rmsub.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\sigactnm.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\sndtostr.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\ssenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\ssftenv.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\tstdebug.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\version.c" />
+    <ClCompile Include="..\..\..\..\rvutil\source\wrktoflt.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\rvutil\source\rvutilcd.h" />
+    <ClInclude Include="..\..\..\..\rvutil\source\rvutili.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{29E62328-7053-4839-BA76-EF38F80B6F63}</ProjectGuid>
+    <RootNamespace>genfuncs</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\genfuncs\source\align.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\alignbas.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\allocmsg.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\argbasic.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\argparse.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\cmptimes.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\cmptimev.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\currdir.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\emgalign.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\emitbuff.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\expandir.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\expfpath.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\exphostl.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\exphosts.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\fmtgroce.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\fmtitime.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\fmttime.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\generror.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\getmac.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\getparam.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\getpid.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\getpmap.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\gettid.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\gettime.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\hostname.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\membr.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\membrdmp.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\pagesize.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\readexlk.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\rlimit.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\rusage.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\sighandl.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\sigtext.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\textread.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\timespec.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\timeval.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\tostring.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\touchmem.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\tvalstat.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\usage.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\usebasic.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\usleep.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\validptr.c" />
+    <ClCompile Include="..\..\..\..\genfuncs\source\version.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\genfuncs\source\genfunci.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\sdtif\sdtif.vcxproj">
+      <Project>{82451017-4fcb-4e70-aafd-d90636132c85}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

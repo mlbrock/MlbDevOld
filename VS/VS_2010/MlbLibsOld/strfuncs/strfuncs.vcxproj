@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E2B82DB8-638C-4C5E-8BD8-7C807B38599C}</ProjectGuid>
+    <RootNamespace>strfuncs</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\strfuncs\source\allocmsg.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\asctobcd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\asctorad.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\bcdtoasc.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\cardinal.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ccmntend.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\center.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\centerit.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\charcnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\charicnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\charspan.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\checkrad.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\chrcat.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\chrcnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\chrcpy.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\chricnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\chriindx.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\chrindx.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\chrinstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\chrncnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\chrnicnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\cknumber.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\cnormal.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\cstr2mem.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\cstring.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ctltospc.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\doubltxt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ebcdic.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\emchr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\emdefs.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\emstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\getfname.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\getnstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\groupk.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxchr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxichr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxistr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxistrn.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxnchr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxnichr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxnistr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxnstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxnstrn.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxrchr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxrichr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxristr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxrnchr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxrnstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxrstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxrstrn.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\idxstrn.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\initcaps.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\initrad.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\isnumber.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ljust.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\lower.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ltrim.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ltrimx.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\lttrim.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\mem2cstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\mema2l.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memaadd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memaapp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memacmls.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memacopy.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memad.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memadlt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memaid.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memains.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memaisd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memarem.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memasd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memasdlt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\membms.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memcnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memdup.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memibms.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memicmp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memicnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memimem.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\meml2a.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memladd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlallc.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlapp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlcm.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlcmls.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlcopy.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memld.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memldlt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlicm.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlid.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlins.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlisd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlrem.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlrv.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlsd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlsdlt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memlvap.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memmem.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memmvdel.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memmvins.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memrimem.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\memrmem.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\noblank.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\nocontrl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\nospace.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\nstrcat.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\nstrcpy.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\nstrset.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\oneblank.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ordfull.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ordinal.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\paramstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\qstrend.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\radtoasc.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\rjust.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\rtrim.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\rtrimx.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\rttrim.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\sepwordc.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\sepwordl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\sepwords.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\sepwordx.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\spctotab.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stalnum.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stalpha.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stascii.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stbdigit.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stcntrl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stcsym.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stcsymf.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stdigit.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stgraph.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stlower.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stodigit.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stprint.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stpunct.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strabser.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stradele.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strafind.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strarev.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strasear.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strasort.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strauniq.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strchr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strcnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strdele.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strdup.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strescap.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strichr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stricmp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stricnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\striindx.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strindx.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strins.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strinst.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stristr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stristrn.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strjoin.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strladd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlapp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlbser.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlcm.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlcmls.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlcopy.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strld.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strldele.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strldl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlfd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlfind.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlicm.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlid.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlidl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlifd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlins.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlisd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlise.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlist.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strliun.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlmax.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlmin.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnadd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnapp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlncm.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlndl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnfd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnicm.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnid.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnidl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnifd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnins.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnisd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnise.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnist.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlniun.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnsd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnse.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnst.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnun.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlnvap.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlrem.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlrev.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlrv.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlsd.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlse.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlsear.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlsort.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlst.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlun.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strluniq.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlvap.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strlwrap.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strmask.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnchr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strncnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strndup.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnichr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnicmp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnicnt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strniidx.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strninst.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnistr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnrepl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnset.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnstrn.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnvacp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnvact.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnvcp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strnvct.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strpadl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strpadr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strrchr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strrepl.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strrev.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strrichr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strristr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strrnchr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strrnstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strrstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strrstrn.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strset.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strstr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strstrn.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strvacp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strvact.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strvcp.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strvct.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\strwrap.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stspace.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stupper.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\stxdigit.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\tabtospc.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\trim.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\trimx.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\tstdebug.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ttrim.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\ulongtxt.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\upper.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\val2str.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\version.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\vertostr.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\wordwrap.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\xprintf.c" />
+    <ClCompile Include="..\..\..\..\strfuncs\source\zerotrim.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\strfuncs\source\strfunci.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8331BEC1-9131-4008-91F1-1FAC92D02521}</ProjectGuid>
+    <RootNamespace>adf</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\_lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Wall /wd4668 /wd4711 /wd4996 /wd4255 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\CppSupp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <ProgramDataBaseFileName>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)..\_lib\$(Configuration)\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\adf\source\adfcntrl.c" />
+    <ClCompile Include="..\..\..\..\adf\source\adfentry.c" />
+    <ClCompile Include="..\..\..\..\adf\source\adferror.c" />
+    <ClCompile Include="..\..\..\..\adf\source\adffile.c" />
+    <ClCompile Include="..\..\..\..\adf\source\adfrun.c" />
+    <ClCompile Include="..\..\..\..\adf\source\areaname.c" />
+    <ClCompile Include="..\..\..\..\adf\source\argbasic.c" />
+    <ClCompile Include="..\..\..\..\adf\source\argframe.c" />
+    <ClCompile Include="..\..\..\..\adf\source\arghtml.c" />
+    <ClCompile Include="..\..\..\..\adf\source\argman.c" />
+    <ClCompile Include="..\..\..\..\adf\source\argout.c" />
+    <ClCompile Include="..\..\..\..\adf\source\argprep.c" />
+    <ClCompile Include="..\..\..\..\adf\source\cmentryd.c" />
+    <ClCompile Include="..\..\..\..\adf\source\cpdomain.c" />
+    <ClCompile Include="..\..\..\..\adf\source\cpentryd.c" />
+    <ClCompile Include="..\..\..\..\adf\source\cpparad.c" />
+    <ClCompile Include="..\..\..\..\adf\source\cppat.c" />
+    <ClCompile Include="..\..\..\..\adf\source\cpsec.c" />
+    <ClCompile Include="..\..\..\..\adf\source\datframe.c" />
+    <ClCompile Include="..\..\..\..\adf\source\dathtml.c" />
+    <ClCompile Include="..\..\..\..\adf\source\datman.c" />
+    <ClCompile Include="..\..\..\..\adf\source\defspec.c" />
+    <ClCompile Include="..\..\..\..\adf\source\delentry.c" />
+    <ClCompile Include="..\..\..\..\adf\source\docludes.c" />
+    <ClCompile Include="..\..\..\..\adf\source\doindex.c" />
+    <ClCompile Include="..\..\..\..\adf\source\dosrc.c" />
+    <ClCompile Include="..\..\..\..\adf\source\emdef.c" />
+    <ClCompile Include="..\..\..\..\adf\source\emdefc.c" />
+    <ClCompile Include="..\..\..\..\adf\source\emdomain.c" />
+    <ClCompile Include="..\..\..\..\adf\source\empat.c" />
+    <ClCompile Include="..\..\..\..\adf\source\emsec.c" />
+    <ClCompile Include="..\..\..\..\adf\source\entrydat.c" />
+    <ClCompile Include="..\..\..\..\adf\source\fdarea.c" />
+    <ClCompile Include="..\..\..\..\adf\source\fddomain.c" />
+    <ClCompile Include="..\..\..\..\adf\source\fixpara.c" />
+    <ClCompile Include="..\..\..\..\adf\source\fptrsout.c" />
+    <ClCompile Include="..\..\..\..\adf\source\frdomain.c" />
+    <ClCompile Include="..\..\..\..\adf\source\frentryd.c" />
+    <ClCompile Include="..\..\..\..\adf\source\frparad.c" />
+    <ClCompile Include="..\..\..\..\adf\source\frpat.c" />
+    <ClCompile Include="..\..\..\..\adf\source\frsec.c" />
+    <ClCompile Include="..\..\..\..\adf\source\getentry.c" />
+    <ClCompile Include="..\..\..\..\adf\source\getotype.c" />
+    <ClCompile Include="..\..\..\..\adf\source\getparam.c" />
+    <ClCompile Include="..\..\..\..\adf\source\indomain.c" />
+    <ClCompile Include="..\..\..\..\adf\source\inentryd.c" />
+    <ClCompile Include="..\..\..\..\adf\source\infile.c" />
+    <ClCompile Include="..\..\..\..\adf\source\inparad.c" />
+    <ClCompile Include="..\..\..\..\adf\source\inpat.c" />
+    <ClCompile Include="..\..\..\..\adf\source\insec.c" />
+    <ClCompile Include="..\..\..\..\adf\source\logmessg.c" />
+    <ClCompile Include="..\..\..\..\adf\source\matchlst.c" />
+    <ClCompile Include="..\..\..\..\adf\source\matchpat.c" />
+    <ClCompile Include="..\..\..\..\adf\source\optpat.c" />
+    <ClCompile Include="..\..\..\..\adf\source\outascii.c" />
+    <ClCompile Include="..\..\..\..\adf\source\outframe.c" />
+    <ClCompile Include="..\..\..\..\adf\source\outhtml.c" />
+    <ClCompile Include="..\..\..\..\adf\source\outman.c" />
+    <ClCompile Include="..\..\..\..\adf\source\outps.c" />
+    <ClCompile Include="..\..\..\..\adf\source\outrtf.c" />
+    <ClCompile Include="..\..\..\..\adf\source\paany.c" />
+    <ClCompile Include="..\..\..\..\adf\source\paarea.c" />
+    <ClCompile Include="..\..\..\..\adf\source\padomain.c" />
+    <ClCompile Include="..\..\..\..\adf\source\pamain.c" />
+    <ClCompile Include="..\..\..\..\adf\source\papat.c" />
+    <ClCompile Include="..\..\..\..\adf\source\paraform.c" />
+    <ClCompile Include="..\..\..\..\adf\source\pasec.c" />
+    <ClCompile Include="..\..\..\..\adf\source\prepfile.c" />
+    <ClCompile Include="..\..\..\..\adf\source\readdef.c" />
+    <ClCompile Include="..\..\..\..\adf\source\readfile.c" />
+    <ClCompile Include="..\..\..\..\adf\source\readsrc.c" />
+    <ClCompile Include="..\..\..\..\adf\source\strpair.c" />
+    <ClCompile Include="..\..\..\..\adf\source\suppout.c" />
+    <ClCompile Include="..\..\..\..\adf\source\usage.c" />
+    <ClCompile Include="..\..\..\..\adf\source\usebasic.c" />
+    <ClCompile Include="..\..\..\..\adf\source\useframe.c" />
+    <ClCompile Include="..\..\..\..\adf\source\usehtml.c" />
+    <ClCompile Include="..\..\..\..\adf\source\useman.c" />
+    <ClCompile Include="..\..\..\..\adf\source\useout.c" />
+    <ClCompile Include="..\..\..\..\adf\source\useprep.c" />
+    <ClCompile Include="..\..\..\..\adf\source\valmanpg.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\adf\source\adf.h" />
+    <ClInclude Include="..\..\..\..\adf\source\adfrun.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
