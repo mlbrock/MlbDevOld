@@ -23,9 +23,17 @@
 #
 # #############################################################################
 
+# #############################################################################
+
 TMP_FILE_NAME	:=	${lastword ${MAKEFILE_LIST}}
-TMP_DIR_NAME_1	:=	${shell /bin/dirname ${TMP_FILE_NAME}}
-TMP_DIR_NAME_2	:=	${shell /bin/dirname ${TMP_DIR_NAME_1}}
+TMP_DIR_NAME_1	:=	${shell dirname ${TMP_FILE_NAME}}
+TMP_DIR_NAME_2	:=	${shell dirname ${TMP_DIR_NAME_1}}
+
+LINK_STATIC_CPP	:=	-static-libstdc++
+LINK_STATIC_GCC	:=	-static-libgcc
+LINK_STATIC_STD	:=	${LINK_STATIC_CPP} ${LINK_STATIC_GCC}
+LINK_STATIC_BIN	:=	-static ${LINK_STATIC_STD}
+LINK_STATIC	 =
 
 CPP_BUILD_TYPE	=
 
@@ -35,25 +43,27 @@ VER_BOOST	=	boost_1_54_0
 VER_BOOST_FS	=	3
 VER_TIBRV	=	8.1
 #VER_XERCES	=	xercesc-3.0.1
-VER_XERCES	=	xercesc-c
-VER_PCAP	=	/opt/SomeLocationTBD/LibPCap/1.2.0
+VER_XERCES	=	xercesc
+VER_PCAP	=	pcap
 
+INC_BASIC_DIR	=	./
 INC_OTHER_DIR	=	/usr/include
 #INC_BOOST_DIR	=       /usr/include/boost/${VER_BOOST}/include
 INC_BOOST_DIR	=       /usr/include
 INC_TIBRV_DIR	=	/opt/tibco/tibrv/${VER_TIBRV}/include
 INC_LBM_DIR	=	/home/brockm/Downloads/29West/UMS_5.0/Linux-glibc-2.5-x86_64/include
-#INC_XERCES_DIR	=	/usr/include/${VER_XERCES}/include
 INC_CELOX_DIR	=	${VER_CELOX}/share/celoxica/include
-INC_PCAP_DIR	=	${VER_PCAP}/include
+INC_XERCES_DIR	=	/usr/include
+INC_PCAP_DIR	=	/usr/include/${VER_PCAP}
 
+LIB_BASIC_DIR	=	./
 LIB_OTHER_DIR	=	/usr/lib64
 #LIB_BOOST_DIR	=	${LIB_BASE}/${VER_BOOST}
 LIB_BOOST_DIR	=	${LIB_OTHER_DIR}
 LIB_TIBRV_DIR	=	/opt/tibco/tibrv/${VER_TIBRV}/lib
 LIB_LBM_DIR	=	/home/brockm/Downloads/29West/UMS_5.0/Linux-glibc-2.5-x86_64/lib
-LIB_XERCES_DIR	=	${LIB_BASE}/${VER_XERCES}/lib
-LIB_PCAP_DIR	=	${VER_PCAP}/lib64
+LIB_XERCES_DIR	=	${LIB_BASE}
+LIB_PCAP_DIR	=	${LIB_BASE}
 
 # Not supported in g++ 4.1.
 #			-Woverlength-strings \
@@ -61,10 +71,12 @@ LIB_PCAP_DIR	=	${VER_PCAP}/lib64
 #			-DBOOST_FILESYSTEM_VERSION=${VER_BOOST_FS} \
 
 CPPFLAGS	+=	\
+			-rdynamic \
 			-D__STDC_FORMAT_MACROS \
 			${DEF_CELOX_CPP} \
 			${CPP_BUILD_TYPE} \
 			-I ./ \
+			-I ${INC_BASIC_DIR} \
 			-I ../include \
 			${CPPFLAGS_ADDED} \
 			-I ${INC_OTHER_DIR} \
@@ -73,6 +85,7 @@ CPPFLAGS	+=	\
 			-I ${INC_BOOST_DIR} \
 			-I ${INC_CELOX_DIR} \
 			-I ${INC_PCAP_DIR} \
+			-I ${INC_XERCES_DIR} \
 			-D_POSIX_PTHREAD_SEMANTICS \
 			-Wall \
 			-W \
@@ -112,8 +125,8 @@ LBM_LIBS	=	\
 MLB_LIB_NAMES	=	\
 			Utility
 
-MLB_LIB_FULL	:=	\
-			${addsuffix .a,${addprefix ${MASCaPS_TARGET_LIB},${MLB_LIB_NAMES}}}
+MLB_LIB_FULL	=	\
+			${addsuffix .a,${addprefix ${MASCaPS_TARGET_LIB}/lib,${MLB_LIB_NAMES}}}
 
 LDLIBS		=	\
 			-Bstatic	\
@@ -125,10 +138,10 @@ LDLIBS		=	\
 			-lm		\
 			-lrt		\
 			$(OTHER_LIBS)	\
-			-lxerces-c	\
 			${BOOST_LIBS}
 	
 LDFLAGS		+=	\
+			${LINK_STATIC}		\
 			-ldl			\
 			-lpthread		\
 			-lm			\
@@ -142,4 +155,6 @@ LDFLAGS		+=	\
 TARGET_LIBS	=
 
 TARGET_BINS	=
+
+# #############################################################################
 
