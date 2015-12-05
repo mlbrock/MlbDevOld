@@ -106,21 +106,16 @@ const char *trim_string;
 	char *tmp_ptr_1 = in_text;
 	char *tmp_ptr_2 = in_text;
 
-	if (trim_string && *trim_string) {
-		while (*tmp_ptr_1) {
-			if (!strchr(trim_string, *tmp_ptr_1)) {
-				if (tmp_ptr_1 != tmp_ptr_2) {
-					while (*tmp_ptr_1)
-						*in_text++ = *tmp_ptr_1++;
-					*in_text = '\0';
-				}
-				return(tmp_ptr_2);
-			}
-			tmp_ptr_1++;
-		}
+	if (in_text && *in_text && trim_string && *trim_string &&
+		strchr(trim_string, *tmp_ptr_1++)) {
+		while (*tmp_ptr_1 && strchr(trim_string, *tmp_ptr_1))
+			++tmp_ptr_1;
+		do {
+			*tmp_ptr_2++ = *tmp_ptr_1;
+		} while (*tmp_ptr_1++);
 	}
 
-	return(tmp_ptr_2);
+	return(in_text);
 }
 /* *********************************************************************** */
 
@@ -335,6 +330,12 @@ typedef struct {
 
 static const TEST_DATA TestList[] = {
 	{	" \t\n",
+		"      ",
+		""		},
+	{	" \t\n",
+		" \t\n\n\t ",
+		""		},
+	{	" \t\n",
 		"1234567890",
 		"1234567890"		},
 	{	" \t\n",
@@ -376,7 +377,6 @@ int main()
 		fprintf(stderr, "\n\nALL REGRESSION TESTS PASSED.\n\n");
 	else
 		fprintf(stderr, "\n\nONE OR MORE REGRESSION TESTS FAILED.\n\n");
-
 
 	return(return_code);
 }

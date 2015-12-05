@@ -101,17 +101,15 @@ char *in_text;
 	char *temp_ptr_1 = in_text;
 	char *temp_ptr_2 = in_text;
 
-	while (*temp_ptr_1) {
-		if (!isspace(*((unsigned char *) temp_ptr_1))) {
-			while (*temp_ptr_1)
-				*in_text++ = *temp_ptr_1++;
-			*in_text = '\0';
-			return(temp_ptr_2);
-		}
-		temp_ptr_1++;
+	if (isspace(*((unsigned char *) temp_ptr_1++))) {
+		while (isspace(*((unsigned char *) temp_ptr_1)))
+			++temp_ptr_1;
+		do {
+			*temp_ptr_2++ = *temp_ptr_1;
+		} while (*temp_ptr_1++);
 	}
 
-	return(temp_ptr_2);
+	return(in_text);
 }
 /* *********************************************************************** */
 
@@ -303,6 +301,10 @@ typedef struct {
 } TEST_DATA;
 
 static const TEST_DATA TestList[] = {
+	{  "      ",
+		""		},
+	{  " \t\n\f\v\r ",
+		""		},
 	{	"1234567890",
 		"1234567890"	},
 	{	" \t\n1234567890",
@@ -333,6 +335,12 @@ int main()
 		if (TEST_DoIt(TestList + count_1) != STRFUNCS_SUCCESS)
 			return_code = STRFUNCS_FAILURE;
 	}
+
+
+	if (return_code != STRFUNCS_FAILURE)
+		fprintf(stderr, "\n\nALL REGRESSION TESTS PASSED.\n\n");
+	else
+		fprintf(stderr, "\n\nONE OR MORE REGRESSION TESTS FAILED.\n\n");
 
 	return(return_code);
 }

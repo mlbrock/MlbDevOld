@@ -95,17 +95,16 @@ char *text;
 	char *temp_ptr_1 = text;
 	char *temp_ptr_2 = text;
 
-	while (*temp_ptr_1) {
-		if ((*temp_ptr_1 != ' ') && (*temp_ptr_1 != '\t')) {
-			while (*temp_ptr_1)
-				*text++ = *temp_ptr_1++;
-			*text = '\0';
-			return(temp_ptr_2);
-		}
-		temp_ptr_1++;
+	if ((*temp_ptr_1 == ' ') || (*temp_ptr_1 == '\t')) {
+		++temp_ptr_1;
+		while ((*temp_ptr_1 == ' ') || (*temp_ptr_1 == '\t'))
+			++temp_ptr_1;
+		do {
+			*temp_ptr_2++ = *temp_ptr_1;
+		} while (*temp_ptr_1++);
 	}
 
-	return(temp_ptr_2);
+	return(text);
 }
 /* *********************************************************************** */
 
