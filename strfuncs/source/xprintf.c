@@ -52,7 +52,7 @@ COMPAT_FN_DECL(unsigned int STR_XPrintf_GetLengthAlloc,
 		__attribute__ ((format (printf, 1, 2))));
 COMPAT_FN_DECL(unsigned int STR_XPrintf_GetLengthBasic,
 	(unsigned int *extra_length, const char *in_format, ...)
-		__attribute__ ((format (printf, 1, 2))));
+		__attribute__ ((format (printf, 2, 3))));
 COMPAT_FN_DECL(int          STR_XPrintf_Alloc,
 	(char **buffer_ptr, const char *in_format, ...)
 		__attribute__ ((format (printf, 2, 3))));
