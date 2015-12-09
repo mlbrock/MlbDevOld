@@ -421,17 +421,17 @@ static const char         *TEST_List[][3] = {
 	{
 		"End-[",
 		"End-[",
-		"End-??("
+		"End-?\?("
 	},
 	{
 		"[-Begin",
 		"[-Begin",
-		"??(-Begin"
+		"?\?(-Begin"
 	},
 	{
 		"Mid-[-Mid",
 		"Mid-[-Mid",
-		"Mid-??(-Mid"
+		"Mid-?\?(-Mid"
 	},
 	{
 		"Ends in a back-slash \\",
@@ -446,17 +446,17 @@ static const char         *TEST_List[][3] = {
 	{
 		":\"\\\\",
 		":\\\"\\\\",
-		":\\\"\??/\??/"
+		":\\\"\?\?/"
 	},
 	{
 		":\"\\\\\a\b\f\n\r\t\v",
 		":\\\"\\\\\\a\\b\\f\\n\\r\\t\\v",
-		":\\\"??/\\a\\b\\f\\n\\r\\t\\v"
+		":\\\"?\?/\\a\\b\\f\\n\\r\\t\\v"
 	},
 	{
 		":\"\\\\\a\b\f\n\r\t\v\?",
 		":\\\"\\\\\\a\\b\\f\\n\\r\\t\\v?",
-		":\\\"??/\\a\\b\\f\\n\\r\\t\\v\\?"
+		":\\\"?\?/\\a\\b\\f\\n\\r\\t\\v\\?"
 	},
 	{
 /*		 01  2345678  9 */
@@ -516,9 +516,9 @@ static const char         *TEST_List[][3] = {
 	},
 	{
 /*		 01234567890123456789012345678  9012345  67 */
-		"This has trigraph sequences: ??( ---> ??)",
-		"This has trigraph sequences: ??( ---> ??)",
-		"This has trigraph sequences: ??( ---> ??)"
+		"This has trigraph sequences: ?\?( ---> ?\?)",
+		"This has trigraph sequences: ?\?( ---> ?\?)",
+		"This has trigraph sequences: ?\?( ---> ?\?)"
 	}
 };
 
@@ -563,7 +563,7 @@ int main()
 					result_length_1);
 				printf("           :Compare String :[%s] = %u\n",
 					TEST_List[count_1][count_2 + 1],
-					strlen(TEST_List[count_1][count_2 + 1]));
+					((unsigned int) strlen(TEST_List[count_1][count_2 + 1])));
 				printf("           :Changed String :[%s] = %u\n",
 					buffer_2, result_length_3);
 				return_code = -1;
@@ -579,7 +579,7 @@ int main()
 					result_length_1);
 				printf("           :Compare String :[%s] = %u\n",
 					TEST_List[count_1][count_2 + 1],
-					strlen(TEST_List[count_1][count_2 + 1]));
+					((unsigned int) strlen(TEST_List[count_1][count_2 + 1])));
 				printf("           :Changed String :[%s] = %u\n",
 					buffer_2, result_length_3);
 				return_code = -1;
