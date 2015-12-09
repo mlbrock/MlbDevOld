@@ -305,8 +305,8 @@ char **argv;
 	fprintf(stderr, "---- ------- --- -------- -----------------\n\n");
 
 	for (count_1 = 1; count_1 < ((unsigned int) argc); count_1++) {
-		if ((!stricmp(argv[count_1], "-h")) ||
-			(!stricmp(argv[count_1], "-help"))) {
+		if ((!STRFUNCS_stricmp(argv[count_1], "-h")) ||
+			(!STRFUNCS_stricmp(argv[count_1], "-help"))) {
 			fprintf(stderr, "USAGE: cat <test-file> | %s\n\n", argv[0]);
 			goto EXIT_FUNCTION;
 		}
@@ -318,7 +318,8 @@ char **argv;
 		while (*buffer_1 && ((buffer_1[strlen(buffer_1) - 1] == '\r') ||
 			(buffer_1[strlen(buffer_1) - 1] == '\n')))
 			buffer_1[strlen(buffer_1) - 1] = '\0';
-		if ((!stricmp(buffer_1, "QUIT")) || (!stricmp(buffer_1, "EXIT")))
+		if ((!STRFUNCS_stricmp(buffer_1, "QUIT")) ||
+			 (!STRFUNCS_stricmp(buffer_1, "EXIT")))
 			break;
 		printf("-----------------------------------------------------------\n");
 		printf("OLD LENGTH: %u\n", strlen(buffer_1));

@@ -271,8 +271,8 @@ char **argv;
 
 	if (argc > 1) {
 		for (count_1 = 1; count_1 < ((unsigned int) argc); count_1++) {
-			if ((!stricmp(argv[count_1], "-H")) ||
-				(!stricmp(argv[count_1], "-HELP"))) {
+			if ((!STRFUNCS_stricmp(argv[count_1], "-H")) ||
+				(!STRFUNCS_stricmp(argv[count_1], "-HELP"))) {
 				fprintf(stderr, "USAGE:\n%s\n%s\n",
 					"   A command line argument of -h or -help gets this help",
 					"   Any other command line argument lets you enter test data");
@@ -287,7 +287,7 @@ char **argv;
 				while (strlen(buffer) && (buffer[strlen(buffer) - 1] == '\n'))
 					buffer[strlen(buffer) - 1] = '\0';
 			}
-			if ((!fgets_return) || (!strnicmp(buffer, "END", 3))) {
+			if ((!fgets_return) || (!STRFUNCS_strnicmp(buffer, "END", 3))) {
 				fprintf(stderr, "ENDING PROCESS: %s\n", (!fgets_return) ?
 					"END-FILE-ENCOUNTERED" : "END IN INPUT ENCOUNTERED");
 				break;

@@ -798,8 +798,8 @@ char **argv;
 	fprintf(stderr, "---- ------- --- -------- -------------------\n\n");
 
 	for (count_1 = 1; count_1 < ((unsigned int) argc); count_1++) {
-		if ((!stricmp(argv[count_1], "-h")) ||
-			(!stricmp(argv[count_1], "-help"))) {
+		if ((!STRFUNCS_stricmp(argv[count_1], "-h")) ||
+			(!STRFUNCS_stricmp(argv[count_1], "-help"))) {
 			fprintf(stderr, "USAGE: cat <test-file> | %s\n\n", argv[0]);
 			goto EXIT_FUNCTION;
 		}
@@ -812,7 +812,8 @@ char **argv;
 		while (*buffer && ((buffer[strlen(buffer) - 1] == '\r') ||
 			(buffer[strlen(buffer) - 1] == '\n')))
 			buffer[strlen(buffer) - 1] = '\0';
-		if ((!stricmp(buffer, "QUIT")) || (!stricmp(buffer, "EXIT")))
+		if ((!STRFUNCS_stricmp(buffer, "QUIT")) ||
+			 (!STRFUNCS_stricmp(buffer, "EXIT")))
 			break;
 		ascii_to_ebcdic(buffer, strlen(buffer), ebcdic_buffer, "?");
 		printf("ASCII RESULT: [%s]\n",

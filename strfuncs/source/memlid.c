@@ -267,8 +267,8 @@ char **argv;
 	fprintf(stderr, "---- -- -------- ---------------\n\n");
 
 	for (count_1 = 1; count_1 < ((unsigned int) argc); count_1++) {
-		if ((!stricmp("-HELP", argv[count_1])) ||
-			(!stricmp("-H", argv[count_1])))
+		if ((!STRFUNCS_stricmp("-HELP", argv[count_1])) ||
+			(!STRFUNCS_stricmp("-H", argv[count_1])))
 			DoUsage(argv[0], "Help request noted.", 0);
 	}
 

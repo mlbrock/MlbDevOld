@@ -118,14 +118,15 @@ int main()
 			while (strlen(buffer) && (buffer[strlen(buffer) - 1] == '\n'))
 				buffer[strlen(buffer) - 1] = '\0';
 		}
-		if (!stricmp(buffer, "LIST")) {
+		if (!STRFUNCS_stricmp(buffer, "LIST")) {
 			fprintf(stderr, "[HEAD] ---> [%08p]\n", test_list);
 			for (count_1 = 0; count_1 < test_count; count_1++)
 				fprintf(stderr, "[%05u][%08p] ---> [%s]\n", count_1,
 					test_list[count_1], test_list[count_1]);
 		}
-		else if ((!stricmp(buffer, "END")) || (!stricmp(buffer, "QUIT")) ||
-			(!stricmp(buffer, "EXIT")))
+		else if ((!STRFUNCS_stricmp(buffer, "END")) ||
+			(!STRFUNCS_stricmp(buffer, "QUIT")) ||
+			(!STRFUNCS_stricmp(buffer, "EXIT")))
 			break;
 		else if ((return_code = memlapp(&test_count, ((void ***) &test_list),
 			buffer, sizeof(buffer))) == STRFUNCS_FAILURE) {

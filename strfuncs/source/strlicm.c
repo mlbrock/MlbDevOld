@@ -130,7 +130,7 @@ const char *string_ptr_2;
 size_t      string_length;
 #endif /* #ifndef NARGS */
 {
-	return(stricmp(string_ptr_1, string_ptr_2));
+	return(STRFUNCS_stricmp(string_ptr_1, string_ptr_2));
 }
 /* *********************************************************************** */
 #ifdef _MSC_VER

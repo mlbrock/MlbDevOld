@@ -21,6 +21,10 @@
 
 #include "strfunci.h"
 
+#ifdef _MSC_VER
+# include <memory.h>
+#endif /* #ifdef _MSC_VER */
+
 /* *********************************************************************** */
 
 /* *********************************************************************** */
@@ -35,6 +39,9 @@ const void *area_2;
 size_t      count;
 #endif /* #ifndef NARGS */
 {
+#ifdef _MSC_VER
+	return(_memicmp(area_1, area_2, count));
+#else
 	size_t count_1;
 	int    cmp_value = 0;
 
@@ -45,6 +52,7 @@ size_t      count;
 	}
 
 	return(cmp_value);
+#endif /* #ifdef _MSC_VER */
 }
 /* *********************************************************************** */
 

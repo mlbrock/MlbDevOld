@@ -328,8 +328,8 @@ char **argv;
 	fprintf(stderr, "---- ------- --- -------- ---------------\n\n");
 
 	for (count_1 = 0; count_1 < ((unsigned int) argc); count_1++) {
-		if ((!stricmp(argv[count_1], "-H")) ||
-			(!stricmp(argv[count_1], "-HELP"))) {
+		if ((!STRFUNCS_stricmp(argv[count_1], "-H")) ||
+			(!STRFUNCS_stricmp(argv[count_1], "-HELP"))) {
 			fprintf(stderr, "USAGE:\n   %s %s\n\n",
 				argv[0],
 				"[ -h | -help ] | [ <element-count> [ <iteration-count> ] ]");

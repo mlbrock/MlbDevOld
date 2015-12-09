@@ -47,7 +47,8 @@ int         count;
 		while (search_text_length >= target_text_length) {
 			if (strfmacs_toupper(*search_text) ==
 				strfmacs_toupper(*target_text)) {
-				if (!strnicmp(search_text, target_text, ((unsigned int) count))) {
+				if (!STRFUNCS_strnicmp(search_text, target_text,
+					((unsigned int) count))) {
 					text_index = ((int) (search_text - temp_ptr));
 					break;
 				}

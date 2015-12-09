@@ -219,8 +219,8 @@ char **argv;
 	fprintf(stderr, "---- ------- --- -------- ------------\n\n");
 
 	for (count_1 = 1; count_1 < ((unsigned int) argc); count_1++) {
-		if ((!stricmp(argv[count_1], "-HELP")) ||
-			(!stricmp(argv[count_1], "-H"))) {
+		if ((!STRFUNCS_stricmp(argv[count_1], "-HELP")) ||
+			(!STRFUNCS_stricmp(argv[count_1], "-H"))) {
 			fprintf(stderr, "\n\nUSAGE:\n   %s %s\n\n",
 				argv[0], TEST_UsageString);
 			goto EXIT_FUNCTION;

@@ -659,23 +659,23 @@ char **argv;
 	char                         buffer[1024];
 
 	for (count_1 = 1L; count_1 < ((unsigned long) argc); count_1++) {
-		if ((!stricmp(argv[((int) count_1)], "AMERICAN")) ||
-			(!stricmp(argv[((int) count_1)], "US"))) {
+		if ((!STRFUNCS_stricmp(argv[((int) count_1)], "AMERICAN")) ||
+			(!STRFUNCS_stricmp(argv[((int) count_1)], "US"))) {
 			double_name_count = STRFUNCS_D_NumberTextCount;
 			double_name_list  = STRFUNCS_D_NumberTextList;
 			ulong_name_count  = STRFUNCS_NumberTextCount;
 			ulong_name_list   = STRFUNCS_NumberTextList;
 			fprintf(stderr, "---> Switched to '%s'\n", argv[((int) count_1)]);
 		}
-		else if (!stricmp(argv[((int) count_1)], "METRIC")) {
+		else if (!STRFUNCS_stricmp(argv[((int) count_1)], "METRIC")) {
 			double_name_count = STRFUNCS_D_MetricNumberTextCount;
 			double_name_list  = STRFUNCS_D_MetricNumberTextList;
 			ulong_name_count  = STRFUNCS_MetricNumberTextCount;
 			ulong_name_list   = STRFUNCS_MetricNumberTextList;
 			fprintf(stderr, "---> Switched to '%s'\n", argv[((int) count_1)]);
 		}
-		else if ((!stricmp(argv[((int) count_1)], "BRITISH")) ||
-			(!stricmp(argv[((int) count_1)], "UK"))) {
+		else if ((!STRFUNCS_stricmp(argv[((int) count_1)], "BRITISH")) ||
+			(!STRFUNCS_stricmp(argv[((int) count_1)], "UK"))) {
 			double_name_count = STRFUNCS_D_BritishNumberTextCount;
 			double_name_list  = STRFUNCS_D_BritishNumberTextList;
 			ulong_name_count  = STRFUNCS_BritishNumberTextCount;

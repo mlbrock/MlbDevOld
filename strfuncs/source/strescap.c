@@ -171,7 +171,8 @@ char **argv;
 		while (*buffer && ((buffer[strlen(buffer) - 1] == '\r') ||
 			(buffer[strlen(buffer) - 1] == '\n')))
 			buffer[strlen(buffer) - 1] = '\0';
-		if ((!stricmp(buffer, "QUIT")) || (!stricmp(buffer, "EXIT")))
+		if ((!STRFUNCS_stricmp(buffer, "QUIT")) ||
+			 (!STRFUNCS_stricmp(buffer, "EXIT")))
 			break;
 		printf("RESULT: [%s]\n", strescap(buffer, "'\"\\", escape_string));
 	}

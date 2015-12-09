@@ -710,8 +710,8 @@ char **argv;
 		"---- ------- --- -------- --------------------------------\n\n");
 
 	for (count_1 = 1; count_1 < ((unsigned int) argc); count_1++) {
-		if ((!stricmp(argv[count_1], "-H")) ||
-			(!stricmp(argv[count_1], "-HELP"))) {
+		if ((!STRFUNCS_stricmp(argv[count_1], "-H")) ||
+			(!STRFUNCS_stricmp(argv[count_1], "-HELP"))) {
 			fprintf(stderr, "USAGE:\n   %s %s %s\n", argv[0],
 				"<target-string>", "<input-file> [<input-file> . . .]");
 			goto EXIT_FUNCTION;

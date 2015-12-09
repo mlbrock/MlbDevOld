@@ -443,7 +443,8 @@ char **argv;
 			(buffer[strlen(buffer) - 1] == '\n')))
 			buffer[strlen(buffer) - 1] = '\0';
 		trim(buffer);
-		if ((!stricmp(buffer, "QUIT")) || (!stricmp(buffer, "EXIT")))
+		if ((!STRFUNCS_stricmp(buffer, "QUIT")) ||
+			 (!STRFUNCS_stricmp(buffer, "EXIT")))
 			break;
 		if (!(*buffer))
 			continue;

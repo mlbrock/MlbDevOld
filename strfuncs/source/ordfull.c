@@ -245,7 +245,7 @@ char *ordinal_string;
 		ordinal_string;
 
 	for (count_1 = 0; count_1 < STRFUNCS_FullOrdinalCount; count_1++) {
-		if (!stricmp(STRFUNCS_FullOrdinalList[count_1][0], tmp_ptr)) {
+		if (!STRFUNCS_stricmp(STRFUNCS_FullOrdinalList[count_1][0], tmp_ptr)) {
 			strcpy(tmp_ptr, STRFUNCS_FullOrdinalList[count_1][1]);
 			tmp_ptr = NULL;
 			break;

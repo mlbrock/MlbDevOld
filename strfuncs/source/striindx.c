@@ -47,7 +47,7 @@ const char *search_string;
 			((search_length + count_1) >= look_for_length); count_1++) {
 			if ((strfmacs_toupper(*look_for_string) ==
 				strfmacs_toupper(*(search_string + count_1))) &&
-				(!strnicmp(look_for_string, search_string, look_for_length)))
+				(!STRFUNCS_strnicmp(look_for_string, search_string, look_for_length)))
 				return(((int) count_1));
 		}
 	}

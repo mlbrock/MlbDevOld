@@ -140,7 +140,7 @@ const char *string_ptr_2;
 size_t      string_length;
 #endif /* #ifndef NARGS */
 {
-	return(strnicmp(string_ptr_1, string_ptr_2, string_length));
+	return(STRFUNCS_strnicmp(string_ptr_1, string_ptr_2, string_length));
 }
 /* *********************************************************************** */
 #ifdef _MSC_VER

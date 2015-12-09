@@ -174,7 +174,7 @@ int main()
 		fgets_return = fgets(buffer, sizeof(buffer) - 1, stdin);
 		while (*buffer && (buffer[strlen(buffer) - 1] == '\n'))
 			buffer[strlen(buffer) - 1] = '\0';
-		if ((!fgets_return) || (!strnicmp(buffer, "END", 3))) {
+		if ((!fgets_return) || (!STRFUNCS_strnicmp(buffer, "END", 3))) {
 			fprintf(stderr, "ENDING PROCESS: %s\n", (!fgets_return) ?
 				"END-FILE-ENCOUNTERED" : "END IN INPUT ENCOUNTERED");
 			break;

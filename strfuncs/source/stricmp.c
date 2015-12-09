@@ -21,6 +21,10 @@
 
 #include "strfunci.h"
 
+#ifdef __GNUC__
+# include <strings.h>
+#endif /* #ifdef __GNUC__ */
+
 /* *********************************************************************** */
 
 /* *********************************************************************** */
@@ -34,6 +38,9 @@ const char *string_1;
 const char *string_2;
 #endif /* #ifndef NARGS */
 {
+#ifdef __GNUC__
+	return(strcasecmp(string_1, string_2));
+#else
 	register int cmp_value;
 
 	for (; (cmp_value = (strfmacs_toupper(*string_1) -
@@ -43,6 +50,7 @@ const char *string_2;
 	}
 
 	return(cmp_value);
+#endif /* #ifdef __GNUC__ */
 }
 /* *********************************************************************** */
 
@@ -55,20 +63,20 @@ COMPAT_FN_DECL(int main, (void));
 
 int main()
 {
-	printf("stricmp(\"This is a test\", \"This is a test\") = %d\n",
-		stricmp("This is a test", "This is a test"));
+	printf("STRFUNCS_stricmp(\"This is a test\", \"This is a test\") = %d\n",
+		STRFUNCS_stricmp("This is a test", "This is a test"));
 
-	printf("stricmp(\"This is a test\", \"This is not a test\") = %d\n",
-		stricmp("This is a test", "This is not a test"));
+	printf("STRFUNCS_stricmp(\"This is a test\", \"This is not a test\") = %d\n",
+		STRFUNCS_stricmp("This is a test", "This is not a test"));
 
-	printf("stricmp(\"This is a test\", \"This is a Test\") = %d\n",
-		stricmp("This is a test", "This is a Test"));
+	printf("STRFUNCS_stricmp(\"This is a test\", \"This is a Test\") = %d\n",
+		STRFUNCS_stricmp("This is a test", "This is a Test"));
 
-	printf("stricmp(\"This is a test*\", \"This is a test\") = %d\n",
-		stricmp("This is a test*", "This is a test"));
+	printf("STRFUNCS_stricmp(\"This is a test*\", \"This is a test\") = %d\n",
+		STRFUNCS_stricmp("This is a test*", "This is a test"));
 
-	printf("stricmp(\"This is a test\", \"This is a test*\") = %d\n",
-		stricmp("This is a test", "This is a test*"));
+	printf("STRFUNCS_stricmp(\"This is a test\", \"This is a test*\") = %d\n",
+		STRFUNCS_stricmp("This is a test", "This is a test*"));
 
 	return(0);
 }

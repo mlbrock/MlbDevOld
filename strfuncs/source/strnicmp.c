@@ -21,28 +21,14 @@
 
 #include "strfunci.h"
 
+#ifdef __GNUC__
+# include <strings.h>
+#endif /* #ifdef __GNUC__ */
+
 /* *********************************************************************** */
 
 /* *********************************************************************** */
 /* *********************************************************************** */
-/*
-*
-* name		strnicmp -- compare two strings
-*           STRFUNCS_strnicmp -- compare two strings
-*
-* synopsis	iret = strnicmp(s,t,n);
-*		char * s;	first string to compare
-*		char * t;	second string to compare
-*		int n;		maximum length
-*		int iret;	0 if identical, >0 if s>t, <0 if s<t
-*
-* description	This function performs a character by character
-*		comparison of two strings terminated by a zero byte.
-*		Case differences are ignored, and if the strings are
-*		not identical, the return code indicates the result of
-*		comparing the first non-matching characters.
-*
-**/
 /* *********************************************************************** */
 #ifndef NARGS
 int STRFUNCS_strnicmp(const char *string_1, const char *string_2, size_t count)
@@ -53,6 +39,9 @@ const char *string_2;
 size_t      count;
 #endif /* #ifndef NARGS */
 {
+#ifdef __GNUC__
+	return(strncasecmp(string_1, string_2, count));
+#else
 	register int cmp_value;
 
 	for (; (count && *string_1 && *string_2); count--, string_1++, string_2++){
@@ -69,6 +58,7 @@ size_t      count;
 	}
 
 	return(0);
+#endif /* #ifdef __GNUC__ */
 }
 /* *********************************************************************** */
 

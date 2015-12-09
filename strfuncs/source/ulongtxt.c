@@ -443,19 +443,19 @@ char **argv;
 	char                       buffer[1024];
 
 	for (count_1 = 1L; count_1 < ((unsigned long) argc); count_1++) {
-		if ((!stricmp(argv[((int) count_1)], "AMERICAN")) ||
-			(!stricmp(argv[((int) count_1)], "US"))) {
+		if ((!STRFUNCS_stricmp(argv[((int) count_1)], "AMERICAN")) ||
+			(!STRFUNCS_stricmp(argv[((int) count_1)], "US"))) {
 			name_count = STRFUNCS_NumberTextCount;
 			name_list  = STRFUNCS_NumberTextList;
 			fprintf(stderr, "---> Switched to '%s'\n", argv[((int) count_1)]);
 		}
-		else if (!stricmp(argv[((int) count_1)], "METRIC")) {
+		else if (!STRFUNCS_stricmp(argv[((int) count_1)], "METRIC")) {
 			name_count = STRFUNCS_MetricNumberTextCount;
 			name_list  = STRFUNCS_MetricNumberTextList;
 			fprintf(stderr, "---> Switched to '%s'\n", argv[((int) count_1)]);
 		}
-		else if ((!stricmp(argv[((int) count_1)], "BRITISH")) ||
-			(!stricmp(argv[((int) count_1)], "UK"))) {
+		else if ((!STRFUNCS_stricmp(argv[((int) count_1)], "BRITISH")) ||
+			(!STRFUNCS_stricmp(argv[((int) count_1)], "UK"))) {
 			name_count = STRFUNCS_BritishNumberTextCount;
 			name_list  = STRFUNCS_BritishNumberTextList;
 			fprintf(stderr, "---> Switched to '%s'\n", argv[((int) count_1)]);

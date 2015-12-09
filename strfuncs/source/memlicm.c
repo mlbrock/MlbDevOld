@@ -132,7 +132,7 @@ const void *data_ptr_2;
 size_t      data_length;
 #endif /* #ifndef NARGS */
 {
-	return(memicmp(data_ptr_1, data_ptr_2, data_length));
+	return(STRFUNCS_memicmp(data_ptr_1, data_ptr_2, data_length));
 }
 /* *********************************************************************** */
 #ifdef _MSC_VER

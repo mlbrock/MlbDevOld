@@ -328,15 +328,16 @@ int main()
 		}
 		memset(buffer, '\0', sizeof(buffer));
 		strcpy(buffer, in_line);
-		if (!stricmp(in_line, "LIST")) {
+		if (!STRFUNCS_stricmp(in_line, "LIST")) {
 			fprintf(stderr, "[HEAD] ---> [%p]\n", test_list);
 			for (count_1 = 0; count_1 < test_count; count_1++)
 				fprintf(stderr, "[%05u][%p] ---> [%s]\n", count_1,
 					test_list + (count_1 * sizeof(in_line)),
 					test_list + (count_1 * sizeof(in_line)));
 		}
-		else if ((!stricmp(in_line, "END")) || (!stricmp(in_line, "QUIT")) ||
-			(!stricmp(in_line, "EXIT")))
+		else if ((!STRFUNCS_stricmp(in_line, "END")) ||
+			(!STRFUNCS_stricmp(in_line, "QUIT")) ||
+			(!STRFUNCS_stricmp(in_line, "EXIT")))
 			break;
 		else if ((return_code = STR_ARRAY_bsearch(NULL, test_count, test_list,
 			buffer, sizeof(buffer), &found_index, -1,
