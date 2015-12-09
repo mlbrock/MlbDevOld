@@ -1098,7 +1098,7 @@ static char *TestLineList[] = {
 /*  0123456789012345678901 */
 	"Ends in a back-slash \\",
 /*  012345678901234567890     1 */
-	"Ends in a back-slash \?\?\/",
+	"Ends in a back-slash \?\?/",
 /*  01234567890123456789012 */
 	"This is a simple test.",
 /*  012345678901234567890123  456789012345678901234567890123 */
@@ -1110,7 +1110,7 @@ static char *TestLineList[] = {
 /*  012345678901234567890123456789012345678  9012345  6 */
 	"This does not have trigraph sequences: \\? ---> \\?",
 /*  01234567890123456789012345678   9012345   67 */
-	"This has trigraph sequences: \??( ---> \??)"
+	"This has trigraph sequences: \?\?( ---> \?\?)"
 };
 
 static unsigned int TestLineCount =
