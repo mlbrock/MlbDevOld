@@ -21,19 +21,15 @@
 #
 # #############################################################################
 
-CPPFLAGS_ADDED	=	-I ../../include
-
 include ../../.MASCaPS/MakePrefixFirst.mk
+
+CPPFLAGS_ADDED	:=	-I ../../include
 
 TARGET_LIBS	=	libstrfuncs.a
 
-ADF_INCS	=	${INCLUDE_DIR}/strfuncs.h
+ADF_INCS	=	../../strfuncs.h
 
-${info ${ADF_INCS}}
-
-SRCS		=	ZZZ.cpp
-
-SRCSX		=	\
+SRCS		=	\
 			allocmsg.c \
 			asctobcd.c \
 			asctorad.c \
@@ -302,12 +298,10 @@ SRCSX		=	\
 			xprintf.c \
 			zerotrim.c
 
-${info ${SRCS}}
-${info ${SRCSX}}
-
 # Only the libraries below are needed for TEST_MAIN unit tests in this library.
 MLB_LIB_NAMES	=	strfuncs
 
 include ../../.MASCaPS/MakeSuffixFirst.mk
-# ###################################################################
+
+# #############################################################################
 

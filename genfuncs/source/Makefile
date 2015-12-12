@@ -1,20 +1,17 @@
 # ##########################################################################
 # ##########################################################################
-# GENFUNCS Library Makefile
+# Multiple Architecture Source Code Production System (MASCaPS) Version 3
+# 	GENFUNCS Library Makefile
 # ##########################################################################
 #
-#    File Name          :  %M%
+# File Name       : genfuncs/source/Makefile
 #
-#    File Version       :  %I%
+# File Description: GENFUNCS library make file.
 #
-#    Last Extracted     :  %D%	%T%
-#
-#    Last Updated       :  %E%	%U%
-#
-#    File Description   :  This is the make file for the GENFUNCS library.
-#
-#    Revision History   :  1993-07-07 --- Creation.
-#                             Michael L. Brock
+# Revision History:  1993-07-07 --- Creation.
+#                       Michael L. Brock
+#                   2015-12-12 --- Modified for use with MASCaPS Version 3.
+#                       Michael L. Brock
 #
 #       Copyright Michael L. Brock 1993 - 2015.
 #       Distributed under the Boost Software License, Version 1.0.
@@ -23,68 +20,65 @@
 #
 # ##########################################################################
 
-.KEEP_STATE:
+include ../../.MASCaPS/MakePrefixFirst.mk
 
-THIS_HOME:sh				=	echo $HOME
+CPPFLAGS_ADDED	:=	-I ../../include
 
-include ${THIS_HOME}/src/.MASCAPS/premake.mk
+TARGET_LIBS	=	libgenfuncs.a
 
-TARGET_LIBS					=	genfuncs.a
+ADF_INCS	=	../../genfuncs.h
 
-ADF_INCS						=  ${INCLUDE_DIR}/genfuncs.h
+SRCS		=	\
+			align.c \
+			alignbas.c \
+			allocmsg.c \
+			argbasic.c \
+			argparse.c \
+			cmptimes.c \
+			cmptimev.c \
+			currdir.c \
+			emgalign.c \
+			emitbuff.c \
+			expandir.c \
+			expfpath.c \
+			exphostl.c \
+			exphosts.c \
+			fmtgroce.c \
+			fmtitime.c \
+			fmttime.c \
+			generror.c \
+			getmac.c \
+			getparam.c \
+			getpid.c \
+			getpmap.c \
+			gettid.c \
+			gettime.c \
+			hostname.c \
+			membr.c \
+			membrdmp.c \
+			pagesize.c \
+			readexlk.c \
+			rlimit.c \
+			rusage.c \
+			sighandl.c \
+			sigtext.c \
+			textread.c \
+			timespec.c \
+			timeval.c \
+			tostring.c \
+			touchmem.c \
+			tvalstat.c \
+			usage.c \
+			usebasic.c \
+			usleep.c \
+			validptr.c \
+			version.c
 
-SRCS							=	\
-									align.c \
-									alignbas.c \
-									allocmsg.c \
-									argbasic.c \
-									argparse.c \
-									cmptimes.c \
-									cmptimev.c \
-									currdir.c \
-									emgalign.c \
-									emitbuff.c \
-									expandir.c \
-									expfpath.c \
-									exphostl.c \
-									exphosts.c \
-									fmtgroce.c \
-									fmtitime.c \
-									fmttime.c \
-									generror.c \
-									getmac.c \
-									getparam.c \
-									getpid.c \
-									getpmap.c \
-									gettid.c \
-									gettime.c \
-									hostname.c \
-									membr.c \
-									membrdmp.c \
-									pagesize.c \
-									readexlk.c \
-									rlimit.c \
-									rusage.c \
-									sighandl.c \
-									sigtext.c \
-									textread.c \
-									timespec.c \
-									timeval.c \
-									tostring.c \
-									touchmem.c \
-									tvalstat.c \
-									usage.c \
-									usebasic.c \
-									usleep.c \
-									validptr.c \
-									version.c
 
-LIBS							=	${TARGET_LIBS} ${LOCAL_LIBS}
+# Only the libraries below are needed for TEST_MAIN unit tests in this library.
+MLB_LIB_NAMES	=	genfuncs sdtif strfuncs
 
-${TARGET_LIBS}				:	${OBJS}
-	@${AR} ${ARFLAGS} $@ ${OBJS}
-	@ranlib $@
-	@cp -p $@ ${LOCAL_LIB_DIR}/.
+include ../../.MASCaPS/MakeSuffixFirst.mk
 
-include ${THIS_HOME}/src/.MASCAPS/postmake.mk
+# #############################################################################
 
