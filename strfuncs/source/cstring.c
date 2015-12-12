@@ -244,7 +244,7 @@ static char *TestLineList[] = {
 /*  012345678901234567890123456789012345678 9012345 6 */
 	"This does not have trigraph sequences: \? ---> \?",
 /*  01234567890123456789012345678   9012345   67 */
-	"This has trigraph sequences: \??( ---> \??)"
+	"This has trigraph sequences: \?\?( ---> \?\?)"
 };
 
 static unsigned int TestLineCount =
