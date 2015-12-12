@@ -167,8 +167,11 @@ static const GENFUNCS_SIGNAL_DATA GENFUNCS_SignalList[] = {
 		"trace trap (not reset when caught)"						},
 	{	"SIGIOT",		SIGIOT,
 		"IOT instruction ('abort()' calls this SIGABRT)"		},
+/* Not present in Linux */
+# ifdef SIGEMT
 	{	"SIGEMT",		SIGEMT,
 		"EMT instruction"													},
+# endif /* # ifdef SIGEMT */
 	{	"SIGFPE",		SIGFPE,
 		"floating point exception"										},
 	{	"SIGKILL",		SIGKILL,
@@ -211,8 +214,11 @@ static const GENFUNCS_SIGNAL_DATA GENFUNCS_SignalList[] = {
 		"profiling time alarm"											},
 	{	"SIGWINCH",		SIGWINCH,
 		"window changed"													},
+/* Not present in Linux */
+# ifdef SIGLOST
 	{	"SIGLOST",		SIGLOST,
 		"resource lost (e.g., record-lock lost)"					},
+# endif /* # ifdef SIGLOST */
 	{	"SIGUSR1",		SIGUSR1,
 		"user defined signal number 1"								},
 	{	"SIGUSR2",		SIGUSR2,
@@ -867,15 +873,16 @@ char       *signal_text;
 					" at address 0X"), val2str(((unsigned long) signal_address),
 					0, 16, NULL, number_buffer));
 				break;
+#ifdef SIGEMT
 			case SIGEMT		:
 				switch (signal_code) {
-#ifdef sparc
+# ifdef sparc
 					case EMT_TAG	:
 						signal_code_ptr = " EMT_TAG";
 						signal_desc_ptr = " tag overflow";
 						break;
-#endif /* #ifdef sparc */
-#ifdef mc68000
+# endif /* #ifdef sparc */
+# ifdef mc68000
 					case EMT_EMU1010		:
 						signal_code_ptr = " EMT_EMU1010";
 						signal_desc_ptr = " line 1010 emulator trap";
@@ -884,7 +891,7 @@ char       *signal_text;
 						signal_code_ptr = " EMT_EMU1111";
 						signal_desc_ptr = " line 1111 emulator trap";
 						break;
-#endif /* #ifdef mc68000 */
+# endif /* #ifdef mc68000 */
 					default			:
 						strcat(strcpy(signal_code_buffer,
 							" UNKNOWN SIGEMT SIGNAL CODE "),
@@ -898,6 +905,7 @@ char       *signal_text;
 					" at address 0X"), val2str(((unsigned long) signal_address),
 					0, 16, NULL, number_buffer));
 				break;
+#endif /* #ifdef SIGEMT */
 			case SIGFPE		:
 				switch (signal_code) {
 #ifdef sparc

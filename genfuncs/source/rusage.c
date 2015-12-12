@@ -35,15 +35,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef __SVR4
-# define __EXTENSIONS__
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/signal.h>
-# include <sys/fault.h>
-# include <sys/syscall.h>
-# include <sys/procfs.h>
-#endif /* #ifdef __SVR4 */
+#ifdef _MSC_VER
+# if _MSC_VER >= 1300
+#  include <psapi.h>
+# endif /* #if _MSC_VER >= 1300 */
+#else
+# ifdef __SVR4
+#  define __EXTENSIONS__
+#  include <unistd.h>
+#  include <sys/types.h>
+#  include <sys/signal.h>
+#  include <sys/fault.h>
+#  include <sys/syscall.h>
+#  include <sys/procfs.h>
+# else
+#  include <sys/resource.h>
+# endif /* #ifdef __SVR4 */
+#endif /* #ifdef _MSC_VER */
 
 #include <strfuncs.h>
 #include <sdtif.h>

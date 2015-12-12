@@ -2948,10 +2948,12 @@ name exceeded 1024 characters."
 '&.' and '&.|.' by performing a rmdir() system call or a rename() system \
 call with that directory specified as the target directory."
 	},
+#ifdef EPROCLIM
 	{	EPROCLIM,			"EPROCLIM",
 		"Too many processes",
 		""
 	},
+#endif // #ifdef EPROCLIM
 	{	EUSERS,				"EUSERS",
 		"Too many users",
 		"An operation to read disk quota information for the user failed \
@@ -3026,12 +3028,14 @@ locks was reached and no more were available at that time."
 remote resources while the machine has not done the proper startup to \
 connect to the network.  This error is Remote File Sharing (RFS) specific."
 	},
+#ifdef ERREMOTE
 	{	ERREMOTE,			"ERREMOTE",
 		"Object is remote",
 		"An attempt was made to advertise a resource which is not on the local \
 machine, or to mount/unmount a device (or pathname) that is on a remote \
 machine. This error is RFS specific."
 	},
+#endif // #ifdef ERREMOTE
 	{	ENOLINK,				"ENOLINK",
 		"Link has been severed",
 		"The link (virtual circuit) connecting to a remote machine is gone. \
