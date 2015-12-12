@@ -303,7 +303,8 @@ char **argv;
 			printf("ASCTORAD(): [%s] | ",
 				RADIX50_radtoasc(rad_buffer, asc_buffer, out_length));
 			printf("[%s] | [%s] --- %s\n", asc_buffer, argv[count_1],
-				(STRFUNCS_stricmp(trim(asc_buffer), argv[count_1])) ? "FAILED" : "OK");
+				(STRFUNCS_stricmp(trim(asc_buffer), argv[count_1])) ? "FAILED" :
+				"OK");
 			printf("%s\n",
 "--------------------------------------------------------------------------");
 		}
