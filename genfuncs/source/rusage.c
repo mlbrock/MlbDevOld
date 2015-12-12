@@ -35,11 +35,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef _MSC_VER
-# if _MSC_VER >= 1300
-#  include <psapi.h>
-# endif /* #if _MSC_VER >= 1300 */
-#else
+#ifndef _MSC_VER
 # ifdef __SVR4
 #  define __EXTENSIONS__
 #  include <unistd.h>
