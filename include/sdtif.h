@@ -516,9 +516,15 @@ typedef struct {
 		*****************************************************************
 		Macros used to manipulate structures of type 'tm' . . .
 		*****************************************************************	*/
-#define SDTIF_TM_ZERO						{	 0,  0,  0,  0,  0,   0, 0,   0,  0	}
-#define SDTIF_TM_MIN							{	 0,  0,  0,  1,  0,   0, 0,   0,  0	}
-#define SDTIF_TM_MAX							{	59, 59, 23, 31, 11, 138, 0, 365, -1	}
+#ifdef __linux__
+# define SDTIF_TM_ZERO				{	 0,  0,  0,  0,  0,   0, 0,   0,  0, 0, 0	}
+# define SDTIF_TM_MIN				{	 0,  0,  0,  1,  0,   0, 0,   0,  0, 0, 0	}
+# define SDTIF_TM_MAX				{	59, 59, 23, 31, 11, 138, 0, 365, -1, 0, 0	}
+#else
+# define SDTIF_TM_ZERO				{	 0,  0,  0,  0,  0,   0, 0,   0,  0	}
+# define SDTIF_TM_MIN				{	 0,  0,  0,  1,  0,   0, 0,   0,  0	}
+# define SDTIF_TM_MAX				{	59, 59, 23, 31, 11, 138, 0, 365, -1	}
+#endif /* #ifdef __linux__ */
 
 #define SDTIF_COMPARE_TM(time_ptr_1, time_ptr_2)								\
 	((int) ((time_ptr_1)->tm_year > (time_ptr_2)->tm_year) ?  1 :			\

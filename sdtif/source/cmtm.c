@@ -192,6 +192,11 @@ const struct tm *time_ptr_2;
 size_t           data_length;
 #endif /* #ifndef NARGS */
 {
+#ifdef __GNUC__
+	((void) (control_ptr));
+	((void) (data_length));
+#endif /* #ifdef __GNUC__ */
+
 	return(SDTIF_COMPARE_TM(time_ptr_1, time_ptr_2));
 }
 /*	***********************************************************************	*/

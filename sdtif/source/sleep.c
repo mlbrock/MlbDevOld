@@ -29,12 +29,19 @@
 /*		Required include files . . .														*/
 /*	***********************************************************************	*/
 
-#ifndef __SVR4
-#include <errno.h>
-#endif /* #ifndef __SVR4 */
-
 #ifdef __MSDOS__
-# include <dos.h>
+# if __BORLANDC__ || __BCPLUSPLUS
+#  include <dos.h>
+# endif /* # if __BORLANDC__  || __BCPLUSPLUS */
+#else
+# if _MSC_VER || _Windows
+#  include <errno.h>
+# elif __SVR4
+#  include <sys/time.h>
+# else
+#  include <errno.h>
+#  include <unistd.h>
+# endif /* # if _MSC_VER || _Windows */
 #endif /* #ifdef __MSDOS__ */
 
 #include "sdtifi.h"
@@ -215,7 +222,6 @@ unsigned long microseconds;
 {
 #ifdef __MSDOS__
 # if __BORLANDC__ || __BCPLUSPLUS
-#  include <dos.h>
 	delay(((unsigned int) (microseconds / 1000L)));
 # else
 	sleep(((unsigned int) (microseconds / 1000000L)));
@@ -302,7 +308,6 @@ unsigned long nanoseconds;
 {
 #ifdef __MSDOS__
 # if __BORLANDC__ || __BCPLUSPLUS
-#  include <dos.h>
 	delay(((unsigned int) (nanoseconds / 1000000L)));
 # else
 	sleep(((unsigned int) (nanoseconds / 1000000000L)));
@@ -418,5 +423,4 @@ struct timespec       *remainder_ptr;
 	return(return_code);
 }
 /*	***********************************************************************	*/
-
 
