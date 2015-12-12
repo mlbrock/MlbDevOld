@@ -119,7 +119,7 @@
 EOH */
 /* *********************************************************************** */
 #ifndef NARGS
-int MEM_memcmp(void *control_ptr, const void *data_ptr_1,
+int MEM_memcmp(void * control_ptr, const void *data_ptr_1,
 	const void *data_ptr_2, size_t data_length)
 #else
 int MEM_memcmp(control_ptr, data_ptr_1, data_ptr_2, data_length)
@@ -129,6 +129,10 @@ const void *data_ptr_2;
 size_t      data_length;
 #endif /* #ifndef NARGS */
 {
+#ifdef __GNUC__
+	((void)(control_ptr));
+#endif /* #ifdef __GNUC__ */
+
 	return(memcmp(data_ptr_1, data_ptr_2, data_length));
 }
 /* *********************************************************************** */

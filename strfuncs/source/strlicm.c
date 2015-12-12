@@ -130,6 +130,11 @@ const char *string_ptr_2;
 size_t      string_length;
 #endif /* #ifndef NARGS */
 {
+#ifdef __GNUC__
+	((void)(control_ptr));
+	((void)(string_length));
+#endif /* #ifdef __GNUC__ */
+
 	return(STRFUNCS_stricmp(string_ptr_1, string_ptr_2));
 }
 /* *********************************************************************** */
