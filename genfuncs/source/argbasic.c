@@ -16,7 +16,7 @@
 	Revision History	:	1995-05-19 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2015.
+		Copyright Michael L. Brock 1995 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -166,7 +166,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_LogDir
 						Argument Parsing Functions:GEN_BARG_LogDir
@@ -348,7 +348,7 @@ char          *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_LogFlag
 						Argument Parsing Functions:GEN_BARG_LogFlag
@@ -526,7 +526,7 @@ char          *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_LogQuiet
 						Argument Parsing Functions:GEN_BARG_LogQuiet
@@ -703,7 +703,7 @@ char          *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_CheckOnly
 						Argument Parsing Functions:GEN_BARG_CheckOnly
@@ -883,7 +883,7 @@ char          *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_DebugLevel
 						Argument Parsing Functions:GEN_BARG_DebugLevel
@@ -1077,7 +1077,7 @@ char          *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_DBDebugFlag
 						Argument Parsing Functions:GEN_BARG_DebugLevel
@@ -1258,7 +1258,7 @@ char          *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_SQLDebugFlag
 						Argument Parsing Functions:GEN_BARG_DebugLevel
@@ -1376,7 +1376,7 @@ char          *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_BasicParamAlloc
 						Argument Parsing Functions:GEN_BARG_BasicParamAlloc
@@ -1490,7 +1490,7 @@ char          *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_BasicPathExpand
 						Argument Parsing Functions:GEN_BARG_BasicPathExpand
@@ -1601,7 +1601,7 @@ char          *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1995 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1995 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_BARG_BadComponentMsg
 						Argument Parsing Functions:GEN_BARG_BadComponentMsg

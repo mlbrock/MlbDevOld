@@ -17,7 +17,7 @@
 	Revision History	:	1992-02-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2015.
+		Copyright Michael L. Brock 1992 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -211,7 +211,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_BASIC_CountStringToString
 						Data Type Alignment Functions:DTA_BASIC_CountStringToString
@@ -430,7 +430,7 @@ char            *error_text;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :  Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_CountStringToString
 						Data Type Alignment Functions:DTA_CountStringToString

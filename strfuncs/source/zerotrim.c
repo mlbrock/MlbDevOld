@@ -16,7 +16,7 @@
 	Revision History	:	1993-07-07 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2015.
+		Copyright Michael L. Brock 1993 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -74,7 +74,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	zerotrim
 						String Justification Functions:zerotrim
@@ -163,7 +163,7 @@ char *text;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	zerotrim_basic
 						String Justification Functions:zerotrim_basic
@@ -267,7 +267,7 @@ int         keep_last_zero_flag;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	zerotrim_basic_mem
 						String Justification Functions:zerotrim_basic_mem

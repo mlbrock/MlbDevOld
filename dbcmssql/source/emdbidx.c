@@ -17,7 +17,7 @@
 	Revision History	:	1996-12-09 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2015.
+		Copyright Michael L. Brock 1996 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -109,7 +109,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1996 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_EMIT_DBIndexList
 						Emit Functions:Data Cache Functions:DBC_MSSQL_EMIT_DBIndexList
@@ -210,7 +210,7 @@ void                   *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1996 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_EMIT_DBIndexListIdx
 						Emit Functions:Data Cache Functions:DBC_MSSQL_EMIT_DBIndexListIdx
@@ -311,7 +311,7 @@ void                   *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1996 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_EMIT_DBIndex
 						Emit Functions:Data Cache Functions:DBC_MSSQL_EMIT_DBIndex
@@ -409,7 +409,7 @@ void                   *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1996 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_EMIT_DBIndexHeader
 						Emit Functions:Data Cache Functions:DBC_MSSQL_EMIT_DBIndexHeader
@@ -506,7 +506,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1996 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_MSSQL_EMIT_DBIndexTrailer
 						Emit Functions:Data Cache Functions:DBC_MSSQL_EMIT_DBIndexTrailer

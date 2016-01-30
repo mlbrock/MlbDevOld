@@ -16,7 +16,7 @@
 	Revision History	:	1989-12-06 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1989 - 2015.
+		Copyright Michael L. Brock 1989 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -69,7 +69,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1989 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1989 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	ulongok
 						Date Functions:Check Date Functions:ulongok
@@ -149,7 +149,7 @@ unsigned long in_ulong;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1989 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1989 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	fixed_ulongok
 						Date Functions:Check Date Functions:fixed_ulongok

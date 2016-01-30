@@ -16,7 +16,7 @@
 	Revision History	:	1989-11-08 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1989 - 2015.
+		Copyright Michael L. Brock 1989 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -61,7 +61,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1989 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1989 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	nowtojul
 						Date Functions:Current Date Functions:nowtojul
@@ -112,7 +112,7 @@ JULIAN nowtojul()
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1989 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1989 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	nowtojul_local
 						Date Functions:Current Date Functions:nowtojul_local

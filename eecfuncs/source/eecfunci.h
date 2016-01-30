@@ -20,7 +20,7 @@
 								1996-01-28 --- Version 5 changes.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1991 - 2015.
+		Copyright Michael L. Brock 1991 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -81,7 +81,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1991 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1991 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	EEC_MAP_TRUTH_STR
 						EEC_MAP_TRUTH_GEN
@@ -179,7 +179,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1991 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1991 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	EEC_MAP_ERROR_STR
 						EEC_MAP_ERROR_GEN

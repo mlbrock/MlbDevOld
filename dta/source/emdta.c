@@ -17,7 +17,7 @@
 	Revision History	:	1992-02-27 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2015.
+		Copyright Michael L. Brock 1992 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -126,7 +126,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_BASIC_EmitAlignList
 						Data Type Alignment Functions:DTA_BASIC_EmitAlignList
@@ -253,7 +253,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_BASIC_EmitAlignListIdx
 						Data Type Alignment Functions:DTA_BASIC_EmitAlignListIdx
@@ -381,7 +381,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_BASIC_EmitAlign
 						Data Type Alignment Functions:DTA_BASIC_EmitAlign
@@ -501,7 +501,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_EmitAlignList
 						Data Type Alignment Functions:DTA_EmitAlignList
@@ -602,7 +602,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_EmitAlignListIdx
 						Data Type Alignment Functions:DTA_EmitAlignListIdx
@@ -695,7 +695,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_EmitAlign
 						Data Type Alignment Functions:DTA_EmitAlign
@@ -779,7 +779,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_EmitAlignHeader
 						Data Type Alignment Functions:DTA_EmitAlignHeader
@@ -871,7 +871,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DTA_EmitAlignTrailer
 						Data Type Alignment Functions:DTA_EmitAlignTrailer

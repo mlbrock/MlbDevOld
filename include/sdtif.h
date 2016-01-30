@@ -16,7 +16,7 @@
 	Revision History	:	1985-10-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1985 - 2015.
+		Copyright Michael L. Brock 1985 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -92,7 +92,7 @@
 
 	AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:  SDTIF_TRUE
 						SDTIF_FALSE
@@ -158,7 +158,7 @@ EOH */
 
 	AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:  SDTIF_SUCCESS
 						SDTIF_FAILURE
@@ -244,7 +244,7 @@ EOH */
 
 	AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:  SDTIF_MAX_ERROR_TEXT
 						SDTIF Manifest Constants:SDTIF_MAX_ERROR_TEXT
@@ -405,7 +405,7 @@ typedef union {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_TVAL
 						Statistics Gathering Structures:SDTIF_TVAL

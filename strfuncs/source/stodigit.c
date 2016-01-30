@@ -16,7 +16,7 @@
 	Revision History	:	1995-08-07 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2015.
+		Copyright Michael L. Brock 1995 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -106,7 +106,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	str_odigit
 						Character Class Functions:Octal Digit Character Class Functions:str_odigit
@@ -215,7 +215,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	strr_odigit
 						Character Class Functions:Octal Digit Character Class Functions:strr_odigit
@@ -329,7 +329,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	idx_odigit
 						Character Class Functions:Octal Digit Character Class Functions:idx_odigit
@@ -436,7 +436,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	idxr_odigit
 						Character Class Functions:Octal Digit Character Class Functions:idxr_odigit
@@ -535,7 +535,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	cnt_odigit
 						Character Class Functions:Octal Digit Character Class Functions:cnt_odigit
@@ -644,7 +644,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	cvt_odigit
 						Character Class Functions:Octal Digit Character Class Functions:cvt_odigit

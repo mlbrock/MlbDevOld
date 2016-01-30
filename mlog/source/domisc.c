@@ -16,7 +16,7 @@
 	Revision History	:	1992-03-21 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2015.
+		Copyright Michael L. Brock 1992 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -64,7 +64,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoSepStart
 						MLOG Functions:Logging Functions:MLOG_DoSepStart
@@ -133,7 +133,7 @@ MLOG *mlog_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoSepEnd
 						MLOG Functions:Logging Functions:MLOG_DoSepEnd
@@ -208,7 +208,7 @@ MLOG *mlog_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoSepHyphen
 						MLOG Functions:Logging Functions:MLOG_DoSepHyphen
@@ -265,7 +265,7 @@ MLOG *mlog_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoSepEqual
 						MLOG Functions:Logging Functions:MLOG_DoSepEqual
@@ -322,7 +322,7 @@ MLOG *mlog_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoSepStar
 						MLOG Functions:Logging Functions:MLOG_DoSepStar
@@ -381,7 +381,7 @@ MLOG *mlog_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoSepChar
 						MLOG Functions:Logging Functions:MLOG_DoSepChar
@@ -454,7 +454,7 @@ int   log_char;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoSepCharBasic
 						MLOG Functions:Logging Functions:MLOG_DoSepCharBasic
@@ -530,7 +530,7 @@ int           log_char;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoSepString
 						MLOG Functions:Logging Functions:MLOG_DoSepString
@@ -616,7 +616,7 @@ const char *log_string;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoExecTime
 						MLOG Functions:Logging Functions:MLOG_DoExecTime
@@ -735,7 +735,7 @@ EXIT_FUNCTION:
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MLOG_DoRUsage
 						MLOG Functions:Logging Functions:MLOG_DoRUsage

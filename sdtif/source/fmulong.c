@@ -17,7 +17,7 @@
 	Revision History	:	1985-10-31 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1985 - 2015.
+		Copyright Michael L. Brock 1985 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -96,7 +96,7 @@
 
 	AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT   :  Copyright 1985 - 2015 Michael L. Brock
+	COPYRIGHT   :  Copyright 1985 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_Format_ulong
 						Date/Time Functions:SDTIF_Format_ulong
@@ -208,7 +208,7 @@ char                *buffer;
 
 	AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT   :  Copyright 1985 - 2015 Michael L. Brock
+	COPYRIGHT   :  Copyright 1985 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_Format_ulong_GMT
 						Date/Time Functions:SDTIF_Format_ulong_GMT

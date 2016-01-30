@@ -17,7 +17,7 @@
 	Revision History	:	1992-03-21 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2015.
+		Copyright Michael L. Brock 1992 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -89,7 +89,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:  MMI_TRUE
 						MMI_FALSE
@@ -152,7 +152,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:  MMI_SUCCESS
 						MMI_FAILURE
@@ -231,7 +231,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:  MMI_MAX_ERROR_TEXT
 						MMI Manifest Constants:MMI_MAX_ERROR_TEXT

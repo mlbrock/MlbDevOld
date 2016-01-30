@@ -16,7 +16,7 @@
 	Revision History	:	1985-10-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1985 - 2015.
+		Copyright Michael L. Brock 1985 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -67,7 +67,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1985 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1985 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_MAP_TRUTH_STR
 						SDTIF_MAP_TRUTH_GEN
@@ -129,7 +129,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1985 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1985 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_MAP_ERROR_STR
 						SDTIF_MAP_ERROR_GEN
@@ -207,7 +207,7 @@ EOH */
 
 	AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_VERSION_MAJOR
 						SDTIF_VERSION_MINOR

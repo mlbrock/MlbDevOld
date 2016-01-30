@@ -16,7 +16,7 @@
 	Revision History	:	1994-06-09 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2015.
+		Copyright Michael L. Brock 1994 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -130,7 +130,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:  ADF_TRUE
 						ADF_FALSE
@@ -202,7 +202,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:  ADF_SUCCESS
 						ADF_FAILURE
@@ -302,7 +302,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:  ADF_MAX_ERROR_TEXT
 						ADF Manifest Constants:ADF_MAX_ERROR_TEXT
@@ -380,7 +380,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	ADF_MAP_TRUTH_STR
 						ADF_MAP_TRUTH_GEN
@@ -540,7 +540,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	ADF_MAP_ERROR_STR
 						ADF_MAP_ERROR_GEN

@@ -17,7 +17,7 @@
 	Revision History	:	1994-06-03 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2015.
+		Copyright Michael L. Brock 1994 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -96,7 +96,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
  
 	OUTPUT INDEX:	mem2cstr
 						String Conversion Functions:mem2cstr
@@ -225,7 +225,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
  
 	OUTPUT INDEX:	mem2cstr_alloc
 						String Conversion Functions:mem2cstr_alloc
@@ -318,7 +318,7 @@ int           flags;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
  
 	OUTPUT INDEX:	mem2cstr_length
 						String Conversion Functions:mem2cstr_length

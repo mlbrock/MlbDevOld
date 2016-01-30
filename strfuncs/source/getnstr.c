@@ -17,7 +17,7 @@
 	Revision History	:	1996-02-08 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2015.
+		Copyright Michael L. Brock 1996 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -116,7 +116,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
  
 	OUTPUT INDEX:	
 						Miscellaneous Functions:getnumstr
@@ -233,7 +233,7 @@ unsigned int *new_end_index;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
  
 	OUTPUT INDEX:	
 						Miscellaneous Functions:getnumstr_basic

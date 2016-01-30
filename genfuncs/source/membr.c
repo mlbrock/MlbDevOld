@@ -16,7 +16,7 @@
 	Revision History	:	1993-12-09 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2015.
+		Copyright Michael L. Brock 1993 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -100,7 +100,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   APPDRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   APPDRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_APPD_Member
 						Copy Functions:GEN_APPD_Member
@@ -196,7 +196,7 @@ char              *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_COPY_Member
 						Copy Functions:GEN_COPY_Member
@@ -301,7 +301,7 @@ char             *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_COPY_MemberList
 						Copy Functions:GEN_COPY_MemberList
@@ -388,7 +388,7 @@ char              *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_FREE_Member
 						Free Functions:GEN_FREE_Member
@@ -451,7 +451,7 @@ GEN_MEMBER *ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_FREE_MemberList
 						Free Functions:GEN_FREE_MemberList
@@ -514,7 +514,7 @@ GEN_MEMBER   **member_list;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_INIT_Member
 						Initialization Functions:GEN_INIT_Member
@@ -589,7 +589,7 @@ GEN_MEMBER *ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_INIT_MemberList
 						Initialization Functions:GEN_INIT_MemberList
@@ -691,7 +691,7 @@ GEN_MEMBER   *member_list;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_MemberList
 						Emit Functions:GEN_EMIT_MemberList
@@ -797,7 +797,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_MemberListIdx
 						Emit Functions:GEN_EMIT_MemberListIdx
@@ -902,7 +902,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_Member
 						Emit Functions:GEN_EMIT_Member
@@ -1003,7 +1003,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_MemberHeader
 						Emit Functions:GEN_EMIT_MemberHeader
@@ -1104,7 +1104,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_MemberTrailer
 						Emit Functions:GEN_EMIT_MemberTrailer
@@ -1232,7 +1232,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_GetSpecMemberList
 						Member Description Functions:GEN_MEMBER_GetSpecMemberList
@@ -1381,7 +1381,7 @@ char              *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_GetSpecMemberString
 						Member Description Functions:GEN_MEMBER_GetSpecMemberString
@@ -1510,7 +1510,7 @@ char              *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_SetDisplayName
 						Member Description Functions:GEN_MEMBER_SetDisplayName
@@ -1628,7 +1628,7 @@ char       *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_CreateDisplayNameList
 						Member Description Functions:GEN_MEMBER_CreateDisplayNameList
@@ -1735,7 +1735,7 @@ char         *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_CreateDisplayName
 						Member Description Functions:GEN_MEMBER_CreateDisplayName
@@ -1856,7 +1856,7 @@ char       *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_FixAlignArrayList
 						Member Description Functions:GEN_MEMBER_FixAlignArrayList
@@ -2004,7 +2004,7 @@ char                 *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_SetAlignArrayList
 						Member Description Functions:GEN_MEMBER_SetAlignArrayList
@@ -2111,7 +2111,7 @@ char                 *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_SetAlignArray
 						Member Description Functions:GEN_MEMBER_SetAlignArray
@@ -2279,7 +2279,7 @@ char                 *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_SetDisplayLengthList
 						Member Description Functions:GEN_MEMBER_SetDisplayLengthList
@@ -2428,7 +2428,7 @@ char                 *error_text;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_SetDisplayLength
 						Member Description Functions:GEN_MEMBER_SetDisplayLength

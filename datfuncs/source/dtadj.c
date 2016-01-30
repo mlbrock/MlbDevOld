@@ -16,7 +16,7 @@
 	Revision History	:	1994-11-28 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2015.
+		Copyright Michael L. Brock 1994 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -73,7 +73,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_GetGMTToLocalSeconds
 						Date Functions:Date/Time Adjustment Functions:DTIME_GetGMTToLocalSeconds
@@ -171,7 +171,7 @@ const DTIME *in_dtime_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_GMTToLocal
 						Date Functions:Date/Time Adjustment Functions:DTIME_GMTToLocal
@@ -233,7 +233,7 @@ DTIME *in_dtime_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_LocalToGMT
 						Date Functions:Date/Time Adjustment Functions:DTIME_LocalToGMT
@@ -301,7 +301,7 @@ DTIME *in_dtime_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_AdjustHours
 						Date Functions:Date/Time Adjustment Functions:DTIME_AdjustHours
@@ -381,7 +381,7 @@ long   adj_hours;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_AdjustMinutes
 						Date Functions:Date/Time Adjustment Functions:DTIME_AdjustMinutes
@@ -463,7 +463,7 @@ long   adj_minutes;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_AdjustSeconds
 						Date Functions:Date/Time Adjustment Functions:DTIME_AdjustSeconds
@@ -548,7 +548,7 @@ long   adj_seconds;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_AdjustMilliseconds
 						Date Functions:Date/Time Adjustment Functions:DTIME_AdjustMilliseconds
@@ -625,7 +625,7 @@ long   adj_milliseconds;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	DTIME_GetAdjustedMilliseconds
 						Date Functions:Date/Time Adjustment Functions:DTIME_GetAdjustedMilliseconds

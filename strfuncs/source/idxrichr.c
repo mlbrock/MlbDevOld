@@ -17,7 +17,7 @@
 	Revision History	:	1986-10-27 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1986 - 2015.
+		Copyright Michael L. Brock 1986 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -88,7 +88,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	idxrichr
 						Character Search Functions/Index:idxrichr
@@ -181,7 +181,7 @@ int         target_char;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	idxrnichr
 						Character Search Functions/Index:idxrnichr

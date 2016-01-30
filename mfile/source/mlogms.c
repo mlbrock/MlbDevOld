@@ -16,7 +16,7 @@
 	Revision History	:	1994-10-31 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2015.
+		Copyright Michael L. Brock 1994 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -171,7 +171,7 @@ static int MFILE_LogMessageFlagGMT    = MFILE_FALSE;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_LogMessage
 						Memory-mapped File Functions:Logging Functions:MFILE_LogMessage
@@ -361,7 +361,7 @@ va_dcl
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepStartLog
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepStartLog
@@ -446,7 +446,7 @@ FILE  *file_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepEndLog
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepEndLog
@@ -532,7 +532,7 @@ FILE  *file_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepHyphenChar
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepHyphenChar
@@ -609,7 +609,7 @@ FILE  *file_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepEqualChar
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepEqualChar
@@ -689,7 +689,7 @@ FILE  *file_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepChar
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepChar
@@ -779,7 +779,7 @@ int    log_char;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2015 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepString
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepString
@@ -863,7 +863,7 @@ const char *log_string;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_GetLogMessageFlagFILE
 						Memory-mapped File Functions:Logging Functions:MFILE_GetLogMessageFlagFILE
@@ -940,7 +940,7 @@ int MFILE_GetLogMessageFlagFILE()
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_SetLogMessageFlagFILE
 						Memory-mapped File Functions:Logging Functions:MFILE_GetLogMessageFlagFILE
@@ -1016,7 +1016,7 @@ int new_flag_value;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_GetLogMessageFlagMFILE
 						Memory-mapped File Functions:Logging Functions:MFILE_GetLogMessageFlagFILE
@@ -1093,7 +1093,7 @@ int MFILE_GetLogMessageFlagMFILE()
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_SetLogMessageFlagMFILE
 						Memory-mapped File Functions:Logging Functions:MFILE_GetLogMessageFlagFILE
@@ -1170,7 +1170,7 @@ int new_flag_value;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_GetLogMessageFlagSYSLOG
 						Memory-mapped File Functions:Logging Functions:MFILE_GetLogMessageFlagFILE
@@ -1245,7 +1245,7 @@ int MFILE_GetLogMessageFlagSYSLOG()
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_SetLogMessageFlagSYSLOG
 						Memory-mapped File Functions:Logging Functions:MFILE_GetLogMessageFlagFILE
@@ -1320,7 +1320,7 @@ int new_flag_value;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_GetLogMessageFlagGMT
 						Memory-mapped File Functions:Logging Functions:MFILE_GetLogMessageFlagGMT
@@ -1396,7 +1396,7 @@ int MFILE_GetLogMessageFlagGMT()
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_SetLogMessageFlagGMT
 						Memory-mapped File Functions:Logging Functions:MFILE_GetLogMessageFlagGMT

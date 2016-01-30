@@ -17,7 +17,7 @@
 	Revision History	:	1995-12-30 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2015.
+		Copyright Michael L. Brock 1995 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -62,7 +62,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_Init
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_Init
@@ -130,7 +130,7 @@ SDTIF_STAT_TVAL *stat_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_StartTime
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_StartTime
@@ -192,7 +192,7 @@ SDTIF_STAT_TVAL *stat_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_EndTime
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_EndTime
@@ -269,7 +269,7 @@ unsigned long    item_count;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_EndTimeSpecified
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_EndTimeSpecified
@@ -366,7 +366,7 @@ const struct timeval *last_end;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_GetLastAverage
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_GetLastAverage
@@ -435,7 +435,7 @@ struct timeval        *average_interval;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_GetTotalAverage
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_GetTotalAverage
@@ -504,7 +504,7 @@ struct timeval        *average_interval;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_GetSampleAverage
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_GetSampleAverage
@@ -599,7 +599,7 @@ struct timeval        *average_interval;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_FmtLastAverage
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_FmtLastAverage
@@ -691,7 +691,7 @@ char                  *buffer;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_FmtTotalAverage
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_FmtTotalAverage
@@ -782,7 +782,7 @@ char                  *buffer;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_FmtSampleAverage
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_FmtSampleAverage
@@ -870,7 +870,7 @@ char                  *buffer;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_FmtLastInterval
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_FmtLastInterval
@@ -955,7 +955,7 @@ char                  *buffer;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_STAT_TVAL_FmtTotalInterval
 						Statistics Gathering Functions:SDTIF_STAT_TVAL_FmtTotalInterval

@@ -16,7 +16,7 @@
 	Revision History	:	1996-06-19 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2015.
+		Copyright Michael L. Brock 1996 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -71,7 +71,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_CTLIB_MSG_ClearMsg
 						DBC Sybase CT-LIB Functions:DBC_CTLIB_MSG_ClearMsg
@@ -142,7 +142,7 @@ DBC_CTLIB *dbc_control_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_CTLIB_MSG_GetCombinedMsg
 						DBC Sybase CT-LIB Functions:DBC_CTLIB_MSG_GetCombinedMsg
@@ -225,7 +225,7 @@ char      *text_buffer;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_CTLIB_MSG_GetServerMsg
 						DBC Sybase CT-LIB Functions:DBC_CTLIB_MSG_GetServerMsg
@@ -298,7 +298,7 @@ char      *text_buffer;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_CTLIB_MSG_GetClientMsg
 						DBC Sybase CT-LIB Functions:DBC_CTLIB_MSG_GetClientMsg
@@ -373,7 +373,7 @@ char      *text_buffer;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_CTLIB_ServerMsgCB
 						DBC Sybase CT-LIB Functions:DBC_CTLIB_ServerMsgCB
@@ -492,7 +492,7 @@ EXIT_FUNCTION:
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	DBC_CTLIB_ClientMsgCB
 						DBC Sybase CT-LIB Functions:DBC_CTLIB_ClientMsgCB

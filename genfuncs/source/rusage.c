@@ -16,7 +16,7 @@
 	Revision History	:	1992-10-11 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2015.
+		Copyright Michael L. Brock 1992 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -222,7 +222,7 @@ typedef COMPAT_FN_TYPE(BOOL (WINAPI *GEN_Win32_FPtr_GetProcessIoCounters),
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_GetRUsage
 						Miscellaneous Functions:GEN_GetRUsage
@@ -550,7 +550,7 @@ EXIT_FUNCTION:
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_GetRUsageDelta
 						Miscellaneous Functions:GEN_GetRUsageDelta
@@ -773,7 +773,7 @@ EXIT_FUNCTION:
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
 
    OUTPUT INDEX:	GEN_FormatRUsageList
 						Miscellaneous Functions:GEN_FormatRUsageList

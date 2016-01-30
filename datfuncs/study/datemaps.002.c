@@ -17,7 +17,7 @@
 	Revision History	:	1989-11-08 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1989 - 2015.
+		Copyright Michael L. Brock 1989 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -576,7 +576,7 @@ int in_day;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1989 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1989 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	jultoymd_basic
 						Date Functions:Conversion Functions:jultoymd_basic
@@ -839,7 +839,7 @@ const DATFUNCS_DATE_MAP *year_map_list;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1989 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1989 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	ymdtojul_basic
 						Date Functions:Conversion Functions:ymdtojul_basic

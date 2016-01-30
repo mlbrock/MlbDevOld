@@ -16,7 +16,7 @@
 	Revision History	:	1995-05-01 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2015.
+		Copyright Michael L. Brock 1995 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -96,7 +96,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_AllocMsgItem
 						Error Description Functions:GEN_AllocMsgItem
@@ -210,7 +210,7 @@ bytes required.
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_AllocMsgList
 						Error Description Functions:GEN_AllocMsgList
@@ -330,7 +330,7 @@ va_dcl
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_AllocMsgPtrList
 						Error Description Functions:GEN_AllocMsgPtrList

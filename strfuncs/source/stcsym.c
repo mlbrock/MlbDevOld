@@ -16,7 +16,7 @@
 	Revision History	:	1986-10-27 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1986 - 2015.
+		Copyright Michael L. Brock 1986 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -106,7 +106,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	str_csym
 						Character Class Functions:C Symbol Character Class Functions:str_csym
@@ -215,7 +215,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	strr_csym
 						Character Class Functions:C Symbol Character Class Functions:strr_csym
@@ -329,7 +329,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	idx_csym
 						Character Class Functions:C Symbol Character Class Functions:idx_csym
@@ -436,7 +436,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	idxr_csym
 						Character Class Functions:C Symbol Character Class Functions:idxr_csym
@@ -535,7 +535,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	cnt_csym
 						Character Class Functions:C Symbol Character Class Functions:cnt_csym
@@ -644,7 +644,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	cvt_csym
 						Character Class Functions:C Symbol Character Class Functions:cvt_csym

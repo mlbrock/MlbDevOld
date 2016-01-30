@@ -16,7 +16,7 @@
 	Revision History	:	1994-03-16 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2015.
+		Copyright Michael L. Brock 1994 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -60,7 +60,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	
 
@@ -116,7 +116,7 @@ DCR_CACHE *cache_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	
 

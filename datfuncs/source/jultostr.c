@@ -16,7 +16,7 @@
 	Revision History	:	1989-11-08 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1989 - 2015.
+		Copyright Michael L. Brock 1989 - 2016.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -80,7 +80,7 @@ static int DATFUNCS_DateSpec = DATE_SPEC_DEFAULT;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1989 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1989 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	setjspec
 						Date Functions:Formatting Functions:setjspec
@@ -137,7 +137,7 @@ int date_spec;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1989 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1989 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	getjspec
 						Date Functions:Formatting Functions:getjspec
@@ -200,7 +200,7 @@ int getjspec()
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1989 - 2015 Michael L. Brock
+	COPYRIGHT	:	Copyright 1989 - 2016 Michael L. Brock
 
 	OUTPUT INDEX:	jultostr
 						Date Functions:Formatting Functions:jultostr
