@@ -16,7 +16,7 @@
 	Revision History	:	1994-07-30 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2016.
+		Copyright Michael L. Brock 1994 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -97,7 +97,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_DeleteRecordByElement
 						DCR Cache Delete Functions:DCR_DeleteRecordByElement
@@ -341,7 +341,7 @@ EXIT_FUNCTION:
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_DeleteRecordByOffset
 						DCR Cache Delete Functions:DCR_DeleteRecordByOffset
@@ -482,7 +482,7 @@ char          *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_DeleteRecordByKey
 						DCR Cache Delete Functions:DCR_DeleteRecordByKey

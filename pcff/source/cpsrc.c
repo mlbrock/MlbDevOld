@@ -16,7 +16,7 @@
 	Revision History	:	1999-11-03 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1999 - 2016.
+		Copyright Michael L. Brock 1999 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -88,7 +88,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1999 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1999 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	PCFF_CopySrc
 						Copy Functions:Parse Configuration File Facility Functions:PCFF_CopySrc
@@ -197,7 +197,7 @@ int PCFF_CopySrc(const PCFF_SRC *in_ptr, PCFF_SRC *out_ptr, char *error_text)
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1999 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1999 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	PCFF_CopySrcList
 						Copy Functions:Parse Configuration File Facility Functions:PCFF_CopySrcList

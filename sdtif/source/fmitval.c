@@ -17,7 +17,7 @@
 	Revision History	:	1985-10-31 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1985 - 2016.
+		Copyright Michael L. Brock 1985 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -100,7 +100,7 @@
 
 	AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT   :  Copyright 1985 - 2016 Michael L. Brock
+	COPYRIGHT   :  Copyright 1985 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_FormatInterval_timeval
 						Date/Time Functions:SDTIF_FormatInterval_timeval

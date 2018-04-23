@@ -16,7 +16,7 @@
 	Revision History	:	1996-04-06 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2016.
+		Copyright Michael L. Brock 1996 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -228,7 +228,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_D_BritishNumberTextCount =
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	get_double_text
 						Numeric Formatting Functions:get_double_text
@@ -342,7 +342,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	get_double_text_basic
 						Numeric Formatting Functions:get_double_text_basic
@@ -435,7 +435,7 @@ char                        *out_string;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1996 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1996 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	drop_double_text_zeroes
 						Numeric Formatting Functions:drop_double_text_zeroes

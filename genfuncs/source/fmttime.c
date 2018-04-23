@@ -17,7 +17,7 @@
 	Revision History	:	1991-10-31 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1991 - 2016.
+		Copyright Michael L. Brock 1991 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -86,7 +86,7 @@
 
    AUTHOR      : 	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_time_t
 						Date/Time Functions:GEN_Format_time_t
@@ -201,7 +201,7 @@ char         *buffer;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_time_t_GMT
 						Date/Time Functions:GEN_Format_time_t_GMT
@@ -315,7 +315,7 @@ char         *buffer;
 
    AUTHOR      : 	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_tm
 						Date/Time Functions:GEN_Format_tm
@@ -432,7 +432,7 @@ char            *buffer;
 
    AUTHOR      : 	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_tm_GMT
 						Date/Time Functions:GEN_Format_tm_GMT
@@ -552,7 +552,7 @@ char            *buffer;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_timeval
 						Date/Time Functions:GEN_Format_timeval
@@ -689,7 +689,7 @@ char                 *buffer;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_timeval_GMT
 						Date/Time Functions:GEN_Format_timeval_GMT
@@ -826,7 +826,7 @@ char                 *buffer;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_timespec
 						Date/Time Functions:GEN_Format_timespec
@@ -969,7 +969,7 @@ char                  *buffer;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_timespec_GMT
 						Date/Time Functions:GEN_Format_timespec_GMT
@@ -1113,7 +1113,7 @@ char                  *buffer;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_ulong_time
 						Date/Time Functions:GEN_Format_ulong_time
@@ -1225,7 +1225,7 @@ char                *buffer;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_Format_ulong_time_GMT
 						Date/Time Functions:GEN_Format_ulong_time_GMT

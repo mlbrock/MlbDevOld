@@ -13,7 +13,7 @@
 #                   2015-04-02 --- Modified for use with MASCaPS Version 3.
 #                       Michael L. Brock
 #
-#       Copyright Michael L. Brock 1993 - 2016.
+#       Copyright Michael L. Brock 1993 - 2018.
 #
 #       Distributed under the Boost Software License, Version 1.0.
 #       (See accompanying file LICENSE_1_0.txt or copy at

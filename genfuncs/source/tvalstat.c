@@ -17,7 +17,7 @@
 	Revision History	:	1995-12-30 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2016.
+		Copyright Michael L. Brock 1995 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -70,7 +70,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_TVAL_STAT_Init
 						Statistics Gathering Functions:GEN_TVAL_STAT_Init
@@ -144,7 +144,7 @@ GEN_TVAL_STAT *stat_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_TVAL_STAT_StartTime
 						Statistics Gathering Functions:GEN_TVAL_STAT_StartTime
@@ -212,7 +212,7 @@ GEN_TVAL_STAT *stat_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_TVAL_STAT_EndTime
 						Statistics Gathering Functions:GEN_TVAL_STAT_EndTime
@@ -293,7 +293,7 @@ unsigned long  item_count;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_TVAL_STAT_EndTimeSpecified
 						Statistics Gathering Functions:GEN_TVAL_STAT_EndTimeSpecified
@@ -393,7 +393,7 @@ const struct timeval *last_end;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_TVAL_STAT_GetLastAverage
 						Statistics Gathering Functions:GEN_TVAL_STAT_GetLastAverage
@@ -466,7 +466,7 @@ struct timeval      *average_interval;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_TVAL_STAT_GetTotalAverage
 						Statistics Gathering Functions:GEN_TVAL_STAT_GetTotalAverage
@@ -539,7 +539,7 @@ struct timeval      *average_interval;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_TVAL_STAT_GetSampleAverage
 						Statistics Gathering Functions:GEN_TVAL_STAT_GetSampleAverage

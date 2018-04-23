@@ -17,7 +17,7 @@
 	Revision History	:	1992-02-27 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2016.
+		Copyright Michael L. Brock 1992 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -109,7 +109,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_AlignList
 						Emit Functions:GEN_EMIT_AlignList
@@ -214,7 +214,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_AlignListIdx
 						Emit Functions:GEN_EMIT_AlignListIdx
@@ -321,7 +321,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_Align
 						Emit Functions:GEN_EMIT_Align
@@ -414,7 +414,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_AlignHeader
 						Emit Functions:GEN_EMIT_AlignHeader
@@ -506,7 +506,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1992 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1992 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_EMIT_AlignTrailer
 						Emit Functions:GEN_EMIT_AlignTrailer

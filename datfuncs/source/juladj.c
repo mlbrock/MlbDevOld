@@ -16,7 +16,7 @@
 	Revision History	:	1994-12-08 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2016.
+		Copyright Michael L. Brock 1994 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -64,7 +64,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	jul_GMTToLocal
 						Date Functions:Date/Time Adjustment Functions:jul_GMTToLocal
@@ -132,7 +132,7 @@ JULIAN in_julian;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	jul_AdjustHours
 						Date Functions:Date/Time Adjustment Functions:jul_AdjustHours
@@ -202,7 +202,7 @@ long   adj_hours;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	jul_AdjustMinutes
 						Date Functions:Date/Time Adjustment Functions:jul_AdjustMinutes
@@ -272,7 +272,7 @@ long   adj_minutes;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	jul_AdjustSeconds
 						Date Functions:Date/Time Adjustment Functions:jul_AdjustSeconds
@@ -343,7 +343,7 @@ long   adj_seconds;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	jul_AdjustMilliseconds
 						Date Functions:Date/Time Adjustment Functions:jul_AdjustMilliseconds

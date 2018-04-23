@@ -17,7 +17,7 @@
 	Revision History	:	1987-03-11 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1987 - 2016.
+		Copyright Michael L. Brock 1987 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -61,7 +61,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1987 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1987 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DLLS_TRUE
 						DLLS_FALSE
@@ -124,7 +124,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1987 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1987 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DLLS_SUCCESS
 						DLLS_FAILURE
@@ -203,7 +203,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1987 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1987 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DLLS_MAX_ERROR_TEXT
 						DLLS Manifest Constants:DLLS_MAX_ERROR_TEXT

@@ -17,7 +17,7 @@
 	Revision History	:	1993-10-02 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2016.
+		Copyright Michael L. Brock 1993 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -133,7 +133,7 @@ static const char   *STRFUNCS_RadixCharList  =
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str
 						Miscellaneous Functions:val2str
@@ -249,7 +249,7 @@ char          *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_cat
 						Miscellaneous Functions:val2str_cat
@@ -379,7 +379,7 @@ char          *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_basic
 						Miscellaneous Functions:val2str_basic
@@ -560,7 +560,7 @@ char          *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_basic_cat
 						Miscellaneous Functions:val2str_basic_cat
@@ -667,7 +667,7 @@ char          *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_ulong
 						Miscellaneous Functions:val2str_ulong
@@ -767,7 +767,7 @@ char          *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_ulong_cat
 						Miscellaneous Functions:val2str_ulong_cat
@@ -867,7 +867,7 @@ char          *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_slong
 						Miscellaneous Functions:val2str_slong
@@ -968,7 +968,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_slong_cat
 						Miscellaneous Functions:val2str_slong_cat
@@ -1069,7 +1069,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_uint
 						Miscellaneous Functions:val2str_uint
@@ -1169,7 +1169,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_uint_cat
 						Miscellaneous Functions:val2str_uint_cat
@@ -1269,7 +1269,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_sint
 						Miscellaneous Functions:val2str_sint
@@ -1370,7 +1370,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_sint_cat
 						Miscellaneous Functions:val2str_sint_cat
@@ -1777,7 +1777,7 @@ EXIT_FUNCTION:
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_double_basic
 						Miscellaneous Functions:val2str_double_basic
@@ -1960,7 +1960,7 @@ char          *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_double_basic_cat
 						Miscellaneous Functions:val2str_double_basic_cat
@@ -2064,7 +2064,7 @@ char          *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_double
 						Miscellaneous Functions:val2str_double
@@ -2164,7 +2164,7 @@ char          *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	val2str_double_cat
 						Miscellaneous Functions:val2str_double_cat

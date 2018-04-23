@@ -16,7 +16,7 @@
 	Revision History	:	1995-08-26 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2016.
+		Copyright Michael L. Brock 1995 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -90,7 +90,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_mem_init_jump
 						String Functions:BoyerMoore_mem_init_jump
@@ -183,7 +183,7 @@ unsigned int *jump_array;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_mem_init_match
 						String Functions:BoyerMoore_mem_init_match
@@ -306,7 +306,7 @@ unsigned int *match_array;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_mem_alloc_match
 						String Functions:BoyerMoore_mem_alloc_match
@@ -408,7 +408,7 @@ const void   *target_area;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_mem_search
 						String Functions:BoyerMoore_mem_search
@@ -547,7 +547,7 @@ const void   *target_area;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_mem_search_basic
 						String Functions:BoyerMoore_mem_search_basic

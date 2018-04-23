@@ -17,7 +17,7 @@
 	Revision History	:	1994-07-21 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2016.
+		Copyright Michael L. Brock 1994 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -161,7 +161,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_BasicGetNext
 						DCR Cache Get Functions:DCR_BasicGetNext
@@ -321,7 +321,7 @@ char         *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_GetNext
 						DCR Cache Get Functions:DCR_GetNext

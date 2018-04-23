@@ -17,7 +17,7 @@
 	Revision History	:	1991-10-10 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1991 - 2016.
+		Copyright Michael L. Brock 1991 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -124,7 +124,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  strln_delete
 						String List Functions:strln_delete

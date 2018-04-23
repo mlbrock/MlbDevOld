@@ -16,7 +16,7 @@
 	Revision History	:	1995-08-07 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2016.
+		Copyright Michael L. Brock 1995 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -106,7 +106,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	str_bdigit
 						Character Class Functions:Binary Digit Character Class Functions:str_bdigit
@@ -215,7 +215,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	strr_bdigit
 						Character Class Functions:Binary Digit Character Class Functions:strr_bdigit
@@ -329,7 +329,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	idx_bdigit
 						Character Class Functions:Binary Digit Character Class Functions:idx_bdigit
@@ -436,7 +436,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	idxr_bdigit
 						Character Class Functions:Binary Digit Character Class Functions:idxr_bdigit
@@ -535,7 +535,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	cnt_bdigit
 						Character Class Functions:Binary Digit Character Class Functions:cnt_bdigit
@@ -644,7 +644,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	cvt_bdigit
 						Character Class Functions:Binary Digit Character Class Functions:cvt_bdigit

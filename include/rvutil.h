@@ -16,7 +16,7 @@
 	Revision History	:	1996-01-02 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2016.
+		Copyright Michael L. Brock 1996 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -63,7 +63,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  RVUTIL_TRUE
 						RVUTIL_FALSE
@@ -142,7 +142,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  RVUTIL_SUCCESS
 						RVUTIL_FAILURE
@@ -256,7 +256,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  RVUTIL_MAX_ERROR_TEXT
 						RVUTIL Manifest Constants:RVUTIL_MAX_ERROR_TEXT

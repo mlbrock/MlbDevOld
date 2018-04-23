@@ -16,7 +16,7 @@
 	Revision History	:	1991-08-22 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1991 - 2016.
+		Copyright Michael L. Brock 1991 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -110,7 +110,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  mema_remove
 						Memory Array Functions:mema_remove
@@ -218,7 +218,7 @@ unsigned int   element_count;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  mema_remove_all
 						Memory Array Functions:mema_remove_all
@@ -326,7 +326,7 @@ void         **data_list;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1991 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1991 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  memadel
 						Memory Array Functions:memadel

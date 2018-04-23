@@ -16,7 +16,7 @@
 	Revision History	:	1993-06-09 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2016.
+		Copyright Michael L. Brock 1993 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -510,7 +510,7 @@ void NPSL_GetErrorList(unsigned int *out_count, const GEN_ERROR_SPEC **out_list)
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	NPSL_AppendErrorString
 						Error Description Functions:NPSL_AppendErrorString
@@ -602,7 +602,7 @@ char *NPSL_AppendErrorString(int errno_code, int long_flag,
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	NPSL_AppendLastErrorString
 						Error Description Functions:NPSL_AppendLastErrorString
@@ -700,7 +700,7 @@ char *NPSL_AppendLastErrorString(int long_flag, unsigned int max_text,
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	NPSL_GetErrorString
 						Error Description Functions:NPSL_GetErrorString
@@ -814,7 +814,7 @@ char *NPSL_GetErrorString(int errno_code, int long_flag, unsigned int max_text,
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	NPSL_GetLastErrorString
 						Error Description Functions:NPSL_GetLastErrorString
@@ -883,7 +883,7 @@ char *NPSL_GetLastErrorString(int long_flag, unsigned int max_text,
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	NPSL_GetErrorPtr
 						Error Description Functions:NPSL_GetErrorPtr
@@ -949,7 +949,7 @@ const GEN_ERROR_SPEC *NPSL_GetErrorPtr(int errno_code)
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	NPSL_GetLastErrorPtr
 						Error Description Functions:NPSL_GetLastErrorPtr
