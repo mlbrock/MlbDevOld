@@ -16,7 +16,7 @@
 	Revision History	:	1986-10-27 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1986 - 2016.
+		Copyright Michael L. Brock 1986 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -101,7 +101,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	str_punct
 						Character Class Functions:Punctuation Character Class Functions:str_punct
@@ -205,7 +205,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	strr_punct
 						Character Class Functions:Punctuation Character Class Functions:strr_punct
@@ -314,7 +314,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	idx_punct
 						Character Class Functions:Punctuation Character Class Functions:idx_punct
@@ -416,7 +416,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	idxr_punct
 						Character Class Functions:Punctuation Character Class Functions:idxr_punct
@@ -510,7 +510,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	cnt_punct
 						Character Class Functions:Punctuation Character Class Functions:cnt_punct
@@ -614,7 +614,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	cvt_punct
 						Character Class Functions:Punctuation Character Class Functions:cvt_punct

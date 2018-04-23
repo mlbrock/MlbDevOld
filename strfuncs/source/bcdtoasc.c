@@ -17,7 +17,7 @@
 	Revision History	:	1993-07-08 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2016.
+		Copyright Michael L. Brock 1993 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -72,7 +72,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	bcdtoasc
 						ASCII/BCD Conversion Functions:bcdtoasc
@@ -180,7 +180,7 @@ char       *out_ascii_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	bcdtoasc_basic
 						ASCII/BCD Conversion Functions:bcdtoasc_basic
@@ -303,7 +303,7 @@ char         *out_ascii_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1993 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	bcdtoasc_basic_mem
 						ASCII/BCD Conversion Functions:bcdtoasc_basic_mem

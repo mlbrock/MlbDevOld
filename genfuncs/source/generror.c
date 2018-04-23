@@ -16,7 +16,7 @@
 	Revision History	:	1992-06-09 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2016.
+		Copyright Michael L. Brock 1992 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -3143,7 +3143,7 @@ const GEN_ERROR_SPEC **out_list;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_GetErrorPtr
 						Error Description Functions:GEN_GetErrorPtr
@@ -3215,7 +3215,7 @@ int errno_code;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_GetLastErrorPtr
 						Error Description Functions:GEN_GetLastErrorPtr
@@ -3311,7 +3311,7 @@ const GEN_ERROR_SPEC *GEN_GetLastErrorPtr()
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_AppendErrorString
 						Error Description Functions:GEN_AppendErrorString
@@ -3411,7 +3411,7 @@ char         *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_AppendLastErrorString
 						Error Description Functions:GEN_AppendLastErrorString
@@ -3511,7 +3511,7 @@ char         *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_GetErrorString
 						Error Description Functions:GEN_GetErrorString
@@ -3630,7 +3630,7 @@ char         *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_GetLastErrorString
 						Error Description Functions:GEN_GetLastErrorString
@@ -5404,7 +5404,7 @@ const GEN_ERROR_SPEC **out_list;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_GetErrorPtr_Win32
 						Error Description Functions:GEN_GetErrorPtr_Win32
@@ -5479,7 +5479,7 @@ int win32_code;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_GetLastErrorPtr_Win32
 						Error Description Functions:GEN_GetLastErrorPtr_Win32
@@ -5563,7 +5563,7 @@ const GEN_ERROR_SPEC *GEN_GetLastErrorPtr_Win32()
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_AppendErrorString_Win32
 						Error Description Functions:GEN_AppendErrorString_Win32
@@ -5651,7 +5651,7 @@ char         *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_AppendLastErrorString_Win32
 						Error Description Functions:GEN_AppendLastErrorString_Win32
@@ -5740,7 +5740,7 @@ char         *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_GetErrorString_Win32
 						Error Description Functions:GEN_GetErrorString_Win32
@@ -5847,7 +5847,7 @@ char         *error_text;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_GetLastErrorString_Win32
 						Error Description Functions:GEN_GetLastErrorString_Win32

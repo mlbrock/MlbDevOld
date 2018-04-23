@@ -16,7 +16,7 @@
 	Revision History	:	1994-03-12 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2016.
+		Copyright Michael L. Brock 1994 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -112,7 +112,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	DCR_VERSION_MAJOR
 						DCR_VERSION_MINOR
@@ -175,7 +175,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DCR_TRUE
 						DCR_FALSE
@@ -241,7 +241,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DCR_SUCCESS
 						DCR_FAILURE
@@ -326,7 +326,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DCR_MAX_ERROR_TEXT
 						Macros and Manifest Constants:DCR_MAX_ERROR_TEXT
@@ -378,7 +378,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	DCR_MAX_TINY_NAME
 						DCR_MAX_SHORT_NAME
@@ -498,7 +498,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	DCR_MAX_COLL_SPEC_NAME
 						DCR_MAX_PRIMITIVE_TYPE
@@ -621,7 +621,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	DCR_MAP_TRUTH_STR_TO_DCR
 						DCR_MAP_TRUTH_GEN_TO_DCR
@@ -706,7 +706,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	DCR_MAP_ERROR_STR_TO_DCR
 						DCR_MAP_ERROR_GEN_TO_DCR
@@ -848,7 +848,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DCR_COMPARE_TYPE_EQ
 						DCR_COMPARE_TYPE_GE
@@ -921,7 +921,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DCR_FIND_TOP
 						DCR_FIND_BOTTOM
@@ -969,7 +969,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DCR_RECORD_FLAG_ALL
 						DCR_RECORD_FLAG_KEPT
@@ -1043,7 +1043,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DCR_GET_LIST_TYPE_RECORD
 						DCR_GET_LIST_TYPE_FULL

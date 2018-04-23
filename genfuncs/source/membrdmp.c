@@ -16,7 +16,7 @@
 	Revision History	:	1993-12-09 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2016.
+		Copyright Michael L. Brock 1993 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -140,7 +140,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_DMP_MemberHeader
 						Dump Functions:GEN_MEMBER_DMP_MemberHeader
@@ -301,7 +301,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_DMP_MemberTrailer
 						Dump Functions:GEN_MEMBER_DMP_MemberTrailer
@@ -650,7 +650,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_DMP_DumpText
 						Dump Functions:GEN_MEMBER_DMP_DumpText
@@ -1050,7 +1050,7 @@ EXIT_FUNCTION:
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_DMP_DumpTextIndirect
 						Dump Functions:GEN_MEMBER_DMP_DumpTextIndirect
@@ -1421,7 +1421,7 @@ EXIT_FUNCTION:
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_DMP_DumpTextBasic
 						Dump Functions:GEN_MEMBER_DMP_DumpTextBasic
@@ -1715,7 +1715,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_DMP_DumpRecord
 						Cache Functions:GEN_MEMBER_DMP_DumpRecord
@@ -1912,7 +1912,7 @@ void                  *output_control;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	GEN_MEMBER_DMP_DumpField
 						Dump Functions:GEN_MEMBER_DMP_DumpField

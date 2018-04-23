@@ -17,7 +17,7 @@
 	Revision History	:	1996-04-11 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2016.
+		Copyright Michael L. Brock 1996 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -91,7 +91,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	SIIDR_CheckData
 						Check Structure Functions:SIIDR_CheckData
@@ -179,7 +179,7 @@ int SIIDR_CheckData(SIIDR *siidr_ptr, char  *error_text)
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	SIIDR_CheckDataRaw
 						Check Structure Functions:SIIDR_CheckDataRaw

@@ -16,7 +16,7 @@
 	Revision History	:	1993-07-11 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2016.
+		Copyright Michael L. Brock 1993 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -114,7 +114,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1993 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1993 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	DBC_Open
 						Database Functions:Connection Functions:DBC_Open

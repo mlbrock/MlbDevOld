@@ -16,7 +16,7 @@
 	Revision History	:	1992-10-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2016.
+		Copyright Michael L. Brock 1992 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -179,7 +179,7 @@ int signal_number;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidArea
 						Memory Validity Functions:GEN_VPTR_IsValidArea
@@ -451,7 +451,7 @@ void         **failure_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidBoundary
 						Memory Validity Functions:GEN_VPTR_IsValidBoundary
@@ -559,7 +559,7 @@ void         **failure_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidPointer
 						Memory Validity Functions:GEN_VPTR_IsValidPointer
@@ -679,7 +679,7 @@ void **failure_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidSections
 						Memory Validity Functions:GEN_VPTR_IsValidSections
@@ -809,7 +809,7 @@ void         **failure_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidString
 						Memory Validity Functions:GEN_VPTR_IsValidString

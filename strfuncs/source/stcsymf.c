@@ -17,7 +17,7 @@
 	Revision History	:	1986-10-27 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1986 - 2016.
+		Copyright Michael L. Brock 1986 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -109,7 +109,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	str_csymf
 						Character Class Functions:C Symbol (First) Character Class Functions:str_csymf
@@ -219,7 +219,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	strr_csymf
 						Character Class Functions:C Symbol (First) Character Class Functions:strr_csymf
@@ -335,7 +335,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	idx_csymf
 						Character Class Functions:C Symbol (First) Character Class Functions:idx_csymf
@@ -443,7 +443,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	idxr_csymf
 						Character Class Functions:C Symbol (First) Character Class Functions:idxr_csymf
@@ -543,7 +543,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	cnt_csymf
 						Character Class Functions:C Symbol (First) Character Class Functions:cnt_csymf
@@ -653,7 +653,7 @@ int         sense_flag;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	cvt_csymf
 						Character Class Functions:C Symbol (First) Character Class Functions:cvt_csymf

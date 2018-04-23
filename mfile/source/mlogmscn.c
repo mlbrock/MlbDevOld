@@ -17,7 +17,7 @@
 	Revision History	:	1994-10-31 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2016.
+		Copyright Michael L. Brock 1994 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -160,7 +160,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_LogMessageContext
 						Memory-mapped File Functions:Logging Functions:MFILE_LogMessageContext
@@ -346,7 +346,7 @@ log_context_ptr->file_ptr    = NULL;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_InitLogContext
 						Memory-mapped File Functions:Logging Functions:MFILE_InitLogContext
@@ -417,7 +417,7 @@ MFILE_LOG_CONTEXT *log_context_ptr;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_LogEnsureSpace
 						Memory-mapped File Functions:Logging Functions:MFILE_LogEnsureSpace
@@ -515,7 +515,7 @@ MFILE *mfile_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepStartLogContext
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepStartLogContext
@@ -617,7 +617,7 @@ MFILE_LOG_CONTEXT *log_context_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepEndLogContext
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepEndLogContext
@@ -721,7 +721,7 @@ MFILE_LOG_CONTEXT *log_context_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepHyphenCharContext
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepHyphenCharContext
@@ -801,7 +801,7 @@ MFILE_LOG_CONTEXT *log_context_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepEqualCharContext
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepEqualCharContext
@@ -883,7 +883,7 @@ MFILE_LOG_CONTEXT *log_context_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepCharContext
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepCharContext
@@ -980,7 +980,7 @@ int                log_char;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_LogSepStringContext
 						Memory-mapped File Functions:Logging Functions:MFILE_LogSepStringContext
@@ -1095,7 +1095,7 @@ const char        *log_string;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_ShowExecTime
 						Memory-mapped File Functions:Logging Functions:MFILE_ShowExecTime
@@ -1246,7 +1246,7 @@ MFILE_LOG_CONTEXT    *log_context_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	MFILE_ShowExecRUsage
 						Memory-mapped File Functions:Logging Functions:MFILE_ShowExecRUsage

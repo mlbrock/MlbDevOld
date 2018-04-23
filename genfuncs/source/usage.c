@@ -17,7 +17,7 @@
 	Revision History	:	1991-04-03 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1991 - 2016.
+		Copyright Michael L. Brock 1991 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -107,7 +107,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1991 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1991 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_DoSimpleUsage
 						Usage Text Formatting Functions:GEN_DoSimpleUsage
@@ -202,7 +202,7 @@ const char *usage_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1991 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1991 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_DoUsage
 						Usage Text Formatting Functions:GEN_DoUsage
@@ -322,7 +322,7 @@ char       **usage_string_list;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1991 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1991 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_DoFormatUsage
 						Usage Text Formatting Functions:GEN_DoFormatUsage

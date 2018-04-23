@@ -16,7 +16,7 @@
 	Revision History	:	1994-07-03 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2016.
+		Copyright Michael L. Brock 1994 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -96,7 +96,7 @@
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  GEN_ArgParse
 						Argument Parsing Functions:GEN_ArgParse
@@ -212,7 +212,7 @@ va_dcl
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  GEN_ArgParseList
 						Argument Parsing Functions:GEN_ArgParseList
@@ -377,7 +377,7 @@ char         **out_data_ptr;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  GEN_ArgParseTruth
 						Argument Parsing Functions:GEN_ArgParseTruth
@@ -576,7 +576,7 @@ va_dcl
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1994 - 2016 Michael L. Brock
+   COPYRIGHT   :  Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  GEN_ArgParseListTruth
 						Argument Parsing Functions:GEN_ArgParseListTruth

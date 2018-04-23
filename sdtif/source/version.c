@@ -16,7 +16,7 @@
 	Revision History	:	1996-03-11 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2016.
+		Copyright Michael L. Brock 1996 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -82,7 +82,7 @@ COMPAT_FN_DECL_STATIC(STR_VERSION *SDTIF_GetVersion,
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_GetVersionNumber
 						Miscellaneous Functions:SDTIF_GetVersionNumber
@@ -173,7 +173,7 @@ unsigned int *build;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_GetVersionString
 						Miscellaneous Functions:SDTIF_GetVersionString
@@ -230,7 +230,7 @@ char *version_string;
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
 
    OUTPUT INDEX:	SDTIF_GetVersion
 						Miscellaneous Functions:SDTIF_GetVersion

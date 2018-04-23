@@ -16,7 +16,7 @@
 	Revision History	:	1985-11-10 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1985 - 2016.
+		Copyright Michael L. Brock 1985 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -75,7 +75,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_Compare_tm
 						Date/Time Functions:SDTIF_Compare_tm
@@ -165,7 +165,7 @@ const struct tm *time_ptr_2;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1985 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1985 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	SDTIF_SCompare_tm
 						Date/Time Functions:SDTIF_SCompare_tm

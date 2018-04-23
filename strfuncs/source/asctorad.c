@@ -16,7 +16,7 @@
 	Revision History	:	1990-06-04 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1990 - 2016.
+		Copyright Michael L. Brock 1990 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -89,7 +89,7 @@ COMPAT_EXTERN_DATA_DECL unsigned char RADIX50_AsciiTable[];
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_asctorad
 						STRFUNCS:RADIX-50 Functions:RADIX50_asctorad
@@ -176,7 +176,7 @@ RADIX50_ITEM *out_rad;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_asctorad_basic
 						STRFUNCS:RADIX-50 Functions:RADIX50_asctorad_basic

@@ -17,7 +17,7 @@
 	Revision History	:	1994-05-07 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2016.
+		Copyright Michael L. Brock 1994 - 2018.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -201,7 +201,7 @@ static int DCR_BSearchIndirect();
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
 	OUTPUT INDEX:	DCR_FindIndirect
 						DCR Cache Find Functions:DCR_FindIndirect
@@ -372,7 +372,7 @@ unsigned long *out_record_offset;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2016 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
 
    OUTPUT INDEX:  DCR_BSearchIndirect
 						DCR Cache Functions:DCR_BSearchIndirect
