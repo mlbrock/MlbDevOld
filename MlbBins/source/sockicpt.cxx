@@ -857,8 +857,8 @@ class SOCKICPT_Control {
 			return(log_detail_flag_);
 		}
 #ifdef __GNUC__
-		int LogDetail(const char *in_format, ...);
-			__attribute__ ((format (printf, 1, 2))) const {
+		int LogDetail(const char *in_format, ...) const
+			__attribute__ ((format (printf, 2, 3))) {
 #else
 		int LogDetail(const char *in_format, ...) const {
 #endif /* #ifdef __GNUC__ */
