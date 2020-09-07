@@ -160,23 +160,23 @@ class MLogO {
 			Do logging with a variable argument list . . .
 			***********************************************************	*/
 #ifdef __GNUC__
-		int LogDebug(const char *in_format, ...);
-			__attribute__ ((format (printf, 1, 2))) const;
-		int LogErr(const char *in_format, ...);
-			__attribute__ ((format (printf, 1, 2))) const;
-		int LogInfo(const char *in_format, ...)
-			__attribute__ ((format (printf, 1, 2))) const;
-		int LogWarn(const char *in_format, ...)
-			__attribute__ ((format (printf, 1, 2))) const;
-		int LogPDebug(const char *in_format, ...)
-			__attribute__ ((format (printf, 1, 2))) const;
-		int LogIf(int if_value, const char *in_format, ...)
-			__attribute__ ((format (printf, 2, 3))) const;
+		int LogDebug(const char *in_format, ...) const
+			__attribute__ ((format (printf, 2, 3)));
+		int LogErr(const char *in_format, ...) const
+			__attribute__ ((format (printf, 2, 3)));
+		int LogInfo(const char *in_format, ...) const
+			__attribute__ ((format (printf, 2, 3)));
+		int LogWarn(const char *in_format, ...) const
+			__attribute__ ((format (printf, 2, 3)));
+		int LogPDebug(const char *in_format, ...) const
+			__attribute__ ((format (printf, 2, 3)));
+		int LogIf(int if_value, const char *in_format, ...) const
+			__attribute__ ((format (printf, 3, 4)));
 		int LogBasic(const struct timeval *in_time, MLOG_PRIORITY log_priority,
 			const char *user_string, MLOG_FLAG flags, MLOG_PRIORITY mfile_mask,
 			MLOG_PRIORITY file_mask, MLOG_PRIORITY syslog_mask,
-			const char *in_format, ...)
-			__attribute__ ((format (printf, 8, 9))) const;
+			const char *in_format, ...) const
+			__attribute__ ((format (printf, 9, 10)));
 #else
 		int LogDebug(const char *in_format, ...) const;
 		int LogErr(const char *in_format, ...) const;
@@ -213,23 +213,23 @@ class MLogO {
 			***********************************************************	*/
 #ifdef __GNUC__
 		int LogDebugTime(const struct timeval *in_time,
-			const char *in_format, ...)
-			__attribute__ ((format (printf, 2, 3))) const;
+			const char *in_format, ...) const
+			__attribute__ ((format (printf, 3, 4)));
 		int LogErrTime(const struct timeval *in_time,
-			const char *in_format, ...)
-			__attribute__ ((format (printf, 2, 3))) const;
+			const char *in_format, ...) const
+			__attribute__ ((format (printf, 3, 4)));
 		int LogInfoTime(const struct timeval *in_time,
-			const char *in_format, ...)
-			__attribute__ ((format (printf, 2, 3))) const;
+			const char *in_format, ...) const
+			__attribute__ ((format (printf, 3, 4)));
 		int LogWarnTime(const struct timeval *in_time,
-			const char *in_format, ...)
-			__attribute__ ((format (printf, 2, 3))) const;
+			const char *in_format, ...) const
+			__attribute__ ((format (printf, 3, 4)));
 		int LogPDebugTime(const struct timeval *in_time,
-			const char *in_format, ...)
-			__attribute__ ((format (printf, 2, 3))) const;
+			const char *in_format, ...) const
+			__attribute__ ((format (printf, 3, 4)));
 		int LogIfTime(int if_value, const struct timeval *in_time,
-			const char *in_format, ...)
-			__attribute__ ((format (printf, 3, 4))) const;
+			const char *in_format, ...) const
+			__attribute__ ((format (printf, 4, 5)));
 #else
 		int LogDebugTime(const struct timeval *in_time,
 			const char *in_format, ...) const;
