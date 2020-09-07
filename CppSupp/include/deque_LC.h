@@ -122,10 +122,10 @@ template <class DataType, class LockType = MLB::CPPSupp::NullLock,
 		//	////////////////////////////////////////////////////////////////
 		// Some internal short names...
 		//	////////////////////////////////////////////////////////////////
-		typedef typename allocator_type                          AllocatorType;
-		typedef typename value_type                              ValueType;
-		typedef typename pointer                                 Pointer;
-		typedef typename const_pointer                           ConstPointer;
+		typedef allocator_type                                   AllocatorType;
+		typedef value_type                                       ValueType;
+		typedef pointer                                          Pointer;
+		typedef const_pointer                                    ConstPointer;
 		typedef typename BaseCollType::reference                 Ref;
 		typedef typename BaseCollType::const_reference           ConstRef;
 		typedef typename BaseCollType::size_type                 SizeType;
