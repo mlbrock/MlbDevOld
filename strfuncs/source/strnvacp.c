@@ -137,7 +137,7 @@ va_dcl
 	if ((tmp_ptr = ((char *) ((*target_string == NULL) ?
 		malloc(total_length * sizeof(char)) : realloc(*target_string,
 		total_length * sizeof(char))))) != NULL) {
-		va_end(*target_string);
+		va_end(argument_ptr);
 #ifndef NO_STDARGS
 		va_start(argument_ptr, string_length);
 #else
@@ -281,7 +281,7 @@ va_dcl
 	if ((tmp_ptr = ((char *) ((*target_string == NULL) ?
 		malloc(total_length * sizeof(char)) : realloc(*target_string,
 		total_length * sizeof(char))))) != NULL) {
-		va_end(*target_string);
+		va_end(argument_ptr);
 #ifndef NO_STDARGS
 		va_start(argument_ptr, right_padding);
 #else
