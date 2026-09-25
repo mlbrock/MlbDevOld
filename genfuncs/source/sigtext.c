@@ -333,402 +333,19 @@ static const unsigned int GENFUNCS_SignalCount =
 
 EOH */
 /* *********************************************************************** */
-#ifdef __MSDOS__
+#ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
+/* ----------------------------------------------------------------------- */
 # ifndef NARGS
-char *GEN_GetSignalText(int signal_number, char *signal_text)
-# else
-char *GEN_GetSignalText(signal_number, signal_text)
-int   signal_number;
-char *signal_text;
-# endif /* #ifndef NARGS */
-{
-	unsigned int  count_1;
-	char         *signal_name_ptr = NULL;
-	const char   *signal_code_ptr = NULL;
-	const char   *signal_desc_ptr = NULL;
-	char          signal_name_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
-	char          number_buffer[STR_VAL2STR_MAX_LEN + 1];
-
-	*signal_text = '\0';
-
-	for (count_1 = 0; count_1 < GENFUNCS_SignalCount; count_1++) {
-		if (signal_number == GENFUNCS_SignalList[count_1].signal_number) {
-			signal_name_ptr = GENFUNCS_SignalList[count_1].signal_name;
-			signal_desc_ptr = GENFUNCS_SignalList[count_1].signal_description;
-			break;
-		}
-	}
-
-	if (signal_name_ptr == NULL)
-		strcat(strcat(strcpy(signal_name_ptr = signal_name_buffer,
-			"Invalid signal number encountered ("),
-			val2str(((unsigned long) signal_number), 0, 10, NULL,
-			number_buffer)), ")");
-
-	signal_code_ptr = (signal_code_ptr != NULL) ? signal_code_ptr : " ";
-	signal_desc_ptr = (signal_desc_ptr != NULL) ? signal_desc_ptr :
-		" *** UNABLE TO DESCRIBE SIGNAL ***";
-
-	return(trim(oneblank(strcat(strcat(strcpy(signal_text,
-		signal_name_ptr), signal_code_ptr), signal_desc_ptr))));
-}
-#elif _Windows
-# ifndef NARGS
-char *GEN_GetSignalText(int signal_number, char *signal_text)
-# else
-char *GEN_GetSignalText(signal_number, signal_text)
-int   signal_number;
-char *signal_text;
-# endif /* #ifndef NARGS */
-{
-	unsigned int  count_1;
-	char         *signal_name_ptr = NULL;
-	const char   *signal_code_ptr = NULL;
-	const char   *signal_desc_ptr = NULL;
-	char          signal_name_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
-	char          number_buffer[STR_VAL2STR_MAX_LEN + 1];
-
-	*signal_text = '\0';
-
-	for (count_1 = 0; count_1 < GENFUNCS_SignalCount; count_1++) {
-		if (signal_number == GENFUNCS_SignalList[count_1].signal_number) {
-			signal_name_ptr = GENFUNCS_SignalList[count_1].signal_name;
-			signal_desc_ptr = GENFUNCS_SignalList[count_1].signal_description;
-			break;
-		}
-	}
-
-	if (signal_name_ptr == NULL)
-		strcat(strcat(strcpy(signal_name_ptr = signal_name_buffer,
-			"Invalid signal number encountered ("),
-			val2str(((unsigned long) signal_number), 0, 10, NULL,
-			number_buffer)), ")");
-
-	signal_code_ptr = (signal_code_ptr != NULL) ? signal_code_ptr : " ";
-	signal_desc_ptr = (signal_desc_ptr != NULL) ? signal_desc_ptr :
-		" *** UNABLE TO DESCRIBE SIGNAL ***";
-
-	return(trim(oneblank(strcat(strcat(strcpy(signal_text,
-		signal_name_ptr), signal_code_ptr), signal_desc_ptr))));
-}
-#else
-# ifdef __SVR4
-#  ifndef NARGS
-char *GEN_GetSignalText(int signal_number, siginfo_t *siginfo_ptr,
-	void *signal_address, char *signal_text)
-#  else
-char *GEN_GetSignalText(signal_number, siginfo_ptr, signal_address,
-	signal_text)
-int        signal_number;
-siginfo_t *siginfo_ptr;
-void      *signal_address;
-char      *signal_text;
-#  endif /* #ifndef NARGS */
-{
-	unsigned int  count_1;
-	char         *signal_name_ptr = NULL;
-	const char   *signal_code_ptr = NULL;
-	const char   *signal_desc_ptr = NULL;
-	char         *signal_addr_ptr = NULL;
-	char          signal_name_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
-	char          signal_code_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
-	char          signal_desc_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
-	char          signal_addr_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
-	char          number_buffer[STR_VAL2STR_MAX_LEN + 1];
-
-	*signal_text = '\0';
-
-	for (count_1 = 0; count_1 < GENFUNCS_SignalCount; count_1++) {
-		if (signal_number == GENFUNCS_SignalList[count_1].signal_number) {
-			signal_name_ptr = GENFUNCS_SignalList[count_1].signal_name;
-			signal_desc_ptr = GENFUNCS_SignalList[count_1].signal_description;
-			break;
-		}
-	}
-
-	if (signal_name_ptr == NULL) {
-		if ((signal_number >= SIGRTMIN) && (signal_number <= SIGRTMAX)) {
-			strcat(strcpy(signal_name_ptr = signal_name_buffer, "SIGRTMIN+"),
-				val2str(((unsigned long) (signal_number - SIGRTMIN)), 0,
-				10, NULL, number_buffer));
-			strcat(ordinal_full(((unsigned long) (signal_number - SIGRTMIN)) + 1L,
-				signal_desc_ptr = signal_desc_buffer), " real time signal");
-			*signal_desc_ptr = STRFUNCS_toupper(*signal_desc_ptr);
-		}
-		else
-			strcat(strcat(strcpy(signal_name_ptr = signal_name_buffer,
-				"Invalid signal number encountered ("),
-				val2str(((unsigned long) signal_number), 0, 10, NULL,
-				number_buffer)), ")");
-	}
-	else {
-		switch (signal_number) {
-			case SIGILL		:
-				switch (siginfo_ptr->si_code) {
-					case ILL_ILLOPC				:
-						signal_code_ptr = " ILL_ILLOPC";
-						signal_desc_ptr = " illegal opcode";
-						break;
-					case ILL_ILLOPN				:
-						signal_code_ptr = " ILL_ILLOPN";
-						signal_desc_ptr = " illegal operand";
-						break;
-					case ILL_ILLADR				:
-						signal_code_ptr = " ILL_ILLADR";
-						signal_desc_ptr = " illegal addressng mode";
-						break;
-					case ILL_ILLTRP				:
-						signal_code_ptr = " ILL_ILLTRP";
-						signal_desc_ptr = " illegal trap";
-						break;
-					case ILL_PRVOPC				:
-						signal_code_ptr = " ILL_PRVOPC";
-						signal_desc_ptr = " privileged opcode";
-						break;
-					case ILL_PRVREG				:
-						signal_code_ptr = " ILL_PRVREG";
-						signal_desc_ptr = " priviledged register";
-						break;
-					case ILL_COPROC				:
-						signal_code_ptr = " ILL_COPROC";
-						signal_desc_ptr = " co-processor error";
-						break;
-					case ILL_BADSTK				:
-						signal_code_ptr = " ILL_BADSTK";
-						signal_desc_ptr = " internal stack error";
-						break;
-					default							:
-						strcat(strcpy(signal_code_buffer,
-							" UNKNOWN SIGILL SIGNAL CODE "),
-							val2str(((unsigned long) siginfo_ptr->si_code),
-							0, 10, NULL, number_buffer));
-						signal_code_ptr = signal_code_buffer;
-						signal_desc_ptr = " ";
-						break;
-				}
-				strcat(strcpy(signal_addr_ptr = signal_addr_buffer,
-					" at address 0X"),
-					val2str(((unsigned long) siginfo_ptr->si_addr), 0, 16,
-					NULL, number_buffer));
-				break;
-			case SIGTRAP	:
-				switch (siginfo_ptr->si_code) {
-					case TRAP_BRKPT			:
-						signal_code_ptr = " TRAP_BRKPT";
-						signal_desc_ptr = " process breakpoint";
-						break;
-					case TRAP_TRACE			:
-						signal_code_ptr = " TRAP_TRACE";
-						signal_desc_ptr = " process trace trap";
-						break;
-					default							:
-						strcat(strcpy(signal_code_buffer,
-							" UNKNOWN SIGTRAP SIGNAL CODE "),
-							val2str(((unsigned long) siginfo_ptr->si_code),
-							0, 10, NULL, number_buffer));
-						signal_code_ptr = signal_code_buffer;
-						signal_desc_ptr = " ";
-						break;
-				}
-				break;
-			case SIGFPE		:
-				switch (siginfo_ptr->si_code) {
-					case FPE_INTDIV				:
-						signal_code_ptr = " FPE_INTDIV";
-						signal_desc_ptr = " integer divide by zero";
-						break;
-					case FPE_INTOVF				:
-						signal_code_ptr = " FPE_INTOVF";
-						signal_desc_ptr = " integer overflow";
-						break;
-					case FPE_FLTDIV				:
-						signal_code_ptr = " FPE_FLTDIV";
-						signal_desc_ptr = " floating point division by zero";
-						break;
-					case FPE_FLTOVF				:
-						signal_code_ptr = " FPE_FLTOVF";
-						signal_desc_ptr = " floating point overflow";
-						break;
-					case FPE_FLTUND				:
-						signal_code_ptr = " FPE_FLTUND";
-						signal_desc_ptr = " floating point underflow";
-						break;
-					case FPE_FLTRES				:
-						signal_code_ptr = " FPE_FLTRES";
-						signal_desc_ptr = " floating point inexact result";
-						break;
-					case FPE_FLTINV				:
-						signal_code_ptr = " FPE_FLTINV";
-						signal_desc_ptr = " invalid floating point operation";
-						break;
-					case FPE_FLTSUB				:
-						signal_code_ptr = " FPE_FLTSUB";
-						signal_desc_ptr = " subscript out of range";
-						break;
-					default						:
-						strcat(strcpy(signal_code_buffer,
-							" UNKNOWN SIGFPE SIGNAL CODE "),
-							val2str(((unsigned long) siginfo_ptr->si_code),
-							0, 10, NULL, number_buffer));
-						signal_code_ptr = signal_code_buffer;
-						signal_desc_ptr = " ";
-						break;
-				}
-				strcat(strcpy(signal_addr_ptr = signal_addr_buffer,
-					" at address 0X"),
-					val2str(((unsigned long) siginfo_ptr->si_addr), 0, 16,
-					NULL, number_buffer));
-				break;
-			case SIGBUS		:
-				switch (siginfo_ptr->si_code) {
-					case BUS_ADRALN:
-						signal_code_ptr = " BUS_ADRALN";
-						signal_desc_ptr = " invalid address alignment";
-						break;
-					case BUS_ADRERR:
-						signal_code_ptr = " BUS_ADRERR";
-						signal_desc_ptr = " non-existent physical address";
-						break;
-					case BUS_OBJERR:
-						signal_code_ptr = " BUS_OBJERR";
-						signal_desc_ptr = " object specific hardware error";
-						break;
-					default			:
-						strcat(strcpy(signal_code_buffer,
-							" UNKNOWN SIGBUS SIGNAL CODE "),
-							val2str(((unsigned long) siginfo_ptr->si_code),
-							0, 10, NULL, number_buffer));
-						signal_code_ptr = signal_code_buffer;
-						signal_desc_ptr = " ";
-						break;
-				}
-				strcat(strcpy(signal_addr_ptr = signal_addr_buffer,
-					" at address 0X"),
-					val2str(((unsigned long) siginfo_ptr->si_addr), 0, 16,
-					NULL, number_buffer));
-				break;
-			case SIGSEGV	:
-				switch (siginfo_ptr->si_code) {
-					case SEGV_MAPERR	:
-						signal_code_ptr = " SEGV_MAPERR";
-						signal_desc_ptr = " address not mapped to object";
-						break;
-					case SEGV_ACCERR	:
-						signal_code_ptr = " SEGV_ACCERR";
-						signal_desc_ptr = " invalid permissions for mapped object";
-						break;
-					default:
-						strcat(strcpy(signal_code_buffer,
-							" UNKNOWN SIGSEGV SIGNAL CODE "),
-							val2str(((unsigned long) siginfo_ptr->si_code),
-							0, 10, NULL, number_buffer));
-						signal_code_ptr = signal_code_buffer;
-						signal_desc_ptr = " ";
-						break;
-				}
-				strcat(strcpy(signal_addr_ptr = signal_addr_buffer,
-					" at address 0X"),
-					val2str(((unsigned long) siginfo_ptr->si_addr), 0, 16,
-					NULL, number_buffer));
-				break;
-			case SIGCHLD	:
-				switch (siginfo_ptr->si_code) {
-					case CLD_EXITED		:
-						signal_code_ptr = " CLD_EXITED";
-						signal_desc_ptr = " child has exited";
-						break;
-					case CLD_KILLED		:
-						signal_code_ptr = " CLD_KILLED";
-						signal_desc_ptr = " child was killed";
-						break;
-					case CLD_DUMPED		:
-						signal_code_ptr = " CLD_DUMPED";
-						signal_desc_ptr = " child terminated abnormally";
-						break;
-					case CLD_TRAPPED		:
-						signal_code_ptr = " CLD_TRAPPED";
-						signal_desc_ptr = " trace child has trapped";
-						break;
-					case CLD_STOPPED		:
-						signal_code_ptr = " CLD_STOPPED";
-						signal_desc_ptr = " child has stopped";
-						break;
-					case CLD_CONTINUED	:
-						signal_code_ptr = " CLD_CONTINUED";
-						signal_desc_ptr = " stopped child had continued";
-						break;
-					default:
-						strcat(strcpy(signal_code_buffer,
-							" UNKNOWN SIGCHLD SIGNAL CODE "),
-							val2str(((unsigned long) siginfo_ptr->si_code),
-							0, 10, NULL, number_buffer));
-						signal_code_ptr = signal_code_buffer;
-						signal_desc_ptr = " ";
-						break;
-				}
-				break;
-			case SIGPOLL	:
-				switch (siginfo_ptr->si_code) {
-					case POLL_IN	:
-						signal_code_ptr = " POLL_IN";
-						signal_desc_ptr = " data input available";
-						break;
-					case POLL_OUT	:
-						signal_code_ptr = " POLL_OUT";
-						signal_desc_ptr = " output buffers available";
-						break;
-					case POLL_MSG	:
-						signal_code_ptr = " POLL_MSG";
-						signal_desc_ptr = " input message available";
-						break;
-					case POLL_ERR	:
-						signal_code_ptr = " POLL_ERR";
-						signal_desc_ptr = " I/O error";
-						break;
-					case POLL_PRI	:
-						signal_code_ptr = " POLL_PRI";
-						signal_desc_ptr = " high priority input available";
-						break;
-					case POLL_HUP	:
-						signal_code_ptr = " POLL_HUP";
-						signal_desc_ptr = " device disconnected";
-						break;
-					default:
-						strcat(strcpy(signal_code_buffer,
-							" UNKNOWN SIGIO/SIGPOLL SIGNAL CODE "),
-							val2str(((unsigned long) siginfo_ptr->si_code),
-							0, 10, NULL, number_buffer));
-						signal_code_ptr = signal_code_buffer;
-						signal_desc_ptr = " ";
-						break;
-				}
-				break;
-			default			:
-				break;
-		}
-	}
-
-	signal_code_ptr = (signal_code_ptr != NULL) ? signal_code_ptr : " ";
-	signal_desc_ptr = (signal_desc_ptr != NULL) ? signal_desc_ptr :
-		" *** UNABLE TO DESCRIBE SIGNAL ***";
-	signal_addr_ptr = (signal_addr_ptr != NULL) ? signal_addr_ptr : " ";
-
-	return(trim(oneblank(strcat(strcat(strcat(strcpy(signal_text,
-		signal_name_ptr), signal_code_ptr), signal_desc_ptr),
-		signal_addr_ptr))));
-}
-# else
-#  ifndef NARGS
 char *GEN_GetSignalText(int signal_number, int signal_code,
 	const void *signal_address, char *signal_text)
-#  else
+# else
 char *GEN_GetSignalText(signal_number, signal_code, signal_address,
 	signal_text)
 int         signal_number;
 int         signal_code;
 const void *signal_address;
 char       *signal_text;
-#  endif /* #ifndef NARGS */
+# endif /* # ifndef NARGS */
 {
 	unsigned int  count_1;
 	char         *signal_name_ptr = NULL;
@@ -1151,8 +768,356 @@ char       *signal_text;
 		signal_name_ptr), signal_code_ptr), signal_desc_ptr),
 		signal_addr_ptr))));
 }
-# endif /* # ifdef __SVR4 */
-#endif /* #ifdef __MSDOS__ */
+/* ----------------------------------------------------------------------- */
+#else  /* GENFUNCS_USE_SIG_HANDLER_GENERIC */
+# ifndef NARGS
+char *GEN_GetSignalText(int signal_number, char *signal_text)
+# else
+char *GEN_GetSignalText(signal_number, signal_text)
+int   signal_number;
+char *signal_text;
+# endif /* #ifndef NARGS */
+{
+	unsigned int  count_1;
+	char         *signal_name_ptr = NULL;
+	const char   *signal_code_ptr = NULL;
+	const char   *signal_desc_ptr = NULL;
+	char          signal_name_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
+	char          number_buffer[STR_VAL2STR_MAX_LEN + 1];
+
+	*signal_text = '\0';
+
+	for (count_1 = 0; count_1 < GENFUNCS_SignalCount; count_1++) {
+		if (signal_number == GENFUNCS_SignalList[count_1].signal_number) {
+			signal_name_ptr = GENFUNCS_SignalList[count_1].signal_name;
+			signal_desc_ptr = GENFUNCS_SignalList[count_1].signal_description;
+			break;
+		}
+	}
+
+	if (signal_name_ptr == NULL)
+		strcat(strcat(strcpy(signal_name_ptr = signal_name_buffer,
+			"Invalid signal number encountered ("),
+			val2str(((unsigned long) signal_number), 0, 10, NULL,
+			number_buffer)), ")");
+
+	signal_code_ptr = (signal_code_ptr != NULL) ? signal_code_ptr : " ";
+	signal_desc_ptr = (signal_desc_ptr != NULL) ? signal_desc_ptr :
+		" *** UNABLE TO DESCRIBE SIGNAL ***";
+
+	return(trim(oneblank(strcat(strcat(strcpy(signal_text,
+		signal_name_ptr), signal_code_ptr), signal_desc_ptr))));
+}
+/* ----------------------------------------------------------------------- */
+/*
+#ELSE sigaction() support:
+#  ifndef NARGS
+char *GEN_GetSignalText(int signal_number, siginfo_t *siginfo_ptr,
+	void *signal_address, char *signal_text)
+#  else
+char *GEN_GetSignalText(signal_number, siginfo_ptr, signal_address,
+	signal_text)
+int        signal_number;
+siginfo_t *siginfo_ptr;
+void      *signal_address;
+char      *signal_text;
+#  endif / * #ifndef NARGS * /
+{
+	unsigned int  count_1;
+	char         *signal_name_ptr = NULL;
+	const char   *signal_code_ptr = NULL;
+	const char   *signal_desc_ptr = NULL;
+	char         *signal_addr_ptr = NULL;
+	char          signal_name_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
+	char          signal_code_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
+	char          signal_desc_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
+	char          signal_addr_buffer[GENFUNCS_MAX_ERROR_TEXT / 4];
+	char          number_buffer[STR_VAL2STR_MAX_LEN + 1];
+
+	*signal_text = '\0';
+
+	for (count_1 = 0; count_1 < GENFUNCS_SignalCount; count_1++) {
+		if (signal_number == GENFUNCS_SignalList[count_1].signal_number) {
+			signal_name_ptr = GENFUNCS_SignalList[count_1].signal_name;
+			signal_desc_ptr = GENFUNCS_SignalList[count_1].signal_description;
+			break;
+		}
+	}
+
+	if (signal_name_ptr == NULL) {
+		if ((signal_number >= SIGRTMIN) && (signal_number <= SIGRTMAX)) {
+			strcat(strcpy(signal_name_ptr = signal_name_buffer, "SIGRTMIN+"),
+				val2str(((unsigned long) (signal_number - SIGRTMIN)), 0,
+				10, NULL, number_buffer));
+			strcat(ordinal_full(((unsigned long) (signal_number - SIGRTMIN)) + 1L,
+				signal_desc_ptr = signal_desc_buffer), " real time signal");
+			*signal_desc_ptr = STRFUNCS_toupper(*signal_desc_ptr);
+		}
+		else
+			strcat(strcat(strcpy(signal_name_ptr = signal_name_buffer,
+				"Invalid signal number encountered ("),
+				val2str(((unsigned long) signal_number), 0, 10, NULL,
+				number_buffer)), ")");
+	}
+	else {
+		switch (signal_number) {
+			case SIGILL		:
+				switch (siginfo_ptr->si_code) {
+					case ILL_ILLOPC				:
+						signal_code_ptr = " ILL_ILLOPC";
+						signal_desc_ptr = " illegal opcode";
+						break;
+					case ILL_ILLOPN				:
+						signal_code_ptr = " ILL_ILLOPN";
+						signal_desc_ptr = " illegal operand";
+						break;
+					case ILL_ILLADR				:
+						signal_code_ptr = " ILL_ILLADR";
+						signal_desc_ptr = " illegal addressng mode";
+						break;
+					case ILL_ILLTRP				:
+						signal_code_ptr = " ILL_ILLTRP";
+						signal_desc_ptr = " illegal trap";
+						break;
+					case ILL_PRVOPC				:
+						signal_code_ptr = " ILL_PRVOPC";
+						signal_desc_ptr = " privileged opcode";
+						break;
+					case ILL_PRVREG				:
+						signal_code_ptr = " ILL_PRVREG";
+						signal_desc_ptr = " priviledged register";
+						break;
+					case ILL_COPROC				:
+						signal_code_ptr = " ILL_COPROC";
+						signal_desc_ptr = " co-processor error";
+						break;
+					case ILL_BADSTK				:
+						signal_code_ptr = " ILL_BADSTK";
+						signal_desc_ptr = " internal stack error";
+						break;
+					default							:
+						strcat(strcpy(signal_code_buffer,
+							" UNKNOWN SIGILL SIGNAL CODE "),
+							val2str(((unsigned long) siginfo_ptr->si_code),
+							0, 10, NULL, number_buffer));
+						signal_code_ptr = signal_code_buffer;
+						signal_desc_ptr = " ";
+						break;
+				}
+				strcat(strcpy(signal_addr_ptr = signal_addr_buffer,
+					" at address 0X"),
+					val2str(((unsigned long) siginfo_ptr->si_addr), 0, 16,
+					NULL, number_buffer));
+				break;
+			case SIGTRAP	:
+				switch (siginfo_ptr->si_code) {
+					case TRAP_BRKPT			:
+						signal_code_ptr = " TRAP_BRKPT";
+						signal_desc_ptr = " process breakpoint";
+						break;
+					case TRAP_TRACE			:
+						signal_code_ptr = " TRAP_TRACE";
+						signal_desc_ptr = " process trace trap";
+						break;
+					default							:
+						strcat(strcpy(signal_code_buffer,
+							" UNKNOWN SIGTRAP SIGNAL CODE "),
+							val2str(((unsigned long) siginfo_ptr->si_code),
+							0, 10, NULL, number_buffer));
+						signal_code_ptr = signal_code_buffer;
+						signal_desc_ptr = " ";
+						break;
+				}
+				break;
+			case SIGFPE		:
+				switch (siginfo_ptr->si_code) {
+					case FPE_INTDIV				:
+						signal_code_ptr = " FPE_INTDIV";
+						signal_desc_ptr = " integer divide by zero";
+						break;
+					case FPE_INTOVF				:
+						signal_code_ptr = " FPE_INTOVF";
+						signal_desc_ptr = " integer overflow";
+						break;
+					case FPE_FLTDIV				:
+						signal_code_ptr = " FPE_FLTDIV";
+						signal_desc_ptr = " floating point division by zero";
+						break;
+					case FPE_FLTOVF				:
+						signal_code_ptr = " FPE_FLTOVF";
+						signal_desc_ptr = " floating point overflow";
+						break;
+					case FPE_FLTUND				:
+						signal_code_ptr = " FPE_FLTUND";
+						signal_desc_ptr = " floating point underflow";
+						break;
+					case FPE_FLTRES				:
+						signal_code_ptr = " FPE_FLTRES";
+						signal_desc_ptr = " floating point inexact result";
+						break;
+					case FPE_FLTINV				:
+						signal_code_ptr = " FPE_FLTINV";
+						signal_desc_ptr = " invalid floating point operation";
+						break;
+					case FPE_FLTSUB				:
+						signal_code_ptr = " FPE_FLTSUB";
+						signal_desc_ptr = " subscript out of range";
+						break;
+					default						:
+						strcat(strcpy(signal_code_buffer,
+							" UNKNOWN SIGFPE SIGNAL CODE "),
+							val2str(((unsigned long) siginfo_ptr->si_code),
+							0, 10, NULL, number_buffer));
+						signal_code_ptr = signal_code_buffer;
+						signal_desc_ptr = " ";
+						break;
+				}
+				strcat(strcpy(signal_addr_ptr = signal_addr_buffer,
+					" at address 0X"),
+					val2str(((unsigned long) siginfo_ptr->si_addr), 0, 16,
+					NULL, number_buffer));
+				break;
+			case SIGBUS		:
+				switch (siginfo_ptr->si_code) {
+					case BUS_ADRALN:
+						signal_code_ptr = " BUS_ADRALN";
+						signal_desc_ptr = " invalid address alignment";
+						break;
+					case BUS_ADRERR:
+						signal_code_ptr = " BUS_ADRERR";
+						signal_desc_ptr = " non-existent physical address";
+						break;
+					case BUS_OBJERR:
+						signal_code_ptr = " BUS_OBJERR";
+						signal_desc_ptr = " object specific hardware error";
+						break;
+					default			:
+						strcat(strcpy(signal_code_buffer,
+							" UNKNOWN SIGBUS SIGNAL CODE "),
+							val2str(((unsigned long) siginfo_ptr->si_code),
+							0, 10, NULL, number_buffer));
+						signal_code_ptr = signal_code_buffer;
+						signal_desc_ptr = " ";
+						break;
+				}
+				strcat(strcpy(signal_addr_ptr = signal_addr_buffer,
+					" at address 0X"),
+					val2str(((unsigned long) siginfo_ptr->si_addr), 0, 16,
+					NULL, number_buffer));
+				break;
+			case SIGSEGV	:
+				switch (siginfo_ptr->si_code) {
+					case SEGV_MAPERR	:
+						signal_code_ptr = " SEGV_MAPERR";
+						signal_desc_ptr = " address not mapped to object";
+						break;
+					case SEGV_ACCERR	:
+						signal_code_ptr = " SEGV_ACCERR";
+						signal_desc_ptr = " invalid permissions for mapped object";
+						break;
+					default:
+						strcat(strcpy(signal_code_buffer,
+							" UNKNOWN SIGSEGV SIGNAL CODE "),
+							val2str(((unsigned long) siginfo_ptr->si_code),
+							0, 10, NULL, number_buffer));
+						signal_code_ptr = signal_code_buffer;
+						signal_desc_ptr = " ";
+						break;
+				}
+				strcat(strcpy(signal_addr_ptr = signal_addr_buffer,
+					" at address 0X"),
+					val2str(((unsigned long) siginfo_ptr->si_addr), 0, 16,
+					NULL, number_buffer));
+				break;
+			case SIGCHLD	:
+				switch (siginfo_ptr->si_code) {
+					case CLD_EXITED		:
+						signal_code_ptr = " CLD_EXITED";
+						signal_desc_ptr = " child has exited";
+						break;
+					case CLD_KILLED		:
+						signal_code_ptr = " CLD_KILLED";
+						signal_desc_ptr = " child was killed";
+						break;
+					case CLD_DUMPED		:
+						signal_code_ptr = " CLD_DUMPED";
+						signal_desc_ptr = " child terminated abnormally";
+						break;
+					case CLD_TRAPPED		:
+						signal_code_ptr = " CLD_TRAPPED";
+						signal_desc_ptr = " trace child has trapped";
+						break;
+					case CLD_STOPPED		:
+						signal_code_ptr = " CLD_STOPPED";
+						signal_desc_ptr = " child has stopped";
+						break;
+					case CLD_CONTINUED	:
+						signal_code_ptr = " CLD_CONTINUED";
+						signal_desc_ptr = " stopped child had continued";
+						break;
+					default:
+						strcat(strcpy(signal_code_buffer,
+							" UNKNOWN SIGCHLD SIGNAL CODE "),
+							val2str(((unsigned long) siginfo_ptr->si_code),
+							0, 10, NULL, number_buffer));
+						signal_code_ptr = signal_code_buffer;
+						signal_desc_ptr = " ";
+						break;
+				}
+				break;
+			case SIGPOLL	:
+				switch (siginfo_ptr->si_code) {
+					case POLL_IN	:
+						signal_code_ptr = " POLL_IN";
+						signal_desc_ptr = " data input available";
+						break;
+					case POLL_OUT	:
+						signal_code_ptr = " POLL_OUT";
+						signal_desc_ptr = " output buffers available";
+						break;
+					case POLL_MSG	:
+						signal_code_ptr = " POLL_MSG";
+						signal_desc_ptr = " input message available";
+						break;
+					case POLL_ERR	:
+						signal_code_ptr = " POLL_ERR";
+						signal_desc_ptr = " I/O error";
+						break;
+					case POLL_PRI	:
+						signal_code_ptr = " POLL_PRI";
+						signal_desc_ptr = " high priority input available";
+						break;
+					case POLL_HUP	:
+						signal_code_ptr = " POLL_HUP";
+						signal_desc_ptr = " device disconnected";
+						break;
+					default:
+						strcat(strcpy(signal_code_buffer,
+							" UNKNOWN SIGIO/SIGPOLL SIGNAL CODE "),
+							val2str(((unsigned long) siginfo_ptr->si_code),
+							0, 10, NULL, number_buffer));
+						signal_code_ptr = signal_code_buffer;
+						signal_desc_ptr = " ";
+						break;
+				}
+				break;
+			default			:
+				break;
+		}
+	}
+
+	signal_code_ptr = (signal_code_ptr != NULL) ? signal_code_ptr : " ";
+	signal_desc_ptr = (signal_desc_ptr != NULL) ? signal_desc_ptr :
+		" *** UNABLE TO DESCRIBE SIGNAL ***";
+	signal_addr_ptr = (signal_addr_ptr != NULL) ? signal_addr_ptr : " ";
+
+	return(trim(oneblank(strcat(strcat(strcat(strcpy(signal_text,
+		signal_name_ptr), signal_code_ptr), signal_desc_ptr),
+		signal_addr_ptr))));
+}
+*/
+#endif /* #ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
+/* *********************************************************************** */
 
 #ifdef TEST_MAIN
 
@@ -1190,7 +1155,8 @@ typedef struct {
 	void *signal_address;
 } TEST_DATA;
 
-# ifdef __SVR4
+# ifdef sun
+#  ifdef __SVR4
 static const TEST_DATA *TEST_SignalPtr;
 static const TEST_DATA  TEST_SignalList[] = {
 	{	0,				1234567890,				((void *) 0X87654321)	},
@@ -1276,7 +1242,7 @@ static const TEST_DATA  TEST_SignalList[] = {
 	{	SIGRTMAX,	1234567890,				((void *) 0X87654321)	}
 */
 };
-# else
+#  else
 static const TEST_DATA TEST_SignalList[] = {
 	{	0,				1234567890,				((void *) 0X87654321)	},
 	{	SIGHUP,		1234567890,				((void *) 0X87654321)	},
@@ -1392,7 +1358,52 @@ static const TEST_DATA TEST_SignalList[] = {
 	{	SIGUSR1,		1234567890,				((void *) 0X87654321)	},
 	{	SIGUSR2,		1234567890,				((void *) 0X87654321)	}
 };
-# endif /* # ifdef __SVR4 */
+#  endif /* #  ifdef __SVR4 */
+# endif /* # ifdef sun */
+# ifdef __linux__
+static const TEST_DATA TEST_SignalList[] = {
+	{	SIGHUP,     1234567890,				((void *) 0X87654321)	},
+	{	SIGINT,     1234567890,				((void *) 0X87654321)	},
+	{	SIGQUIT,    1234567890,				((void *) 0X87654321)	},
+	{	SIGILL,     1234567890,				((void *) 0X87654321)	},
+	{	SIGTRAP,    1234567890,				((void *) 0X87654321)	},
+	{	SIGABRT,    1234567890,				((void *) 0X87654321)	},
+/*
+	{	SIGIOT,     1234567890,				((void *) 0X87654321)	},
+*/
+	{	SIGBUS,     1234567890,				((void *) 0X87654321)	},
+	{	SIGFPE,     1234567890,				((void *) 0X87654321)	},
+	{	SIGKILL,    1234567890,				((void *) 0X87654321)	},
+	{	SIGUSR1,    1234567890,				((void *) 0X87654321)	},
+	{	SIGSEGV,    1234567890,				((void *) 0X87654321)	},
+	{	SIGUSR2,    1234567890,				((void *) 0X87654321)	},
+	{	SIGPIPE,    1234567890,				((void *) 0X87654321)	},
+	{	SIGALRM,    1234567890,				((void *) 0X87654321)	},
+	{	SIGTERM,    1234567890,				((void *) 0X87654321)	},
+	{	SIGSTKFLT,  1234567890,				((void *) 0X87654321)	},
+	{	SIGCHLD,    1234567890,				((void *) 0X87654321)	},
+	{	SIGCONT,    1234567890,				((void *) 0X87654321)	},
+	{	SIGSTOP,    1234567890,				((void *) 0X87654321)	},
+	{	SIGTSTP,    1234567890,				((void *) 0X87654321)	},
+	{	SIGTTIN,    1234567890,				((void *) 0X87654321)	},
+	{	SIGTTOU,    1234567890,				((void *) 0X87654321)	},
+	{	SIGURG,     1234567890,				((void *) 0X87654321)	},
+	{	SIGXCPU,    1234567890,				((void *) 0X87654321)	},
+	{	SIGXFSZ,    1234567890,				((void *) 0X87654321)	},
+	{	SIGVTALRM,  1234567890,				((void *) 0X87654321)	},
+	{	SIGPROF,    1234567890,				((void *) 0X87654321)	},
+	{	SIGWINCH,   1234567890,				((void *) 0X87654321)	},
+	{	SIGIO,      1234567890,				((void *) 0X87654321)	},
+/*
+	{	SIGPOLL,    1234567890,				((void *) 0X87654321)	},
+*/
+/*
+	{	SIGLOST,    1234567890,				((void *) 0X87654321)	},
+*/
+	{	SIGPWR,     1234567890,				((void *) 0X87654321)	},
+	{	SIGSYS,     1234567890,				((void *) 0X87654321)	}
+};
+# endif /* # ifdef __linux__ */
 #endif /* #ifdef __MSDOS__ */
 
 static const unsigned int TEST_SignalCount =
@@ -1401,21 +1412,19 @@ static const unsigned int TEST_SignalCount =
 COMPAT_FN_DECL(int         main, (int, char **));
 COMPAT_FN_DECL_STATIC(void do_test_list, (void));
 
-#ifdef __MSDOS__
-COMPAT_FN_DECL_STATIC(void catch_a_signal, (int));
-#elif _Windows
-COMPAT_FN_DECL_STATIC(void catch_a_signal, (int));
-#else
-# ifdef __SVR4
-COMPAT_FN_DECL_STATIC(void catch_a_signal,
-	(int sig, siginfo_t *siginfo_ptr, void *addr));
-# else
+#ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
 COMPAT_FN_DECL_STATIC(void catch_a_signal,
 	(int signal_number, int signal_code, struct sigcontext *signal_context,
 	char *signal_address));
-# endif /* # ifdef __SVR4 */
-#endif /* #ifdef __MSDOS__ */
- 
+#else  /* GENFUNCS_USE_SIG_HANDLER_GENERIC */
+COMPAT_FN_DECL_STATIC(void catch_a_signal, (int));
+/*
+#ELSE sigaction() support:
+COMPAT_FN_DECL_STATIC(void catch_a_signal,
+	(int sig, siginfo_t *siginfo_ptr, void *addr));
+*/
+#endif /* #ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
+
 #ifndef NARGS
 int main(int argc, char **argv)
 #else
@@ -1528,21 +1537,24 @@ static void do_test_list()
 {
 	unsigned int count_1;
 	char         signal_text[GENFUNCS_MAX_ERROR_TEXT];
-#ifdef __SVR4
+#ifdef GENFUNCS_TEST_SIGACTION /* Placeholder; never defined. */
 	siginfo_t    sig_data;
 
 	memset(&sig_data, '\0', sizeof(sig_data));
-#endif /* # ifdef __SVR4 */
+#endif /* #ifdef GENFUNCS_TEST_SIGACTION */
 
 	for (count_1 = 0; count_1 < TEST_SignalCount; count_1++) {
-#ifdef __MSDOS__
+#ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
 		printf("[%05u]:%s\n", count_1,
-			GEN_GetSignalText(TEST_SignalList[count_1], signal_text));
-#elif _Windows
+			GEN_GetSignalText(TEST_SignalList[count_1].signal_number,
+			TEST_SignalList[count_1].signal_code,
+			TEST_SignalList[count_1].signal_address, signal_text));
+#else /* GENFUNCS_USE_SIG_HANDLER_GENERIC */
 		printf("[%05u]:%s\n", count_1,
-			GEN_GetSignalText(TEST_SignalList[count_1], signal_text));
-#else
-# ifdef __SVR4
+			GEN_GetSignalText(TEST_SignalList[count_1].signal_number,
+				signal_text));
+/*
+#ELSE sigaction() support:
 		sig_data.si_signo           = TEST_SignalList[count_1].signal_number;
 		sig_data.si_errno           = 0;
 		sig_data.si_code            = TEST_SignalList[count_1].signal_code;
@@ -1551,80 +1563,13 @@ static void do_test_list()
 		printf("[%05u]:%s\n", count_1,
 			GEN_GetSignalText(TEST_SignalList[count_1].signal_number,
 			&sig_data, TEST_SignalList[count_1].signal_address, signal_text));
-# else
-		printf("[%05u]:%s\n", count_1,
-			GEN_GetSignalText(TEST_SignalList[count_1].signal_number,
-			TEST_SignalList[count_1].signal_code,
-			TEST_SignalList[count_1].signal_address, signal_text));
-# endif /* # ifdef __SVR4 */
-#endif /* #ifdef __MSDOS__ */
+*/
+#endif /* #ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
 	}
 }
 
-#ifdef __MSDOS__
-# ifndef NARGS
-static void catch_a_signal(int signal_number)
-# else
-static void catch_a_signal(signal_number)
-int signal_number;
-# endif /* #ifndef NARGS */
-{
-	char signal_text[GENFUNCS_MAX_ERROR_TEXT];
-
-	fprintf(stderr, "PROCESS %u SIGNAL CATCHER REPORTS: %s\n", ThisPID,
-		GEN_GetSignalText(signal_number, signal_text));
-
-	if (OnceFlag) { fputs("Exiting . . .\n", stderr); exit(0); }
-}
-#elif _Windows
-# ifndef NARGS
-static void catch_a_signal(int signal_number)
-# else
-static void catch_a_signal(signal_number)
-int signal_number;
-# endif /* #ifndef NARGS */
-{
-	char signal_text[GENFUNCS_MAX_ERROR_TEXT];
-
-	fprintf(stderr, "PROCESS %u SIGNAL CATCHER REPORTS: %s\n", ThisPID,
-		GEN_GetSignalText(signal_number, signal_text));
-
-	if (OnceFlag) { fputs("Exiting . . .\n", stderr); exit(0); }
-}
-#else
-# ifdef __SVR4
-#  ifndef NARGS
-static void catch_a_signal(int signal_number, siginfo_t *siginfo_ptr,
-	void *signal_address)
-#  else
-static void catch_a_signal(signal_number, siginfo_ptr, signal_address)
-int        signal_number;
-siginfo_t *siginfo_ptr;
-void      *signal_address;
-#  endif /* #ifndef NARGS */
-{
-	char signal_text[GENFUNCS_MAX_ERROR_TEXT];
-
-	fprintf(stderr, "PROCESS %u SIGNAL CATCHER REPORTS: %s\n", ThisPID,
-		GEN_GetSignalText(signal_number, siginfo_ptr, signal_address,
-		signal_text));
-
-	if (OnceFlag) { fputs("Exiting . . .\n", stderr); exit(0); }
-}
-/*
-	CODE NOTE: To be removed.
-static int sigaction(in_signal, in_action, out_action)
-int                     in_signal;
-const struct sigaction *in_action;
-struct sigaction       *out_action;
-{
-	out_action->si_signo           = TEST_SignalPtr->signal_number;
-	out_action->si_errno           = 0;
-	out_action->si_code            = TEST_SignalPtr->signal_code;
-	out_action->si_value.sival_ptr = TEST_SignalPtr->signal_address;
-}
-*/
-# else
+/* *********************************************************************** */
+#ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
 #  ifndef NARGS
 static void catch_a_signal(int signal_number, int signal_code,
 	struct sigcontext *signal_context, char *signal_address)
@@ -1649,8 +1594,46 @@ char              *signal_address;
 		((signal_number == SIGSEGV) || (signal_number == SIGBUS)))
 		longjmp(TEST_LongJmpEnv, -1);
 }
-# endif /* # ifdef __SVR4 */
-#endif /* #ifdef __MSDOS__ */
+/* ----------------------------------------------------------------------- */
+#else  /* GENFUNCS_USE_SIG_HANDLER_GENERIC */
+# ifndef NARGS
+static void catch_a_signal(int signal_number)
+# else
+static void catch_a_signal(signal_number)
+int signal_number;
+# endif /* # ifndef NARGS */
+{
+	char signal_text[GENFUNCS_MAX_ERROR_TEXT];
+
+	fprintf(stderr, "PROCESS %u SIGNAL CATCHER REPORTS: %s\n", ThisPID,
+		GEN_GetSignalText(signal_number, signal_text));
+
+	if (OnceFlag) { fputs("Exiting . . .\n", stderr); exit(0); }
+}
+/* ----------------------------------------------------------------------- */
+/*
+#ELSE sigaction() support:
+#  ifndef NARGS
+static void catch_a_signal(int signal_number, siginfo_t *siginfo_ptr,
+	void *signal_address)
+#  else
+static void catch_a_signal(signal_number, siginfo_ptr, signal_address)
+int        signal_number;
+siginfo_t *siginfo_ptr;
+void      *signal_address;
+#  endif / * #ifndef NARGS * /
+{
+	char signal_text[GENFUNCS_MAX_ERROR_TEXT];
+
+	fprintf(stderr, "PROCESS %u SIGNAL CATCHER REPORTS: %s\n", ThisPID,
+		GEN_GetSignalText(signal_number, siginfo_ptr, signal_address,
+		signal_text));
+
+	if (OnceFlag) { fputs("Exiting . . .\n", stderr); exit(0); }
+}
+*/
+#endif /* #ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
+/* *********************************************************************** */
 
 #endif /* #ifdef TEST_MAIN */
 

@@ -212,52 +212,38 @@ void GEN_SIGNAL_SignalSet()
 /*	***********************************************************************	*/
 
 /* *********************************************************************** */
-#ifdef __MSDOS__
+#ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
 # ifndef NARGS
-void GEN_SIGNAL_SignalHandler(int signal_number)
-# else
-void GEN_SIGNAL_SignalHandler(signal_number)
-int                signal_number;
-# endif /* # ifndef NARGS */
-#elif _Windows
-# ifndef NARGS
-void GEN_SIGNAL_SignalHandler(int signal_number)
-# else
-void GEN_SIGNAL_SignalHandler(signal_number)
-int                signal_number;
-# endif /* # ifndef NARGS */
-#elif _MSC_VER
-# ifndef NARGS
-void GEN_SIGNAL_SignalHandler(int signal_number)
-# else
-void GEN_SIGNAL_SignalHandler(signal_number)
-int                signal_number;
-# endif /* # ifndef NARGS */
-#else
-# ifdef __SVR4
-#  ifndef NARGS
-void GEN_SIGNAL_SignalHandler(int signal_number, siginfo_t *siginfo_ptr,
-	void *signal_address)
-#  else
-void GEN_SIGNAL_SignalHandler(signal_number, siginfo_ptr, signal_address)
-int        signal_number;
-siginfo_t *siginfo_ptr;
-void      *signal_address;
-#  endif /* #  ifndef NARGS */
-# else
-#  ifndef NARGS
 void GEN_SIGNAL_SignalHandler(int signal_number, int signal_code,
 	struct sigcontext *signal_context, char *signal_address)
-#  else
+# else
 void GEN_SIGNAL_SignalHandler(signal_number, signal_code, signal_context,
 	signal_address)
 int                signal_number;
 int                signal_code;
 struct sigcontext *signal_context;
 char              *signal_address;
-#  endif /* #  ifndef NARGS */
-# endif /* # ifdef __SVR4 */
-#endif /* ifdef __MSDOS__ */
+# endif /* # ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
+#else /* GENFUNCS_USE_SIG_HANDLER_GENERIC */
+# ifndef NARGS
+void GEN_SIGNAL_SignalHandler(int signal_number)
+# else
+void GEN_SIGNAL_SignalHandler(signal_number)
+int                signal_number;
+# endif /* # ifndef NARGS */
+/*
+#ELSE sigaction() support:
+# ifndef NARGS
+void GEN_SIGNAL_SignalHandler(int signal_number, siginfo_t *siginfo_ptr,
+	void *signal_address)
+# else
+void GEN_SIGNAL_SignalHandler(signal_number, siginfo_ptr, signal_address)
+int        signal_number;
+siginfo_t *siginfo_ptr;
+void      *signal_address;
+# endif / * # ifndef NARGS * /
+*/
+#endif /* #ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
 {
 	int  exit_code = -1;
 	char message_buffer[GENFUNCS_MAX_ERROR_TEXT];
@@ -293,24 +279,18 @@ char              *signal_address;
 			if (GEN_SIGNAL_UserCleanUpFunction != NULL) {
 				strcat(strcat(strcpy(message_buffer, "Signal number "),
 					signal_buffer), " received: ");
-#ifdef __MSDOS__
-				GEN_GetSignalText(signal_number,
-					message_buffer + strlen(message_buffer));
-#elif _Windows
-				GEN_GetSignalText(signal_number,
-					message_buffer + strlen(message_buffer));
-#elif _MSC_VER
-				GEN_GetSignalText(signal_number,
-					message_buffer + strlen(message_buffer));
-#else
-# ifdef __SVR4
-				GEN_GetSignalText(signal_number, siginfo_ptr, signal_address,
-					message_buffer + strlen(message_buffer));
-# else
+#ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
 				GEN_GetSignalText(signal_number, signal_code, signal_address,
 					message_buffer + strlen(message_buffer));
-# endif /* # ifdef __SVR4 */
-#endif /* ifdef __MSDOS__ */
+#else /* GENFUNCS_USE_SIG_HANDLER_GENERIC */
+				GEN_GetSignalText(signal_number,
+					message_buffer + strlen(message_buffer));
+/*
+#ELSE sigaction() support:
+				GEN_GetSignalText(signal_number, siginfo_ptr, signal_address,
+					message_buffer + strlen(message_buffer));
+*/
+#endif /* #ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
 				(*GEN_SIGNAL_UserCleanUpFunction)(GEN_SIGNAL_UserDataPtr,
 					signal_number, &exit_code, message_buffer);
 			}
