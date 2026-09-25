@@ -100,7 +100,7 @@
 
 /* *********************************************************************** */
 /* *********************************************************************** */
-/*		An approximation of 'gettimeofday()' for MS-DOS and Windows . . .		*/
+/* 	An approximation of 'gettimeofday()' for MS-DOS and Windows . . .    */
 /* *********************************************************************** */
 #ifdef __MSDOS__
 # ifndef SDTIF_struct_timeval
@@ -137,6 +137,29 @@
 
 /* *********************************************************************** */
 /* *********************************************************************** */
+/*    Support for the old BSD-based SunOS signal handler interface ...     */
+/* *********************************************************************** */
+#ifdef sun      /* If running on a Sun OS ...                             */
+# ifndef __SVR4 /* NOT the System V - based Solaris, but is BSD SunOs ... */
+#  define GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD			1
+#  define GENFUNCS_USE_SIGACT_HANDLER_SUNOS_BSD		1
+# else
+/*
+   Reverted sigaction handler for SVR4 for obsolete library.
+#  define GENFUNCS_USE_SIG_HANDLER_SUNOS_SVR5		1
+#  define GENFUNCS_USE_SIGACT_HANDLER_SUNOS_SVR5	1
+*/
+# endif /* # ifndef __SVR4 */
+#endif /* #ifdef sun */
+
+#ifndef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
+# define GENFUNCS_USE_SIG_HANDLER_GENERIC			1
+# define GENFUNCS_USE_SIGACT_HANDLER_GENERIC		1
+#endif /* #ifdef sun */
+/* *********************************************************************** */
+
+/* *********************************************************************** */
+/* *********************************************************************** */
 /*    Include necessary RPC/XDR information . . .                          */
 /* *********************************************************************** */
 #ifndef NO_RPC
@@ -167,7 +190,7 @@
 #   endif /* #   if __GLIBC_PREREQ(2, 32) */
 #  endif /* #  ifdef __GLIBC_PREREQ */
 # endif /* # ifdef __GLIBC__ */
-#endif / * #ifndef NO_RPC */
+#endif /* #ifndef NO_RPC */
 
 #ifndef NO_RPC
 # include <rpc/rpc.h>
@@ -2035,26 +2058,20 @@ COMPAT_FN_DECL(char                 *GEN_GetLastErrorString_Win32,
 #endif /* #ifdef _Windows */
 	/*	*****************************************************************	*/
 
-# ifdef __MSDOS__
-COMPAT_FN_DECL(char *GEN_GetSignalText,
-	(int signal_number, char *signal_text));
-# elif _Windows
-COMPAT_FN_DECL(char *GEN_GetSignalText,
-	(int signal_number, char *signal_text));
-# elif _MSC_VER
-COMPAT_FN_DECL(char *GEN_GetSignalText,
-	(int signal_number, char *signal_text));
-# else
-#  ifdef __SVR4
-COMPAT_FN_DECL(char *GEN_GetSignalText,
-	(int signal_number, siginfo_t *siginfo_ptr, void *signal_address,
-	char *signal_text));
-#  else
+#ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
 COMPAT_FN_DECL(char *GEN_GetSignalText,
 	(int signal_number, int signal_code, const void *signal_address,
 	char *signal_text));
-#  endif /* #ifndef __SVR4 */
-# endif /* #ifndef __MSDOS__ */
+#else /* GENFUNCS_USE_SIG_HANDLER_GENERIC */
+COMPAT_FN_DECL(char *GEN_GetSignalText,
+	(int signal_number, char *signal_text));
+/*
+#ELSE sigaction() support:
+COMPAT_FN_DECL(char *GEN_GetSignalText,
+	(int signal_number, siginfo_t *siginfo_ptr, void *signal_address,
+	char *signal_text));
+*/
+#endif /* #ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
 
 COMPAT_FN_DECL(void GEN_SIGNAL_SignalInit, (int *signal_received_flag_ptr,
 	int *queue_signal_flag_ptr, void *user_data_ptr, void *output_control_ptr,
@@ -2063,21 +2080,18 @@ COMPAT_FN_DECL(void GEN_SIGNAL_SignalInit, (int *signal_received_flag_ptr,
 COMPAT_FN_DECL(void GEN_SIGNAL_SignalDefault, (void));
 COMPAT_FN_DECL(void GEN_SIGNAL_SignalIgnore, (void));
 COMPAT_FN_DECL(void GEN_SIGNAL_SignalSet, (void));
-# ifdef __MSDOS__
-COMPAT_FN_DECL(void GEN_SIGNAL_SignalHandler, (int signal_number));
-# elif _Windows
-COMPAT_FN_DECL(void GEN_SIGNAL_SignalHandler, (int signal_number));
-# elif _MSC_VER
-COMPAT_FN_DECL(void GEN_SIGNAL_SignalHandler, (int signal_number));
+
+# ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
+COMPAT_FN_DECL(void GEN_SIGNAL_SignalHandler, (int signal_number,
+	int code, struct sigcontext *signal_context, char *address));
 # else
-#  ifdef __SVR4
-COMPAT_FN_DECL(void GEN_SIGNAL_SignalHandler, (int signal_number,
+COMPAT_FN_DECL(void GEN_SIGNAL_SignalHandler, (int signal_number));
+/*
+	The sigaction() handler is not yet defined.
+COMPAT_FN_DECL(void GEN_SIGNAL_SignalHandlerAct, (int signal_number,
 	siginfo_t *siginfo_ptr, void *signal_address));
-#  else
-COMPAT_FN_DECL(void GEN_SIGNAL_SignalHandler, (int signal_number,
-	int signal_code, struct sigcontext *signal_context, char *signal_address));
-# endif /* #ifndef __SVR4 */
-# endif /* ifdef __MSDOS__ */
+*/
+# endif /* # ifndef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
 
 	/*	*****************************************************************	*/
 	/*	*****************************************************************	*/
