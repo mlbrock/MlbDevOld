@@ -137,8 +137,38 @@
 
 /* *********************************************************************** */
 /* *********************************************************************** */
-/*    Include necessary RPC/XDR information . . .									*/
+/*    Include necessary RPC/XDR information . . .                          */
 /* *********************************************************************** */
+#ifndef NO_RPC
+# ifdef __GLIBC__
+#  ifdef __GLIBC_PREREQ
+    /*
+       The Sun RPC and XDR header files were removed from the glibc
+       distribution as of version 2.32. On Linux, they have to be explicitly
+       installed from one of the transport-independant RPC libraries ported
+       from the Sun code, either libtirpc or libntirpc.
+
+       The library libtirpc provides the legacy Sun RPC and XDR support. The
+       library libntirpc ('n' for 'New') is inclusive of libtirpc, but
+       includes additional performance-related enhancements and thread-safety.
+
+       Fedora (needed in Fedora 28 and subsequent releases):
+          yum install libtirpc-devel
+             OR
+          yum install libntirpc-devel
+
+       Ubuntu (needed in Ubuntu 22 and subsequent releases):
+          apt install libtirpc-dev
+             OR
+          apt install libntirpc-dev
+    */
+#   if __GLIBC_PREREQ(2, 32)
+#    define NO_RPC	1
+#   endif /* #   if __GLIBC_PREREQ(2, 32) */
+#  endif /* #  ifdef __GLIBC_PREREQ */
+# endif /* # ifdef __GLIBC__ */
+#endif / * #ifndef NO_RPC */
+
 #ifndef NO_RPC
 # include <rpc/rpc.h>
 #else
