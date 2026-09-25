@@ -45,6 +45,7 @@
 #include <net/if.h>
 #include <netinet/in.h>
 #include <netinet/if_ether.h>
+#include <netinet/ether.h>
 #endif /* #ifdef _Windows */
 
 /*	***********************************************************************	*/

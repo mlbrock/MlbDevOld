@@ -53,12 +53,12 @@
 
 static jmp_buf GEN_VPTR_ACCESS_LongJmpEnv;
 
-#  ifndef __SVR4
+#  ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
 COMPAT_FN_DECL_STATIC(void GEN_VPTR_PtrAccessHandler, (int signal_number,
 	int code, struct sigcontext *signal_context, char *address));
 #  else
 COMPAT_FN_DECL_STATIC(void GEN_VPTR_PtrAccessHandler, (int signal_number));
-#  endif /* #   ifndef __SVR4 */
+#  endif /* #  ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
 # endif /* # ifndef _Windows */
 #endif /* #ifndef __MSDOS__ */
 
@@ -68,28 +68,26 @@ COMPAT_FN_DECL_STATIC(void GEN_VPTR_PtrAccessHandler, (int signal_number));
 /*	***********************************************************************	*/
 /*		If an attempt to access memory fails, we come here . . .					*/
 /*	***********************************************************************	*/
-#ifndef __MSDOS__
-# ifndef _Windows
-#  ifndef __SVR4
-#    ifndef NARGS
+#ifndef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
+# ifndef NARGS
+static void GEN_VPTR_PtrAccessHandler(int signal_number)
+# else
+static void GEN_VPTR_PtrAccessHandler(signal_number)
+int signal_number;
+# endif /* # ifndef NARGS */
+#else
+# ifdef NARGS
 static void GEN_VPTR_PtrAccessHandler(int signal_number, int code,
 	struct sigcontext *signal_context, char *address)
-#    else
+# else
 static void GEN_VPTR_PtrAccessHandler(signal_number, code, signal_context,
 	address)
 int                signal_number;
 int                code;
 struct sigcontext *signal_context;
 char              *address;
-#    endif /* ifndef NARGS */
-#  else
-#   ifndef NARGS
-static void GEN_VPTR_PtrAccessHandler(int signal_number)
-#   else
-static void GEN_VPTR_PtrAccessHandler(signal_number)
-int signal_number;
-#   endif /* ifndef NARGS */
-#  endif /* #  ifndef __SVR4 */
+# endif /* #  ifndef NARGS */
+#endif /* #ifndef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
 {
 	/* ********************************************************************	*/
 	/* ********************************************************************	*/
@@ -98,8 +96,6 @@ int signal_number;
 	longjmp(GEN_VPTR_ACCESS_LongJmpEnv, GEN_VPTR_ACCESS_LONGJMP_SIG);
 	/* ********************************************************************	*/
 }
-# endif /* # ifndef _Windows */
-#endif /* #ifndef __MSDOS__ */
 /*	***********************************************************************	*/
 
 /*	***********************************************************************	*/
