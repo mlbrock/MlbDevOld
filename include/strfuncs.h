@@ -109,17 +109,22 @@
 /* manifest constants below.																*/
 /* *********************************************************************** */
 
+#ifdef __linux__
+# define NO_STRICMP	1
+# define NO_STRNICMP	1
+#endif /* #ifdef __linux__ */
+
 #ifdef NO_STRICMP
 # ifndef STRFUNCS_stricmp
 #  define STRFUNCS_stricmp stricmp
-# endif /* #ifndef STRFUNCS_stricmp */
-#endif /* # ifdef NO_STRICMP */
+# endif /* # ifndef STRFUNCS_stricmp */
+#endif /* #ifdef NO_STRICMP */
 
 #ifdef NO_STRNICMP
 # ifndef STRFUNCS_strnicmp
 #  define STRFUNCS_strnicmp strnicmp
-# endif /* #ifndef STRFUNCS_strnicmp */
-#endif /* # ifdef NO_STRNICMP */
+# endif /* # ifndef STRFUNCS_strnicmp */
+#endif /* #ifdef NO_STRNICMP */
 
 COMPAT_FN_DECL(int STRFUNCS_stricmp, (const char *, const char *));
 COMPAT_FN_DECL(int STRFUNCS_strnicmp, (const char *, const char *, size_t));
