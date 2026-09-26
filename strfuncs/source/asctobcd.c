@@ -177,9 +177,11 @@ unsigned int  *out_nybble_count;
 			if (!(nybble % 2))
 				*out_bcd_string =
 					((unsigned char) ((*in_ascii_string++ - '0') << 4));
-			else
-				*out_bcd_string++ =
+			else {
+				*out_bcd_string =
 					((unsigned char) (*out_bcd_string | (*in_ascii_string++ - '0')));
+				++out_bcd_string;
+			}
 			nybble++;
 			(*out_nybble_count)++;
 			in_ascii_length--;
@@ -419,7 +421,7 @@ char **argv;
 {
 	int           return_code = STRFUNCS_SUCCESS;
 	unsigned int  count_1;
-	size_t        bcd_length;
+	unsigned int  bcd_length;
 	char          buffer[512];
 	unsigned char out_bcd[1024];
 	char          out_ascii[1024];
@@ -429,11 +431,13 @@ char **argv;
 
 	fprintf(stderr, "USAGE: cat <test-file> | %s\n\n", argv[0]);
 
+/*
 	if (argc == 1) {
 		fprintf(stderr, "\n\nNo file specified on command line.\n\n");
 		return_code = STRFUNCS_BAD_ARGS_FAILURE;
 		goto EXIT_FUNCTION;
 	}
+*/
 
 	while ((!feof(stdin)) && (!ferror(stdin))) {
 		printf("%s", PROMPT_STRING);
