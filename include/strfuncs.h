@@ -3025,8 +3025,15 @@ COMPAT_FN_DECL(void   *memrmem,
 	/*	Function prototypes with the revised parameter ordering...	*/
 COMPAT_FN_DECL(void   *memimem,
 	(const void *, size_t, const void *, size_t));
+#ifdef __GNUC__
+# pragma GCC diagnostic push
+# pragma GCC diagnostic ignored "-Wredundant-decls"
+#endif /* #ifdef __GNUC__ */
 COMPAT_FN_DECL(void   *memmem,
 	(const void *, size_t, const void *, size_t));
+#ifdef __GNUC__
+# pragma GCC diagnostic pop
+#endif /* #ifdef __GNUC__ */
 COMPAT_FN_DECL(void   *memrimem,
 	(const void *, size_t, const void *, size_t));
 COMPAT_FN_DECL(void   *memrmem,
@@ -3106,8 +3113,15 @@ COMPAT_FN_DECL(char   *strnchr,
 	(const char *, int, size_t));
 COMPAT_FN_DECL(size_t  strncnt,
 	(const char *, const char *, size_t));
+#ifdef __GNUC__
+# pragma GCC diagnostic push
+# pragma GCC diagnostic ignored "-Wredundant-decls"
+#endif /* #ifdef __GNUC__ */
 COMPAT_FN_DECL(char   *strndup,
 	(const char *, size_t));
+#ifdef __GNUC__
+# pragma GCC diagnostic pop
+#endif /* #ifdef __GNUC__ */
 COMPAT_FN_DECL(char   *strnichr,
 	(const char *, int, size_t));
 COMPAT_FN_DECL(size_t  strnicnt,
