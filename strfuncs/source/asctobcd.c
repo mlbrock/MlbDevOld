@@ -390,8 +390,10 @@ unsigned int  *out_bcd_length;
 	unsigned int out_nybble_count;
 
 	if (asctobcd(in_ascii_length, in_ascii_ptr, (in_ascii_length % 2) ? 0 : 1,
-		0, out_bcd_ptr, &out_nybble_count) != STRFUNCS_SUCCESS)
-		out_bcd_ptr = NULL;
+		0, out_bcd_ptr, &out_nybble_count) != STRFUNCS_SUCCESS) {
+		out_bcd_ptr    = NULL;
+		out_bcd_length = 0;
+	}
 	else {
 		*(out_bcd_ptr + (out_nybble_count / 2)) |=
 			((unsigned char) ((sign >= 0) ? 0x0F : 0X0B));
@@ -419,25 +421,28 @@ int    argc;
 char **argv;
 #endif /* #ifndef NARGS */
 {
-	int           return_code = STRFUNCS_SUCCESS;
-	unsigned int  count_1;
-	unsigned int  bcd_length;
-	char          buffer[512];
-	unsigned char out_bcd[1024];
-	char          out_ascii[1024];
+	int            return_code = STRFUNCS_SUCCESS;
+	char          *argv_ptr;
+	unsigned int   count_1;
+	unsigned int   bcd_length;
+	char           buffer[512];
+	unsigned char  out_bcd[1024];
+	char           out_ascii[1024];
 
 	fprintf(stderr, "Test routine for function 'asctobcd()'\n");
 	fprintf(stderr, "---- ------- --- -------- ------------\n\n");
 
-	fprintf(stderr, "USAGE: cat <test-file> | %s\n\n", argv[0]);
-
-/*
-	if (argc == 1) {
-		fprintf(stderr, "\n\nNo file specified on command line.\n\n");
-		return_code = STRFUNCS_BAD_ARGS_FAILURE;
-		goto EXIT_FUNCTION;
+	while (argc > 1) {
+		argv_ptr = argv[argc - 1];
+		if ((*argv_ptr == '-') && (argv_ptr[1] == '-'))
+			++argv_ptr;
+		if ((!STRFUNCS_stricmp("-HELP", argv_ptr)) ||
+			(!STRFUNCS_stricmp("-H", argv_ptr))) {
+			fprintf(stderr, "USAGE:\n   cat <test-file> | %s\n\n", argv[0]);
+			goto EXIT_FUNCTION;
+		}
+		argc--;
 	}
-*/
 
 	while ((!feof(stdin)) && (!ferror(stdin))) {
 		printf("%s", PROMPT_STRING);
@@ -453,17 +458,20 @@ char **argv;
 		if (!(*buffer))
 			continue;
 		printf("Converting      :[%s]\n", buffer);
-		ascii_to_COMP_3((*buffer == '-') ? -1 : 0,
-			(*buffer == '-') ? (buffer + 1) : buffer, out_bcd, &bcd_length);
-		printf(">>> BCD         :[");
-		for (count_1 = 0; count_1 < bcd_length; count_1++)
-			printf("%1X.%1X%s",
-				((unsigned int) ((out_bcd[count_1] >> 4) & 0X0F)),
-				((unsigned int) (out_bcd[count_1] & 0X0F)),
-				(count_1 < (bcd_length - 1)) ? ":" : "");
-		printf("]\n");
-		printf(">>> ASCII RESULT:[%s]\n",
-			bcdtoasc(((char *) out_bcd), out_ascii));
+		if (ascii_to_COMP_3((*buffer == '-') ? -1 : 0,
+			(*buffer == '-') ? (buffer + 1) : buffer, out_bcd, &bcd_length)) {
+			printf(">>> BCD         :[");
+			for (count_1 = 0; count_1 < bcd_length; count_1++)
+				printf("%1X.%1X%s",
+					((unsigned int) ((out_bcd[count_1] >> 4) & 0X0F)),
+					((unsigned int) (out_bcd[count_1] & 0X0F)),
+					(count_1 < (bcd_length - 1)) ? ":" : "");
+			printf("]\n");
+			printf(">>> ASCII RESULT:[%s]\n",
+				bcdtoasc(((char *) out_bcd), out_ascii));
+		}
+		else
+			printf("                : CONVERSION FAILED\n");
 	}
 
 EXIT_FUNCTION:
