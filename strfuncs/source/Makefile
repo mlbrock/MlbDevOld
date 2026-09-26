@@ -299,7 +299,7 @@ SRCS		=	\
 			zerotrim.c
 
 # Only the libraries below are needed for TEST_MAIN unit tests in this library.
-MLB_LIB_NAMES	=	strfuncs
+MLB_LIB_NAMES	=	sdtif strfuncs
 
 include ../../.MASCaPS/MakeSuffixFirst.mk
 
