@@ -436,7 +436,7 @@ COMPAT_FN_DECL(int    mputc, (int put_char, MFILE *mfile_ptr));
 COMPAT_FN_DECL(int    mputs, (const char *put_string, MFILE *mfile_ptr));
 COMPAT_FN_DECL(int    mread, (void *data_ptr, unsigned int element_size,
 	unsigned int element_count, MFILE *mfile_ptr));
-COMPAT_FN_DECL(int    mremap, (MFILE *mfile_ptr));
+COMPAT_FN_DECL(int    mremap_mfile, (MFILE *mfile_ptr));
 COMPAT_FN_DECL(int    mremap_basic_1, (MFILE *mfile_ptr, unsigned long offset,
 	unsigned long length));
 COMPAT_FN_DECL(int    mremap_basic_2, (int file_handle,
