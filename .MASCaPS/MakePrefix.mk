@@ -58,8 +58,6 @@ INC_PCAP_DIR	=	/usr/include/${VER_PCAP}
 
 LIB_BASIC_DIR	=	./
 LIB_OTHER_DIR	=	/usr/lib64
-#LIB_BOOST_DIR	=	${LIB_BASE}/${VER_BOOST}
-LIB_BOOST_DIR	=	${LIB_OTHER_DIR}
 LIB_TIBRV_DIR	=	/opt/tibco/tibrv/${VER_TIBRV}/lib
 LIB_LBM_DIR	=	/home/brockm/Downloads/29West/UMS_5.0/Linux-glibc-2.5-x86_64/lib
 LIB_XERCES_DIR	=	${LIB_BASE}
@@ -113,13 +111,6 @@ CFLAGS		+=	\
 
 OTHER_LIBS	=
 
-BOOST_LIBS	=	\
-			${LIB_BOOST_DIR}/libboost_filesystem.a   \
-			${LIB_BOOST_DIR}/libboost_date_time.a \
-			${LIB_BOOST_DIR}/libboost_thread.a \
-			${LIB_BOOST_DIR}/libboost_regex.a \
-			${LIB_BOOST_DIR}/libboost_system.a
-
 TIBRV_LIB	=	\
 			${LIB_TIBRV_DIR}/libtibrvcmq64.a	\
 			${LIB_TIBRV_DIR}/libtibrvcm64.a		\
@@ -142,11 +133,9 @@ LDLIBS		=	\
 			-Bdynamic	\
 			${TIBRV_LIBS}	\
 			${OTHER_LIBS}	\
-			${BOOST_LIBS}	\
 			-lm		\
 			-lrt		\
-			$(OTHER_LIBS)	\
-			${BOOST_LIBS}
+			$(OTHER_LIBS)
 	
 LDFLAGS		+=	\
 			${LINK_STATIC}		\
@@ -157,7 +146,6 @@ LDFLAGS		+=	\
 			-L /usr/lib64		\
 			-L ${MASCaPS_TARGET_LIB}\
 			-L ${LIB_PCAP_DIR}	\
-			-L ${LIB_BOOST_DIR}	\
 			-L ${LIB_XERCES_DIR}
 
 TARGET_LIBS	=

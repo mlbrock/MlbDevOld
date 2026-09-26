@@ -8,7 +8,7 @@
 #
 # File Description: SDTIF library make file.
 #
-# Revision History:  1995-11-02 --- Creation.
+# Revision History: 1995-11-02 --- Creation.
 #                       Michael L. Brock
 #                   2015-12-12 --- Modified for use with MASCaPS Version 3.
 #                       Michael L. Brock

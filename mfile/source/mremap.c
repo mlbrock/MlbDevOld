@@ -52,9 +52,9 @@
 /* *********************************************************************** */
 /* BOH
 
-   NAME        :  mremap
+   NAME        :  mremap_mfile
 
-   SYNOPSIS    :  return_code = mremap(mfile_ptr);
+   SYNOPSIS    :  return_code = mremap_mfile(mfile_ptr);
 
 						int    return_code;
 
@@ -74,7 +74,10 @@
 
 						(.) Non-zero if an error occurred.
 
-   NOTES       :  
+	NOTES       :  Renamed from mremap() to mremap_mfile() because the
+						name conflicts with the Solaris and Linux functions
+						of that name added after implementation of this function
+						in the mfile library.
 
    CAVEATS     :  
 
@@ -87,22 +90,22 @@
 
 	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
 
-	OUTPUT INDEX:	mremap
+	OUTPUT INDEX:	mremap_mfile
 						Memory-mapped File Functions:Re-map Functions:mremap
 						MFILE Functions:mremap
 
-	PUBLISH XREF:	mremap
+	PUBLISH XREF:	mremap_mfile
 
-	PUBLISH NAME:	mremap
+	PUBLISH NAME:	mremap_mfile
 
 	ENTRY CLASS	:	Memory-mapped File Functions:Re-map Functions
 
 EOH */
 /* *********************************************************************** */
 #ifndef NARGS
-int mremap(MFILE *mfile_ptr)
+int mremap_mfile(MFILE *mfile_ptr)
 #else
-int mremap(mfile_ptr)
+int mremap_mfile(mfile_ptr)
 MFILE *mfile_ptr;
 #endif /* #ifndef NARGS */
 {
@@ -161,7 +164,7 @@ MFILE *mfile_ptr;
 
    CAVEATS     :  
 
-   SEE ALSO    :  mremap
+   SEE ALSO    :  mremap_mfile
 						mremap_basic_2
 
    EXAMPLES    :  
@@ -326,7 +329,7 @@ unsigned long  length;
 
    CAVEATS     : 	
  
-   SEE ALSO    :  mremap
+   SEE ALSO    :  mremap_mfile
 						mremap_basic_1
 
    EXAMPLES    :  
@@ -468,8 +471,8 @@ int main()
 	MFILE          *mfile_ptr     = NULL;
 	unsigned long   old_file_size = ULONG_MAX;
 
-	fprintf(stderr, "Text routine for function 'mremap()'\n");
-	fprintf(stderr, "---- ------- --- -------- ----------\n\n");
+	fprintf(stderr, "Text routine for function 'mremap_mfile()'\n");
+	fprintf(stderr, "---- ------- --- -------- ----------------\n\n");
 
 	if ((mfile_ptr = mopen(TEST_FILE, "r")) == NULL) {
 		fprintf(stderr, "ERROR: Unable to open input file '%s'.\n\n",
@@ -478,9 +481,9 @@ int main()
 	}
 	else {
 		while (!return_code) {
-			if (mremap(mfile_ptr)) {
+			if (mremap_mfile(mfile_ptr)) {
 				fprintf(stderr, "ERROR: %s '%s'.\n\n",
-					"Unable to 'mremap()' file", TEST_FILE);
+					"Unable to 'mremap_mfile()' file", TEST_FILE);
 				return_code = -1;
 				break;
 			}
