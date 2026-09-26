@@ -1,20 +1,17 @@
 # ##########################################################################
 # ##########################################################################
-# TFREAD Library Makefile
+# Multiple Architecture Source Code Production System (MASCaPS) Version 3
+# 	Text File Reader (TFREAD) Library Makefile
 # ##########################################################################
 #
-#    File Name          :  %M%
+# File Name       : tfread/source/Makefile
 #
-#    File Version       :  %I%
+# File Description: TFREAD library make file.
 #
-#    Last Extracted     :  %D%	%T%
-#
-#    Last Updated       :  %E%	%U%
-#
-#    File Description   :  This is the make file for the TFREAD library.
-#
-#    Revision History   :  1993-07-07 --- Creation.
-#                             Michael L. Brock
+# Revision History: 1993-07-07 --- Creation.
+#                       Michael L. Brock
+#                   2026-09-26 --- Modified for use with MASCaPS Version 3.
+#                       Michael L. Brock
 #
 #       Copyright Michael L. Brock 1993 - 2018.
 #       Distributed under the Boost Software License, Version 1.0.
@@ -23,41 +20,37 @@
 #
 # ##########################################################################
 
-.KEEP_STATE:
+include ../../.MASCaPS/MakePrefixFirst.mk
 
-THIS_HOME:sh				=	echo $HOME
+CPPFLAGS_ADDED	:=	-I ../../include
 
-include ${THIS_HOME}/src/.MASCAPS/premake.mk
+TARGET_LIBS	=	libtfread.a
 
-TARGET_LIBS					=	tfread.a
+ADF_INCS	=	../../tfread.h
 
-ADF_INCS						=  ${INCLUDE_DIR}/tfread.h
+SRCS		=	\
+			buff.c \
+			bufff.c \
+			buffm.c \
+			buffraw.c \
+			buffrawf.c \
+			buffrawm.c \
+			buffxnl.c \
+			buffxnlf.c \
+			buffxnlfm.c \
+			defdataf.c \
+			defdatam.c \
+			line.c \
+			linef.c \
+			linem.c \
+			linenoa.c \
+			linenoaf.c \
+			linenoam.c
 
-SRCS							=	\
-									buff.c \
-									bufff.c \
-									buffm.c \
-									buffraw.c \
-									buffrawf.c \
-									buffrawm.c \
-									buffxnl.c \
-									buffxnlf.c \
-									buffxnlfm.c \
-									defdataf.c \
-									defdatam.c \
-									line.c \
-									linef.c \
-									linem.c \
-									linenoa.c \
-									linenoaf.c \
-									linenoam.c
+# Only the libraries below are needed for TEST_MAIN unit tests in this library.
+MLB_LIB_NAMES	=	tfread genfuncs strfuncs
 
-LIBS							=	${TARGET_LIBS} ${LOCAL_LIBS}
+include ../../.MASCaPS/MakeSuffixFirst.mk
 
-${TARGET_LIBS}				:	${OBJS}
-	@${AR} ${ARFLAGS} $@ ${OBJS}
-	@ranlib $@
-	@cp -p $@ ${LOCAL_LIB_DIR}/.
-
-include ${THIS_HOME}/src/.MASCAPS/postmake.mk
+# #############################################################################
 
