@@ -129,6 +129,8 @@ va_list               arg_list;
 
 #ifdef TEST_MAIN
 
+#include <string.h>
+
 #define TEST_MLOG_FILE_NAME		"TEST_MLOG_LogErr.txt"
 
 int main(void);

@@ -4,14 +4,14 @@
 # 	Memory-Mapped File (MFILE) Library Makefile
 # ##########################################################################
 #
-# File Name       : sdtif/source/Makefile
+# File Name       : mfile/source/Makefile
 #
-# File Description: SDTIF library make file.
+# File Description: MFILE library make file.
 #
 # Revision History: 1993-07-07 --- Creation.
-#                       Michael L. Brock
-#                   2026--0-26 --- Modified for use with MASCaPS Version 3.
-#                       Michael L. Brock
+#                      Michael L. Brock
+#                   2026-09-26 --- Modified for use with MASCaPS Version 3.
+#                      Michael L. Brock
 #
 #       Copyright Michael L. Brock 1993 - 2018.
 #       Distributed under the Boost Software License, Version 1.0.

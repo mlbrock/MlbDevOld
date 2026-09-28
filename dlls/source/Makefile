@@ -1,20 +1,17 @@
 # ############################################################################
 # ############################################################################
-# Doubly-Linked List Support (DLLS) Library Makefile
+# Multiple Architecture Source Code Production System (MASCaPS) Version 3
+# 	Doubly-Linked List Support (DLLS) Library Makefile
 # ############################################################################
 #
-#    File Name          :  %M%
+# File Name       : dlls/source/Makefile
 #
-#    File Version       :  %I%
+# File Description: Doubly-linked list support (DLLS) library make file.
 #
-#    Last Extracted     :  %D%	%T%
-#
-#    Last Updated       :  %E%	%U%
-#
-#    File Description   :  This is the make file for the DLLS library.
-#
-#    Revision History   :  1993-03-11 --- Creation.
-#                             Michael L. Brock
+# Revision History: 1993-03-11 --- Creation.
+#                       Michael L. Brock
+#                   2026-09-28 --- Modified for use with MASCaPS Version 3.
+#                       Michael L. Brock
 #
 #       Copyright Michael L. Brock 1993 - 2018.
 #       Distributed under the Boost Software License, Version 1.0.
@@ -22,67 +19,48 @@
 #       http://www.boost.org/LICENSE_1_0.txt)
 #
 # ############################################################################
-#
 
-.KEEP_STATE:
+include ../../.MASCaPS/MakePrefixFirst.mk
 
-# Paths necessary to find the 'local' makefile . . .
-THIS_HOME:sh				=	echo $HOME
- 
-# Include directive for the 'local' makefile . . .
-include ${THIS_HOME}/src/.MASCAPS/premake.mk
- 
-#This is the the list of targets for this makefile . . .
-TARGET_LIBS					=	dlls.a
+CPPFLAGS_ADDED	:=	-I ../../include
 
-# ########## Sybase include files aren't all they could be . . .
-POST_GCC_CFLAGS			=	-Wno-strict-prototypes
+TARGET_LIBS	=	libdlls.a
 
-ADF_INCS						=	${INCLUDE_DIR}/dlls.h
+ADF_INCS	=	../../dlls.h
 
-# source
-SRCS							=	\
-									addfirst.c \
-									addlast.c \
-									addnext.c \
-									addprev.c \
-									check.c \
-									create.c \
-									delfirst.c \
-									dellast.c \
-									delnext.c \
-									delprev.c \
-									delself.c \
-									destroy.c \
-									getfirst.c \
-									getlast.c \
-									getlist.c \
-									getnext.c \
-									getprev.c \
-									init.c \
-									remfirst.c \
-									remlast.c \
-									remnext.c \
-									remprev.c \
-									remself.c \
-									reverse.c \
-									sort.c \
-									swap.c \
-									tstdebug.c
+SRCS		=	\
+			addfirst.c \
+			addlast.c \
+			addnext.c \
+			addprev.c \
+			check.c \
+			create.c \
+			delfirst.c \
+			dellast.c \
+			delnext.c \
+			delprev.c \
+			delself.c \
+			destroy.c \
+			getfirst.c \
+			getlast.c \
+			getlist.c \
+			getnext.c \
+			getprev.c \
+			init.c \
+			remfirst.c \
+			remlast.c \
+			remnext.c \
+			remprev.c \
+			remself.c \
+			reverse.c \
+			sort.c \
+			swap.c \
+			tstdebug.c
 
-LIBS							=	${TARGET_LIBS} ${LOCAL_LIBS}
+# Only the libraries below are needed for TEST_MAIN unit tests in this library.
+MLB_LIB_NAMES	=	dlls strfuncs
 
-# Here's how we make the targets . . .
-all							: ${TARGET_LIBS} ${TARGET_BINS}
+include ../../.MASCaPS/MakeSuffixFirst.mk
 
-# Here's how we make the target library . . .
-${TARGET_LIBS}         	: ${OBJS}
-	@${AR} ${ARFLAGS} $@ ${OBJS}
-	@ranlib $@
-	@cp -p $@ ${LOCAL_LIB_DIR}/.
- 
-# We include some useful ancillary targets here . . .
-include ${THIS_HOME}/src/.MASCAPS/postmake.mk
-#
 # ############################################################################
  

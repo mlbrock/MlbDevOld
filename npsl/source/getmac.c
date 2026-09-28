@@ -47,6 +47,10 @@
 #include <netinet/if_ether.h>
 #endif /* #ifdef _Windows */
 
+#ifdef __linux__
+# include <netinet/ether.h>
+#endif /* #ifdef __linux__ */
+
 /*	***********************************************************************	*/
 
 #ifdef __MSDOS__

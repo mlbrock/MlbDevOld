@@ -1,20 +1,17 @@
 # ##########################################################################
 # ##########################################################################
-# MLOG Memory-mapped Logging Library Makefile
+# Multiple Architecture Source Code Production System (MASCaPS) Version 3
+# 	Memory-mapped Logging (MLOG) Library Makefile
 # ##########################################################################
 #
-#    File Name          :  %M%
+# File Name       : mlog/source/Makefile
 #
-#    File Version       :  %I%
+# File Description: Memory-mapped logging (MLOG) library makefile.
 #
-#    Last Extracted     :  %D%	%T%
-#
-#    Last Updated       :  %E%	%U%
-#
-#    File Description   :  This is the make file for the MLOG library.
-#
-#    Revision History   :  1992-03-23 --- Creation.
-#                             Michael L. Brock
+# Revision History: 1992-03-23 --- Creation.
+#                       Michael L. Brock
+#                   2026-09-28 --- Modified for use with MASCaPS Version 3.
+#                       Michael L. Brock
 #
 #       Copyright Michael L. Brock 1992 - 2018.
 #       Distributed under the Boost Software License, Version 1.0.
@@ -23,48 +20,44 @@
 #
 # ##########################################################################
 
-.KEEP_STATE:
+include ../../.MASCaPS/MakePrefixFirst.mk
 
-THIS_HOME:sh				=	echo $HOME
+CPPFLAGS_ADDED	:=	-I ../../include
 
-include ${THIS_HOME}/src/.MASCAPS/premake.mk
+TARGET_LIBS	=	libmlog.a
 
-TARGET_LIBS					=	mlog.a
+ADF_INCS	=	../../mlog.h
 
-ADF_INCS						=	${INCLUDE_DIR}/mlog.h
+SRCS		=	\
+			check.c \
+			close.c \
+			complete.c \
+			domisc.c \
+			fopendef.c \
+			free.c \
+			getstate.c \
+			init.c \
+			locking.c \
+			logbasic.c \
+			logdebug.c \
+			logerr.c \
+			logif.c \
+			loginfo.c \
+			loglead.c \
+			logline.c \
+			logpdbug.c \
+			logtext.c \
+			logwarn.c \
+			open.c \
+			openlog.c \
+			setlgfmt.c \
+			setstate.c \
+			sync.c
 
-SRCS							=	\
-									check.c \
-									close.c \
-									complete.c \
-									domisc.c \
-									fopendef.c \
-									free.c \
-									getstate.c \
-									init.c \
-									locking.c \
-									logbasic.c \
-									logdebug.c \
-									logerr.c \
-									logif.c \
-									loginfo.c \
-									loglead.c \
-									logline.c \
-									logpdbug.c \
-									logtext.c \
-									logwarn.c \
-									open.c \
-									openlog.c \
-									setlgfmt.c \
-									setstate.c \
-									sync.c
+# Only the libraries below are needed for TEST_MAIN unit tests in this library.
+MLB_LIB_NAMES	=	mlog mtif mfile sdtif genfuncs strfuncs
 
-LIBS							=	${TARGET_LIBS} ${LOCAL_LIBS}
+include ../../.MASCaPS/MakeSuffixFirst.mk
 
-${TARGET_LIBS}				:	${OBJS}
-	@${AR} ${ARFLAGS} $@ ${OBJS}
-	@ranlib $@
-	@cp -p $@ ${LOCAL_LIB_DIR}/.
-
-include ${THIS_HOME}/src/.MASCAPS/postmake.mk
+# ############################################################################
 
