@@ -1,20 +1,17 @@
 # ############################################################################
 # ############################################################################
-# Expression Evaluation Calculator Library (EECFUNCS) Makefile
+# Multiple Architecture Source Code Production System (MASCaPS) Version 3
+# 	Expression Evaluation Calculator (EECFUNCS) Library Makefile
 # ############################################################################
 #
-#    File Name          :  %M%
+# File Name       : eecfuncs/source/Makefile
 #
-#    File Version       :  %I%
+# File Description: EECFUNCS library make file.
 #
-#    Last Extracted     :  %D%	%T%
-#
-#    Last Updated       :  %E%	%U%
-#
-#    File Description   :  This is the make file for the EECFUNCS library.
-#
-#    Revision History   :  1996-01-31 --- Creation.
-#                             Michael L. Brock
+# Revision History: 1996-01-31 --- Creation.
+#                       Michael L. Brock
+#                   2026-09-28 --- Modified for use with MASCaPS Version 3.
+#                       Michael L. Brock
 #
 #       Copyright Michael L. Brock 1996 - 2018.
 #       Distributed under the Boost Software License, Version 1.0.
@@ -22,87 +19,51 @@
 #       http://www.boost.org/LICENSE_1_0.txt)
 #
 # ############################################################################
-#
 
-.KEEP_STATE:
+include ../../.MASCaPS/MakePrefixFirst.mk
 
-# Paths necessary to find the 'local' makefile . . .
-THIS_HOME:sh				=	echo $HOME
- 
-# Include directive for the 'local' makefile . . .
-include ${THIS_HOME}/src/.MASCAPS/premake.mk
- 
-#This is the the list of targets for this makefile . . .
-TARGET_LIBS					=	eecfuncs.a
+CPPFLAGS_ADDED	:=	-I ../../include
 
-TARGET_BINS					=	\
-									tstcalc1 \
-									tstcalc2 \
-									tstcalc3
+TARGET_LIBS	=	libeecfuncs.a
 
-ADF_INCS						=	${INCLUDE_DIR}/eecfuncs.h
+ADF_INCS	=	../../eecfuncs.h
 
-# source
-SRCS							=	\
-									cpdatum.c \
-									cpfncdef.c \
-									cpfncrsv.c \
-									cpopalia.c \
-									cppfix.c \
-									cpsymbol.c \
-									cpsymrsv.c \
-									crcontrl.c \
-									emdatum.c \
-									empfix.c \
-									emstring.c \
-									emsubexp.c \
-									evalcore.c \
-									form2val.c \
-									frcontrl.c \
-									frdatum.c \
-									frevdata.c \
-									frfncdef.c \
-									frfncrsv.c \
-									fropalia.c \
-									frpfix.c \
-									frsubexp.c \
-									frsymbol.c \
-									funccore.c \
-									funcdata.c \
-									getinfix.c \
-									parsedat.c \
-									parseit0.c \
-									strcnvt.c \
-									tstdebug.c
+SRCS		=	\
+			cpdatum.c \
+			cpfncdef.c \
+			cpfncrsv.c \
+			cpopalia.c \
+			cppfix.c \
+			cpsymbol.c \
+			cpsymrsv.c \
+			crcontrl.c \
+			emdatum.c \
+			empfix.c \
+			emstring.c \
+			emsubexp.c \
+			evalcore.c \
+			form2val.c \
+			frcontrl.c \
+			frdatum.c \
+			frevdata.c \
+			frfncdef.c \
+			frfncrsv.c \
+			fropalia.c \
+			frpfix.c \
+			frsubexp.c \
+			frsymbol.c \
+			funccore.c \
+			funcdata.c \
+			getinfix.c \
+			parsedat.c \
+			parseit0.c \
+			strcnvt.c \
+			tstdebug.c
 
-TEST_LIST					=	\
-									test_evalcore \
-									test_getinfix \
-									test_parseit0
+# Only the libraries below are needed for TEST_MAIN unit tests in this library.
+MLB_LIB_NAMES	=	eecfuncs strfuncs
 
-LIBS							=	${TARGET_LIBS} ${LOCAL_LIBS}
+include ../../.MASCaPS/MakeSuffixFirst.mk
 
-# Here's how we make the targets . . .
-all							: ${TARGET_LIBS} ${TARGET_BINS}
-
-# Here's how we make the target executables . . .
-tstcalc1						:	${LIBS} tstcalc1.o
-	$(LINK.c) -o $@ $@.o $(LIBS)
-
-tstcalc2						:	${LIBS} tstcalc2.o
-	$(LINK.c) -o $@ $@.o $(LIBS)
-
-tstcalc3						:	${LIBS} tstcalc3.o
-	$(LINK.c) -o $@ $@.o $(LIBS)
-
-# Here's how we make the target library . . .
-eecfuncs.a	          	: ${OBJS}
-	@${AR} ${ARFLAGS} $@ ${OBJS}
-	@ranlib $@
-	@cp -p $@ ${LOCAL_LIB_DIR}/.
- 
-# We include some useful ancillary targets here . . .
-include ${THIS_HOME}/src/.MASCAPS/postmake.mk
-#
 # ############################################################################
- 
+

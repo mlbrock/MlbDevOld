@@ -1,22 +1,17 @@
 # ############################################################################
 # ############################################################################
-# Keyword Matching Logic (KMLFUNCS) Library (KMLFUNCS) Makefile
+# Multiple Architecture Source Code Production System (MASCaPS) Version 3
+# 	Keyword Matching Logic (KMLFUNCS) Library Makefile
 # ############################################################################
 #
-#    File Name          :  %M%
+# File Name       : kmlfuncs/source/Makefile
 #
-#    File Version       :  %I%
+# File Description: Keyword matching logic (KMLFUNCS) library make file.
 #
-#    Last Extracted     :  %D%	%T%
-#
-#    Last Updated       :  %E%	%U%
-#
-#    File Description   :  This is the make file for the KMLFUNCS libraries
-#			   and executables. It conforms to the MASCaPS
-#			   standard.
-#
-#    Revision History   :  1998-03-19 --- Creation.
-#                             Michael L. Brock
+# Revision History: 1998-03-19 --- Creation.
+#                       Michael L. Brock
+#                   2026-09-28 --- Modified for use with MASCaPS Version 3.
+#                       Michael L. Brock
 #
 #       Copyright Michael L. Brock 1998 - 2018.
 #       Distributed under the Boost Software License, Version 1.0.
@@ -26,82 +21,67 @@
 # ############################################################################
 #
 
-.KEEP_STATE:
+include ../../.MASCaPS/MakePrefixFirst.mk
 
-# Paths necessary to find the 'local' makefile . . .
-THIS_HOME:sh				=	echo $HOME
- 
-# Include directive for the 'local' makefile . . .
-include ${THIS_HOME}/src/.MASCAPS/premake.mk
- 
-#This is the the list of targets for this makefile . . .
-TARGET_LIBS					=	kmlfuncs.a
+CPPFLAGS_ADDED	:=	-I ../../include
 
-ADF_INCS						=	${INCLUDE_DIR}/kmlfuncs.h
+TARGET_LIBS	=	libkmlfuncs.a
 
-# source
-SRCS							=	\
-									addmatch.c \
-									almatch.c \
-									buildidx.c \
-									catmatch.c \
-									clmatch.c \
-									cmmatch.c \
-									cpblock.c \
-									cpcommnt.c \
-									cpdomain.c \
-									cpkeywrd.c \
-									cpmatch.c \
-									cpname.c \
-									cpoperat.c \
-									cpstring.c \
-									cpsymbol.c \
-									fddomain.c \
-									frblock.c \
-									frcommnt.c \
-									frcontrl.c \
-									frdomain.c \
-									frkeywrd.c \
-									frmatch.c \
-									frname.c \
-									froperat.c \
-									frstring.c \
-									frsymbol.c \
-									geteol.c \
-									getlines.c \
-									inblock.c \
-									incommnt.c \
-									incontrl.c \
-									indomain.c \
-									inindex.c \
-									inkeywrd.c \
-									inmatch.c \
-									inname.c \
-									inoperat.c \
-									instring.c \
-									insymbol.c \
-									mtall.c \
-									outhppl.c \
-									outhtml.c \
-									outstrng.c \
-									rmmatch.c \
-									stmatch.c \
-									testdata.c \
-									typename.c
+ADF_INCS	=	../../kmlfuncs.h
 
-LIBS							=	${TARGET_LIBS} ${LOCAL_LIBS}
+SRCS		=	\
+			addmatch.c \
+			almatch.c \
+			buildidx.c \
+			catmatch.c \
+			clmatch.c \
+			cmmatch.c \
+			cpblock.c \
+			cpcommnt.c \
+			cpdomain.c \
+			cpkeywrd.c \
+			cpmatch.c \
+			cpname.c \
+			cpoperat.c \
+			cpstring.c \
+			cpsymbol.c \
+			fddomain.c \
+			frblock.c \
+			frcommnt.c \
+			frcontrl.c \
+			frdomain.c \
+			frkeywrd.c \
+			frmatch.c \
+			frname.c \
+			froperat.c \
+			frstring.c \
+			frsymbol.c \
+			geteol.c \
+			getlines.c \
+			inblock.c \
+			incommnt.c \
+			incontrl.c \
+			indomain.c \
+			inindex.c \
+			inkeywrd.c \
+			inmatch.c \
+			inname.c \
+			inoperat.c \
+			instring.c \
+			insymbol.c \
+			mtall.c \
+			outhppl.c \
+			outhtml.c \
+			outstrng.c \
+			rmmatch.c \
+			stmatch.c \
+			testdata.c \
+			typename.c
 
-# Here's how we make the targets . . .
-all							: ${TARGET_LIBS} ${TARGET_BINS}
+# Only the libraries below are needed for TEST_MAIN unit tests in this library.
+MLB_LIB_NAMES	=	kmlfuncs tfread sdtif genfuncs strfuncs
 
-# Here's how we make the target library . . .
-${TARGET_LIBS}         	: ${OBJS}
-	@${AR} ${ARFLAGS} $@ ${OBJS}
-	@ranlib $@
-	@cp -p $@ ${LOCAL_LIB_DIR}/.
- 
-# We include some useful ancillary targets here . . .
-include ${THIS_HOME}/src/.MASCAPS/postmake.mk
-#
+include ../../.MASCaPS/MakeSuffixFirst.mk
+
 # ############################################################################
  
