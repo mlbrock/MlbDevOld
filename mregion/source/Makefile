@@ -1,20 +1,17 @@
 # ##########################################################################
 # ##########################################################################
-# MREGION Memory-mapped Region Library Makefile
+# Multiple Architecture Source Code Production System (MASCaPS) Version 3
+# 	Memory-mapped Region (MREGION) Library Makefile
 # ##########################################################################
 #
-#    File Name          :  %M%
+# File Name       : mregion/source/Makefile
 #
-#    File Version       :  %I%
+# File Description: Memory-mapped region (MREGION) library makefile.
 #
-#    Last Extracted     :  %D%	%T%
-#
-#    Last Updated       :  %E%	%U%
-#
-#    File Description   :  This is the make file for the MREGION library.
-#
-#    Revision History   :  1992-03-23 --- Creation.
-#                             Michael L. Brock
+# Revision History: 1992-03-23 --- Creation.
+#                       Michael L. Brock
+#                   2026-09-29 --- Modified for use with MASCaPS Version 3.
+#                       Michael L. Brock
 #
 #       Copyright Michael L. Brock 1992 - 2018.
 #       Distributed under the Boost Software License, Version 1.0.
@@ -23,55 +20,48 @@
 #
 # ##########################################################################
 
-.KEEP_STATE:
+include ../../.MASCaPS/MakePrefixFirst.mk
 
-THIS_HOME:sh				=	echo $HOME
+CPPFLAGS_ADDED	:=	-I ../../include
 
-include ${THIS_HOME}/src/.MASCAPS/premake.mk
+TARGET_LIBS	=	libmregion.a
 
-TARGET_LIBS					=	mregion.a
+ADF_INCS	=	../../mregion.h
 
-#ADF_INCS						=	${INCLUDE_DIR}/mregion.h
-ADF_INCS						=	mregion.h
+SRCS		=	\
+			alarray.c \
+			alctl.c \
+			alctlary.c \
+			alfil.c \
+			alfilary.c \
+			alitem.c \
+			alreg.c \
+			ckctl.c \
+			ckfil.c \
+			ckreg.c \
+			clctl.c \
+			clfil.c \
+			clreg.c \
+			filelen.c \
+			filemode.c \
+			fopen.c \
+			frctl.c \
+			frfil.c \
+			frreg.c \
+			inctl.c \
+			infil.c \
+			inreg.c \
+			mapfil.c \
+			mapfopen.c \
+			mapopen.c \
+			mapreg.c \
+			open.c \
+			version.c
 
-CFLAGS                 += -I../mmi
+# Only the libraries below are needed for TEST_MAIN unit tests in this library.
+MLB_LIB_NAMES	=	mregion mmi genfuncs strfuncs
 
-SRCS							=	\
-									alarray.c \
-									alctl.c \
-									alctlary.c \
-									alfil.c \
-									alfilary.c \
-									alitem.c \
-									alreg.c \
-									ckctl.c \
-									ckfil.c \
-									ckreg.c \
-									clctl.c \
-									clfil.c \
-									clreg.c \
-									filelen.c \
-									filemode.c \
-									fopen.c \
-									frctl.c \
-									frfil.c \
-									frreg.c \
-									inctl.c \
-									infil.c \
-									inreg.c \
-									mapfil.c \
-									mapfopen.c \
-									mapopen.c \
-									mapreg.c \
-									open.c \
-									version.c
+include ../../.MASCaPS/MakeSuffixFirst.mk
 
-LIBS							=	${TARGET_LIBS} ${LOCAL_LIBS}
-
-${TARGET_LIBS}				:	${OBJS}
-	@${AR} ${ARFLAGS} $@ ${OBJS}
-	@ranlib $@
-	@cp -p $@ ${LOCAL_LIB_DIR}/.
-
-include ${THIS_HOME}/src/.MASCAPS/postmake.mk
+# ############################################################################
 

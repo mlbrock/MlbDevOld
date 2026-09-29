@@ -1,20 +1,17 @@
 # ##########################################################################
 # ##########################################################################
-# MMAP Library Makefile
+# Multiple Architecture Source Code Production System (MASCaPS) Version 3
+# 	Memory-mapped Interface (MMI) Library Makefile
 # ##########################################################################
 #
-#    File Name          :  %M%
+# File Name       : mmi/source/Makefile
 #
-#    File Version       :  %I%
+# File Description: Memory-mapped Interface (MMI) library makefile.
 #
-#    Last Extracted     :  %D%	%T%
-#
-#    Last Updated       :  %E%	%U%
-#
-#    File Description   :  This is the make file for the MMI library.
-#
-#    Revision History   :  1998-07-01 --- Creation.
-#                             Michael L. Brock
+# Revision History: 1998-07-01 --- Creation.
+#                       Michael L. Brock
+#                   2026-09-29 --- Modified for use with MASCaPS Version 3.
+#                       Michael L. Brock
 #
 #       Copyright Michael L. Brock 1998 - 2018.
 #       Distributed under the Boost Software License, Version 1.0.
@@ -23,35 +20,31 @@
 #
 # ##########################################################################
 
-.KEEP_STATE:
+include ../../.MASCaPS/MakePrefixFirst.mk
 
-THIS_HOME:sh				=	echo $HOME
+CPPFLAGS_ADDED	:=	-I ../../include
 
-include ${THIS_HOME}/src/.MASCAPS/premake.mk
+TARGET_LIBS	=	libmmi.a
 
-TARGET_LIBS					=	mmi.a
+ADF_INCS	=	../../mmi.h
 
-#ADF_INCS						=	${INCLUDE_DIR}/mmi.h
+SRCS		=	\
+			advise.c \
+			check.c \
+			flags.c \
+			lock.c \
+			map.c \
+			protect.c \
+			support.c \
+			sync.c \
+			unlock.c \
+			unmap.c \
+			version.c
 
-SRCS							=	\
-									advise.c \
-									check.c \
-									flags.c \
-									lock.c \
-									map.c \
-									protect.c \
-									support.c \
-									sync.c \
-									unlock.c \
-									unmap.c \
-									version.c
+# Only the libraries below are needed for TEST_MAIN unit tests in this library.
+MLB_LIB_NAMES	=	mmi genfuncs strfuncs
 
-LIBS							=	${TARGET_LIBS} ${LOCAL_LIBS}
+include ../../.MASCaPS/MakeSuffixFirst.mk
 
-${TARGET_LIBS}				:	${OBJS}
-	@${AR} ${ARFLAGS} $@ ${OBJS}
-	@ranlib $@
-	@cp -p $@ ${LOCAL_LIB_DIR}/.
-
-include ${THIS_HOME}/src/.MASCAPS/postmake.mk
+# ############################################################################
 
