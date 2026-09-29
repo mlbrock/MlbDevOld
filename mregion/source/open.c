@@ -37,6 +37,8 @@
 
 #ifdef _Windows
 # include <io.h>
+#else
+# include <fcntl.h>
 #endif /* #ifdef _Windows */
 
 #include <genfuncs.h>
