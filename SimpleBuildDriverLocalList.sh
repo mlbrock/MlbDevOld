@@ -57,6 +57,7 @@ dbcmssql/source \
 rvutil/source \
 MlbBins/source \
 adf/source\
+adfbins/source\
 "
 # #############################################################################
 
@@ -67,14 +68,12 @@ strfuncs/source \
 sdtif/source \
 genfuncs/source \
 datfuncs/source \
-dcr/source \
 dlls/source \
 dta/source \
 eecfuncs/source \
 kmlfuncs/source \
 mddl/source \
 mfile/source \
-mfiledos/source \
 mlog/source \
 MLogO/source \
 mmap/source \
@@ -88,15 +87,19 @@ pcff/source \
 siidr/source \
 spffuncs/source \
 tfread/source \
-dbcfuncs/source \
-dbcnull/source \
-dbcsyb/source \
-dbcctlib/source \
-dbcdblib/source \
-dbcmssql/source \
-rvutil/source \
-MlbBins/source \
 adf/source\
+adfbins/source\
 "
+# Removed from the redacted list are:
+#dcr/source \
+#mfiledos/source \
+#dbcfuncs/source \
+#dbcnull/source \
+#dbcsyb/source \
+#dbcctlib/source \
+#dbcdblib/source \
+#dbcmssql/source \
+#rvutil/source \
+#MlbBins/source \
 # #############################################################################
 
