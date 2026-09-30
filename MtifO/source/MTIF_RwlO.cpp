@@ -29,7 +29,7 @@
 /*	Include necessary header files . . .												*/
 /*	***********************************************************************	*/
 
-#include "MTIF_RwlO.h"
+#include "MTIF_RwlO.hpp"
 
 #include <cstring>
 

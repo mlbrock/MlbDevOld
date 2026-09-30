@@ -29,7 +29,7 @@
 /*	Include necessary header files . . .												*/
 /*	***********************************************************************	*/
 
-#include "MTIF_MtxO.h"
+#include "MTIF_MtxO.hpp"
 
 #include <cstring>
 
