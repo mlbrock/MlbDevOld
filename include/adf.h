@@ -1836,8 +1836,8 @@ COMPAT_FN_DECL(void ADF_FreePermIndex, (ADF_PERM_INDEX *index_item_ptr));
 
 COMPAT_FN_DECL(void ADF_INIT_Control, (ADF_CONTROL *control_ptr));
 COMPAT_FN_DECL(void ADF_INIT_Domain, (ADF_DOMAIN *ptr));
-COMPAT_FN_DECL(void ADF_INIT_DomainList, (unsigned int in_coun
-	, ADF_DOMAIN *in_list));
+COMPAT_FN_DECL(void ADF_INIT_DomainList, (unsigned int in_count,
+	ADF_DOMAIN *in_list));
 COMPAT_FN_DECL(void ADF_INIT_Pattern, (ADF_PATTERN *ptr));
 COMPAT_FN_DECL(void ADF_INIT_Section, (ADF_SECTION *ptr));
 COMPAT_FN_DECL(void ADF_INIT_SectionList, (unsigned int in_count,
