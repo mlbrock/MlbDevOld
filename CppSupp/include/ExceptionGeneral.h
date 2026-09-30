@@ -51,6 +51,7 @@
 # include <sstream>
 # include <string>
 #endif // #ifdef _Windows
+
 //	//////////////////////////////////////////////////////////////////////////
 
 namespace MLB {
@@ -65,18 +66,23 @@ template <class CharType = char>
 		typedef std::basic_ostringstream<CharType> ThisOStreamType;
 
 		ExceptionGeneralType() throw()
-			: std::exception("Unspecified exception."),
+			: std::exception(),
 			except_string("Unspecified exception.") { }
 		ExceptionGeneralType(const CharType *in_except_string) throw()
-			: std::exception(in_except_string),
+			: std::exception(),
 			except_string(in_except_string) { }
 		ExceptionGeneralType(const ThisStringType &in_except_string) throw()
-			: std::exception(in_except_string.c_str()),
+			: std::exception(),
 			except_string(in_except_string) { }
 		ExceptionGeneralType(const ThisOStreamType &in_except_string) throw()
-			: std::exception(in_except_string.str().c_str()),
+			: std::exception(),
 			except_string(in_except_string.str()) { }
 		~ExceptionGeneralType() throw() { }
+
+	virtual const char *what() const throw()
+	{
+		return(except_string.c_str());
+	}
 
 	private:
 		ThisStringType except_string;
@@ -91,9 +97,12 @@ typedef ExceptionGeneralType<char> ExceptionGeneral;
 template <class CharType = char>
 	class ExceptionWithCodeType : public ExceptionGeneralType<CharType> {
 	public:
+		using typename ExceptionGeneralType<CharType>::ThisStringType;
+		using typename ExceptionGeneralType<CharType>::ThisOStreamType;
 		typedef ExceptionGeneralType<CharType> ParentNick;
+
 		ExceptionWithCodeType() throw() :
-			ExceptionGeneralType(GetErrorString()),
+			ExceptionGeneralType<CharType>(GetErrorString()),
 			error_code(GetLastErrorCode()) { }
 
 		ExceptionWithCodeType(int in_error_code) throw() :
