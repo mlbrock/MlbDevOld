@@ -330,12 +330,21 @@ class AddressIP {
 		AddressIP() : host_name() {
 			memset(ip_address, '\0', sizeof(ip_address));
 		}
+#ifdef _Windows
 		explicit AddressIP(long in_address) : host_name() {
 			SetAddress(in_address);
 		}
 		explicit AddressIP(unsigned long in_address) : host_name() {
 			SetAddress(in_address);
 		}
+#else
+		explicit AddressIP(int32_t in_address) : host_name() {
+			SetAddress(in_address);
+		}
+		explicit AddressIP(uint32_t in_address) : host_name() {
+			SetAddress(in_address);
+		}
+#endif // #ifdef _Windows
 		explicit AddressIP(const unsigned char *in_address) : host_name() {
 			SetAddress(in_address);
 		}
@@ -346,12 +355,21 @@ class AddressIP {
 			SetAddress(in_address.c_str());
 		}
 
+#ifdef _Windows
 		void SetAddress(long in_address) {
 			memcpy(ip_address, &in_address, sizeof(ip_address));
 		}
 		void SetAddress(unsigned long in_address) {
 			memcpy(ip_address, &in_address, sizeof(ip_address));
 		}
+#else
+		void SetAddress(int32_t in_address) {
+			memcpy(ip_address, &in_address, sizeof(ip_address));
+		}
+		void SetAddress(uint32_t in_address) {
+			memcpy(ip_address, &in_address, sizeof(ip_address));
+		}
+#endif // #ifdef _Windows
 		void SetAddress(const unsigned char *in_address) {
 			memcpy(ip_address, in_address, sizeof(ip_address));
 		}
@@ -363,7 +381,11 @@ class AddressIP {
 				&tmp_in_addr, NULL, NULL, npsl_error_text) != NPSL_SUCCESS)
 				throw ExceptionNpsl(npsl_error_text);
 			host_name = tmp_host_name;
-			memcpy(&ip_address, &tmp_in_addr.S_un.S_un_b, sizeof(ip_address));
+#ifdef _Windows
+			memcpy(&ip_address, &tmp_in_addr.S_addr, sizeof(ip_address));
+#else
+			memcpy(&ip_address, &tmp_in_addr.s_addr, sizeof(ip_address));
+#endif // #ifdef _Windows
 		}
 		void SetAddress(const std::string &in_address) {
 			SetAddress(in_address.c_str());
@@ -375,7 +397,11 @@ class AddressIP {
 		struct in_addr GetInAddr() const {
 			struct in_addr tmp_addr;
 			memset(&tmp_addr, '\0', sizeof(tmp_addr));
-			memcpy(&tmp_addr.S_un.S_un_b, ip_address, sizeof(tmp_addr.S_un.S_un_b));
+#ifdef _Windows
+			memcpy(&tmp_addr.S_addr, ip_address, sizeof(tmp_addr.S_addr));
+#else
+			memcpy(&tmp_addr.s_addr, ip_address, sizeof(tmp_addr.s_addr));
+#endif // #ifdef _Windows
 			return(tmp_addr);
 		}
 		NPSL_SOCKADDR_IN GetSockaddrIn() const {
@@ -460,6 +486,7 @@ class EndPointIP {
 			SetPort(ntohs(in_sockaddr_in.sin_port));
 		}
 
+#ifdef _Windows
 		void SetAddress(long in_address) {
 			AddressIP tmp_address(in_address);
 			address = tmp_address;
@@ -468,6 +495,16 @@ class EndPointIP {
 			AddressIP tmp_address(in_address);
 			address = tmp_address;
 		}
+#else
+		void SetAddress(int32_t in_address) {
+			AddressIP tmp_address(in_address);
+			address = tmp_address;
+		}
+		void SetAddress(uint32_t in_address) {
+			AddressIP tmp_address(in_address);
+			address = tmp_address;
+		}
+#endif // #ifdef _Windows
 		void SetAddress(const unsigned char *in_address) {
 			AddressIP tmp_address(in_address);
 			address = tmp_address;
@@ -484,7 +521,11 @@ class EndPointIP {
 			address = in_address;
 		}
 		void SetAddress(const struct in_addr &in_addr_in) {
-			SetAddress(&in_addr_in.S_un.S_un_b.s_b1);
+#ifdef _Windows
+			SetAddress(in_addr_in.S_addr);
+#else
+			SetAddress(in_addr_in.s_addr);
+#endif // #ifdef _Windows
 		}
 		void SetPort(int in_port) {
 			if ((port < 0) ||
