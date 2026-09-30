@@ -51,11 +51,15 @@
 # include <limits>
 #endif // #ifdef _Windows
 
+#include <npsl.h>
+#include <sdtif.h>
+#include <strfuncs.h>
+
+#include <cstring>
+
 #include "ExceptionGeneral.h"
 #include "NonCopyable.h"
  
-#include "npsl.h"
-
 //	//////////////////////////////////////////////////////////////////////////
 
 namespace MLB {
@@ -67,31 +71,73 @@ enum AddressFamily {
 	AddressFamily_NONE      = AF_UNSPEC,
 	AddressFamily_Unix      = AF_UNIX,
 	AddressFamily_Internet  = AF_INET,
+#ifdef AF_IMPLINK
 	AddressFamily_Implink   = AF_IMPLINK,
+#endif // #ifdef AF_IMPLINK
+#ifdef AF_PUP
 	AddressFamily_Pup       = AF_PUP,
+#endif // #ifdef AF_PUP
+#ifdef AF_CHAOS
 	AddressFamily_Chaos     = AF_CHAOS,
+#endif // #ifdef AF_CHAOS
+#ifdef AF_NS
 	AddressFamily_Ns        = AF_NS,
+#endif // #ifdef AF_NS
 	AddressFamily_Ipx       = AF_IPX,
+#ifdef AF_ISO
 	AddressFamily_Iso       = AF_ISO,
+#endif // #ifdef AF_ISO
+#ifdef AF_OSI
 	AddressFamily_Osi       = AF_OSI,
+#endif // #ifdef AF_OSI
+#ifdef AF_ECMA
 	AddressFamily_Ecma      = AF_ECMA,
+#endif // #ifdef AF_ECMA
+#ifdef AF_DATAKIT
 	AddressFamily_Datakit   = AF_DATAKIT,
+#endif // #ifdef AF_DATAKIT
+#ifdef AF_CCITT
 	AddressFamily_Ccitt     = AF_CCITT,
+#endif // #ifdef AF_CCITT
 	AddressFamily_Sna       = AF_SNA,
 	AddressFamily_Decnet    = AF_DECnet,
+#ifdef AF_DLI
 	AddressFamily_Dli       = AF_DLI,
+#endif // #ifdef AF_DLI
+#ifdef AF_LAT
 	AddressFamily_Lat       = AF_LAT,
+#endif // #ifdef AF_LAT
+#ifdef AF_HYLINK
 	AddressFamily_Hylink    = AF_HYLINK,
+#endif // #ifdef AF_HYLINK
 	AddressFamily_Appletalk = AF_APPLETALK,
+#ifdef AF_NETBIOS
 	AddressFamily_Netbios   = AF_NETBIOS,
+#endif // #ifdef AF_NETBIOS
+#ifdef AF_VOICEVIEW
 	AddressFamily_Voiceview = AF_VOICEVIEW,
+#endif // #ifdef AF_VOICEVIEW
+#ifdef AF_FIREFOX
 	AddressFamily_Firefox   = AF_FIREFOX,
+#endif // #ifdef AF_FIREFOX
+#ifdef AF_UNKNOWN1
 	AddressFamily_Unknown1  = AF_UNKNOWN1,
+#endif // #ifdef AF_UNKNOWN1
+#ifdef AF_BAN
 	AddressFamily_Ban       = AF_BAN,
-//	AddressFamily_Atm       = AF_ATM,
-//	AddressFamily_Inet6     = AF_INET6,
-//	AddressFamily_Cluster   = AF_CLUSTER,
-//	AddressFamily_12844     = AF_12844,
+#endif // #ifdef AF_BAN
+#ifdef AF_ATM
+	AddressFamily_Atm       = AF_ATM,
+#endif // #ifdef AF_ATM
+#ifdef AF_INET6
+	AddressFamily_Inet6     = AF_INET6,
+#endif // #ifdef AF_INET6
+#ifdef AF_CLUSTER
+	AddressFamily_Cluster   = AF_CLUSTER,
+#endif // #ifdef AF_CLUSTER
+#ifdef AF_12844
+	AddressFamily_12844     = AF_12844,
+#endif // #ifdef AF_12844
 	AddressFamily_DEFAULT   = AF_INET
 };
 //	//////////////////////////////////////////////////////////////////////////
@@ -118,9 +164,13 @@ template <class CharType = char> class ExceptionNpslType :
 	public MLB::CPPSupp::ExceptionGeneralType<CharType> {
 	private:
 		typedef MLB::CPPSupp::ExceptionGeneralType<CharType> ParentNick;
+
 	public:
+		using typename MLB::CPPSupp::ExceptionGeneralType<CharType>::ThisStringType;
+		using typename MLB::CPPSupp::ExceptionGeneralType<CharType>::ThisOStreamType;
+
 		ExceptionNpslType() throw() :
-			MLB::CPPSupp::ExceptionGeneralType("Unknown exception."),
+			MLB::CPPSupp::ExceptionGeneralType<CharType>("Unknown exception."),
 			error_code(GetLastSocketLibErrorCode()) { }
 		ExceptionNpslType(int in_error_code) throw() :
 			MLB::CPPSupp::ExceptionGeneralType<CharType>(),
@@ -164,9 +214,13 @@ template <class CharType = char> class ExceptionNpslTimeOutType :
 	public ExceptionNpslType<CharType> {
 	private:
 		typedef ExceptionNpslType<CharType> ParentNick;
+
 	public:
+		using typename ExceptionNpslType<CharType>::ThisStringType;
+		using typename ExceptionNpslType<CharType>::ThisOStreamType;
+
 		ExceptionNpslTimeOutType() throw() :
-			ExceptionNpslType() { }
+			ExceptionNpslType<CharType>() { }
 		ExceptionNpslTimeOutType(const struct timeval *time_out_ptr) throw() :
 			ExceptionNpslType<CharType>(FormatError(NULL, time_out_ptr)) { }
 		ExceptionNpslTimeOutType(const CharType *in_except_string,
@@ -219,8 +273,7 @@ class SocketLib {
 		}
 
 		bool IsReady() const { return(is_initilized); }
-		void EnsureReady()
-			const MBCOMPAT_EXCEPT_CANTHROW(ExceptionNpsl) {
+		void EnsureReady() const {
 			if (!IsReady())
 				throw ExceptionNpsl(
 					"Socket library not yet initialized.");
