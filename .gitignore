@@ -43,3 +43,13 @@ TargetPlatform/
 # Build results logs
 BuildResults.*.log
 
+# ADF Binaries
+adfcomb
+adfdefc
+adfdefd
+adfdiff
+adfout
+adfprep
+adfrefsa
+adfsize
+
