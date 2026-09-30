@@ -205,14 +205,14 @@ COMPAT_EXTERN_DATA_DECL unsigned int _stklen = 16384;
 
 COMPAT_FN_DECL(int main, (int, char **));
 
-char *SimpleTestList[]  = {
+static char *SimpleTestList[]  = {
 	"Here is a short usage line.",
 	"Here is a much longer option line with lots of white-space for the \
 purpose of having a place to break the line.",
 	"This line\nhas lots of\nembedded line-feed\ncharacters."
 };
 
-char *MultiTestList[]   = {
+static char *MultiTestList[]   = {
 	"Line one.",
 	"Line two.",
 	"A very, very, very long line number three with lots of additional words \
@@ -223,7 +223,7 @@ to test the ability of the routine to do word-wrapping.",
 	NULL
 };
 
-static const char *UsageList[] = {
+static char *UsageList[] = {
 	"Usage:",
 	"------",
 	"	prtcache [<a mixture of '-' options, '@' commands, and filenames>]",
