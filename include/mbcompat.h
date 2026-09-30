@@ -195,7 +195,23 @@
 #  define MBCOMPAT_EXCEPT_NOTHROW
 #  define MBCOMPAT_EXCEPT_CANTHROW(except)
 # endif /* #ifndef MBCOMPAT_EXCEPT_NOT_SUPPORTED */
+#else
+# define MBCOMPAT_EXCEPT_TRY */
+# define MBCOMPAT_EXCEPT_CATCH(except) */
+# define MBCOMPAT_EXCEPT_CATCH_ALL */
+# define MBCOMPAT_EXCEPT_THROW(except) */
+# define MBCOMPAT_EXCEPT_THROW_CTOR(except, data) */
+# define MBCOMPAT_EXCEPT_RETHROW */
+# define MBCOMPAT_EXCEPT_NOTHROW
+# define MBCOMPAT_EXCEPT_CANTHROW(except)
 #endif /* #ifdef __cplusplus */
+
+#if defined(__cplusplus)
+# define COMPAT_FN_DECL_NOTHROW(frtn, fargs)	extern "C" { frtn fargs throw(); }
+#else
+# define COMPAT_FN_DECL_NOTHROW(frtn, fargs)	COMPAT_FN_DECL(frtn, fargs)
+#endif /* #if defined(__cplusplus) */
+
 /*	***********************************************************************	*/
 
 /*	***********************************************************************	*/
