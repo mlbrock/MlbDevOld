@@ -4,9 +4,9 @@
 # 	Automated Documentation Facility (ADF) Makefile
 # ##########################################################################
 #
-# File Name       : mlog/source/Makefile
+# File Name       : adf/source/Makefile
 #
-# File Description: Automated Documentation Facility (ADF) makefile.
+# File Description: Automated Documentation Facility (ADF) library makefile.
 #
 # Revision History: 1993-07-07 --- Creation.
 #                       Michael L. Brock
@@ -112,7 +112,6 @@ SRCS		=	\
 			valmanpg.c
 
 # Only the libraries below are needed for TEST_MAIN unit tests in this library.
-#MLB_LIB_NAMES	=	adf mlog mtif mfile sdtif genfuncs strfuncs
 MLB_LIB_NAMES	=	adf mlog mtif mfile spffuncs tfread sdtif genfuncs datfuncs strfuncs
 
 include ../../.MASCaPS/MakeSuffixFirst.mk
