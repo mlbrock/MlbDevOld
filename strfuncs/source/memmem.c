@@ -31,7 +31,7 @@
 /*	*********************************************************************** */
 #ifndef NARGS
 void *memmem(const void *search_area, size_t search_length,
-	const void *target_area, size_t target_length)
+	const void *target_area, size_t target_length) MBCOMPAT_EXCEPT_NOTHROW
 #else
 void *memmem(search_area, search_length, target_area, target_length)
 const void *search_area;

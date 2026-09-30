@@ -3029,7 +3029,7 @@ COMPAT_FN_DECL(void   *memimem,
 # pragma GCC diagnostic push
 # pragma GCC diagnostic ignored "-Wredundant-decls"
 #endif /* #ifdef __GNUC__ */
-COMPAT_FN_DECL(void   *memmem,
+COMPAT_FN_DECL_NOTHROW(void   *memmem,
 	(const void *, size_t, const void *, size_t));
 #ifdef __GNUC__
 # pragma GCC diagnostic pop
@@ -3117,7 +3117,7 @@ COMPAT_FN_DECL(size_t  strncnt,
 # pragma GCC diagnostic push
 # pragma GCC diagnostic ignored "-Wredundant-decls"
 #endif /* #ifdef __GNUC__ */
-COMPAT_FN_DECL(char   *strndup,
+COMPAT_FN_DECL_NOTHROW(char   *strndup,
 	(const char *, size_t));
 #ifdef __GNUC__
 # pragma GCC diagnostic pop

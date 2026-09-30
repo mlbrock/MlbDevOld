@@ -32,7 +32,7 @@
 /* *********************************************************************** */
 /* *********************************************************************** */
 #ifndef NARGS
-char *strndup(const char *in_string, size_t count)
+char *strndup(const char *in_string, size_t count) MBCOMPAT_EXCEPT_NOTHROW
 #else
 char *strndup(in_string, count)
 const char *in_string;
