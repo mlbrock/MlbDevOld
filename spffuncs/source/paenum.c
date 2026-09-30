@@ -64,7 +64,7 @@ char            *error_text;
 		return_code  = SPF_PARSE_FAILURE;
 		for (count_1 = 0; count_1 < enum_count; count_1++) {
 			if ((tmp_parse.length == strlen(enum_list[count_1].text)) &&
-				(!memicmp(tmp_parse.text, enum_list[count_1].text,
+				(!STRFUNCS_memicmp(tmp_parse.text, enum_list[count_1].text,
 				tmp_parse.length))) {
 				if (found_index != NULL)
 					*found_index = count_1;

@@ -85,7 +85,7 @@ unsigned int    *found_index;
 
 	for (count_1 = 0; count_1 < parse_count; count_1++) {
 		if ((data_length < parse_list[count_1].length)                  &&
-			(!memicmp(spec_name, parse_list[count_1].text, data_length)) &&
+			(!STRFUNCS_memicmp(spec_name, parse_list[count_1].text, data_length)) &&
 			(parse_list[count_1].text[data_length] == '(')) {
 			if (found_index != NULL)
 				*found_index = count_1;
