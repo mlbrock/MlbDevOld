@@ -4,7 +4,7 @@
 # 	Multi-Threading Interface Facility (MTIF) Library Makefile
 # ##########################################################################
 #
-# File Name       : mlog/source/Makefile
+# File Name       : mtif/source/Makefile
 #
 # File Description: Multi-threading interface facility (MTIF) library makefile.
 #
