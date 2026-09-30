@@ -29,6 +29,8 @@
 /* 	Include necessary header files . . .											*/
 /*	***********************************************************************	*/
 
+#include "../../mfile/source/mfilei.h"
+
 #include "adf.h"
 
 #include <memory.h>
