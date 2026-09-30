@@ -1799,9 +1799,9 @@ COMPAT_FN_DECL(void ADF_INIT_InFilePtr, (ADF_IN_FILE *in_file_ptr));
 COMPAT_FN_DECL(int  ADF_PadFile, (ADF_FILE *adf_file_ptr, char *error_text));
 COMPAT_FN_DECL(int  ADF_PadFileBasic, (ADF_FILE *adf_file_ptr, unsigned long pad_modulus,
 	char *error_text));
-COMPAT_FN_DECL(int  ADF_FRead, (void *buffer, unsigned int size, unsigned int count,
+COMPAT_FN_DECL(int  ADF_FRead, (void *buffer, size_t size, size_t count,
 	ADF_FILE *adf_file_ptr, char *error_text));
-COMPAT_FN_DECL(int  ADF_FWrite, (const void *buffer, unsigned int size, unsigned int count,
+COMPAT_FN_DECL(int  ADF_FWrite, (const void *buffer, size_t size, size_t count,
 	ADF_FILE *adf_file_ptr, char *error_text));
 
 COMPAT_FN_DECL(const ADF_PFORMAT_DEF *ADF_MatchParaFormat, (const char *in_string,
