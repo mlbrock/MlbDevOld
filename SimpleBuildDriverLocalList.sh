@@ -56,7 +56,7 @@ dbcdblib/source \
 dbcmssql/source \
 rvutil/source \
 MlbBins/source \
-adf/source\
+adf/source \
 adfbins/source\
 "
 # #############################################################################
@@ -87,7 +87,7 @@ pcff/source \
 siidr/source \
 spffuncs/source \
 tfread/source \
-adf/source\
+adf/source \
 adfbins/source\
 "
 # Removed from the redacted list are:
