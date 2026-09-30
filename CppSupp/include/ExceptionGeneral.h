@@ -45,6 +45,7 @@
 # include <string>
 # pragma warning(default:4018 4100 4146 4244 4290 4511 4512 4663)
 #else
+# include <errno.h>
 # include <exception>
 # include <iostream>
 # include <ostream>
@@ -143,7 +144,6 @@ template <class CharType = char>
 #ifdef _Windows
 			return(GetLastError());
 #else
-# include <errno.h>
 			return(errno);	
 #endif // #ifdef _Windows
 		}
