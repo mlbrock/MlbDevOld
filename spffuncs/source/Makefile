@@ -1,76 +1,70 @@
 # ##########################################################################
 # ##########################################################################
-# SPFFUNCS Library Makefile
+# Multiple Architecture Source Code Production System (MASCaPS) Version 3
+# 	Specification Parse Facility (SPF) Library Makefile
 # ##########################################################################
 #
-#    File Name          :  %M%
+# File Name       : spffuncs/source/Makefile
 #
-#    File Version       :  %I%
+# File Description: Specification parse facility (SPF) library makefile.
 #
-#    Last Extracted     :  %D%	%T%
+# Revision History: 1995-08-21 --- Creation.
+#                       Michael L. Brock
+#                   2026-09-28 --- Modified for use with MASCaPS Version 3.
+#                       Michael L. Brock
 #
-#    Last Updated       :  %E%	%U%
-#
-#    File Description   :  This is the make file for the SPFFUNCS library.
-#
-#    Revision History   :  1993-07-07 --- Creation.
-#                             Michael L. Brock
-#
-#       Copyright Michael L. Brock 1993 - 2018.
+#       Copyright Michael L. Brock 1995 - 2018.
 #       Distributed under the Boost Software License, Version 1.0.
 #       (See accompanying file LICENSE_1_0.txt or copy at
 #       http://www.boost.org/LICENSE_1_0.txt)
 #
 # ##########################################################################
 
-.KEEP_STATE:
+include ../../.MASCaPS/MakePrefixFirst.mk
 
-THIS_HOME:sh				=	echo $HOME
+CPPFLAGS_ADDED	:=	-I ../../include
 
-include ${THIS_HOME}/src/.MASCAPS/premake.mk
+TARGET_LIBS	=	libspffuncs.a
 
-TARGET_LIBS					=	spffuncs.a
+ADF_INCS	=	../../spffuncs.h
 
-ADF_INCS						=	${INCLUDE_DIR}/spffuncs.h
+SRCS		=	\
+			alparse.c \
+			cpparse.c \
+			cpspec.c \
+			fdspec.c \
+			frcontxt.c \
+			frparse.c \
+			frspec.c \
+			getlocat.c \
+			getlstpa.c \
+			getsubpa.c \
+			incontxt.c \
+			inparse.c \
+			insfuncs.c \
+			inspec.c \
+			mlinestr.c \
+			pabasic.c \
+			pabool.c \
+			pacomplx.c \
+			pacstr.c \
+			pacstrml.c \
+			paenum.c \
+			pafile.c \
+			panumber.c \
+			pastr.c \
+			pastrml.c \
+			pastrver.c \
+			patext.c \
+			patextml.c \
+			rdfile.c \
+			setparse.c
 
-SRCS							=	\
-									alparse.c \
-									cpparse.c \
-									cpspec.c \
-									fdspec.c \
-									frcontxt.c \
-									frparse.c \
-									frspec.c \
-									getlocat.c \
-									getlstpa.c \
-									getsubpa.c \
-									incontxt.c \
-									inparse.c \
-									insfuncs.c \
-									inspec.c \
-									mlinestr.c \
-									pabasic.c \
-									pabool.c \
-									pacomplx.c \
-									pacstr.c \
-									pacstrml.c \
-									paenum.c \
-									pafile.c \
-									panumber.c \
-									pastr.c \
-									pastrml.c \
-									pastrver.c \
-									patext.c \
-									patextml.c \
-									rdfile.c \
-									setparse.c
+# Only the libraries below are needed for TEST_MAIN unit tests in this library.
+#MLB_LIB_NAMES	=	mlog mtif mfile sdtif genfuncs strfuncs
+MLB_LIB_NAMES	=	spffuncs tfread sdtif genfuncs strfuncs
 
-LIBS							=	${TARGET_LIBS} ${LOCAL_LIBS}
+include ../../.MASCaPS/MakeSuffixFirst.mk
 
-${TARGET_LIBS}				:	${OBJS}
-	@${AR} ${ARFLAGS} $@ ${OBJS}
-	@ranlib $@
-	@cp -p $@ ${LOCAL_LIB_DIR}/.
-
-include ${THIS_HOME}/src/.MASCAPS/postmake.mk
+# ############################################################################
 
