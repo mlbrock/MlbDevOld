@@ -1090,7 +1090,7 @@ const ADF_PFORMAT_DEF *(*match_function)();
 		(*match_function)(line_list[count_1], para_format_buff,
 			&para_format_index, &para_format_end);
 
-	SDTIF_GetTimeUSecs_GetTimeUSecs(&end_time);
+	SDTIF_GetTimeUSecs(&end_time);
 
 	return(SDTIF_GET_TIMEVAL_USECS_DOUBLE(&end_time) -
 		SDTIF_GET_TIMEVAL_USECS_DOUBLE(&start_time));

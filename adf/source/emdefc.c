@@ -651,7 +651,7 @@ char **argv;
 				argv[count_1], error_text)) == ADF_SUCCESS) {
 				return_code = ADF_EMIT_DefCDomainList(control_data.domain_count,
 					control_data.domain_list, NULL, NULL, error_text);
-				ADF_FreeDomainList(&control_data.domain_count,
+				ADF_FREE_DomainList(&control_data.domain_count,
 					&control_data.domain_list);
 			}
 			if (return_code != ADF_SUCCESS)
