@@ -2503,8 +2503,6 @@ COMPAT_FN_DECL(int GEN_ALIGN_GetFieldAlignList, (unsigned int member_count,
 COMPAT_FN_DECL(int GEN_ALIGN_AlignFromString, (const char *in_string,
 	unsigned int *structure_size, unsigned int *align_count,
 	GEN_ALIGN **align_list, char *error_text));
-COMPAT_FN_DECL(int GEN_ALIGN_CheckMember, (const char *in_string,
-	GEN_ALIGN *align_ptr, char *error_text));
 COMPAT_FN_DECL(int GEN_ALIGN_Align, (unsigned int *structure_size,
 	unsigned int align_count, GEN_ALIGN *align_list, char *error_text));
 	/*	*****************************************************************	*/
