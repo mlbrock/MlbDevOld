@@ -261,6 +261,31 @@ COMPAT_EXTERN_DATA_DECL const GEN_ALIGN_SPEC GEN_ALIGN_TypeList[];
 
 /* *********************************************************************** */
 /* *********************************************************************** */
+/* Hackery to determine whether we have to use getwd() because getcwd()
+   wasn't added until SunOS 4.0.3 (IIRC).
+
+   Note there are a couple of incompatibilities between early SunOS
+   implementations of getcwd() vis-a-vis later ones:
+      1) The length parameter was originally an int.
+      2) Passing 'NULL' to have allocation performed on the caller's
+         behalf was not supported.
+*/
+/* *********************************************************************** */
+#ifndef GENFUNCS_DEF_USE_getwd         /* If not already specified ...     */
+# ifdef sun                            /* ... and we're on a Sun OS ...    */
+#  ifndef __SVR4                       /* ... and not System V Solaris ... */
+#   ifndef __svr4__                    /* ... and still not Solaris ...    */
+#    ifndef sun4                       /* ... and not BSD SunOS 4.x ...    */
+#     define GENFUNCS_DEF_USE_getwd	1  /* ... this must be an older SunOS. */
+#    endif /* #    ifndef sun4 */
+#   endif /* #   ifndef __svr4__ */
+#  endif /* #  ifndef __SVR4 */
+# endif /* # ifdef sun */
+#endif /* #ifndef GENFUNCS_DEF_USE_getwd */
+/* *********************************************************************** */
+
+/* *********************************************************************** */
+/* *********************************************************************** */
 /* Function prototypes for internal functions within 'genfuncs.a' . . .		*/
 /* *********************************************************************** */
 
