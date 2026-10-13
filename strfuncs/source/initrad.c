@@ -351,9 +351,16 @@ unsigned char *out_radix_table;
 		if (!isalpha(tmp_string[count_1]))
 			out_ascii_table[tmp_string[count_1]] = ((unsigned char) count_1);
 		else {
-			out_ascii_table[strfmacs_tolower(tmp_string[count_1])] =
+			/*
+				IMPL NOTE: These are safe for ASCII characters because isalpha()
+				returned true, but we want avoid gcc bleating about
+				-Wchar-subscripts warnings ...
+			*/
+			out_ascii_table[
+				((unsigned char) strfmacs_tolower(tmp_string[count_1]))] =
 				((unsigned char) count_1);
-			out_ascii_table[strfmacs_toupper(tmp_string[count_1])] =
+			out_ascii_table[
+				((unsigned char) strfmacs_toupper(tmp_string[count_1]))] =
 				((unsigned char) count_1);
 		}
 	}
