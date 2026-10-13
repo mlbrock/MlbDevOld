@@ -579,7 +579,7 @@ int main()
 #else
 	char              compile_buffer[1024];
 	char             *compile_string = compile_buffer;
-	char             *execute_string = "a.out";
+	char             *execute_string = "./a.out";
 
 	strcpy(compile_string, "cc ");
 #ifdef NARGS
