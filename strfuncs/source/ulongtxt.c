@@ -47,7 +47,7 @@
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
-COMPAT_EXTERN_DATA_DEF const STRFUNCS_VALUE_NAME STRFUNCS_NumberTextList[] = {
+const STRFUNCS_VALUE_NAME STRFUNCS_NumberTextList[] = {
 	{	                  0L,	"zero",			 0L	},
 	{	                  1L,	"one",			 0L	},
 	{	                  2L,	"two",			 0L	},
@@ -87,14 +87,14 @@ COMPAT_EXTERN_DATA_DEF const STRFUNCS_VALUE_NAME STRFUNCS_NumberTextList[] = {
 	{	1000000000000000000L,	"quintillion",	 0L	}
 #endif /* #if ULONG_MAX != 0XFFFFFFFFL */
 };
-COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_NumberTextCount =
+const unsigned int STRFUNCS_NumberTextCount =
 	sizeof(STRFUNCS_NumberTextList) / sizeof(STRFUNCS_NumberTextList[0]);
 /*	***********************************************************************	*/
 
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
-COMPAT_EXTERN_DATA_DEF const STRFUNCS_VALUE_NAME
+const STRFUNCS_VALUE_NAME
 	STRFUNCS_MetricNumberTextList[] = {
 	{	                  0L,	"zero",			 0L	},
 	{	                  1L,	"one",			 0L	},
@@ -135,7 +135,7 @@ COMPAT_EXTERN_DATA_DEF const STRFUNCS_VALUE_NAME
 	{	1000000000000000000L,	"exa",			 0L	}
 #endif /* #if ULONG_MAX != 0XFFFFFFFFL */
 };
-COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_MetricNumberTextCount =
+const unsigned int STRFUNCS_MetricNumberTextCount =
 	sizeof(STRFUNCS_MetricNumberTextList) /
 	sizeof(STRFUNCS_MetricNumberTextList[0]);
 /*	***********************************************************************	*/
@@ -143,7 +143,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_MetricNumberTextCount =
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
-COMPAT_EXTERN_DATA_DEF const STRFUNCS_VALUE_NAME
+const STRFUNCS_VALUE_NAME
 	STRFUNCS_BritishNumberTextList[] = {
 	{	                  0L,	"zero",			 0L	},
 	{	                  1L,	"one",			 0L	},
@@ -183,7 +183,7 @@ COMPAT_EXTERN_DATA_DEF const STRFUNCS_VALUE_NAME
 	{	1000000000000000000L,	"trillion",		 0L	}
 #endif /* #if ULONG_MAX != 0XFFFFFFFFL */
 };
-COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_BritishNumberTextCount =
+const unsigned int STRFUNCS_BritishNumberTextCount =
 	sizeof(STRFUNCS_BritishNumberTextList) /
 	sizeof(STRFUNCS_BritishNumberTextList[0]);
 /*	***********************************************************************	*/

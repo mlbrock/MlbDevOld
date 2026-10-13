@@ -77,7 +77,7 @@
 
 EOH */
 /* *********************************************************************** */
-COMPAT_EXTERN_DATA_DEF const char *RADIX50_AsciiString =
+const char *RADIX50_AsciiString =
 	" ABCDEFGHIJKLMNOPQRSTUVWXYZ'.-0123456789";
 /* *********************************************************************** */
 
@@ -146,7 +146,7 @@ S             19  9             39
 
 EOH */
 /* *********************************************************************** */
-COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_AsciiTable[UCHAR_MAX + 1] = {
+const unsigned char RADIX50_AsciiTable[UCHAR_MAX + 1] = {
 	0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
 	0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
 	0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
@@ -221,7 +221,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_AsciiTable[UCHAR_MAX + 1] = {
 
 EOH */
 /* *********************************************************************** */
-COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_Radix50Table[40] = {
+const unsigned char RADIX50_Radix50Table[40] = {
 	0X20, 0X41, 0X42, 0X43, 0X44, 0X45, 0X46, 0X47,
 	0X48, 0X49, 0X4A, 0X4B, 0X4C, 0X4D, 0X4E, 0X4F,
 	0X50, 0X51, 0X52, 0X53, 0X54, 0X55, 0X56, 0X57,
