@@ -124,8 +124,9 @@ unsigned int *jump_array;
 		jump_array[count_1] = target_length;
 
 	for (count_1 = 0; count_1 < target_length; count_1++)
-		jump_array[strfmacs_toupper(((const unsigned char *) target_area)
-			[count_1])] = (target_length - count_1) - 1;
+		jump_array[((unsigned char)
+			strfmacs_toupper(((const unsigned char *) target_area)
+			[count_1]))] = (target_length - count_1) - 1;
 
 	return(jump_array);
 }
@@ -620,9 +621,9 @@ unsigned int *match_array;
 				target_index--;
 			}
 			else {
-				tmp_index_1   = jump_array
-					[strfmacs_toupper(((const unsigned char *) search_area)
-					[search_index])];
+				tmp_index_1   = jump_array[((unsigned char)
+					strfmacs_toupper(((const unsigned char *) search_area)
+					[search_index]))];
 				tmp_index_2   = match_array[target_index];
 				search_index += (tmp_index_1 > tmp_index_2) ? tmp_index_1 :
 					tmp_index_2;
@@ -639,9 +640,9 @@ unsigned int *match_array;
 				target_index--;
 			}
 			else {
-				tmp_index_1   = jump_array
-					[strfmacs_toupper(((const unsigned char *) search_area)
-					[search_index])];
+				tmp_index_1   = jump_array[((unsigned char)
+					strfmacs_toupper(((const unsigned char *) search_area)
+					[search_index]))];
 				tmp_index_2   = (target_length - target_index) + 1;
 				search_index += (tmp_index_1 > tmp_index_2) ? tmp_index_1 :
 					tmp_index_2;
@@ -725,7 +726,7 @@ char **argv;
 	}
 	else if ((match_array = BoyerMoore_memi_alloc_match(target_length =
 		strlen(argv[1]), target_area = argv[1])) == NULL) {
-		fprintf(stderr, "ERROR: %s string '%s' (%u bytes required).\n",
+		fprintf(stderr, "ERROR: %s string '%s' (%lu bytes required).\n",
 			"Unable to allocate the Boyer-Moore match array for the",
 			target_area, (target_length + 1) * 2 * sizeof(unsigned int));
 		return_code = STRFUNCS_FAILURE;
