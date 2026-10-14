@@ -16,7 +16,7 @@
 	Revision History	:	1995-03-06 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2018.
+		Copyright Michael L. Brock 1995 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -88,7 +88,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	mremap_mfile
 						Memory-mapped File Functions:Re-map Functions:mremap
@@ -171,7 +171,7 @@ MFILE *mfile_ptr;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	mremap_basic_1
 						Memory-mapped File Functions:Re-map Functions:mremap_basic_1
@@ -336,7 +336,7 @@ unsigned long  length;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	mremap_basic_2
 						Memory-mapped File Functions:Re-map Functions:mremap_basic_2

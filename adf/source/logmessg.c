@@ -16,7 +16,7 @@
 	Revision History	:	1995-07-27 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2018.
+		Copyright Michael L. Brock 1995 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -147,7 +147,7 @@ static int ADF_LogMessageFlagSYSLOG    = ADF_TRUE;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1995 - 2018 Michael L. Brock
+   COPYRIGHT   :  Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	ADF_LogMessage
 						ADF General Functions:ADF_LogMessage
@@ -549,7 +549,7 @@ const char *log_string;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1995 - 2018 Michael L. Brock
+   COPYRIGHT   :  Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	ADF_GetLogMessageFlagFILE
 						ADF General Functions:ADF_GetLogMessageFlagFILE
@@ -614,7 +614,7 @@ int ADF_GetLogMessageFlagFILE()
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1995 - 2018 Michael L. Brock
+   COPYRIGHT   :  Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	ADF_SetLogMessageFlagFILE
 						ADF General Functions:ADF_SetLogMessageFlagFILE
@@ -681,7 +681,7 @@ int new_flag_value;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1995 - 2018 Michael L. Brock
+   COPYRIGHT   :  Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	ADF_GetLogMessageFlagADF_FILE
 						ADF General Functions:ADF_GetLogMessageFlagADF_FILE
@@ -744,7 +744,7 @@ int ADF_GetLogMessageFlagADF_FILE()
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1995 - 2018 Michael L. Brock
+   COPYRIGHT   :  Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	ADF_SetLogMessageFlagADF_FILE
 						ADF General Functions:ADF_SetLogMessageFlagADF_FILE
@@ -814,7 +814,7 @@ int new_flag_value;
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1995 - 2018 Michael L. Brock
+   COPYRIGHT   :  Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	ADF_GetLogMessageFlagSYSLOG
 						ADF General Functions:ADF_GetLogMessageFlagSYSLOG
@@ -879,7 +879,7 @@ int ADF_GetLogMessageFlagSYSLOG()
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1995 - 2018 Michael L. Brock
+   COPYRIGHT   :  Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	ADF_SetLogMessageFlagSYSLOG
 						ADF General Functions:ADF_SetLogMessageFlagSYSLOG
