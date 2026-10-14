@@ -6,7 +6,7 @@
 	Revision History:
 		10/27/1986 --- Creation by Michael L. Brock
 
-		Copyright Michael L. Brock 1986 - 2018.
+		Copyright Michael L. Brock 1986 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -31,7 +31,7 @@
 /*	*********************************************************************** */
 #ifndef NARGS
 void *memmem(const void *search_area, size_t search_length,
-	const void *target_area, size_t target_length)
+	const void *target_area, size_t target_length) MBCOMPAT_EXCEPT_NOTHROW
 #else
 void *memmem(search_area, search_length, target_area, target_length)
 const void *search_area;

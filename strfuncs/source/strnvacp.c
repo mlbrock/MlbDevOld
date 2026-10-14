@@ -16,7 +16,7 @@
 	Revision History	:	1993-01-09 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1993 - 2018.
+		Copyright Michael L. Brock 1993 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -93,7 +93,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1993 - 2018 Michael L. Brock
+   COPYRIGHT   :  Copyright 1993 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  strnvacpy
 						Variable Argument Allocation Copy Functions:strnvacpy
@@ -137,7 +137,7 @@ va_dcl
 	if ((tmp_ptr = ((char *) ((*target_string == NULL) ?
 		malloc(total_length * sizeof(char)) : realloc(*target_string,
 		total_length * sizeof(char))))) != NULL) {
-		va_end(*target_string);
+		va_end(argument_ptr);
 #ifndef NO_STDARGS
 		va_start(argument_ptr, string_length);
 #else
@@ -226,7 +226,7 @@ va_dcl
 
    AUTHOR      :  Michael L. Brock
 
-   COPYRIGHT   :  Copyright 1993 - 2018 Michael L. Brock
+   COPYRIGHT   :  Copyright 1993 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  strnva_padded_cpy
 						Variable Argument Allocation Copy Functions:strnva_padded_cpy
@@ -281,7 +281,7 @@ va_dcl
 	if ((tmp_ptr = ((char *) ((*target_string == NULL) ?
 		malloc(total_length * sizeof(char)) : realloc(*target_string,
 		total_length * sizeof(char))))) != NULL) {
-		va_end(*target_string);
+		va_end(argument_ptr);
 #ifndef NO_STDARGS
 		va_start(argument_ptr, right_padding);
 #else

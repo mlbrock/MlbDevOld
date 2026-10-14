@@ -17,7 +17,7 @@
 	Revision History	:	1992-02-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2018.
+		Copyright Michael L. Brock 1992 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -36,6 +36,8 @@
 
 #include <mbcompat.h>
 
+#include <stdlib.h>							/* Needed for GNU GLIBC macros.		*/
+
 #ifdef __MSDOS__
 # ifndef HAS_RPC
 #  define NO_RPC
@@ -45,6 +47,35 @@
 #  define NO_RPC
 # endif /* # ifndef HAS_RPC */
 #else
+# ifndef NO_RPC
+#  ifdef __GLIBC__
+#   ifdef __GLIBC_PREREQ
+    /*
+       The Sun RPC and XDR header files were removed from the glibc
+       distribution as of version 2.32. On Linux, they have to be explicitly
+       installed from one of the transport-independant RPC libraries ported
+       from the Sun code, either libtirpc or libntirpc.
+
+       The library libtirpc provides the legacy Sun RPC and XDR support. The
+       library libntirpc ('n' for 'New') is inclusive of libtirpc, but
+       includes additional performance-related enhancements and thread-safety.
+
+       Fedora (needed in Fedora 28 and subsequent releases):
+          yum install libtirpc-devel
+             OR
+          yum install libntirpc-devel
+
+       Ubuntu (needed in Ubuntu 22 and subsequent releases):
+          apt install libtirpc-dev
+             OR
+          apt install libntirpc-dev
+    */
+#    if __GLIBC_PREREQ(2, 32)
+#     define NO_RPC	1
+#    endif /* #    if __GLIBC_PREREQ(2, 32) */
+#   endif /* #   ifdef __GLIBC_PREREQ */
+#  endif /* #  ifdef __GLIBC__ */
+# endif /* # ifndef NO_RPC */
 # include <sys/types.h>
 #endif /* #ifdef __MSDOS__ */
 
@@ -97,7 +128,7 @@ typedef struct { char x; } XDR;
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  DTA_TRUE
 						DTA_FALSE
@@ -160,7 +191,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  DTA_SUCCESS
 						DTA_FAILURE
@@ -239,7 +270,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  DTA_MAX_ERROR_TEXT
 						DTA Manifest Constants:DTA_MAX_ERROR_TEXT
@@ -308,7 +339,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  DTA_C_unsigned_byte
 						DTA_C_char
@@ -453,7 +484,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  DTA_C_char_unsigned_byte
 						DTA_C_char_char
@@ -683,7 +714,7 @@ d
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	DTA_TYPE
 						Alignment Structures:DTA_TYPE
@@ -790,7 +821,7 @@ typedef struct {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	DTA
 						Alignment Structures:DTA

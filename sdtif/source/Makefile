@@ -8,12 +8,12 @@
 #
 # File Description: SDTIF library make file.
 #
-# Revision History:  1995-11-02 --- Creation.
+# Revision History: 1995-11-02 --- Creation.
 #                       Michael L. Brock
 #                   2015-12-12 --- Modified for use with MASCaPS Version 3.
 #                       Michael L. Brock
 #
-#       Copyright Michael L. Brock 1995 - 2018.
+#       Copyright Michael L. Brock 1995 - 2026.
 #       Distributed under the Boost Software License, Version 1.0.
 #       (See accompanying file LICENSE_1_0.txt or copy at
 #       http://www.boost.org/LICENSE_1_0.txt)

@@ -16,7 +16,7 @@
 	Revision History	:	1998-04-08 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1998 - 2018.
+		Copyright Michael L. Brock 1998 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -122,10 +122,10 @@ template <class DataType, class LockType = MLB::CPPSupp::NullLock,
 		//	////////////////////////////////////////////////////////////////
 		// Some internal short names...
 		//	////////////////////////////////////////////////////////////////
-		typedef typename allocator_type                          AllocatorType;
-		typedef typename value_type                              ValueType;
-		typedef typename pointer                                 Pointer;
-		typedef typename const_pointer                           ConstPointer;
+		typedef allocator_type                                   AllocatorType;
+		typedef value_type                                       ValueType;
+		typedef pointer                                          Pointer;
+		typedef const_pointer                                    ConstPointer;
 		typedef typename BaseCollType::reference                 Ref;
 		typedef typename BaseCollType::const_reference           ConstRef;
 		typedef typename BaseCollType::size_type                 SizeType;

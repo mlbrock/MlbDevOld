@@ -17,7 +17,7 @@
 	Revision History	:	1994-02-25 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2018.
+		Copyright Michael L. Brock 1994 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -46,6 +46,10 @@
 #include <netinet/in.h>
 #include <netinet/if_ether.h>
 #endif /* #ifdef _Windows */
+
+#ifdef __linux__
+# include <netinet/ether.h>
+#endif /* #ifdef __linux__ */
 
 /*	***********************************************************************	*/
 

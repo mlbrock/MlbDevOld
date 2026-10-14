@@ -11,12 +11,12 @@
 
 	Last Updated		:	%E%	%U%
 
-	File Description	:	Include file for the 'MLB::MTIF::MtrO' class.
+	File Description	:	Include file for the 'MLB::MTIF::NullO' class.
 
 	Revision History	:	2000-03-02 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 2000 - 2018.
+		Copyright Michael L. Brock 2000 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -24,9 +24,9 @@
 */
 /*	***********************************************************************	*/
 
-#ifndef HH__MLB__MTIF__MtrO_h__HH
+#ifndef HH__MLB__MTIF__NullO_h__HH
 
-#define HH__MLB__MTIF__MtrO_h__HH		1
+#define HH__MLB__MTIF__NullO_h__HH		1
 
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
@@ -35,6 +35,8 @@
 
 #include "mtif.h"
 
+#include <cstring>
+
 /*	***********************************************************************	*/
 
 namespace MLB {
@@ -42,7 +44,7 @@ namespace MLB {
 namespace MTIF {
 
 /*	***********************************************************************	*/
-class MtrO {
+class NullO {
 
 	public:
 
@@ -50,28 +52,62 @@ class MtrO {
 			***********************************************************
 			Constructor and destructor methods . . .
 			***********************************************************	*/
-		MtrO(MTIF_MTR_FLAG flags = MTIF_MTR_FLAG_DEFAULT);
-		virtual ~MtrO();
+		NullO(MTIF_FLAG flags = 0L) :
+			ready_flag(true), start_flags(flags) { }
+		virtual ~NullO() { Destroy(); }
 		/*	***********************************************************	*/
 
 		/*	***********************************************************
 			***********************************************************
 			Core functionality methods . . .
 			***********************************************************	*/
-		virtual int  Check(char *error_text = NULL) const;
-		virtual int  CheckReady(char *error_text = NULL) const;
-		virtual int  Destroy(char *error_text = NULL);
-		virtual bool IsReady() const;
-		virtual int  Lock(char *error_text = NULL) const;
-		virtual int  LockReader(char *error_text = NULL) const;
-		virtual int  LockWriter(char *error_text = NULL) const;
-		virtual int  TryLock(char *error_text = NULL) const;
-		virtual int  TryLockReader(char *error_text = NULL) const;
-		virtual int  TryLockWriter(char *error_text = NULL) const;
-		virtual int  Unlock(char *error_text = NULL) const;
+		virtual int  Check(char *error_text = NULL) const
+			{ return(CheckReady(error_text)); }
+		virtual int  CheckReady(char *error_text = NULL) const {
+			int return_code;
+			if (ready_flag)
+				return_code = MTIF_SUCCESS;
+			else {
+				if (error_text != NULL)
+					strcpy(error_text,
+						"The 'MLB::MTIF::NullO' object is not constructed.");
+				return_code = MTIF_FAILURE;
+			}
+			return(return_code);
+		}
+		virtual int  Destroy(char *error_text = NULL) {
+			int return_code = CheckReady(error_text);
+			if (return_code == MTIF_SUCCESS)
+				ready_flag = false;
+			return(return_code);
+		}
+		virtual bool IsReady() const
+			{ return(ready_flag); }
+		virtual int  Lock(char *error_text = NULL) const
+			{ return(CheckReady(error_text)); }
+		virtual int  LockReader(char *error_text = NULL) const
+			{ return(CheckReady(error_text)); }
+		virtual int  LockWriter(char *error_text = NULL) const
+			{ return(CheckReady(error_text)); }
+		virtual int  TryLock(char *error_text = NULL) const
+			{ return(CheckReady(error_text)); }
+		virtual int  TryLockReader(char *error_text = NULL) const
+			{ return(CheckReady(error_text)); }
+		virtual int  TryLockWriter(char *error_text = NULL) const
+			{ return(CheckReady(error_text)); }
+		virtual int  Unlock(char *error_text = NULL) const
+			{ return(CheckReady(error_text)); }
 		/*	***********************************************************	*/
 
 	protected:
+
+		/*	***********************************************************
+			***********************************************************
+			Used internally only at the time of destruction.
+			***********************************************************	*/
+		virtual int UnlockInternal(char *error_text) const
+			{ return(CheckReady(error_text)); }
+		/*	***********************************************************	*/
 
 		/*	***********************************************************
 			***********************************************************
@@ -80,20 +116,8 @@ class MtrO {
 
 			Use at your own risk . . .
 			***********************************************************	*/
-
-		/*	***********************************************************
-			***********************************************************
-			Used internally only at the time of destruction.
-			***********************************************************	*/
-		virtual int UnlockInternal(char *error_text) const;
-		/*	***********************************************************	*/
-
-		/*	***********************************************************
-			***********************************************************
-			Data members . . .
-			***********************************************************	*/
-		bool                    ready_flag;
-		mutable MTIF_MTR_HANDLE lock_data;
+		bool      ready_flag;
+		MTIF_FLAG start_flags;
 		/*	***********************************************************	*/
 
 	private:
@@ -106,8 +130,8 @@ class MtrO {
 			Nobody gets to see these because a copy or assignment of an
 			active mutex will ruin your day for sure . . .
 			***********************************************************	*/
-		MtrO(const MtrO &source);
-		MtrO& operator=(const MtrO &source);
+		NullO(const NullO &source);
+		NullO& operator=(const NullO &source);
 		/*	***********************************************************	*/
 };
 /*	***********************************************************************	*/
@@ -120,8 +144,8 @@ class MtrO {
 /*	***********************************************************************	*/
 /*	For compatibility with code developed before C++ namespaces . . .			*/
 /*	***********************************************************************	*/
-typedef MLB::MTIF::MtrO MTIF_MtrO;
+typedef MLB::MTIF::NullO MTIF_NullO;
 /*	***********************************************************************	*/
 
-#endif /* #ifndef HH__MLB__MTIF__MtrO_h__HH */
+#endif /* #ifndef HH__MLB__MTIF__NullO_h__HH */
 

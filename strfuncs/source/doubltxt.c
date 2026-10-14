@@ -16,7 +16,7 @@
 	Revision History	:	1996-04-06 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1996 - 2018.
+		Copyright Michael L. Brock 1996 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -72,7 +72,7 @@ COMPAT_FN_DECL_STATIC(char *get_double_text_basic_core, (double in_double,
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
-COMPAT_EXTERN_DATA_DEF const STRFUNCS_D_VALUE_NAME
+const STRFUNCS_D_VALUE_NAME
 	STRFUNCS_D_NumberTextList[] = {
 	{	  1E+3,	"thousand",	 			},
 	{	  1E+6,	"million",	 			},
@@ -97,14 +97,14 @@ COMPAT_EXTERN_DATA_DEF const STRFUNCS_D_VALUE_NAME
 	{	 1E+63,	"vigintillion"			},
 	{	1E+303,	"centillion"			}
 };
-COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_D_NumberTextCount =
+const unsigned int STRFUNCS_D_NumberTextCount =
 	sizeof(STRFUNCS_D_NumberTextList) / sizeof(STRFUNCS_D_NumberTextList[0]);
 /*	***********************************************************************	*/
 
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
-COMPAT_EXTERN_DATA_DEF const STRFUNCS_D_VALUE_NAME
+const STRFUNCS_D_VALUE_NAME
 	STRFUNCS_D_MetricNumberTextList[] = {
 	{	  1E+3,	"kilo",	 				},
 	{	  1E+6,	"mega",	 				},
@@ -131,7 +131,7 @@ COMPAT_EXTERN_DATA_DEF const STRFUNCS_D_VALUE_NAME
 	{	1E+303,	"centillion"			}
 */
 };
-COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_D_MetricNumberTextCount =
+const unsigned int STRFUNCS_D_MetricNumberTextCount =
 	sizeof(STRFUNCS_D_MetricNumberTextList) /
 	sizeof(STRFUNCS_D_MetricNumberTextList[0]);
 /*	***********************************************************************	*/
@@ -139,7 +139,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_D_MetricNumberTextCount =
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
-COMPAT_EXTERN_DATA_DEF const STRFUNCS_D_VALUE_NAME
+const STRFUNCS_D_VALUE_NAME
 	STRFUNCS_D_BritishNumberTextList[] = {
 	{	  1E+3,	"thousand",	 			},
 	{	  1E+6,	"million",	 			},
@@ -168,7 +168,7 @@ COMPAT_EXTERN_DATA_DEF const STRFUNCS_D_VALUE_NAME
 	{	1E+600,	"centillion"			}
 */
 };
-COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_D_BritishNumberTextCount =
+const unsigned int STRFUNCS_D_BritishNumberTextCount =
 	sizeof(STRFUNCS_D_BritishNumberTextList) /
 	sizeof(STRFUNCS_D_BritishNumberTextList[0]);
 /*	***********************************************************************	*/
@@ -228,7 +228,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned int STRFUNCS_D_BritishNumberTextCount =
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	get_double_text
 						Numeric Formatting Functions:get_double_text
@@ -342,7 +342,7 @@ char         *out_string;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	get_double_text_basic
 						Numeric Formatting Functions:get_double_text_basic
@@ -435,7 +435,7 @@ char                        *out_string;
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1996 - 2018 Michael L. Brock
+   COPYRIGHT   :	Copyright 1996 - 2026 Michael L. Brock
 
    OUTPUT INDEX:	drop_double_text_zeroes
 						Numeric Formatting Functions:drop_double_text_zeroes

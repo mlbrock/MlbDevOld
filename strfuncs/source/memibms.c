@@ -17,7 +17,7 @@
 	Revision History	:	1995-08-27 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2018.
+		Copyright Michael L. Brock 1995 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -92,7 +92,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_memi_init_jump
 						String Functions:BoyerMoore_memi_init_jump
@@ -124,8 +124,9 @@ unsigned int *jump_array;
 		jump_array[count_1] = target_length;
 
 	for (count_1 = 0; count_1 < target_length; count_1++)
-		jump_array[strfmacs_toupper(((const unsigned char *) target_area)
-			[count_1])] = (target_length - count_1) - 1;
+		jump_array[((unsigned char)
+			strfmacs_toupper(((const unsigned char *) target_area)
+			[count_1]))] = (target_length - count_1) - 1;
 
 	return(jump_array);
 }
@@ -187,7 +188,7 @@ unsigned int *jump_array;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_memi_init_match
 						String Functions:BoyerMoore_memi_init_match
@@ -313,7 +314,7 @@ unsigned int *match_array;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_memi_alloc_match
 						String Functions:BoyerMoore_memi_alloc_match
@@ -417,7 +418,7 @@ const void   *target_area;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_memi_search
 						String Functions:BoyerMoore_memi_search
@@ -548,7 +549,7 @@ const void   *target_area;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	BoyerMoore_memi_search_basic
 						String Functions:BoyerMoore_memi_search_basic
@@ -620,9 +621,9 @@ unsigned int *match_array;
 				target_index--;
 			}
 			else {
-				tmp_index_1   = jump_array
-					[strfmacs_toupper(((const unsigned char *) search_area)
-					[search_index])];
+				tmp_index_1   = jump_array[((unsigned char)
+					strfmacs_toupper(((const unsigned char *) search_area)
+					[search_index]))];
 				tmp_index_2   = match_array[target_index];
 				search_index += (tmp_index_1 > tmp_index_2) ? tmp_index_1 :
 					tmp_index_2;
@@ -639,9 +640,9 @@ unsigned int *match_array;
 				target_index--;
 			}
 			else {
-				tmp_index_1   = jump_array
-					[strfmacs_toupper(((const unsigned char *) search_area)
-					[search_index])];
+				tmp_index_1   = jump_array[((unsigned char)
+					strfmacs_toupper(((const unsigned char *) search_area)
+					[search_index]))];
 				tmp_index_2   = (target_length - target_index) + 1;
 				search_index += (tmp_index_1 > tmp_index_2) ? tmp_index_1 :
 					tmp_index_2;
@@ -725,7 +726,7 @@ char **argv;
 	}
 	else if ((match_array = BoyerMoore_memi_alloc_match(target_length =
 		strlen(argv[1]), target_area = argv[1])) == NULL) {
-		fprintf(stderr, "ERROR: %s string '%s' (%u bytes required).\n",
+		fprintf(stderr, "ERROR: %s string '%s' (%lu bytes required).\n",
 			"Unable to allocate the Boyer-Moore match array for the",
 			target_area, (target_length + 1) * 2 * sizeof(unsigned int));
 		return_code = STRFUNCS_FAILURE;

@@ -16,7 +16,7 @@
 	Revision History	:	1992-10-23 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2018.
+		Copyright Michael L. Brock 1992 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -51,14 +51,17 @@
 # ifndef _Windows
 #  define GEN_VPTR_ACCESS_LONGJMP_SIG	0XAAAA
 
+#  ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
 static jmp_buf GEN_VPTR_ACCESS_LongJmpEnv;
-
-#  ifndef __SVR4
 COMPAT_FN_DECL_STATIC(void GEN_VPTR_PtrAccessHandler, (int signal_number,
 	int code, struct sigcontext *signal_context, char *address));
-#  else
+#  elif __linux__
+static sigjmp_buf GEN_VPTR_ACCESS_LongJmpEnvSig;
 COMPAT_FN_DECL_STATIC(void GEN_VPTR_PtrAccessHandler, (int signal_number));
-#  endif /* #   ifndef __SVR4 */
+#  else
+static jmp_buf GEN_VPTR_ACCESS_LongJmpEnv;
+COMPAT_FN_DECL_STATIC(void GEN_VPTR_PtrAccessHandler, (int signal_number));
+#  endif /* #  ifdef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
 # endif /* # ifndef _Windows */
 #endif /* #ifndef __MSDOS__ */
 
@@ -68,38 +71,38 @@ COMPAT_FN_DECL_STATIC(void GEN_VPTR_PtrAccessHandler, (int signal_number));
 /*	***********************************************************************	*/
 /*		If an attempt to access memory fails, we come here . . .					*/
 /*	***********************************************************************	*/
-#ifndef __MSDOS__
-# ifndef _Windows
-#  ifndef __SVR4
-#    ifndef NARGS
+#ifndef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
+# ifndef NARGS
+static void GEN_VPTR_PtrAccessHandler(int signal_number)
+# else
+static void GEN_VPTR_PtrAccessHandler(signal_number)
+int signal_number;
+# endif /* # ifndef NARGS */
+#else
+# ifdef NARGS
 static void GEN_VPTR_PtrAccessHandler(int signal_number, int code,
 	struct sigcontext *signal_context, char *address)
-#    else
+# else
 static void GEN_VPTR_PtrAccessHandler(signal_number, code, signal_context,
 	address)
 int                signal_number;
 int                code;
 struct sigcontext *signal_context;
 char              *address;
-#    endif /* ifndef NARGS */
-#  else
-#   ifndef NARGS
-static void GEN_VPTR_PtrAccessHandler(int signal_number)
-#   else
-static void GEN_VPTR_PtrAccessHandler(signal_number)
-int signal_number;
-#   endif /* ifndef NARGS */
-#  endif /* #  ifndef __SVR4 */
+# endif /* #  ifndef NARGS */
+#endif /* #ifndef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD */
 {
 	/* ********************************************************************	*/
 	/* ********************************************************************	*/
 	/* 	Restore the previous context . . .											*/
 	/* ********************************************************************	*/
+#ifdef __linux__
+	siglongjmp(GEN_VPTR_ACCESS_LongJmpEnvSig, GEN_VPTR_ACCESS_LONGJMP_SIG);
+#else
 	longjmp(GEN_VPTR_ACCESS_LongJmpEnv, GEN_VPTR_ACCESS_LONGJMP_SIG);
+#endif /* #ifdef __linux__ */
 	/* ********************************************************************	*/
 }
-# endif /* # ifndef _Windows */
-#endif /* #ifndef __MSDOS__ */
 /*	***********************************************************************	*/
 
 /*	***********************************************************************	*/
@@ -179,7 +182,7 @@ int signal_number;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidArea
 						Memory Validity Functions:GEN_VPTR_IsValidArea
@@ -346,7 +349,12 @@ void         **failure_ptr;
 	/* tested. An access violation will result in the 'else' clause being	*/
 	/* executed.																				*/
 	/* ********************************************************************	*/
+#ifdef __linux__
+	if (sigsetjmp(GEN_VPTR_ACCESS_LongJmpEnvSig, 1) !=
+		 GEN_VPTR_ACCESS_LONGJMP_SIG) {
+#else
 	if (setjmp(GEN_VPTR_ACCESS_LongJmpEnv) != GEN_VPTR_ACCESS_LONGJMP_SIG) {
+#endif /* #ifdef __linux__ */
 		while (area_length--) {
 			tmp_char = *tmp_area_ptr;
 			if (access_mode & GEN_VPTR_ACCESS_WRITE)
@@ -451,7 +459,7 @@ void         **failure_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidBoundary
 						Memory Validity Functions:GEN_VPTR_IsValidBoundary
@@ -559,7 +567,7 @@ void         **failure_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidPointer
 						Memory Validity Functions:GEN_VPTR_IsValidPointer
@@ -679,7 +687,7 @@ void **failure_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidSections
 						Memory Validity Functions:GEN_VPTR_IsValidSections
@@ -809,7 +817,7 @@ void         **failure_ptr;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	GEN_VPTR_IsValidString
 						Memory Validity Functions:GEN_VPTR_IsValidString
@@ -967,7 +975,12 @@ void **failure_ptr;
 	/* tested. An access violation will result in the 'else' clause being	*/
 	/* executed.																				*/
 	/* ********************************************************************	*/
+#ifdef __linux__
+	if (sigsetjmp(GEN_VPTR_ACCESS_LongJmpEnvSig, 1) !=
+		 GEN_VPTR_ACCESS_LONGJMP_SIG) {
+#else
 	if (setjmp(GEN_VPTR_ACCESS_LongJmpEnv) != GEN_VPTR_ACCESS_LONGJMP_SIG) {
+#endif /* #ifdef __linux__ */
 		while (*string_ptr) {
 			tmp_char = *string_ptr;
 			if (access_mode & GEN_VPTR_ACCESS_WRITE)
@@ -994,8 +1007,24 @@ void **failure_ptr;
 }
 /* *********************************************************************** */
 
+/* *********************************************************************** */
+/* *********************************************************************** */
+/* *********************************************************************** */
+
 #ifdef TEST_MAIN
 
+COMPAT_FN_DECL(int TEST_RunTests, (void));
+
+/* *********************************************************************** */
+int main()
+{
+	return((TEST_RunTests() == GENFUNCS_SUCCESS) ? EXIT_SUCCESS :
+		EXIT_FAILURE);
+}
+/* *********************************************************************** */
+
+/* *********************************************************************** */
+/*
 # ifdef _bsd
 #  define GENFUNCS_VALIDPTR_TEST			1
 # else
@@ -1003,27 +1032,51 @@ void **failure_ptr;
 #   define GENFUNCS_VALIDPTR_TEST		1
 #  else
 #   define GENFUNCS_VALIDPTR_TEST		0
-#  endif /* #  ifdef __SVR4 */
-# endif /* #ifdef _bsd */
+#  endif / * #  ifdef __SVR4 * /
+# endif / * #ifdef _bsd * /
+*/
+
+# ifdef __MSDOS__
+#  define GENFUNCS_VALIDPTR_TEST		0
+# elif _Windows
+#  define GENFUNCS_VALIDPTR_TEST		0
+# elif _MSC_VER
+#  define GENFUNCS_VALIDPTR_TEST		0
+# elif __linux__
+#  define GENFUNCS_VALIDPTR_TEST		1
+# elif sun
+#  ifdef _bsd
+#   define GENFUNCS_VALIDPTR_TEST	1
+#  elif __SVR4
+#   define GENFUNCS_VALIDPTR_TEST	1
+#  else
+#   define GENFUNCS_VALIDPTR_TEST	0
+#  endif /* #  ifdef _bsd */
+# else
+#  define GENFUNCS_VALIDPTR_TEST		0
+# endif /* ifdef __MSDOS__ */
+/* *********************************************************************** */
 
 # if GENFUNCS_VALIDPTR_TEST
+#  include <errno.h>
+#  include <memory.h>
+#  include <stdio.h>
+#  include <stdlib.h>
+#  include <sys/types.h>
+#  include <sys/mman.h>
+# endif /* # if GENFUNCS_VALIDPTR_TEST */
 
-# include <errno.h>
-# include <memory.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/mman.h>
-
-COMPAT_FN_DECL(int main, (void));
-
-int main()
+/* *********************************************************************** */
+int TEST_RunTests()
 {
 	int     return_code = GENFUNCS_SUCCESS;
-	void   *mmap_ptr    = NULL;
-	FILE   *file_ptr    = NULL;
-   double  tmp_double;
-	char    error_text[GENFUNCS_MAX_ERROR_TEXT];
+
+# if GENFUNCS_VALIDPTR_TEST
+	void         *mmap_ptr    = NULL;
+	unsigned int  mmap_size;
+	FILE         *file_ptr    = NULL;
+   double        tmp_double;
+	char          error_text[GENFUNCS_MAX_ERROR_TEXT];
 
 	printf("This PID = %lu\n", getpid());
 
@@ -1045,6 +1098,7 @@ int main()
 		GEN_VPTR_IsValidArea(((void *) -1), 1, GEN_VPTR_ACCESS_READ, NULL));
 	STR_EMIT_CharLine('=', 77, NULL, NULL);
 
+	mmap_size = ((unsigned int) getpagesize()) * 2;
 	if (!(file_ptr = fopen("ERASE.ME", "w+"))) {
 		sprintf(error_text,
 			"Unable to open test file 'ERASE.ME' for writing: ");
@@ -1052,19 +1106,32 @@ int main()
 		return_code = GENFUNCS_SYSTEM_FAILURE;
 		goto EXIT_FUNCTION;
 	}
-	else if (ftruncate(fileno(file_ptr), getpagesize())) {
+	else if (ftruncate(fileno(file_ptr), mmap_size)) {
 		sprintf(error_text,
 			"Unable to 'ftruncate()' test file 'ERASE.ME' to %u bytes: ",
-			getpagesize());
+			mmap_size);
 		GEN_AppendLastErrorString(0, GENFUNCS_MAX_ERROR_TEXT, error_text);
 		return_code = GENFUNCS_SYSTEM_FAILURE;
 		goto EXIT_FUNCTION;
 	}
-	else if (((int) (mmap_ptr = ((char *) mmap(NULL, ((unsigned int) getpagesize()),
+	else if (((int) (mmap_ptr = ((char *) mmap(NULL, mmap_size,
 		PROT_READ, MAP_SHARED, fileno(file_ptr), 0)))) == -1) {
 		sprintf(error_text,
-			"Unable to 'mmap()' test file 'ERASE.ME' for %u bytes: ",
-			getpagesize());
+			"Unable to 'mmap()' test file 'ERASE.ME' for %u bytes: ", mmap_size);
+		GEN_AppendLastErrorString(0, GENFUNCS_MAX_ERROR_TEXT, error_text);
+		return_code = GENFUNCS_SYSTEM_FAILURE;
+		goto EXIT_FUNCTION;
+	}
+
+	/*
+		We formerly mapped a single page for these tests, but there's a
+		probability that the page immediately following is also mapped, which
+		would invalidate our tests. We prevent that here.
+	*/
+	if (mprotect(mmap_ptr + getpagesize(), getpagesize(), PROT_NONE)) {
+		sprintf(error_text,
+			"Unable to 'mprotect()' test file 'ERASE.ME' %s %u for %u bytes: ",
+				 "second page beginning at offset", getpagesize(), getpagesize());
 		GEN_AppendLastErrorString(0, GENFUNCS_MAX_ERROR_TEXT, error_text);
 		return_code = GENFUNCS_SYSTEM_FAILURE;
 		goto EXIT_FUNCTION;
@@ -1169,10 +1236,11 @@ EXIT_FUNCTION:
 	if (file_ptr != NULL)
 		fclose(file_ptr);
 
+# endif /* # if GENFUNCS_VALIDPTR_TEST */
+
 	return(return_code);
 }
-
-# endif /* # if GENFUNCS_VALIDPTR_TEST */
+/* *********************************************************************** */
 
 #endif /* #ifdef TEST_MAIN */
 

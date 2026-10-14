@@ -16,7 +16,7 @@
 	Revision History	:	1990-06-04 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1990 - 2018.
+		Copyright Michael L. Brock 1990 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -61,7 +61,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_AsciiString
 						STRFUNCS:RADIX-50 Default Data:RADIX50_AsciiString
@@ -77,7 +77,7 @@
 
 EOH */
 /* *********************************************************************** */
-COMPAT_EXTERN_DATA_DEF const char *RADIX50_AsciiString =
+const char *RADIX50_AsciiString =
 	" ABCDEFGHIJKLMNOPQRSTUVWXYZ'.-0123456789";
 /* *********************************************************************** */
 
@@ -129,7 +129,7 @@ S             19  9             39
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_AsciiTable
 						STRFUNCS:RADIX-50 Default Data:RADIX50_AsciiTable
@@ -146,7 +146,7 @@ S             19  9             39
 
 EOH */
 /* *********************************************************************** */
-COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_AsciiTable[UCHAR_MAX + 1] = {
+const unsigned char RADIX50_AsciiTable[UCHAR_MAX + 1] = {
 	0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
 	0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
 	0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00,
@@ -204,7 +204,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_AsciiTable[UCHAR_MAX + 1] = {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_Radix50Table
 						STRFUNCS:RADIX-50 Default Data:RADIX50_Radix50Table
@@ -221,7 +221,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_AsciiTable[UCHAR_MAX + 1] = {
 
 EOH */
 /* *********************************************************************** */
-COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_Radix50Table[40] = {
+const unsigned char RADIX50_Radix50Table[40] = {
 	0X20, 0X41, 0X42, 0X43, 0X44, 0X45, 0X46, 0X47,
 	0X48, 0X49, 0X4A, 0X4B, 0X4C, 0X4D, 0X4E, 0X4F,
 	0X50, 0X51, 0X52, 0X53, 0X54, 0X55, 0X56, 0X57,
@@ -311,7 +311,7 @@ COMPAT_EXTERN_DATA_DEF const unsigned char RADIX50_Radix50Table[40] = {
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_init_tables
 						STRFUNCS:RADIX-50 Functions:RADIX50_init_tables
@@ -351,9 +351,16 @@ unsigned char *out_radix_table;
 		if (!isalpha(tmp_string[count_1]))
 			out_ascii_table[tmp_string[count_1]] = ((unsigned char) count_1);
 		else {
-			out_ascii_table[strfmacs_tolower(tmp_string[count_1])] =
+			/*
+				IMPL NOTE: These are safe for ASCII characters because isalpha()
+				returned true, but we want avoid gcc bleating about
+				-Wchar-subscripts warnings ...
+			*/
+			out_ascii_table[
+				((unsigned char) strfmacs_tolower(tmp_string[count_1]))] =
 				((unsigned char) count_1);
-			out_ascii_table[strfmacs_toupper(tmp_string[count_1])] =
+			out_ascii_table[
+				((unsigned char) strfmacs_toupper(tmp_string[count_1]))] =
 				((unsigned char) count_1);
 		}
 	}

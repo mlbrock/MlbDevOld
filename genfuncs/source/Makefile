@@ -13,7 +13,7 @@
 #                   2015-12-12 --- Modified for use with MASCaPS Version 3.
 #                       Michael L. Brock
 #
-#       Copyright Michael L. Brock 1993 - 2018.
+#       Copyright Michael L. Brock 1993 - 2026.
 #       Distributed under the Boost Software License, Version 1.0.
 #       (See accompanying file LICENSE_1_0.txt or copy at
 #       http://www.boost.org/LICENSE_1_0.txt)
@@ -76,7 +76,7 @@ SRCS		=	\
 
 
 # Only the libraries below are needed for TEST_MAIN unit tests in this library.
-MLB_LIB_NAMES	=	genfuncs sdtif strfuncs
+MLB_LIB_NAMES	=	tfread genfuncs sdtif strfuncs
 
 include ../../.MASCaPS/MakeSuffixFirst.mk
 

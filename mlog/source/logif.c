@@ -17,7 +17,7 @@
 	Revision History	:	2001-10-19 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 2001 - 2018.
+		Copyright Michael L. Brock 2001 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -144,6 +144,8 @@ va_list               arg_list;
 /*	***********************************************************************	*/
 
 #ifdef TEST_MAIN
+
+#include <string.h>
 
 #define TEST_MLOG_FILE_NAME		"TEST_MLOG_LogIf.txt"
 

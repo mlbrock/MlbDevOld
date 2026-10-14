@@ -16,7 +16,7 @@
 	Revision History	:	1985-01-01 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1985 - 2018.
+		Copyright Michael L. Brock 1985 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -195,7 +195,23 @@
 #  define MBCOMPAT_EXCEPT_NOTHROW
 #  define MBCOMPAT_EXCEPT_CANTHROW(except)
 # endif /* #ifndef MBCOMPAT_EXCEPT_NOT_SUPPORTED */
+#else
+# define MBCOMPAT_EXCEPT_TRY */
+# define MBCOMPAT_EXCEPT_CATCH(except) */
+# define MBCOMPAT_EXCEPT_CATCH_ALL */
+# define MBCOMPAT_EXCEPT_THROW(except) */
+# define MBCOMPAT_EXCEPT_THROW_CTOR(except, data) */
+# define MBCOMPAT_EXCEPT_RETHROW */
+# define MBCOMPAT_EXCEPT_NOTHROW
+# define MBCOMPAT_EXCEPT_CANTHROW(except)
 #endif /* #ifdef __cplusplus */
+
+#if defined(__cplusplus)
+# define COMPAT_FN_DECL_NOTHROW(frtn, fargs)	extern "C" { frtn fargs throw(); }
+#else
+# define COMPAT_FN_DECL_NOTHROW(frtn, fargs)	COMPAT_FN_DECL(frtn, fargs)
+#endif /* #if defined(__cplusplus) */
+
 /*	***********************************************************************	*/
 
 /*	***********************************************************************	*/

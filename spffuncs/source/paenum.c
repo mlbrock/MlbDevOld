@@ -16,7 +16,7 @@
 	Revision History	:	1995-08-21 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2018.
+		Copyright Michael L. Brock 1995 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -64,7 +64,7 @@ char            *error_text;
 		return_code  = SPF_PARSE_FAILURE;
 		for (count_1 = 0; count_1 < enum_count; count_1++) {
 			if ((tmp_parse.length == strlen(enum_list[count_1].text)) &&
-				(!memicmp(tmp_parse.text, enum_list[count_1].text,
+				(!STRFUNCS_memicmp(tmp_parse.text, enum_list[count_1].text,
 				tmp_parse.length))) {
 				if (found_index != NULL)
 					*found_index = count_1;

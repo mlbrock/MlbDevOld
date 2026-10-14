@@ -16,7 +16,7 @@
 	Revision History	:	1998-04-18 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1998 - 2018.
+		Copyright Michael L. Brock 1998 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -857,8 +857,8 @@ class SOCKICPT_Control {
 			return(log_detail_flag_);
 		}
 #ifdef __GNUC__
-		int LogDetail(const char *in_format, ...);
-			__attribute__ ((format (printf, 1, 2))) const {
+		int LogDetail(const char *in_format, ...) const
+			__attribute__ ((format (printf, 2, 3))) {
 #else
 		int LogDetail(const char *in_format, ...) const {
 #endif /* #ifdef __GNUC__ */

@@ -16,7 +16,7 @@
 	Revision History	:	1995-08-21 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2018.
+		Copyright Michael L. Brock 1995 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -85,7 +85,7 @@ unsigned int    *found_index;
 
 	for (count_1 = 0; count_1 < parse_count; count_1++) {
 		if ((data_length < parse_list[count_1].length)                  &&
-			(!memicmp(spec_name, parse_list[count_1].text, data_length)) &&
+			(!STRFUNCS_memicmp(spec_name, parse_list[count_1].text, data_length)) &&
 			(parse_list[count_1].text[data_length] == '(')) {
 			if (found_index != NULL)
 				*found_index = count_1;

@@ -17,7 +17,7 @@
 	Revision History	:	1995-08-29 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2018.
+		Copyright Michael L. Brock 1995 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -651,7 +651,7 @@ char **argv;
 				argv[count_1], error_text)) == ADF_SUCCESS) {
 				return_code = ADF_EMIT_DefCDomainList(control_data.domain_count,
 					control_data.domain_list, NULL, NULL, error_text);
-				ADF_FreeDomainList(&control_data.domain_count,
+				ADF_FREE_DomainList(&control_data.domain_count,
 					&control_data.domain_list);
 			}
 			if (return_code != ADF_SUCCESS)

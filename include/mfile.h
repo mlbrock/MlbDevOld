@@ -17,7 +17,7 @@
 	Revision History	:	1992-03-21 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1992 - 2018.
+		Copyright Michael L. Brock 1992 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -88,7 +88,7 @@
 
 	AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:  MFILE_TRUE
 						MFILE_FALSE
@@ -151,7 +151,7 @@ EOH */
 
 	AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:  MFILE_SUCCESS
 						MFILE_FAILURE
@@ -230,7 +230,7 @@ EOH */
 
 	AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:  MFILE_MAX_ERROR_TEXT
 						MFILE Manifest Constants:MFILE_MAX_ERROR_TEXT
@@ -338,7 +338,7 @@ typedef void *MFILE;
 
 	AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT   :	Copyright 1992 - 2018 Michael L. Brock
+	COPYRIGHT   :	Copyright 1992 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	MFILE_LOG_CONTEXT
 						Structures and Data Types:MFILE_LOG_CONTEXT
@@ -436,7 +436,7 @@ COMPAT_FN_DECL(int    mputc, (int put_char, MFILE *mfile_ptr));
 COMPAT_FN_DECL(int    mputs, (const char *put_string, MFILE *mfile_ptr));
 COMPAT_FN_DECL(int    mread, (void *data_ptr, unsigned int element_size,
 	unsigned int element_count, MFILE *mfile_ptr));
-COMPAT_FN_DECL(int    mremap, (MFILE *mfile_ptr));
+COMPAT_FN_DECL(int    mremap_mfile, (MFILE *mfile_ptr));
 COMPAT_FN_DECL(int    mremap_basic_1, (MFILE *mfile_ptr, unsigned long offset,
 	unsigned long length));
 COMPAT_FN_DECL(int    mremap_basic_2, (int file_handle,

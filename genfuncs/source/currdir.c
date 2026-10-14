@@ -16,7 +16,7 @@
 	Revision History	:	2000-01-22 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 2000 - 2018.
+		Copyright Michael L. Brock 2000 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -89,9 +89,7 @@ unsigned int  current_dir_length;
 {
 	char *return_ptr;
 
-#ifdef __MSDOS__
-	return_ptr = getcwd(current_dir, current_dir_length);
-#elif _Windows
+#ifndef GENFUNCS_DEF_USE_getwd
 	return_ptr = getcwd(current_dir, current_dir_length);
 #else
 	char tmp_dir[GEN_MAX_PATH_NAME_LEN + 1];
@@ -101,14 +99,17 @@ unsigned int  current_dir_length;
 			errno      = ERANGE;
 			return_ptr = NULL;
 		}
-		else if (current_dir != NULL)
+		else if (current_dir != NULL) {
 			strcpy(current_dir, tmp_dir);
+			return_ptr = current_dir;
+		}
 		else if ((return_ptr = ((char *) calloc(strlen(tmp_dir) + 1,
 			sizeof(char)))) == NULL)
 			errno = ENOMEM;
-
+		else
+			strcpy(return_ptr, tmp_dir);
 	}
-#endif /* #ifdef __MSDOS__ */
+#endif /* #ifndef GENFUNCS_DEF_USE_getwd */
 
 	return(return_ptr);
 }
@@ -122,6 +123,7 @@ char *GEN_GetCurrentDirBasic(current_dir)
 char *current_dir;
 #endif /* #ifndef NARGS */
 {
+#if 0 /* CODE NOTE: The old implementation. To be removed. */
 #ifdef __MSDOS__
 	return(getcwd(current_dir, GEN_MAX_PATH_NAME_LEN));
 #elif _Windows
@@ -129,6 +131,13 @@ char *current_dir;
 #else
 	return(getwd(current_dir));
 #endif /* #ifdef __MSDOS__ */
+#endif /* #if 0 */
+
+#ifndef GENFUNCS_DEF_USE_getwd
+	return(getcwd(current_dir, GEN_MAX_PATH_NAME_LEN));
+#else
+	return(getwd(current_dir));
+#endif /* #ifndef GENFUNCS_DEF_USE_getwd */
 }
 /*	***********************************************************************	*/
 

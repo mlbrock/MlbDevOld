@@ -11,7 +11,7 @@
 # Revision History: 2015-10-24 --- Creation.
 #                       Michael L. Brock
 #
-#       Copyright Michael L. Brock 2015 - 2018.
+#       Copyright Michael L. Brock 2015 - 2026.
 #
 #       Distributed under the Boost Software License, Version 1.0.
 #       (See accompanying file LICENSE_1_0.txt or copy at
@@ -53,10 +53,16 @@ ifeq (${MASCaPS_SPEC_DIR} , ${MASCaPS_EMPTY_STRING})
 		MASCaPS_SPEC_MACH	:=	${shell uname -m}
 	endif
 	ifeq (${MASCaPS_SPEC_CPP} , ${MASCaPS_EMPTY_STRING})
-		MASCaPS_SPEC_CPP	:=	gcc
+		TMP_CC_VERSION	:=	${shell ${CC} --version | head -1}
+		TMP_GCC_NAME	:=	${or ${findstring GCC,${TMP_CC_VERSION}},${findstring Gcc,${TMP_CC_VERSION}},${findstring gcc,${TMP_CC_VERSION}}}
+		ifneq (,${TMP_GCC_NAME})
+			MASCaPS_SPEC_CPP	:=	gcc
+		else
+			MASCaPS_SPEC_CPP	:=	${shell ${CC} --version | head -1 | cut -d ' ' -f 1 | cut -d '-' -f 1 | cut -d '.' -f 1}
+		endif
 	endif
 	ifeq (${MASCaPS_SPEC_CPPVER} , ${MASCaPS_EMPTY_STRING})
-		MASCaPS_SPEC_CPPVER	:=	${shell ${MASCaPS_SPEC_CPP} --version | head -1 | cut -d ' ' -f 3 | cut -d '-' -f 1 | cut -d '(' -f 1 | cut -d ')' -f 1}
+		MASCaPS_SPEC_CPPVER	:=	${shell ${CC} --version | head -1 | perl -e '$$_=<>;$$_=~s/\(.+?\)/\(\-\)/g;$$_=~s/\[.+?\]/\[\-\]/g;$$_=~s/\<.+?\>/\<\-\>/g;$$_=~s/\{.+?\}/\{\-\}/g;print $$_;' | cut -d ' ' -f 3 | cut -d '-' -f 1}
 	endif
 	ifeq (${MASCaPS_SPEC_BUILD} , ${MASCaPS_EMPTY_STRING})
 		MASCaPS_SPEC_BUILD	:=	debug

@@ -16,7 +16,7 @@
 	Revision History	:	1995-05-01 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2018.
+		Copyright Michael L. Brock 1995 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -99,7 +99,7 @@
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	STR_AllocMsgItem
 						Error Description Functions:STR_AllocMsgItem
@@ -213,7 +213,7 @@ bytes required.
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	STR_AllocMsgList
 						Error Description Functions:STR_AllocMsgList
@@ -333,7 +333,7 @@ va_dcl
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	STR_AllocMsgPtrList
 						Error Description Functions:STR_AllocMsgPtrList
@@ -434,7 +434,7 @@ va_dcl
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	STR_AllocMsgItemVA
 						Error Description Functions:STR_AllocMsgItemVA
@@ -530,7 +530,7 @@ va_list       arg_list;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	STR_AllocMsgListVA
 						Error Description Functions:STR_AllocMsgListVA
@@ -633,7 +633,7 @@ va_list       arg_list;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1995 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1995 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	STR_AllocMsgPtrListVA
 						Error Description Functions:STR_AllocMsgPtrListVA
@@ -664,7 +664,7 @@ va_list       arg_list;
 {
 	vsprintf(buffer, in_format, arg_list);
 	sprintf(buffer + strlen(buffer),
-		" --- (%u %s * %u %s) + %u %s = %u + %u = %u bytes required.",
+		" --- (%u %s * %lu %s) + %u %s = %lu + %u = %lu bytes required.",
 		element_count, "pointer elements", sizeof(void *), "(sizeof(void *))",
 		total_size, "memory pointed to", element_count * sizeof(void *),
 		total_size, (element_count * sizeof(void *)) + total_size);

@@ -16,7 +16,7 @@
 	Revision History	:	1986-10-27 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1986 - 2018.
+		Copyright Michael L. Brock 1986 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -109,17 +109,22 @@
 /* manifest constants below.																*/
 /* *********************************************************************** */
 
+#ifdef __linux__
+# define NO_STRICMP	1
+# define NO_STRNICMP	1
+#endif /* #ifdef __linux__ */
+
 #ifdef NO_STRICMP
 # ifndef STRFUNCS_stricmp
 #  define STRFUNCS_stricmp stricmp
-# endif /* #ifndef STRFUNCS_stricmp */
-#endif /* # ifdef NO_STRICMP */
+# endif /* # ifndef STRFUNCS_stricmp */
+#endif /* #ifdef NO_STRICMP */
 
 #ifdef NO_STRNICMP
 # ifndef STRFUNCS_strnicmp
 #  define STRFUNCS_strnicmp strnicmp
-# endif /* #ifndef STRFUNCS_strnicmp */
-#endif /* # ifdef NO_STRNICMP */
+# endif /* # ifndef STRFUNCS_strnicmp */
+#endif /* #ifdef NO_STRNICMP */
 
 COMPAT_FN_DECL(int STRFUNCS_stricmp, (const char *, const char *));
 COMPAT_FN_DECL(int STRFUNCS_strnicmp, (const char *, const char *, size_t));
@@ -158,7 +163,7 @@ COMPAT_FN_DECL(int STRFUNCS_strnicmp, (const char *, const char *, size_t));
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  STRFUNCS_TRUE
 						STRFUNCS_FALSE
@@ -235,7 +240,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  STRFUNCS_SUCCESS
 						STRFUNCS_FAILURE
@@ -324,7 +329,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  STRFUNCS_MAX_ERROR_TEXT
 						STRFUNCS Manifest Constants:STRFUNCS_MAX_ERROR_TEXT
@@ -370,7 +375,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  STRFUNCS_ITEM_FOUND
 						STRFUNCS_ITEM_NOT_FOUND
@@ -444,7 +449,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  STRFUNCS_DIRECTION_NONE
 						STRFUNCS_DIRECTION_TOP
@@ -523,7 +528,7 @@ EOH */
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1986 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1986 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	STR_VERSION
 
@@ -563,7 +568,7 @@ typedef struct {
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  STR_VERSION_NUMBER_LENGTH
 						Macros and Manifest Constants:STR_VERSION_NUMBER_LENGTH
@@ -618,7 +623,7 @@ EOH */
 
 	AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  STR_VERSION_NUMBER_SET
 						Macros and Manifest Constants:STR_VERSION_NUMBER_SET
@@ -663,7 +668,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1996 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1996 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	STR_VERSION_NUMBER_NULL
 						Macros and Manifest Constants:STR_VERSION_NUMBER_NULL
@@ -1197,7 +1202,7 @@ COMPAT_FN_DECL(int STR_CheckNumberStringBasic,
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_ITEM
 
@@ -1267,7 +1272,7 @@ typedef unsigned short RADIX50_ITEM;
 
 	AUTHOR		:	Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1990 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1990 - 2026 Michael L. Brock
 
 	OUTPUT INDEX:	RADIX50_CHARS_PER_RADIX50
 						RADIX50_SLEN_TO_RCNT
@@ -3020,8 +3025,15 @@ COMPAT_FN_DECL(void   *memrmem,
 	/*	Function prototypes with the revised parameter ordering...	*/
 COMPAT_FN_DECL(void   *memimem,
 	(const void *, size_t, const void *, size_t));
-COMPAT_FN_DECL(void   *memmem,
+#ifdef __GNUC__
+# pragma GCC diagnostic push
+# pragma GCC diagnostic ignored "-Wredundant-decls"
+#endif /* #ifdef __GNUC__ */
+COMPAT_FN_DECL_NOTHROW(void   *memmem,
 	(const void *, size_t, const void *, size_t));
+#ifdef __GNUC__
+# pragma GCC diagnostic pop
+#endif /* #ifdef __GNUC__ */
 COMPAT_FN_DECL(void   *memrimem,
 	(const void *, size_t, const void *, size_t));
 COMPAT_FN_DECL(void   *memrmem,
@@ -3101,8 +3113,15 @@ COMPAT_FN_DECL(char   *strnchr,
 	(const char *, int, size_t));
 COMPAT_FN_DECL(size_t  strncnt,
 	(const char *, const char *, size_t));
-COMPAT_FN_DECL(char   *strndup,
+#ifdef __GNUC__
+# pragma GCC diagnostic push
+# pragma GCC diagnostic ignored "-Wredundant-decls"
+#endif /* #ifdef __GNUC__ */
+COMPAT_FN_DECL_NOTHROW(char   *strndup,
 	(const char *, size_t));
+#ifdef __GNUC__
+# pragma GCC diagnostic pop
+#endif /* #ifdef __GNUC__ */
 COMPAT_FN_DECL(char   *strnichr,
 	(const char *, int, size_t));
 COMPAT_FN_DECL(size_t  strnicnt,

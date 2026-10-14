@@ -16,7 +16,7 @@
 	Revision History	:	1994-06-09 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1994 - 2018.
+		Copyright Michael L. Brock 1994 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -130,7 +130,7 @@
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  ADF_TRUE
 						ADF_FALSE
@@ -202,7 +202,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  ADF_SUCCESS
 						ADF_FAILURE
@@ -302,7 +302,7 @@ EOH */
 
    AUTHOR      :  Michael L. Brock
 
-	COPYRIGHT	:	Copyright 1994 - 2018 Michael L. Brock
+	COPYRIGHT	:	Copyright 1994 - 2026 Michael L. Brock
 
    OUTPUT INDEX:  ADF_MAX_ERROR_TEXT
 						ADF Manifest Constants:ADF_MAX_ERROR_TEXT
@@ -380,7 +380,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2026 Michael L. Brock
 
    OUTPUT INDEX:	ADF_MAP_TRUTH_STR
 						ADF_MAP_TRUTH_GEN
@@ -540,7 +540,7 @@ EOH */
 
    AUTHOR      :	Michael L. Brock
 
-   COPYRIGHT   :	Copyright 1994 - 2018 Michael L. Brock
+   COPYRIGHT   :	Copyright 1994 - 2026 Michael L. Brock
 
    OUTPUT INDEX:	ADF_MAP_ERROR_STR
 						ADF_MAP_ERROR_GEN
@@ -1799,9 +1799,9 @@ COMPAT_FN_DECL(void ADF_INIT_InFilePtr, (ADF_IN_FILE *in_file_ptr));
 COMPAT_FN_DECL(int  ADF_PadFile, (ADF_FILE *adf_file_ptr, char *error_text));
 COMPAT_FN_DECL(int  ADF_PadFileBasic, (ADF_FILE *adf_file_ptr, unsigned long pad_modulus,
 	char *error_text));
-COMPAT_FN_DECL(int  ADF_FRead, (void *buffer, unsigned int size, unsigned int count,
+COMPAT_FN_DECL(int  ADF_FRead, (void *buffer, size_t size, size_t count,
 	ADF_FILE *adf_file_ptr, char *error_text));
-COMPAT_FN_DECL(int  ADF_FWrite, (const void *buffer, unsigned int size, unsigned int count,
+COMPAT_FN_DECL(int  ADF_FWrite, (const void *buffer, size_t size, size_t count,
 	ADF_FILE *adf_file_ptr, char *error_text));
 
 COMPAT_FN_DECL(const ADF_PFORMAT_DEF *ADF_MatchParaFormat, (const char *in_string,
@@ -1836,8 +1836,8 @@ COMPAT_FN_DECL(void ADF_FreePermIndex, (ADF_PERM_INDEX *index_item_ptr));
 
 COMPAT_FN_DECL(void ADF_INIT_Control, (ADF_CONTROL *control_ptr));
 COMPAT_FN_DECL(void ADF_INIT_Domain, (ADF_DOMAIN *ptr));
-COMPAT_FN_DECL(void ADF_INIT_DomainList, (unsigned int in_coun
-	, ADF_DOMAIN *in_list));
+COMPAT_FN_DECL(void ADF_INIT_DomainList, (unsigned int in_count,
+	ADF_DOMAIN *in_list));
 COMPAT_FN_DECL(void ADF_INIT_Pattern, (ADF_PATTERN *ptr));
 COMPAT_FN_DECL(void ADF_INIT_Section, (ADF_SECTION *ptr));
 COMPAT_FN_DECL(void ADF_INIT_SectionList, (unsigned int in_count,

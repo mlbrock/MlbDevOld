@@ -17,7 +17,7 @@
 	Revision History	:	1998-04-08 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1998 - 2018.
+		Copyright Michael L. Brock 1998 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -45,12 +45,14 @@
 # include <string>
 # pragma warning(default:4018 4100 4146 4244 4290 4511 4512 4663)
 #else
+# include <errno.h>
 # include <exception>
 # include <iostream>
 # include <ostream>
 # include <sstream>
 # include <string>
 #endif // #ifdef _Windows
+
 //	//////////////////////////////////////////////////////////////////////////
 
 namespace MLB {
@@ -65,18 +67,23 @@ template <class CharType = char>
 		typedef std::basic_ostringstream<CharType> ThisOStreamType;
 
 		ExceptionGeneralType() throw()
-			: std::exception("Unspecified exception."),
+			: std::exception(),
 			except_string("Unspecified exception.") { }
 		ExceptionGeneralType(const CharType *in_except_string) throw()
-			: std::exception(in_except_string),
+			: std::exception(),
 			except_string(in_except_string) { }
 		ExceptionGeneralType(const ThisStringType &in_except_string) throw()
-			: std::exception(in_except_string.c_str()),
+			: std::exception(),
 			except_string(in_except_string) { }
 		ExceptionGeneralType(const ThisOStreamType &in_except_string) throw()
-			: std::exception(in_except_string.str().c_str()),
+			: std::exception(),
 			except_string(in_except_string.str()) { }
 		~ExceptionGeneralType() throw() { }
+
+	virtual const char *what() const throw()
+	{
+		return(except_string.c_str());
+	}
 
 	private:
 		ThisStringType except_string;
@@ -91,9 +98,12 @@ typedef ExceptionGeneralType<char> ExceptionGeneral;
 template <class CharType = char>
 	class ExceptionWithCodeType : public ExceptionGeneralType<CharType> {
 	public:
+		using typename ExceptionGeneralType<CharType>::ThisStringType;
+		using typename ExceptionGeneralType<CharType>::ThisOStreamType;
 		typedef ExceptionGeneralType<CharType> ParentNick;
+
 		ExceptionWithCodeType() throw() :
-			ExceptionGeneralType(GetErrorString()),
+			ExceptionGeneralType<CharType>(GetErrorString()),
 			error_code(GetLastErrorCode()) { }
 
 		ExceptionWithCodeType(int in_error_code) throw() :
@@ -134,7 +144,6 @@ template <class CharType = char>
 #ifdef _Windows
 			return(GetLastError());
 #else
-# include <errno.h>
 			return(errno);	
 #endif // #ifdef _Windows
 		}

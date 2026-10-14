@@ -16,7 +16,7 @@
 	Revision History	:	2002-01-26 --- Creation
 									Michael L. Brock
 
-		Copyright Michael L. Brock 2002 - 2018.
+		Copyright Michael L. Brock 2002 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -51,11 +51,15 @@
 # include <limits>
 #endif // #ifdef _Windows
 
+#include <npsl.h>
+#include <sdtif.h>
+#include <strfuncs.h>
+
+#include <cstring>
+
 #include "ExceptionGeneral.h"
 #include "NonCopyable.h"
  
-#include "npsl.h"
-
 //	//////////////////////////////////////////////////////////////////////////
 
 namespace MLB {
@@ -67,31 +71,73 @@ enum AddressFamily {
 	AddressFamily_NONE      = AF_UNSPEC,
 	AddressFamily_Unix      = AF_UNIX,
 	AddressFamily_Internet  = AF_INET,
+#ifdef AF_IMPLINK
 	AddressFamily_Implink   = AF_IMPLINK,
+#endif // #ifdef AF_IMPLINK
+#ifdef AF_PUP
 	AddressFamily_Pup       = AF_PUP,
+#endif // #ifdef AF_PUP
+#ifdef AF_CHAOS
 	AddressFamily_Chaos     = AF_CHAOS,
+#endif // #ifdef AF_CHAOS
+#ifdef AF_NS
 	AddressFamily_Ns        = AF_NS,
+#endif // #ifdef AF_NS
 	AddressFamily_Ipx       = AF_IPX,
+#ifdef AF_ISO
 	AddressFamily_Iso       = AF_ISO,
+#endif // #ifdef AF_ISO
+#ifdef AF_OSI
 	AddressFamily_Osi       = AF_OSI,
+#endif // #ifdef AF_OSI
+#ifdef AF_ECMA
 	AddressFamily_Ecma      = AF_ECMA,
+#endif // #ifdef AF_ECMA
+#ifdef AF_DATAKIT
 	AddressFamily_Datakit   = AF_DATAKIT,
+#endif // #ifdef AF_DATAKIT
+#ifdef AF_CCITT
 	AddressFamily_Ccitt     = AF_CCITT,
+#endif // #ifdef AF_CCITT
 	AddressFamily_Sna       = AF_SNA,
 	AddressFamily_Decnet    = AF_DECnet,
+#ifdef AF_DLI
 	AddressFamily_Dli       = AF_DLI,
+#endif // #ifdef AF_DLI
+#ifdef AF_LAT
 	AddressFamily_Lat       = AF_LAT,
+#endif // #ifdef AF_LAT
+#ifdef AF_HYLINK
 	AddressFamily_Hylink    = AF_HYLINK,
+#endif // #ifdef AF_HYLINK
 	AddressFamily_Appletalk = AF_APPLETALK,
+#ifdef AF_NETBIOS
 	AddressFamily_Netbios   = AF_NETBIOS,
+#endif // #ifdef AF_NETBIOS
+#ifdef AF_VOICEVIEW
 	AddressFamily_Voiceview = AF_VOICEVIEW,
+#endif // #ifdef AF_VOICEVIEW
+#ifdef AF_FIREFOX
 	AddressFamily_Firefox   = AF_FIREFOX,
+#endif // #ifdef AF_FIREFOX
+#ifdef AF_UNKNOWN1
 	AddressFamily_Unknown1  = AF_UNKNOWN1,
+#endif // #ifdef AF_UNKNOWN1
+#ifdef AF_BAN
 	AddressFamily_Ban       = AF_BAN,
-//	AddressFamily_Atm       = AF_ATM,
-//	AddressFamily_Inet6     = AF_INET6,
-//	AddressFamily_Cluster   = AF_CLUSTER,
-//	AddressFamily_12844     = AF_12844,
+#endif // #ifdef AF_BAN
+#ifdef AF_ATM
+	AddressFamily_Atm       = AF_ATM,
+#endif // #ifdef AF_ATM
+#ifdef AF_INET6
+	AddressFamily_Inet6     = AF_INET6,
+#endif // #ifdef AF_INET6
+#ifdef AF_CLUSTER
+	AddressFamily_Cluster   = AF_CLUSTER,
+#endif // #ifdef AF_CLUSTER
+#ifdef AF_12844
+	AddressFamily_12844     = AF_12844,
+#endif // #ifdef AF_12844
 	AddressFamily_DEFAULT   = AF_INET
 };
 //	//////////////////////////////////////////////////////////////////////////
@@ -118,9 +164,13 @@ template <class CharType = char> class ExceptionNpslType :
 	public MLB::CPPSupp::ExceptionGeneralType<CharType> {
 	private:
 		typedef MLB::CPPSupp::ExceptionGeneralType<CharType> ParentNick;
+
 	public:
+		using typename MLB::CPPSupp::ExceptionGeneralType<CharType>::ThisStringType;
+		using typename MLB::CPPSupp::ExceptionGeneralType<CharType>::ThisOStreamType;
+
 		ExceptionNpslType() throw() :
-			MLB::CPPSupp::ExceptionGeneralType("Unknown exception."),
+			MLB::CPPSupp::ExceptionGeneralType<CharType>("Unknown exception."),
 			error_code(GetLastSocketLibErrorCode()) { }
 		ExceptionNpslType(int in_error_code) throw() :
 			MLB::CPPSupp::ExceptionGeneralType<CharType>(),
@@ -164,9 +214,13 @@ template <class CharType = char> class ExceptionNpslTimeOutType :
 	public ExceptionNpslType<CharType> {
 	private:
 		typedef ExceptionNpslType<CharType> ParentNick;
+
 	public:
+		using typename ExceptionNpslType<CharType>::ThisStringType;
+		using typename ExceptionNpslType<CharType>::ThisOStreamType;
+
 		ExceptionNpslTimeOutType() throw() :
-			ExceptionNpslType() { }
+			ExceptionNpslType<CharType>() { }
 		ExceptionNpslTimeOutType(const struct timeval *time_out_ptr) throw() :
 			ExceptionNpslType<CharType>(FormatError(NULL, time_out_ptr)) { }
 		ExceptionNpslTimeOutType(const CharType *in_except_string,
@@ -219,8 +273,7 @@ class SocketLib {
 		}
 
 		bool IsReady() const { return(is_initilized); }
-		void EnsureReady()
-			const MBCOMPAT_EXCEPT_CANTHROW(ExceptionNpsl) {
+		void EnsureReady() const {
 			if (!IsReady())
 				throw ExceptionNpsl(
 					"Socket library not yet initialized.");
@@ -277,12 +330,21 @@ class AddressIP {
 		AddressIP() : host_name() {
 			memset(ip_address, '\0', sizeof(ip_address));
 		}
+#ifdef _Windows
 		explicit AddressIP(long in_address) : host_name() {
 			SetAddress(in_address);
 		}
 		explicit AddressIP(unsigned long in_address) : host_name() {
 			SetAddress(in_address);
 		}
+#else
+		explicit AddressIP(int32_t in_address) : host_name() {
+			SetAddress(in_address);
+		}
+		explicit AddressIP(uint32_t in_address) : host_name() {
+			SetAddress(in_address);
+		}
+#endif // #ifdef _Windows
 		explicit AddressIP(const unsigned char *in_address) : host_name() {
 			SetAddress(in_address);
 		}
@@ -293,12 +355,21 @@ class AddressIP {
 			SetAddress(in_address.c_str());
 		}
 
+#ifdef _Windows
 		void SetAddress(long in_address) {
 			memcpy(ip_address, &in_address, sizeof(ip_address));
 		}
 		void SetAddress(unsigned long in_address) {
 			memcpy(ip_address, &in_address, sizeof(ip_address));
 		}
+#else
+		void SetAddress(int32_t in_address) {
+			memcpy(ip_address, &in_address, sizeof(ip_address));
+		}
+		void SetAddress(uint32_t in_address) {
+			memcpy(ip_address, &in_address, sizeof(ip_address));
+		}
+#endif // #ifdef _Windows
 		void SetAddress(const unsigned char *in_address) {
 			memcpy(ip_address, in_address, sizeof(ip_address));
 		}
@@ -310,7 +381,11 @@ class AddressIP {
 				&tmp_in_addr, NULL, NULL, npsl_error_text) != NPSL_SUCCESS)
 				throw ExceptionNpsl(npsl_error_text);
 			host_name = tmp_host_name;
-			memcpy(&ip_address, &tmp_in_addr.S_un.S_un_b, sizeof(ip_address));
+#ifdef _Windows
+			memcpy(&ip_address, &tmp_in_addr.S_addr, sizeof(ip_address));
+#else
+			memcpy(&ip_address, &tmp_in_addr.s_addr, sizeof(ip_address));
+#endif // #ifdef _Windows
 		}
 		void SetAddress(const std::string &in_address) {
 			SetAddress(in_address.c_str());
@@ -322,7 +397,11 @@ class AddressIP {
 		struct in_addr GetInAddr() const {
 			struct in_addr tmp_addr;
 			memset(&tmp_addr, '\0', sizeof(tmp_addr));
-			memcpy(&tmp_addr.S_un.S_un_b, ip_address, sizeof(tmp_addr.S_un.S_un_b));
+#ifdef _Windows
+			memcpy(&tmp_addr.S_addr, ip_address, sizeof(tmp_addr.S_addr));
+#else
+			memcpy(&tmp_addr.s_addr, ip_address, sizeof(tmp_addr.s_addr));
+#endif // #ifdef _Windows
 			return(tmp_addr);
 		}
 		NPSL_SOCKADDR_IN GetSockaddrIn() const {
@@ -407,6 +486,7 @@ class EndPointIP {
 			SetPort(ntohs(in_sockaddr_in.sin_port));
 		}
 
+#ifdef _Windows
 		void SetAddress(long in_address) {
 			AddressIP tmp_address(in_address);
 			address = tmp_address;
@@ -415,6 +495,16 @@ class EndPointIP {
 			AddressIP tmp_address(in_address);
 			address = tmp_address;
 		}
+#else
+		void SetAddress(int32_t in_address) {
+			AddressIP tmp_address(in_address);
+			address = tmp_address;
+		}
+		void SetAddress(uint32_t in_address) {
+			AddressIP tmp_address(in_address);
+			address = tmp_address;
+		}
+#endif // #ifdef _Windows
 		void SetAddress(const unsigned char *in_address) {
 			AddressIP tmp_address(in_address);
 			address = tmp_address;
@@ -431,7 +521,11 @@ class EndPointIP {
 			address = in_address;
 		}
 		void SetAddress(const struct in_addr &in_addr_in) {
-			SetAddress(&in_addr_in.S_un.S_un_b.s_b1);
+#ifdef _Windows
+			SetAddress(in_addr_in.S_addr);
+#else
+			SetAddress(in_addr_in.s_addr);
+#endif // #ifdef _Windows
 		}
 		void SetPort(int in_port) {
 			if ((port < 0) ||

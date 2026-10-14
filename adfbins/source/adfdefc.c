@@ -11,9 +11,9 @@
 
 	Last Updated		:	%E%	%U%
 
-	File Description	:	Emits the ADF definition specification equivalent to
-								a combination of one or more ADF definitions files
-								specified on the command line to 'stdout'.
+	File Description	:	Emits the C code equivalent to a combination of one
+								or more ADF definitions files specified on the command
+								line to 'stdout'.
 
 								If no ADF definition files are specified on the
 								command line, the current internal ADF definition
@@ -22,7 +22,7 @@
 	Revision History	:	1995-08-31 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2018.
+		Copyright Michael L. Brock 1995 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -94,7 +94,8 @@ char **argv;
 		domain_list  = control_data.domain_list;
 	}
 
-	ADF_EMIT_Def(domain_count, domain_list, NULL, NULL);
+	return_code = ADF_EMIT_DefCDomainList(domain_count, domain_list, NULL,
+		NULL, error_text);
 
 EXIT_FUNCTION:
 

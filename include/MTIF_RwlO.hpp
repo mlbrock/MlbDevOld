@@ -11,12 +11,12 @@
 
 	Last Updated		:	%E%	%U%
 
-	File Description	:	Include file for the 'MLB::MTIF::MtxO' class.
+	File Description	:	Include file for the 'MLB::MTIF::RwlO' class.
 
 	Revision History	:	2000-03-02 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 2000 - 2018.
+		Copyright Michael L. Brock 2000 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -24,9 +24,9 @@
 */
 /*	***********************************************************************	*/
 
-#ifndef HH__MLB__MTIF__MtxO_h__HH
+#ifndef HH__MLB__MTIF__RwlO_h__HH
 
-#define HH__MLB__MTIF__MtxO_h__HH		1
+#define HH__MLB__MTIF__RwlO_h__HH		1
 
 /*	***********************************************************************	*/
 /*	***********************************************************************	*/
@@ -42,7 +42,7 @@ namespace MLB {
 namespace MTIF {
 
 /*	***********************************************************************	*/
-class MtxO {
+class RwlO {
 
 	public:
 
@@ -50,8 +50,8 @@ class MtxO {
 			***********************************************************
 			Constructor and destructor methods . . .
 			***********************************************************	*/
-		MtxO(MTIF_MTX_FLAG flags = MTIF_MTX_FLAG_DEFAULT);
-		virtual ~MtxO();
+		RwlO(MTIF_RWL_FLAG flags = MTIF_RWL_FLAG_DEFAULT);
+		virtual ~RwlO();
 		/*	***********************************************************	*/
 
 		/*	***********************************************************
@@ -93,7 +93,7 @@ class MtxO {
 			Data members . . .
 			***********************************************************	*/
 		bool                    ready_flag;
-		mutable MTIF_MTX_HANDLE lock_data;
+		mutable MTIF_RWL_HANDLE lock_data;
 		/*	***********************************************************	*/
 
 	private:
@@ -106,8 +106,8 @@ class MtxO {
 			Nobody gets to see these because a copy or assignment of an
 			active mutex will ruin your day for sure . . .
 			***********************************************************	*/
-		MtxO(const MtxO &source);
-		MtxO& operator=(const MtxO &source);
+		RwlO(const RwlO &source);
+		RwlO& operator=(const RwlO &source);
 		/*	***********************************************************	*/
 };
 /*	***********************************************************************	*/
@@ -120,8 +120,8 @@ class MtxO {
 /*	***********************************************************************	*/
 /*	For compatibility with code developed before C++ namespaces . . .			*/
 /*	***********************************************************************	*/
-typedef MLB::MTIF::MtxO MTIF_MtxO;
+typedef MLB::MTIF::RwlO MTIF_RwlO;
 /*	***********************************************************************	*/
 
-#endif /* #ifndef HH__MLB__MTIF__MtxO_h__HH */
+#endif /* #ifndef HH__MLB__MTIF__RwlO_h__HH */
 

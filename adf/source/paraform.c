@@ -17,7 +17,7 @@
 	Revision History	:	1995-04-29 --- Creation.
 									Michael L. Brock
 
-		Copyright Michael L. Brock 1995 - 2018.
+		Copyright Michael L. Brock 1995 - 2026.
 		Distributed under the Boost Software License, Version 1.0.
 		(See accompanying file LICENSE_1_0.txt or copy at
 		http://www.boost.org/LICENSE_1_0.txt)
@@ -1090,7 +1090,7 @@ const ADF_PFORMAT_DEF *(*match_function)();
 		(*match_function)(line_list[count_1], para_format_buff,
 			&para_format_index, &para_format_end);
 
-	SDTIF_GetTimeUSecs_GetTimeUSecs(&end_time);
+	SDTIF_GetTimeUSecs(&end_time);
 
 	return(SDTIF_GET_TIMEVAL_USECS_DOUBLE(&end_time) -
 		SDTIF_GET_TIMEVAL_USECS_DOUBLE(&start_time));
