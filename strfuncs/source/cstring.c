@@ -281,8 +281,8 @@ char **argv;
 	fprintf(stderr, "Test routine for 'cstring()'\n");
 	fprintf(stderr, "---- ------- --- -----------\n\n");
 
-	in_line_count = (argc > 1) ? (argc - 1) : TestLineCount;
-	in_line_list  = (argc > 1) ? (argv + 1) : TestLineList;
+	in_line_count = (argc > 1) ? ((unsigned int) (argc - 1)) : TestLineCount;
+	in_line_list  = (argc > 1) ? (argv + 1)                  : TestLineList;
 
 	fprintf(stderr, "%s\n",
 		"--------------------------------------------------------------------");
