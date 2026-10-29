@@ -158,10 +158,10 @@ int main()
 			for (count_3 = 0; count_3 <= (strlen(BaseList[count_1]) + 1);
 				count_3++) {
 				strcpy(base_area, BaseList[count_1]);
-				printf("[BASE:%s|%02u][POSITION:%02u][DELETE:%02u]",
+				printf("[BASE:%s|%02lu][POSITION:%02u][DELETE:%02u]",
 					base_area, strlen(base_area), count_2, count_3);
 				strdele(base_area, count_2, count_3);
-				printf(" --- [NEW:%s|%02u]\n", base_area, strlen(base_area));
+				printf(" --- [NEW:%s|%02lu]\n", base_area, strlen(base_area));
 			}
 		}
 	}

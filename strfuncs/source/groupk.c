@@ -322,14 +322,14 @@ char **argv;
 			 (!STRFUNCS_stricmp(buffer_1, "EXIT")))
 			break;
 		printf("-----------------------------------------------------------\n");
-		printf("OLD LENGTH: %u\n", strlen(buffer_1));
+		printf("OLD LENGTH: %lu\n", strlen(buffer_1));
 		printf("OLD STRING: [%s]\n", buffer_1);
 		printf("NEW LENGTH: %u\n", new_length =
 			get_group_length(buffer_1, ".", 3, ","));
 		printf("NEW STRING: [%s]\n", insert_groups(buffer_1, ".", 3, ",",
 			buffer_2));
 		if (new_length != strlen(buffer_2)) {
-			printf("ERROR     : %s (%u) %s (%u).\n",
+			printf("ERROR     : %s (%u) %s (%lu).\n",
 				"The calculated length of the adjusted string", new_length,
 				"is not equal to that produced by the function",
 				strlen(buffer_2));

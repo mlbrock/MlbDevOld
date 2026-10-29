@@ -402,7 +402,7 @@ unsigned int insert;
 	for (count_1 = 0; count_1 < ((unsigned int) in_count); count_1++) {
 		sprintf(buffer, "This is additional string item number %u.",
 			in_count + count_1);
-printf("%s (%u * %u = %lu)", buffer, string_count + 1, sizeof(buffer),
+printf("%s (%u * %lu = %lu)", buffer, string_count + 1, sizeof(buffer),
 	((unsigned long) string_count + 1) * ((unsigned long) sizeof(buffer)));
 fflush(stdout);
 		if ((return_code = mema_append(&string_count, ((void **) &string_list),

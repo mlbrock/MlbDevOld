@@ -282,7 +282,7 @@ char **argv;
 		for (count_1 = 1; count_1 < ((unsigned int) argc); count_1++)
 			total_length += strlen(argv[count_1]);
 		if ((total_length + 1) > sizeof(buffer))
-			fprintf(stderr, "Total length of strings exceeds maxmum (%u).\n\n",
+			fprintf(stderr, "Total length of strings exceeds maxmum (%lu).\n\n",
 				sizeof(buffer) - 1);
 		else {
 			strcpy(buffer, TEST_BASE);
@@ -304,7 +304,7 @@ char **argv;
 				((strlen(argv[count_1]) > TEST_LENGTH) ? TEST_LENGTH :
 				strlen(argv[count_1])) + strlen(TEST_RIGHT_PADDING);
 		if ((total_length + 1) > sizeof(buffer))
-			fprintf(stderr, "Total length of strings exceeds maxmum (%u).\n\n",
+			fprintf(stderr, "Total length of strings exceeds maxmum (%lu).\n\n",
 				sizeof(buffer) - 1);
 		else {
 			strcpy(buffer, TEST_BASE);

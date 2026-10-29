@@ -281,11 +281,11 @@ char **argv;
 					count_1, argv[count_1]);
 				argv[count_1][MAX_RADIX * 3] = '\0';
 				trim(argv[count_1]);
-				printf("'%s' --- ASCII length = %u\n", argv[count_1],
+				printf("'%s' --- ASCII length = %lu\n", argv[count_1],
 					strlen(argv[count_1]));
 			}
 			else
-				printf("---> Argument number %u '%s' --- ASCII length = %u\n",
+				printf("---> Argument number %u '%s' --- ASCII length = %lu\n",
 					count_1, argv[count_1], strlen(argv[count_1]));
 			if (RADIX50_checkrad(argv[count_1], &check_rad) != STRFUNCS_SUCCESS)
 				printf("---> Argument number %u (%s) has an %s %u (%s).\n",

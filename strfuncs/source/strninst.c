@@ -187,12 +187,12 @@ int main()
 					count_4 <= ((int) (strlen(InsertList[count_2]) + 1));
 					count_4++) {
 					strcpy(base_area, BaseList[count_1]);
-				 	printf("[BASE:%s|%02u][INSERT:%s|%02u][POSITION:%02u]",
+				 	printf("[BASE:%s|%02lu][INSERT:%s|%02lu][POSITION:%02u]",
 						base_area, strlen(base_area), InsertList[count_2],
 						strlen(InsertList[count_2]), count_3);
 					printf("[LENGTH:%02u]", count_4);
 					strninst(base_area, InsertList[count_2], count_3, count_4);
-					printf(" --- [NEW:%s|%02u]\n", base_area, strlen(base_area));
+					printf(" --- [NEW:%s|%02lu]\n", base_area, strlen(base_area));
 				}
 			}
 		}

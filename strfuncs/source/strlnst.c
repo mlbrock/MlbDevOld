@@ -134,7 +134,7 @@ int main()
 	fprintf(stderr, "Test of function 'strln_sort()'\n");
 	fprintf(stderr, "---- -- -------- --------------\n\n");
 
-	fprintf(stderr, "MAXIMUM COMPARISON LENGTH = %u\n", max_length);
+	fprintf(stderr, "MAXIMUM COMPARISON LENGTH = %lu\n", max_length);
 
 	while ((!feof(stdin)) && (!ferror(stdin))) {
 		*buffer = '\0';

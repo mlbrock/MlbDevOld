@@ -1501,10 +1501,10 @@ char **argv;
 			printf("%6u ", count_2);
 			printf("%-9.9s ", val2str_basic(0, NULL,
 				((unsigned long) 255), 1, count_2, NULL, buffer));
-			printf("%10u ", strlen(buffer));
+			printf("%10lu ", strlen(buffer));
 			printf("%-32.32s ", val2str_basic(0, NULL,
 				4294967295UL, 1, count_2, NULL, buffer));
-			printf("%17u\n", strlen(buffer));
+			printf("%17lu\n", strlen(buffer));
 		}
 		printf("%-6.6s %-9.9s %-10.10s %-32.32s %-17.17s\n",
 			dashes, dashes, dashes, dashes, dashes);
@@ -1587,95 +1587,95 @@ EXIT_FUNCTION:
 	printf("Other 'val2str()' lengths.\n");
 	STR_EMIT_CharLine('=', 78, NULL, NULL);
 
-	printf("Maximum length of 2^32 integral value  (radix  2): %u\n",
+	printf("Maximum length of 2^32 integral value  (radix  2): %lu\n",
 		strlen(val2str_double(pow(65536.0, 2.0) - 1.0,  2, NULL, buffer)));
-	printf("Maximum length of 2^32 integral value  (radix  4): %u\n",
+	printf("Maximum length of 2^32 integral value  (radix  4): %lu\n",
 		strlen(val2str_double(pow(65536.0, 2.0) - 1.0,  4, NULL, buffer)));
-	printf("Maximum length of 2^32 integral value  (radix  8): %u\n",
+	printf("Maximum length of 2^32 integral value  (radix  8): %lu\n",
 		strlen(val2str_double(pow(65536.0, 2.0) - 1.0,  8, NULL, buffer)));
-	printf("Maximum length of 2^32 integral value  (radix 10): %u\n",
+	printf("Maximum length of 2^32 integral value  (radix 10): %lu\n",
 		strlen(val2str_double(pow(65536.0, 2.0) - 1.0, 10, NULL, buffer)));
-	printf("Maximum length of 2^32 integral value  (radix 16): %u\n",
+	printf("Maximum length of 2^32 integral value  (radix 16): %lu\n",
 		strlen(val2str_double(pow(65536.0, 2.0) - 1.0, 16, NULL, buffer)));
-	printf("Maximum length of 2^32 integral value  (radix 36): %u\n",
+	printf("Maximum length of 2^32 integral value  (radix 36): %lu\n",
 		strlen(val2str_double(pow(65536.0, 2.0) - 1.0, 36, NULL, buffer)));
-	printf("Maximum length of 2^32 integral value  (radix 62): %u\n",
+	printf("Maximum length of 2^32 integral value  (radix 62): %lu\n",
 		strlen(val2str_double(pow(65536.0, 2.0) - 1.0, 62, NULL, buffer)));
-	printf("Maximum length of 2^32 integral value  (radix 64): %u\n",
+	printf("Maximum length of 2^32 integral value  (radix 64): %lu\n",
 		strlen(val2str_double(pow(65536.0, 2.0) - 1.0, 64, NULL, buffer)));
 	STR_EMIT_CharLine('-', 78, NULL, NULL);
 
-	printf("Maximum length of 2^64 integral value  (radix  2): %u\n",
+	printf("Maximum length of 2^64 integral value  (radix  2): %lu\n",
 		strlen(val2str_double(18446744073709551615.0,  2, NULL, buffer)));
-	printf("Maximum length of 2^64 integral value  (radix  4): %u\n",
+	printf("Maximum length of 2^64 integral value  (radix  4): %lu\n",
 		strlen(val2str_double(18446744073709551615.0,  4, NULL, buffer)));
-	printf("Maximum length of 2^64 integral value  (radix  8): %u\n",
+	printf("Maximum length of 2^64 integral value  (radix  8): %lu\n",
 		strlen(val2str_double(18446744073709551615.0,  8, NULL, buffer)));
-	printf("Maximum length of 2^64 integral value  (radix 10): %u\n",
+	printf("Maximum length of 2^64 integral value  (radix 10): %lu\n",
 		strlen(val2str_double(18446744073709551615.0, 10, NULL, buffer)));
-	printf("Maximum length of 2^64 integral value  (radix 16): %u\n",
+	printf("Maximum length of 2^64 integral value  (radix 16): %lu\n",
 		strlen(val2str_double(18446744073709551615.0, 16, NULL, buffer)));
-	printf("Maximum length of 2^64 integral value  (radix 36): %u\n",
+	printf("Maximum length of 2^64 integral value  (radix 36): %lu\n",
 		strlen(val2str_double(18446744073709551615.0, 36, NULL, buffer)));
-	printf("Maximum length of 2^64 integral value  (radix 62): %u\n",
+	printf("Maximum length of 2^64 integral value  (radix 62): %lu\n",
 		strlen(val2str_double(18446744073709551615.0, 62, NULL, buffer)));
-	printf("Maximum length of 2^64 integral value  (radix 64): %u\n",
+	printf("Maximum length of 2^64 integral value  (radix 64): %lu\n",
 		strlen(val2str_double(18446744073709551615.0, 64, NULL, buffer)));
 	STR_EMIT_CharLine('-', 78, NULL, NULL);
 
-	printf("Maximum length of 2^128 integral value (radix  2): %u\n",
+	printf("Maximum length of 2^128 integral value (radix  2): %lu\n",
 		strlen(val2str_double(170141183460469231731687303715884105727.0,
 		 2, NULL, buffer)));
-	printf("Maximum length of 2^128 integral value (radix  4): %u\n",
+	printf("Maximum length of 2^128 integral value (radix  4): %lu\n",
 		strlen(val2str_double(170141183460469231731687303715884105727.0,
 		 4, NULL, buffer)));
-	printf("Maximum length of 2^128 integral value (radix  8): %u\n",
+	printf("Maximum length of 2^128 integral value (radix  8): %lu\n",
 		strlen(val2str_double(170141183460469231731687303715884105727.0,
 		 8, NULL, buffer)));
-	printf("Maximum length of 2^128 integral value (radix 10): %u\n",
+	printf("Maximum length of 2^128 integral value (radix 10): %lu\n",
 		strlen(val2str_double(170141183460469231731687303715884105727.0,
 		10, NULL, buffer)));
-	printf("Maximum length of 2^128 integral value (radix 16): %u\n",
+	printf("Maximum length of 2^128 integral value (radix 16): %lu\n",
 		strlen(val2str_double(170141183460469231731687303715884105727.0,
 		16, NULL, buffer)));
-	printf("Maximum length of 2^128 integral value (radix 36): %u\n",
+	printf("Maximum length of 2^128 integral value (radix 36): %lu\n",
 		strlen(val2str_double(170141183460469231731687303715884105727.0,
 		36, NULL, buffer)));
-	printf("Maximum length of 2^128 integral value (radix 62): %u\n",
+	printf("Maximum length of 2^128 integral value (radix 62): %lu\n",
 		strlen(val2str_double(170141183460469231731687303715884105727.0,
 		62, NULL, buffer)));
-	printf("Maximum length of 2^128 integral value (radix 64): %u\n",
+	printf("Maximum length of 2^128 integral value (radix 64): %lu\n",
 		strlen(val2str_double(170141183460469231731687303715884105727.0,
 		64, NULL, buffer)));
 	STR_EMIT_CharLine('-', 78, NULL, NULL);
 
-	printf("Maximum length of 'DBL_MAX'            (radix  2): %u\n",
+	printf("Maximum length of 'DBL_MAX'            (radix  2): %lu\n",
 		strlen(val2str_double(DBL_MAX,                 2, NULL, buffer)));
-	printf("Maximum length of 'DBL_MAX'            (radix  4): %u\n",
+	printf("Maximum length of 'DBL_MAX'            (radix  4): %lu\n",
 		strlen(val2str_double(DBL_MAX,                 4, NULL, buffer)));
-	printf("Maximum length of 'DBL_MAX'            (radix  8): %u\n",
+	printf("Maximum length of 'DBL_MAX'            (radix  8): %lu\n",
 		strlen(val2str_double(DBL_MAX,                 8, NULL, buffer)));
-	printf("Maximum length of 'DBL_MAX'            (radix 10): %u\n",
+	printf("Maximum length of 'DBL_MAX'            (radix 10): %lu\n",
 		strlen(val2str_double(DBL_MAX,                10, NULL, buffer)));
-	printf("Maximum length of 'DBL_MAX'            (radix 16): %u\n",
+	printf("Maximum length of 'DBL_MAX'            (radix 16): %lu\n",
 		strlen(val2str_double(DBL_MAX,                16, NULL, buffer)));
-	printf("Maximum length of 'DBL_MAX'            (radix 36): %u\n",
+	printf("Maximum length of 'DBL_MAX'            (radix 36): %lu\n",
 		strlen(val2str_double(DBL_MAX,                36, NULL, buffer)));
-	printf("Maximum length of 'DBL_MAX'            (radix 62): %u\n",
+	printf("Maximum length of 'DBL_MAX'            (radix 62): %lu\n",
 		strlen(val2str_double(DBL_MAX,                64, NULL, buffer)));
-	printf("Maximum length of 'DBL_MAX'            (radix 64): %u\n",
+	printf("Maximum length of 'DBL_MAX'            (radix 64): %lu\n",
 		strlen(val2str_double(DBL_MAX,                64, NULL, buffer)));
 	STR_EMIT_CharLine('=', 78, NULL, NULL);
 	printf("\n");
 
 	STR_EMIT_CharLine('=', 78, NULL, NULL);
-	printf("Maximum length of 2^8  integral value  (radix 64): %u\n",
+	printf("Maximum length of 2^8  integral value  (radix 64): %lu\n",
 		strlen(val2str_ulong(((unsigned long) 0X000000FF), 64, NULL, buffer)));
-	printf("Maximum length of 2^16 integral value  (radix 64): %u\n",
+	printf("Maximum length of 2^16 integral value  (radix 64): %lu\n",
 		strlen(val2str_ulong(((unsigned long) 0X0000FFFF), 64, NULL, buffer)));
-	printf("Maximum length of 2^32 integral value  (radix 64): %u\n",
+	printf("Maximum length of 2^32 integral value  (radix 64): %lu\n",
 		strlen(val2str_ulong(((unsigned long) 0XFFFFFFFF), 64, NULL, buffer)));
-	printf("Maximum length of 2^64 integral value  (radix 64): %u\n",
+	printf("Maximum length of 2^64 integral value  (radix 64): %lu\n",
 		strlen(val2str_double(18446744073709551615.0, 64, NULL, buffer)));
 	STR_EMIT_CharLine('=', 78, NULL, NULL);
 

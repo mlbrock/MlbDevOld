@@ -282,15 +282,15 @@ char **argv;
 			printf("STRING LENGTH       : %10u\n", str_len);
 			printf("RADIX50_SLEN_TO_RCNT: %10u\n",
 				RADIX50_SLEN_TO_RCNT(str_len));
-			printf("RADIX50_SPTR_TO_RCNT: %10u\n",
+			printf("RADIX50_SPTR_TO_RCNT: %10lu\n",
 				RADIX50_SPTR_TO_RCNT(str));
-			printf("RADIX50_SLEN_TO_RLEN: %10u\n",
+			printf("RADIX50_SLEN_TO_RLEN: %10lu\n",
 				RADIX50_SLEN_TO_RLEN(str_len));
-			printf("RADIX50_SPTR_TO_RLEN: %10u\n",
+			printf("RADIX50_SPTR_TO_RLEN: %10lu\n",
 				RADIX50_SPTR_TO_RLEN(str));
 			printf("RADIX50_RCNT_TO_SLEN: %10u\n",
 				RADIX50_RCNT_TO_SLEN(rad_cnt));
-			printf("RADIX50_RLEN_TO_SLEN: %10u\n",
+			printf("RADIX50_RLEN_TO_SLEN: %10lu\n",
 				RADIX50_RLEN_TO_SLEN(rad_len));
 			if (count_1 < (argc - 1))
 				printf("%s\n",
