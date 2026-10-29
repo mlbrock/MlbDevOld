@@ -71,10 +71,10 @@ char *TestList[] = {
 
 int main()
 {
-	int   return_code = 0;
-	int   count_1;
-	int   count_2;
-	char *copied_string;
+	int     return_code = 0;
+	size_t  count_1;
+	size_t  count_2;
+	char   *copied_string;
 
 	printf("TEST_MAIN for function STRFUNCS_strdup()\n");
 	printf("--------- --- -------- -----------------\n\n");
@@ -84,14 +84,14 @@ int main()
 		for (count_2 = 0; count_2 < (sizeof(TestList) / sizeof(TestList[0]));
 			count_2++) {
 			if ((copied_string = STRFUNCS_strdup(TestList[count_2])) == NULL) {
-				fprintf(stderr, "\nFailure of 'STRFUNCS_strdup()' at %u,%u,%s\n",
+				fprintf(stderr, "\nFailure of 'STRFUNCS_strdup()' at %lu,%lu,%s\n",
 					count_1, count_2, TestList[count_2]);
 				return_code = -1;
 				goto EXIT_FUNCTION;
 			}
 			free(copied_string);
 		}
-		printf("\b\b\b\b\b\b%05u]", count_1 + 1);
+		printf("\b\b\b\b\b\b%05lu]", count_1 + 1);
 	}
 
 	printf("\n");
