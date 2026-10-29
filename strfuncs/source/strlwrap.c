@@ -124,9 +124,9 @@ char *TestList[] = {
 
 int main()
 {
-	int            count_1;
-	int            count_2;
-	int            count_3;
+	unsigned int   count_1;
+	size_t         count_2;
+	unsigned int   count_3;
 	int            current_col;
 	int            tab_count;
 	char           last_char;
@@ -154,7 +154,7 @@ int main()
 			}
 			else {
 				printf("%s\n", nstrset(buffer, '-', 40));
-				for (count_3 = 0; count_3 < ((int) string_count); count_3++)
+				for (count_3 = 0; count_3 < string_count; count_3++)
 					printf("%s\n", string_list[count_3]);
 				printf("%s\n", nstrset(buffer, '-', 40));
 				strldel(&string_count, &string_list, 0, string_count);
