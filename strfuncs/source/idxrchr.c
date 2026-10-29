@@ -106,11 +106,11 @@ const char *search_string;
 int         target_char;
 #endif /* #ifndef NARGS */
 {
-	int   found_index = -1;
-	char *found_ptr;
+	int         found_index = -1;
+	const char *found_ptr;
 
 	if ((found_ptr = strrchr(search_string, target_char)) != NULL)
-		found_index = ((int) (found_ptr - ((char *) search_string)));
+		found_index = ((int) (found_ptr - search_string));
 
 	return(found_index);
 }

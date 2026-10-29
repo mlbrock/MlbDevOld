@@ -37,7 +37,7 @@ const char *search_string;
 const char *look_for_string;
 #endif /* #ifndef NARGS */
 {
-	register char       *found_ptr;
+	register const char *found_ptr;
 	register const char *search_ptr = search_string;
 
 	while ((found_ptr = strchr(search_ptr, *look_for_string)) != NULL) {
