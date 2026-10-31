@@ -2799,7 +2799,7 @@ char            *error_text;
 		tmp_type_count = (tmp_align_count == 1) ? 1 : tmp_type_count;
 		if ((*align_list = ((GEN_ALIGN *) calloc(tmp_align_count *
 			tmp_type_count, sizeof(GEN_ALIGN)))) == NULL) {
-			sprintf(error_text, "%s (%u elements * %u size = %u total bytes).",
+			sprintf(error_text, "%s (%u elements * %lu size = %lu total bytes).",
 				"Unable to allocate memory for the array of field align elements",
 				tmp_align_count * tmp_type_count, sizeof(GEN_ALIGN),
 				tmp_align_count * tmp_type_count * sizeof(GEN_ALIGN));

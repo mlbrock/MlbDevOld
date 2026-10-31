@@ -1411,7 +1411,7 @@ char          *error_text;
 		*alloc_ptr = NULL;
 	else if ((*alloc_ptr = strdup(data_ptr)) == NULL) {
 		sprintf(error_text,
-			"%s '%-*.*s' parameter ('%-.500s') --- %u bytes required.",
+			"%s '%-*.*s' parameter ('%-.500s') --- %lu bytes required.",
 			"Unable to allocate memory for the", ((int) arg_length),
 			((int) arg_length), in_arg_ptr, data_ptr, strlen(data_ptr) + 1);
 		return_code = GENFUNCS_MEMORY_FAILURE;

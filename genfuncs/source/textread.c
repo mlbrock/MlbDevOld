@@ -382,7 +382,7 @@ char          *error_text;
 				free(*buffer_ptr);
 				*buffer_ptr = NULL;
 				sprintf(error_text,
-					"%s %lu %s %u %s '%-.500s' %s %lu (%u %s): ",
+					"%s %lu %s %lu %s '%-.500s' %s %lu (%u %s): ",
 					"Error occurred while attempting to read", file_size,
 					"blocks of size", sizeof(char),
 					"from the file", file_name, "at offset", ftell(file_ptr),
