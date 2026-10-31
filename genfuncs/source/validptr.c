@@ -73,15 +73,15 @@ COMPAT_FN_DECL_STATIC(void GEN_VPTR_PtrAccessHandler, (int signal_number));
 /*	***********************************************************************	*/
 #ifndef GENFUNCS_USE_SIG_HANDLER_SUNOS_BSD
 # ifndef NARGS
-static void GEN_VPTR_PtrAccessHandler(int signal_number)
+static void GEN_VPTR_PtrAccessHandler(int /* signal_number */)
 # else
 static void GEN_VPTR_PtrAccessHandler(signal_number)
 int signal_number;
 # endif /* # ifndef NARGS */
 #else
 # ifdef NARGS
-static void GEN_VPTR_PtrAccessHandler(int signal_number, int code,
-	struct sigcontext *signal_context, char *address)
+static void GEN_VPTR_PtrAccessHandler(int /* signal_number */, int /* code */,
+	struct sigcontext * /* signal_context */, char * /* address */)
 # else
 static void GEN_VPTR_PtrAccessHandler(signal_number, code, signal_context,
 	address)

@@ -2443,7 +2443,7 @@ size_t         data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_ubyte(GEN_ALIGN *align_ptr, const unsigned char *ptr_1,
-	const unsigned char *ptr_2, size_t data_length)
+	const unsigned char *ptr_2, size_t /* data_length */)
 #else
 int GEN_SCMP_ubyte(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN           *align_ptr;
@@ -2465,7 +2465,7 @@ size_t               data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_char(GEN_ALIGN *align_ptr, const char *ptr_1,
-	const char *ptr_2, size_t data_length)
+	const char *ptr_2, size_t /* data_length */)
 #else
 int GEN_SCMP_char(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN  *align_ptr;
@@ -2487,7 +2487,7 @@ size_t      data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_uchar(GEN_ALIGN *align_ptr, const unsigned char *ptr_1,
-	const unsigned char *ptr_2, size_t data_length)
+	const unsigned char *ptr_2, size_t /* data_length */)
 #else
 int GEN_SCMP_uchar(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN           *align_ptr;
@@ -2510,7 +2510,7 @@ size_t               data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_short(GEN_ALIGN *align_ptr, const short *ptr_1,
-	const short *ptr_2, size_t data_length)
+	const short *ptr_2, size_t /* data_length */)
 #else
 int GEN_SCMP_short(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN   *align_ptr;
@@ -2541,7 +2541,7 @@ size_t       data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_ushort(GEN_ALIGN *align_ptr, const unsigned short *ptr_1,
-	const unsigned short *ptr_2, size_t data_length)
+	const unsigned short *ptr_2, size_t /* data_length */)
 #else
 int GEN_SCMP_ushort(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN            *align_ptr;
@@ -2572,7 +2572,7 @@ size_t                data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_int(GEN_ALIGN *align_ptr, const int *ptr_1, const int *ptr_2,
-	size_t data_length)
+	size_t /* data_length */)
 #else
 int GEN_SCMP_int(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN *align_ptr;
@@ -2603,7 +2603,7 @@ size_t     data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_uint(GEN_ALIGN *align_ptr, const unsigned int *ptr_1,
-	const unsigned int *ptr_2, size_t data_length)
+	const unsigned int *ptr_2, size_t /* data_length */)
 #else
 int GEN_SCMP_uint(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN          *align_ptr;
@@ -2634,7 +2634,7 @@ size_t              data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_long(GEN_ALIGN *align_ptr, const long *ptr_1, const long *ptr_2,
-	size_t data_length)
+	size_t /* data_length */)
 #else
 int GEN_SCMP_long(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN  *align_ptr;
@@ -2665,7 +2665,7 @@ size_t      data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_ulong(GEN_ALIGN *align_ptr, const unsigned long *ptr_1,
-	const unsigned long *ptr_2, size_t data_length)
+	const unsigned long *ptr_2, size_t /* data_length */)
 #else
 int GEN_SCMP_ulong(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN           *align_ptr;
@@ -2696,7 +2696,7 @@ size_t               data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_float(GEN_ALIGN *align_ptr, const float *ptr_1,
-	const float *ptr_2, size_t data_length)
+	const float *ptr_2, size_t /* data_length */)
 #else
 int GEN_SCMP_float(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN   *align_ptr;
@@ -2727,7 +2727,7 @@ size_t       data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_double(GEN_ALIGN *align_ptr, const double *ptr_1,
-	const double *ptr_2, size_t data_length)
+	const double *ptr_2, size_t /* data_length */)
 #else
 int GEN_SCMP_double(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN    *align_ptr;

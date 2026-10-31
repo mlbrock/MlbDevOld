@@ -69,8 +69,8 @@ COMPAT_FN_DECL_STATIC(int GEN_PMAP_GetNextPMap, (int file_handle,
 
 /* *********************************************************************** */
 #ifndef NARGS
-int GEN_PMAP_GetPMapList(int selector, unsigned int *pmap_count,
-	GEN_PMAP_DESC **pmap_list, char *error_text)
+int GEN_PMAP_GetPMapList(int /* selector */, unsigned int *pmap_count,
+	GEN_PMAP_DESC **pmap_list, char * /* error_text */)
 #else
 int GEN_PMAP_GetPMapList(selector, pmap_count, pmap_list, error_text)
 int             selector;
@@ -149,8 +149,8 @@ printf("------------------ ---------------------\n");
 
 /* *********************************************************************** */
 #ifndef NARGS
-int GEN_PMAP_LocateByAddress(int selector, const void *address, int *pmap_flag,
-	GEN_PMAP_DESC *pmap_ptr, char *error_text)
+int GEN_PMAP_LocateByAddress(int /* selector */, const void * /* address */,
+	int * /* pmap_flag */, GEN_PMAP_DESC * /* pmap_ptr */, char * /* error_text */)
 #else
 int GEN_PMAP_LocateByAddress(selector, address, pmap_flag, pmap_ptr,
 	error_text)
