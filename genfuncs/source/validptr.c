@@ -1078,7 +1078,7 @@ int TEST_RunTests()
    double        tmp_double;
 	char          error_text[GENFUNCS_MAX_ERROR_TEXT];
 
-	printf("This PID = %lu\n", getpid());
+	printf("This PID = %u\n", getpid());
 
 	STR_EMIT_CharLine('=', 77, NULL, NULL);
 	printf("Basic Memory Tests\n");

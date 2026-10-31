@@ -389,7 +389,7 @@ int main()
 		goto EXIT_FUNCTION;
 	else {
 		printf("\n\n'mmap()' mapping location:\n");
-printf("Mapping VAddress : %X\n", ((unsigned long) pmap_data.address));
+printf("Mapping VAddress : %lX\n", ((unsigned long) pmap_data.address));
 printf("Mapping Size     : %u\n", pmap_data.size);
 printf("Mapping Offset   : %u\n", pmap_data.offset);
 printf("Sys Mapping Flags: %u (%04X)\n", pmap_data.sys_flags,

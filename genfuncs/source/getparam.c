@@ -660,9 +660,9 @@ char **argv;
 }
 
 #ifndef NARGS
-static int ParseIt(void *control_ptr, unsigned int argc, char **argv,
-	int call_flag, unsigned int current_arg, const char *current_arg_ptr,
-	char *error_text)
+static int ParseIt(void * /* control_ptr */, unsigned int /* argc */,
+	char ** /* argv */, int call_flag, unsigned int /* current_arg */,
+	const char *current_arg_ptr, char *error_text)
 #else
 static int ParseIt(control_ptr, argc, argv, call_flag, current_arg,
 	current_arg_ptr, error_text)
