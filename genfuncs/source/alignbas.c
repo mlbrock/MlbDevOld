@@ -952,7 +952,7 @@ char                  *error_text;
 		else {
 			if ((*align_list = ((GEN_ALIGN *)
 				calloc(string_count, sizeof(GEN_ALIGN)))) == NULL) {
-				sprintf(error_text, "%s (data types = %u * size %u = %u).",
+				sprintf(error_text, "%s (data types = %u * size %lu = %lu).",
 					"Unable to allocate storage for list", string_count,
 					sizeof(GEN_ALIGN), string_count * sizeof(GEN_ALIGN));
 				return_code = GENFUNCS_FAILURE;
