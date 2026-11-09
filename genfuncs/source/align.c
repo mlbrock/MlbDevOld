@@ -2747,7 +2747,7 @@ size_t       data_length;
 /*	***********************************************************************	*/
 #ifndef NARGS
 int GEN_SCMP_double(GEN_ALIGN *align_ptr, const double *ptr_1,
-	const double *ptr_2, size_t /* data_length */)
+	const double *ptr_2, size_t data_length)
 #else
 int GEN_SCMP_double(align_ptr, ptr_1, ptr_2, data_length)
 GEN_ALIGN    *align_ptr;

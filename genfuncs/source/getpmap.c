@@ -69,8 +69,8 @@ COMPAT_FN_DECL_STATIC(int GEN_PMAP_GetNextPMap, (int file_handle,
 
 /* *********************************************************************** */
 #ifndef NARGS
-int GEN_PMAP_GetPMapList(int /* selector */, unsigned int *pmap_count,
-	GEN_PMAP_DESC **pmap_list, char * /* error_text */)
+int GEN_PMAP_GetPMapList(int selector, unsigned int *pmap_count,
+	GEN_PMAP_DESC **pmap_list, char *error_text)
 #else
 int GEN_PMAP_GetPMapList(selector, pmap_count, pmap_list, error_text)
 int             selector;
@@ -139,6 +139,9 @@ printf("------------------ ---------------------\n");
 
 	return(return_code);
 #else
+	(void) selector;
+	(void) error_text;
+
 	*pmap_count = 0;
 	*pmap_list  = NULL;
 
