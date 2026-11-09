@@ -149,8 +149,8 @@ printf("------------------ ---------------------\n");
 
 /* *********************************************************************** */
 #ifndef NARGS
-int GEN_PMAP_LocateByAddress(int /* selector */, const void * /* address */,
-	int * /* pmap_flag */, GEN_PMAP_DESC * /* pmap_ptr */, char * /* error_text */)
+int GEN_PMAP_LocateByAddress(int selector, const void *address,
+	int *pmap_flag, GEN_PMAP_DESC *pmap_ptr, char *error_text)
 #else
 int GEN_PMAP_LocateByAddress(selector, address, pmap_flag, pmap_ptr,
 	error_text)
@@ -198,6 +198,12 @@ char          *error_text;
 
 	return(return_code);
 #else
+	(void) selector;
+	(void) address;
+	(void) pmap_flag;
+	(void) pmap_ptr;
+	(void) error_text;
+
 	return(GENFUNCS_SUCCESS);
 #endif /* #ifdef __SVR4 */
 }
