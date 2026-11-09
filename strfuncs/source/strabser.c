@@ -352,9 +352,11 @@ int main()
 				found_index);
 */
 		else {
-			tmp_ptr_1 = (!test_count)  ? ((char *) calloc(sizeof(buffer), 1)) :
+			tmp_ptr_1 = (!test_count)  ?
+				((char *) calloc(sizeof(buffer), sizeof(char))) :
 				((char *) realloc(test_list,  (test_count + 1)  * sizeof(buffer)));
-			tmp_ptr_2 = (!saved_count) ? ((char *) calloc(sizeof(buffer), 1)) :
+			tmp_ptr_2 = (!saved_count) ?
+				((char *) calloc(sizeof(buffer), sizeof(char))) :
 				((char *) realloc(saved_list, (saved_count + 1) * sizeof(buffer)));
 			if ((tmp_ptr_1 == NULL) || (tmp_ptr_2 == NULL)) {
 				fprintf(stderr, "ERROR: Unable to add string to lists.\n\n");
