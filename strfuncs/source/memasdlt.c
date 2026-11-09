@@ -596,9 +596,8 @@ char          *error_text;
 #endif /* # ifdef _MSC_VER */
 /* *********************************************************************** */
 #ifndef NARGS
-static int Compare_nstrcmp_12(void * /* control_ptr */,
-	const char *string_ptr_1, const char *string_ptr_2,
-	size_t /* string_length */)
+static int Compare_nstrcmp_12(void *control_ptr, const char *string_ptr_1,
+	const char *string_ptr_2, size_t string_length)
 #else
 static int Compare_nstrcmp_12(control_ptr, string_ptr_1, string_ptr_2,
 	string_length)
@@ -608,6 +607,9 @@ const char *string_ptr_2;
 size_t      string_length;
 #endif /* #ifndef NARGS */
 {
+	(void) control_ptr;
+	(void) string_length;
+
 	return(strncmp(string_ptr_1, string_ptr_2, 12));
 }
 /* *********************************************************************** */
