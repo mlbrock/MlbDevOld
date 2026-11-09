@@ -887,43 +887,43 @@ struct STR_ALIGN_ANON_p { char c; void   *m; };
 		points.
 		*****************************************************************	*/
 #define STR_ALIGN_GET_SCHAR(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_SCHAR) ?			\
+	((((size_t) (src)) % STR_ALIGN_SCHAR) ?					\
 		memcpy((dst), (src), sizeof(signed char)) :			\
 		((*(dst) = *((signed char *) ((void *) (src)))), (dst)))
 #define STR_ALIGN_GET_UCHAR(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_UCHAR) ?			\
+	((((size_t) (src)) % STR_ALIGN_UCHAR) ?					\
 		memcpy((dst), (src), sizeof(unsigned char)) :		\
 		((*(dst) = *((unsigned char *) ((void *) (src)))), (dst)))
 #define STR_ALIGN_GET_SSHORT(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_SSHORT) ?			\
+	((((size_t) (src)) % STR_ALIGN_SSHORT) ?					\
 		memcpy((dst), (src), sizeof(signed short)) :			\
 		((*(dst) = *((signed short *) ((void *) (src)))), (dst)))
 #define STR_ALIGN_GET_USHORT(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_USHORT) ?			\
+	((((size_t) (src)) % STR_ALIGN_USHORT) ?					\
 		memcpy((dst), (src), sizeof(unsigned short)) :		\
 		((*(dst) = *((unsigned short *) ((void *) (src)))), (dst)))
 #define STR_ALIGN_GET_SINT(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_SINT) ?				\
+	((((size_t) (src)) % STR_ALIGN_SINT) ?						\
 		memcpy((dst), (src), sizeof(signed int)) :			\
 		((*(dst) = *((signed int *) ((void *) (src)))), (dst)))
 #define STR_ALIGN_GET_UINT(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_UINT) ?				\
+	((((size_t) (src)) % STR_ALIGN_UINT) ?						\
 		memcpy((dst), (src), sizeof(unsigned int)) :			\
 		((*(dst) = *((unsigned int *) ((void *) (src)))), (dst)))
 #define STR_ALIGN_GET_SLONG(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_SLONG) ?			\
+	((((size_t) (src)) % STR_ALIGN_SLONG) ?					\
 		memcpy((dst), (src), sizeof(signed long)) :			\
 		((*(dst) = *((signed long *) ((void *) (src)))), (dst)))
 #define STR_ALIGN_GET_ULONG(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_ULONG) ?			\
+	((((size_t) (src)) % STR_ALIGN_ULONG) ?					\
 		memcpy((dst), (src), sizeof(unsigned long)) :		\
 		((*(dst) = *((unsigned long *) ((void *) (src)))), (dst)))
 #define STR_ALIGN_GET_FLOAT(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_FLOAT) ?			\
+	((((size_t) (src)) % STR_ALIGN_FLOAT) ?					\
 		memcpy((dst), (src), sizeof(float)) :					\
 		((*(dst) = *((float *) ((void *) (src)))), (dst)))
 #define STR_ALIGN_GET_DOUBLE(src, dst)							\
-	((((unsigned int) (src)) % STR_ALIGN_DOUBLE) ?			\
+	((((size_t) (src)) % STR_ALIGN_DOUBLE) ?					\
 		memcpy((dst), (src), sizeof(double)) :					\
 		((*(dst) = *((double *) ((void *) (src)))), (dst)))
 	/*	*****************************************************************	*/
@@ -935,43 +935,43 @@ struct STR_ALIGN_ANON_p { char c; void   *m; };
 		points.
 		*****************************************************************	*/
 #define STR_ALIGN_SET_SCHAR(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_SCHAR) ?			\
+	((((size_t) (dst)) % STR_ALIGN_SCHAR) ?					\
 		memcpy((dst), (src), sizeof(signed char)) :			\
 		(*((signed char *) ((void *) (dst))) = *(src), (dst)))
 #define STR_ALIGN_SET_UCHAR(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_UCHAR) ?			\
+	((((size_t) (dst)) % STR_ALIGN_UCHAR) ?					\
 		memcpy((dst), (src), sizeof(unsigned char)) :		\
 		(*((unsigned char *) ((void *) (dst))) = *(src), (dst)))
 #define STR_ALIGN_SET_SSHORT(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_SSHORT) ?			\
+	((((size_t) (dst)) % STR_ALIGN_SSHORT) ?					\
 		memcpy((dst), (src), sizeof(signed short)) :			\
 		(*((signed short *) ((void *) (dst))) = *(src), (dst)))
 #define STR_ALIGN_SET_USHORT(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_USHORT) ?			\
+	((((size_t) (dst)) % STR_ALIGN_USHORT) ?					\
 		memcpy((dst), (src), sizeof(unsigned short)) :		\
 		(*((unsigned short *) ((void *) (dst))) = *(src), (dst)))
 #define STR_ALIGN_SET_SINT(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_SINT) ?				\
+	((((size_t) (dst)) % STR_ALIGN_SINT) ?						\
 		memcpy((dst), (src), sizeof(signed int)) :			\
 		(*((signed int *) ((void *) (dst))) = *(src), (dst)))
 #define STR_ALIGN_SET_UINT(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_UINT) ?				\
+	((((size_t) (dst)) % STR_ALIGN_UINT) ?						\
 		memcpy((dst), (src), sizeof(unsigned int)) :			\
 		(*((unsigned int *) ((void *) (dst))) = *(src), (dst)))
 #define STR_ALIGN_SET_SLONG(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_SLONG) ?			\
+	((((size_t) (dst)) % STR_ALIGN_SLONG) ?					\
 		memcpy((dst), (src), sizeof(signed long)) :			\
 		(*((signed long *) ((void *) (dst))) = *(src), (dst)))
 #define STR_ALIGN_SET_ULONG(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_ULONG) ?			\
+	((((size_t) (dst)) % STR_ALIGN_ULONG) ?					\
 		memcpy((dst), (src), sizeof(unsigned long)) :		\
 		(*((unsigned long *) ((void *) (dst))) = *(src), (dst)))
 #define STR_ALIGN_SET_FLOAT(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_FLOAT) ?			\
+	((((size_t) (dst)) % STR_ALIGN_FLOAT) ?					\
 		memcpy((dst), (src), sizeof(float)) :					\
 		(*((float *) ((void *) (dst))) = *(src), (dst)))
 #define STR_ALIGN_SET_DOUBLE(src, dst)							\
-	((((unsigned int) (dst)) % STR_ALIGN_DOUBLE) ?			\
+	((((size_t) (dst)) % STR_ALIGN_DOUBLE) ?					\
 		memcpy((dst), (src), sizeof(double)) :					\
 		(*((double *) ((void *) (dst))) = *(src), (dst)))
 	/*	*****************************************************************	*/
